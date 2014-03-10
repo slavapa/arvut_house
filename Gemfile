@@ -3,10 +3,20 @@ ruby '1.9.3'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.2'
+gem 'bootstrap-sass', '2.3.2.0'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
+  gem 'guard-rspec', '2.5.0'
+
+  # Uncomment these lines on Windows.
+  gem 'rb-notifu', '0.0.4'
+  gem 'win32console', '1.3.2'
+  gem 'wdm', '0.1.0'
+
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
 end
 
 group :test do
@@ -25,7 +35,5 @@ group :doc do
   gem 'sdoc', '0.3.20', require: false
 end
 
-group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2'
-end
+gem 'pg', '0.15.1'
+gem 'rails_12factor', '0.0.2'
