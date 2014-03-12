@@ -1,10 +1,10 @@
 <header >
   <div class="container header">
     <ul class="header_top_menue">
-      <li><%= link_to "דף הבית",    root_path %></li>
-      <li><%= link_to "מי אנחנו",   about_path %></li>
-      <li><%= link_to "צרו קשר", contact_us_path %></li>
-      <li><%= link_to "כניסה", '#' %></li>
+      <li><%= link_to t('home_page'),    root_path %></li>
+      <li><%= link_to t('about_us'),   about_path %></li>
+      <li><%= link_to t('contact_us'), contact_us_path %></li>
+      <li><%= link_to t('log_id'), '#' %></li>
       <li>
         <select name="languages" id="languages" class="languages">
           <option value="/internet/en/users/login">English</option>

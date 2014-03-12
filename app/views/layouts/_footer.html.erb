@@ -1,11 +1,11 @@
 <footer class="footer">
   <small>
-    <a href='#'>פרויקט אינטרנט חדש - אנחנו בונים אותו ביחד</a>
+    <a href='#'><%= t('footer_info') %></a>
   </small>
   <nav>
     <ul>
-      <li><%= link_to "מי אנחנו",   about_path %></li>
-      <li><%= link_to "צרו קשר", contact_us_path %></li>
+      <li><%= link_to t('about_us'),   about_path %></li>
+      <li><%= link_to t('contact_us'), contact_us_path %></li>
     </ul>
   </nav>
 </footer>

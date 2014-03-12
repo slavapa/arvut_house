@@ -1,9 +1,12 @@
 ArvutHouse::Application.routes.draw do
-  get "home/default"
-  root 'home#default'
+    root 'home#default'
 
-  match '/about',   to: 'home#about',   via: 'get'
-  match '/contact_us',   to: 'home#contact_us',   via: 'get'
+  scope '(:locale)' do
+    get "home/default"
+    match '/about', to: 'home#about', via: 'get'
+    match '/contact_us', to: 'home#contact_us', via: 'get'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

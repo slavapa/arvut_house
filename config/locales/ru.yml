@@ -1,0 +1,15 @@
+ru:
+  hello: "Hello world"
+#START:layout
+
+
+#START:layout
+  layouts:
+  application:
+  home_page: "Главная"
+  about_us: "О нас"
+  contact_us: "Пишите нам"
+  log_id: "Войти"
+  footer_info: "Новый интернет-проект - Мы строим вместе"
+  house_name: "Хайфский дом Арвута"
+#END:layout
