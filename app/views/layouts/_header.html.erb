@@ -1,13 +1,17 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home",    root_path %></li>
-          <li><%= link_to "Help",    '#' %></li>
-          <li><%= link_to "Sign in", '#' %></li>
-        </ul>
-      </nav>
-    </div>
+<header >
+  <div class="container header">
+    <ul class="header_top_menue">
+      <li><%= link_to "דף הבית",    root_path %></li>
+      <li><%= link_to "מי אנחנו",   about_path %></li>
+      <li><%= link_to "צרו קשר", contact_us_path %></li>
+      <li><%= link_to "כניסה", '#' %></li>
+      <li>
+        <select name="languages" id="languages" class="languages">
+          <option value="/internet/en/users/login">English</option>
+          <option selected="selected" value="/internet/he/users/login">עברית</option>
+          <option value="/internet/ru/users/login">Русский</option>
+        </select>
+      </li>
+    </ul>
   </div>
 </header>

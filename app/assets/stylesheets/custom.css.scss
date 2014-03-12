@@ -4,18 +4,20 @@
 
 $grayMediumLight: #eaeaea;
 
+
 /* universal */
 
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
-  padding-top: 60px;
-  background-color: #5bc0de;
+  padding-top: 3em;
+  background-color: #f7f4ef;
 }
 
-.main_container{
+.body_container{
   min-height: 90%;
 }
 
@@ -64,7 +66,15 @@ p {
 
 /* header */
 header {
-    height:2em;
+  height:2em;
+  text-align: left;
+  ul {
+    li {
+      display: inline;
+      list-style: none;
+      margin-left: 10px;
+    }
+  }
 }
 
 #logo {
@@ -112,3 +122,20 @@ footer {
     }
   }
 }
+
+.rtl{
+  direction: rtl;
+}
+.languages{
+  width: 8em;
+  height: 1.8em;
+}
+
+.header{
+//  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#00acc2), to(#2971a7));
+//  background: -moz-linear-gradient(#00acc2, #2971a7);
+//  background: linear-gradient(#00acc2, #2971a7);
+//  border-radius:5px;
+}
+
+
