@@ -1,0 +1,9 @@
+<li>
+  <%= gravatar_for person, size: 52 %>
+  <% if current_user.admin? && !current_user?(person) %>
+	  <%= link_to "Edit", edit_person_path(person), class: "btn btn-small" %>
+	  <%= link_to "Delete", person, method: :delete, class: "btn btn-small",
+	                                  data: { confirm: "You sure?" } %>
+  <% end %>
+  <%= link_to person.name, person %>
+</li>

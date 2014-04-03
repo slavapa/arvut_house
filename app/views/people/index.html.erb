@@ -1,0 +1,18 @@
+<% provide(:title, 'All users') %>
+<h1>
+	<div class="container-fluid">
+		<div class="inline_container">All people</div>
+		<div class="inline_container link_container">		
+	      <%= link_to "New Person", new_person_path,
+	                  class: "btn btn-primary" %>
+		</div>		
+	</div>
+</h1>
+
+<%= will_paginate %>
+
+<ul class="people">
+  <%= render @people %>
+</ul>
+
+<%= will_paginate %>

@@ -1,10 +1,17 @@
 ArvutHouse::Application.routes.draw do
-    root 'home#default'
+
+  root 'home#default'
 
   scope '(:locale)' do
+    resources :people
     get "home/default"
-    match '/about', to: 'home#about', via: 'get'
-    match '/contact_us', to: 'home#contact_us', via: 'get'
+    match '/about',       to: 'home#about',           via: 'get'
+    match '/contact_us',  to: 'home#contact_us',      via: 'get'    
+    match '/signup',      to: 'people#new',            via: 'get'
+    match '/signin',      to: 'sessions#new',         via: 'get'
+    match '/signout',     to: 'sessions#destroy',     via: 'delete'
+    
+    resources :sessions, only: [:new, :create, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
