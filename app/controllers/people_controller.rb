@@ -105,9 +105,7 @@ class PeopleController < ApplicationController
     def correct_user
       @person = Person.find(params[:id])
       unless current_user.admin?
-        unless current_user?(@person)
-          redirect_to(root_url, notice: "You are not authorized to perform this action" ) 
-        end
+        redirect_to(root_url, notice: "You are not authorized to perform this action" ) 
       end
     end
   

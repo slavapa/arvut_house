@@ -20,6 +20,13 @@ def make_users
                  password: password,
                  password_confirmation: password)
   end
+  
+  50.times do |n|
+    name  = "#{n+1} Event"
+    description = "#{n+1} Event example-description"
+    Event.create!(name:     name,
+                 description:    description)
+  end
 end
 
 

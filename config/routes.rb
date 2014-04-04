@@ -1,5 +1,7 @@
 ArvutHouse::Application.routes.draw do
 
+  resources :events
+
   root 'home#default'
 
   scope '(:locale)' do

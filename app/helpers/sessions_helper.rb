@@ -52,5 +52,12 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.url if request.get?
   end
+  
+  
+  def check_current_user_admin
+    if current_user.nil? || !current_user.admin?
+      redirect_to(root_url, notice: "You are not authorized to perform this action" ) 
+    end
+  end
 
 end
