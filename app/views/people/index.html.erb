@@ -10,9 +10,21 @@
 </h1>
 
 <%= will_paginate %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Family Name</th>
+      <th class="btn_holder"></th>
+      <th class="btn_holder"></th>
+    </tr>
+  </thead>
 
-<ul class="people">
-  <%= render @people %>
-</ul>
+  <tbody  class="tbody_events">
+  	<%= render @people %>
+  </tbody>
+</table>
+
 
 <%= will_paginate %>

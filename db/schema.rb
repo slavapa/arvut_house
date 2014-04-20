@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404075359) do
+ActiveRecord::Schema.define(version: 20140420060051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20140404075359) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "event_date"
   end
+
+  add_index "events", ["name", "event_date"], name: "index_events_on_name_and_event_date", unique: true, using: :btree
 
   create_table "people", force: true do |t|
     t.string   "name",            limit: 60
@@ -42,5 +45,16 @@ ActiveRecord::Schema.define(version: 20140404075359) do
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
   add_index "people", ["id_card_number"], name: "index_people_on_id_card_number", using: :btree
   add_index "people", ["remember_token"], name: "index_people_on_remember_token", using: :btree
+
+  create_table "person_event_relationships", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "person_event_relationships", ["event_id"], name: "index_person_event_relationships_on_event_id", using: :btree
+  add_index "person_event_relationships", ["person_id", "event_id"], name: "index_person_event_relationships_on_person_id_and_event_id", unique: true, using: :btree
+  add_index "person_event_relationships", ["person_id"], name: "index_person_event_relationships_on_person_id", using: :btree
 
 end

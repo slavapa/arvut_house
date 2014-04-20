@@ -16,10 +16,13 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    #@event.event_date = Date.today
   end
 
   # GET /events/1/edit
   def edit
+    store_current_event_id(@event.id)
+    @people = Person.paginate(page: params[:page])
   end
 
   # POST /events
@@ -70,6 +73,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description)
+      params.require(:event).permit(:event_date, :name, :description)
     end
 end

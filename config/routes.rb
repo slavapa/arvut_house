@@ -1,10 +1,9 @@
 ArvutHouse::Application.routes.draw do
 
-  resources :events
-
   root 'home#default'
-
-  scope '(:locale)' do
+  scope '(:locale)' do    
+    resources :person_event_relationships, only: [:create, :destroy]
+    resources :events
     resources :people
     get "home/default"
     match '/about',       to: 'home#about',           via: 'get'

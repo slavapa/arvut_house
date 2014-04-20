@@ -1,9 +1,11 @@
-<li>
-  <%= gravatar_for person, size: 52 %>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+	<td class='td_left'><%= gravatar_for person, size: 52 %></td>
+	<td class='td_holder'><%= link_to person.name, person %></td>
+	<td class='td_holder'><%= link_to person.family_name, person %></td>
+	
   <% if current_user.admin? && !current_user?(person) %>
-	  <%= link_to "Edit", edit_person_path(person), class: "btn btn-small" %>
-	  <%= link_to "Delete", person, method: :delete, class: "btn btn-small",
-	                                  data: { confirm: "You sure?" } %>
+	  <td class='td_holder'><%= link_to "Edit", edit_person_path(person), class: "btn btn-small" %></td>
+	  <td class='td_holder td_right'><%= link_to "Delete", person, method: :delete, class: "btn btn-small",
+	                                  data: { confirm: "You sure?" } %></td>
   <% end %>
-  <%= link_to person.name, person %>
-</li>
+</tr>

@@ -12,14 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :event_date %>: <%= f.date_field :event_date, class:'date' %>
+    <%= f.label :name %>: <%= f.text_field :name %>
   </div>
+  
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <%= f.label :description %>:
+    <%= f.text_field :description, class:'extended_input' %>
+    <%= f.submit class:"submit" %>
   </div>
 <% end %>
+
+

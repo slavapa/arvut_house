@@ -53,6 +53,17 @@ module SessionsHelper
     session[:return_to] = request.url if request.get?
   end
   
+  def store_current_event_id(event_id)
+    session[:current_event_id] = event_id
+  end
+  
+  def get_current_event_id
+    session[:current_event_id]
+  end
+  
+  def delete_current_event_id(event_id)
+    session.delete(:current_event_id)
+  end
   
   def check_current_user_admin
     if current_user.nil? || !current_user.admin?

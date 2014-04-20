@@ -1,3 +1,64 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+  font-size: 1.5em;
+  margin: 0 0;
+}
+
+#edit_event_1{
+  width:100%;
+}
+
+.edit_event{
+  label{
+    display:inline; 
+    font-size: 18px;   
+  }
+  
+  input{
+    display:inline; 
+    width: 250px;
+    margin-right:20px;
+  }
+    
+  .date{
+    width: 11em;   
+  }
+  
+  .extended_input{
+    width: 550px;    
+  } 
+  
+  
+  .submit{
+    width: 10em;
+  }
+
+}
+
+.new_person_event_relationship{
+  margin: 0 0 0 0;
+}
+
+.edit_person_event_relationship{
+  margin: 0 0 0 0;
+}
+
+.new_person_event_relationship{
+  margin: 0 0 0 0;
+}
+
+.edit_person_event_relationship{
+  margin: 0 0 0 0;
+}
+
+.btn-small{
+  width:7em !important;
+}
+
+
+
+
+

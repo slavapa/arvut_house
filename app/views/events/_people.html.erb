@@ -1,0 +1,17 @@
+<%= will_paginate @people %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Family Name</th>
+      <th class="btn_holder"></th>
+      <th class="btn_holder"></th>
+    </tr>
+  </thead>
+
+  <tbody  class="tbody_events">
+  	<%= render partial: "person", collection: @people %>
+  </tbody>
+</table>
+<%= will_paginate @people %>

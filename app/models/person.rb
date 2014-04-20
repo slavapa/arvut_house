@@ -1,4 +1,6 @@
 class Person < ActiveRecord::Base
+  has_many :person_event_relationships, dependent: :destroy
+  has_many :events, through: :person_event_relationships 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true, length: { maximum: 60 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
