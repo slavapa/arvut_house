@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     store_current_event_id(@event.id)
-    @people = Person.paginate(page: params[:page])
+    @people = Person.paginate(page: params[:page]).order("name, family_name ASC")
   end
 
   # POST /events

@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 60 }, 
   uniqueness: { case_sensitive: false, scope: :event_date }
   #before_save { name.downcase! }
+  default_scope -> { order('event_date DESC, name ASC') }
   
   after_initialize :default_values
   
