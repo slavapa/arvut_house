@@ -1,0 +1,3 @@
+$('#tr_for_person_id_<%= @person.id %> .form_holder').
+	html("<%= escape_javascript(render(partial: 'events/remove_person_form', 
+			locals: {event: @event, person: @person})) %>");
