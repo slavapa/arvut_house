@@ -11,7 +11,50 @@ h1{
   width:100%;
 }
 
+.new_event{
+  label{
+    display:inline !important; 
+    font-size: 18px;   
+  } 
+  
+  input{
+    display:inline; 
+    width: 250px;
+    height: auto !important;  
+    margin-right:20px;
+  } 
+  
+  .extended_input{
+    width: 550px;    
+  } 
+  
+  .submit{
+    width: 10em;
+  }
+
+}
+
 .edit_event{
+  label{
+    display:inline !important; 
+    font-size: 18px;   
+  }  
+  
+  input{
+    display:inline; 
+    width: 250px;
+    height: auto !important;  
+    margin-right:20px;
+  }
+  
+  .extended_input{
+    width: 550px;    
+  } 
+  
+  .submit{
+    width: 10em;
+  }
+
 }
 
 .new_person_event_relationship{
@@ -34,29 +77,21 @@ h1{
   width:7em !important;
 }
 
-label{
-  display:inline; 
-  font-size: 18px;   
-}
-
-input{
-  display:inline; 
-  width: 250px;
-  height: auto !important;  
-  margin-right:20px;
-}
   
 .date{
   width: 11em;   
 }
 
-.extended_input{
-  width: 550px;    
-} 
+.container {
+  width: 90em;
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+}
 
-
-.submit{
-  width: 10em;
+#event_event_type_id{
+  width:17em;
+  margin-right:20px;
 }
 
 

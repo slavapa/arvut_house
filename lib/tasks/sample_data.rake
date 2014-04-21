@@ -1,6 +1,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    make_event_types
     make_users
     make_events
   end
@@ -17,22 +18,45 @@ def make_users
     family_name = Faker::Name.last_name
     email = "example-#{n+1}@railstutorial.org"
     password  = "xxxxxx"
-    Person.create!(name:     name, family_name: family_name,
-                 email:    email,
-                 password: password,
+    Person.create!(name: name, family_name: family_name,
+                 email:    email, password: password,
                  password_confirmation: password)
   end
   
 end
 
+def event_types_name(event_type_id)
+    event_types_array[event_type_id-1][0]
+end
+
+def get_event_types_id(event_type_id)
+    event_types_array[event_type_id-1][1]
+end
+
+def event_types_array
+  @event_types_array ||= 
+    EventType.all.map { |event_type| [event_type.name, event_type.id] }
+end  
+  
 def make_events
+  ev_type_inx = 0
   50.times do |n|
-    name  = "#{n+1} Event"
-    description = "#{n+1} Event example-description"
+    event_type_id = get_event_types_id(ev_type_inx)
+    description = event_types_name(ev_type_inx)
+    ev_type_inx = ev_type_inx + 1
+    if ev_type_inx >= event_types_array.length 
+      ev_type_inx=0
+    end
     event_date =  Date.today + n.days
-    Event.create!(name:     name,
-                 description:    description)
+    Event.create!(event_type_id: event_type_id, description: description, event_date: event_date)
   end
+end
+
+def make_event_types
+  EventType.create!(name:'Night Lesson')
+  EventType.create!(name:'Meeting Friends')
+  EventType.create!(name:'Tuesday Meeting')
+  EventType.create!(name:'Repast')
 end
 
 

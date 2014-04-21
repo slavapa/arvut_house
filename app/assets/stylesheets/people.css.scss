@@ -7,6 +7,10 @@
 }
 
 .edit_person{
+  label{
+    display: block;
+  }
+  
   input{
     width:17em; 
     height: auto;  
@@ -45,6 +49,6 @@ select{
 
 .text_area_address{
   width: 30em;
-  height: 7.4em;
-  
+  height: 7.4em;  
 }
+

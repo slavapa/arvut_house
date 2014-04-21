@@ -1,7 +1,9 @@
 ArvutHouse::Application.routes.draw do
 
+
   root 'home#default'
-  scope '(:locale)' do    
+  scope '(:locale)' do 
+    resources :event_types   
     resources :person_event_relationships, only: [:create, :destroy]
     resources :events
     resources :people

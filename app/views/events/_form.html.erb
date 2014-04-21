@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :event_date %>: <%= f.date_field :event_date, class:'date' %>
-    <%= f.label :name %>: <%= f.text_field :name %>
+    <%= f.label :event_type_id %>: <%= f.select :event_type_id, 
+    								@event.event_types_array %>
   </div>
   
   <div class="field">
