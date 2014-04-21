@@ -3,6 +3,7 @@ ArvutHouse::Application.routes.draw do
 
   root 'home#default'
   scope '(:locale)' do 
+    match "/home/language" => "home#language", :as => 'language', via: 'post'
     resources :event_types   
     resources :person_event_relationships, only: [:create, :destroy]
     resources :events
