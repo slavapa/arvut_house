@@ -1,3 +1,50 @@
 // Place all the styles related to the People controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btns_holder{
+  margin-left: 5em;
+}
+
+.edit_person{
+  input{
+    width:17em; 
+    height: auto;  
+    padding: 4px 6px; 
+  }
+  
+  .input_checkbox{
+    width:2em;
+    height: 1.3em;
+    
+  }
+  
+  .label_checkbox{
+    
+  }
+  
+  .label_checkbox{
+    display: inline;    
+  }
+}
+
+.link_header{
+  margin-left: 5em;
+}
+
+table{
+  td{
+    vertical-align: top;
+    padding: 0.1em;
+  }
+}
+
+select{
+  margin-bottom: 10px;
+}
+
+.text_area_address{
+  width: 30em;
+  height: 7.4em;
+  
+}

@@ -10,8 +10,11 @@ class Person < ActiveRecord::Base
   before_create :create_remember_token
    
   has_secure_password
-  validates :password, length: { minimum: 6 }
-  
+  validates :password, length: { minimum: 6 }, if: lambda { |m| m.password.present? }
+    
+  def gender_arr
+    @gender_arr = [['', nil], ['Male', '1'], ['Female', '2']]    
+  end
   
   def Person.new_remember_token
     SecureRandom.urlsafe_base64

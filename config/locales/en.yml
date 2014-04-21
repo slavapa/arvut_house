@@ -38,10 +38,15 @@ en:
 
 #END:layout
 
+activerecord:
+  attributes:
+    person:
+      admin: "Is Admin:"
 
 
-
-
+  people:
+    form:
+      admin_html: "Is Admin:"
 
 
 #START:main

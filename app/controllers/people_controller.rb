@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:edit, :update, :destroy]
-
+    
   def destroy
     Person.find(params[:id]).destroy
     flash[:success] = "Person deleted."
@@ -73,7 +73,7 @@ class PeopleController < ApplicationController
     
     if @person.update_attributes(person_params)
       flash[:success] = "Profile updated"
-      redirect_to @person
+      redirect_to  edit_person_path(@person)
     else
       render 'edit'
     end
@@ -99,7 +99,10 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:name, :email, :password, :password_confirmation)
+      params.require(:person).permit(
+      :name, :email, :family_name, :email, :phone, :gender, :status,
+      :password, :password_confirmation,
+      :id_card_number, :address, :admin)
     end
     
     def correct_user

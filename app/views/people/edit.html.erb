@@ -1,27 +1,57 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<% provide(:title, "Edit Person") %>
+<%= form_for(@person) do |f| %>
+	<div class="row">		
+		<h1>
+			<span>Edit Perosn Profile</span>
+			<%= link_to 'Back', people_path, class:"link_header" %>
+			<span class="btns_holder">
+	  			<%= f.submit "Save changes", class: "btn btn-primary" %> 	    			
+			</span>	
+		</h1>
+	  	<%= render 'shared/error_messages', object: f.object %>
+		<table>
+			<tr>
+				<td>					
+				  	<%= f.label :name %>
+				  	<%= f.text_field :name %>
+				  	
+				  	<%= f.label :family_name %>
+				  	<%= f.text_field :family_name %>
+				
+				  	<%= f.label :email %>
+				  	<%= f.text_field :email %>
+				
+				  	<%= f.label :password %>
+				  	<%= f.password_field :password %>
+				
+				  	<%= f.label :password_confirmation, "Confirm Password" %>
+				  	<%= f.password_field :password_confirmation %>
+				  	<br>
+				  	<%= f.label :admin, class: "label_checkbox" %>
+				  	<%= f.check_box :admin, class:"input_checkbox" %>
+				</td>
+				<td>										
+				  	<%= f.label :gender %>
+				  	<%= f.select :gender, @person.gender_arr %>	
+				  						
+				  	<%= f.label :status %>
+				  	<%= f.text_field :status %>	
+				  					
+				  	<%= f.label :phone %>
+				  	<%= f.text_field :phone %>
+				  							
+				  	<%= f.label :id_card_number %>
+				  	<%= f.text_field :id_card_number %>	
+				</td>
+				<td>					
+				  	<%= f.label :address %>
+				  	<%= f.text_area :address, class:"text_area_address" %>
+				  	
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@person) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
-
-    <%= gravatar_for @person %>
-    <a href="http://gravatar.com/emails">change</a>
-  </div>
-</div>
+<%= gravatar_for @person %>
+<a href="http://gravatar.com/emails">change</a>

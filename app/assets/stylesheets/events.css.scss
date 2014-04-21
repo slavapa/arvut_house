@@ -12,30 +12,6 @@ h1{
 }
 
 .edit_event{
-  label{
-    display:inline; 
-    font-size: 18px;   
-  }
-  
-  input{
-    display:inline; 
-    width: 250px;
-    margin-right:20px;
-  }
-    
-  .date{
-    width: 11em;   
-  }
-  
-  .extended_input{
-    width: 550px;    
-  } 
-  
-  
-  .submit{
-    width: 10em;
-  }
-
 }
 
 .new_person_event_relationship{
@@ -56,6 +32,31 @@ h1{
 
 .btn-small{
   width:7em !important;
+}
+
+label{
+  display:inline; 
+  font-size: 18px;   
+}
+
+input{
+  display:inline; 
+  width: 250px;
+  height: auto !important;  
+  margin-right:20px;
+}
+  
+.date{
+  width: 11em;   
+}
+
+.extended_input{
+  width: 550px;    
+} 
+
+
+.submit{
+  width: 10em;
 }
 
 
