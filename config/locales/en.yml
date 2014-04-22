@@ -226,8 +226,8 @@ en:
   person_new: 'Person (new)'
   events: 'Events'
   event_new: 'Event (new)'
-  event_types: 'Event Types'
-  event_types_new: 'Event Types (new)'
+  event_types_dd_menu: 'Event Types'
+  event_types_new_dd_menu: 'Event Types (new)'
   account: 'Account'
   sign_out: 'Sign out'
 

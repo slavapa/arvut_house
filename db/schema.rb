@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140421140114) do
   enable_extension "plpgsql"
 
   create_table "event_types", force: true do |t|
-    t.string   "name"
+    t.string   "name",       limit: 60
     t.datetime "created_at"
     t.datetime "updated_at"
   end

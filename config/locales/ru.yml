@@ -272,8 +272,8 @@ ru:
   person_new: 'Человек (новый)'
   events: 'События'
   event_new: 'Событие (новое)'
-  event_types: 'Типы событий'
-  event_types_new: 'Типы событий (новое)'
+  event_types_dd_menu: 'Типы событий'
+  event_types_new_dd_menu: 'Типы событий (новое)'
   sign_out: 'Выйти'
   
 

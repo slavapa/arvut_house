@@ -226,8 +226,8 @@ he:
   person_new: 'אדם (חדש)'
   events: 'אירועים'
   event_new: 'אירוע (חדש)'
-  event_types: 'סוגי אירוע'
-  event_types_new: 'סוגי אירועים (חדש)'
+  event_types_dd_menu: 'סוגי אירוע'
+  event_types_new_dd_menu: 'סוגי אירועים (חדש)'
   sign_out: 'יציאה'
 
 
