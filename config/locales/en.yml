@@ -226,18 +226,22 @@ en:
   person_new: 'Person (new)'
   events: 'Events'
   event_new: 'Event (new)'
-  event_types_dd_menu: 'Event Types'
   event_types_new_dd_menu: 'Event Types (new)'
   account: 'Account'
   sign_out: 'Sign out'
+  show: 'Show'
+  edit: 'Edit'
+  delete: 'Delete'
+  back: 'Back'
+  save: 'Save'
 
-#START:event_types  
+#START:event_types
+  event_types_name: 'Event Types'
   event_types:
     new:
-      new_event_type: 'New Event Type'
-      back: 'Back'
-    form:
-      name: 'Name'
-      submit: 'Create Event Type'
+      new_event_type: 'New event type'
+    index:
+      list_of_events: 'List of events'
+    edit:
+      edit_event_type: 'Editing event type'
 #END:event_types
-      

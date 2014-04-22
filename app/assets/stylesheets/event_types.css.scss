@@ -7,7 +7,7 @@
     text-align: left;
   }
 }
-.new_event_type{
+.new_event_type, .edit_event_type{
   input{
     width:25em; 
     height: auto;  
@@ -23,3 +23,10 @@
     font-size: 18px;   
   } 
 }
+
+.he{
+  h1{
+    text-align: right;
+  } 
+}
+

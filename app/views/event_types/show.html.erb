@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%=t(:name) %>:</strong>
   <%= @event_type.name %>
 </p>
 
-<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
-<%= link_to 'Back', event_types_path %>
+<%= link_to t(:edit), edit_event_type_path(@event_type) %> |
+<%= link_to t(:new_event_type, scope:[:event_types, :new]), new_event_type_path %> |
+<%= link_to t('.list_of_events'), event_types_path %>

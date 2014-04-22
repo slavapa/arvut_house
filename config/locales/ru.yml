@@ -272,17 +272,22 @@ ru:
   person_new: 'Человек (новый)'
   events: 'События'
   event_new: 'Событие (новое)'
-  event_types_dd_menu: 'Типы событий'
-  event_types_new_dd_menu: 'Типы событий (новое)'
   sign_out: 'Выйти'
+  name: 'Имя'
+  show: 'Показать'
+  edit: 'Изменить'
+  delete: 'Удалить'
+  back: 'Вернуться'
+  save: 'Сохранить'
   
 
-#START:event_types  
+#START:event_types 
+  event_types_name: 'Типы событий' 
   event_types:
     new:
-      new_event_type: 'Новый Тип события'
-      back: 'Назад'
-    form:
-      name: 'Имя'
-      submit: 'Создать Тип события'
+      new_event_type: 'Новый тип события'
+    index:
+      list_of_events: 'Список событий'
+    edit:
+      edit_event_type: 'Изменение тип события'
 #END:event_types

@@ -226,17 +226,22 @@ he:
   person_new: 'אדם (חדש)'
   events: 'אירועים'
   event_new: 'אירוע (חדש)'
-  event_types_dd_menu: 'סוגי אירוע'
-  event_types_new_dd_menu: 'סוגי אירועים (חדש)'
   sign_out: 'יציאה'
+  name: 'שם'
+  show: 'הצג'
+  edit: 'ערוך'
+  delete: 'למחוק'
+  back: 'לחזור'
+  save: 'לשמור'
 
 
-#START:event_types  
+#START:event_types 
+  event_types_name: 'סוגי אירוע'
   event_types:
     new:
       new_event_type: 'סוג האירוע חדש'
-      back: 'בחזרה'
-    form:
-      name: 'שם'
-      submit: 'יצירת סוג האירוע'
+    index:
+      list_of_events: 'רשימת אירועים'
+    edit:
+      edit_event_type: 'עריכת סוג אירוע'
 #END:event_types
