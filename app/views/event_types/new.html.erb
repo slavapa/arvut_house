@@ -1,5 +1,7 @@
-<h1>New event_type</h1>
+<h1>
+	<span><%=t('.new_event_type') %></span>
+	<%= link_to t('.back'), event_types_path, class:"link_header" %>	
+</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', event_types_path %>

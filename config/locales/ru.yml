@@ -275,3 +275,14 @@ ru:
   event_types: 'Типы событий'
   event_types_new: 'Типы событий (новое)'
   sign_out: 'Выйти'
+  
+
+#START:event_types  
+  event_types:
+    new:
+      new_event_type: 'Новый Тип события'
+      back: 'Назад'
+    form:
+      name: 'Имя'
+      submit: 'Создать Тип события'
+#END:event_types

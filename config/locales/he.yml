@@ -203,6 +203,14 @@ he:
 
 
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ #START:layout
   layouts:
   application:
   home_page: "דף הבית"
@@ -221,3 +229,14 @@ he:
   event_types: 'סוגי אירוע'
   event_types_new: 'סוגי אירועים (חדש)'
   sign_out: 'יציאה'
+
+
+#START:event_types  
+  event_types:
+    new:
+      new_event_type: 'סוג האירוע חדש'
+      back: 'בחזרה'
+    form:
+      name: 'שם'
+      submit: 'יצירת סוג האירוע'
+#END:event_types

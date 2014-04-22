@@ -211,7 +211,6 @@ en:
       <<: *errors
 
 #START:layout
-
   layouts:
   application:
   home_page: "Home"
@@ -231,3 +230,14 @@ en:
   event_types_new: 'Event Types (new)'
   account: 'Account'
   sign_out: 'Sign out'
+
+#START:event_types  
+  event_types:
+    new:
+      new_event_type: 'New Event Type'
+      back: 'Back'
+    form:
+      name: 'Name'
+      submit: 'Create Event Type'
+#END:event_types
+      
