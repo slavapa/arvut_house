@@ -1,4 +1,4 @@
-ru:
+﻿ru:
   date:
     abbr_day_names:
     - Вс
@@ -270,8 +270,6 @@ ru:
   actions: "Действия"
   people_list: "Список Людей"
   person_new: 'Человек (новый)'
-  events: 'События'
-  event_new: 'Событие (новое)'
   sign_out: 'Выйти'
   name: 'Имя'
   show: 'Показать'
@@ -279,7 +277,23 @@ ru:
   delete: 'Удалить'
   back: 'Вернуться'
   save: 'Сохранить'
-  
+
+ #START:Active Records   
+  activerecord:
+    models:
+      event: 'Событие'
+      event_type: 'Тип события'
+      person: 'Человек'
+      person_event_relationship: 'взаимосвязь события и человека'
+    attributes:
+      event:
+        name: 'Имя События'	
+        event_date: 'Дата События'	
+      event_type:
+        name: 'Имя Типа События'
+      person:
+        name: 'Имя Человека'		  
+#END:Active Records
 
 #START:event_types 
   event_types_name: 'Типы событий' 
@@ -291,3 +305,16 @@ ru:
     edit:
       edit_event_type: 'Изменение тип события'
 #END:event_types
+
+#START:event
+  events_name: 'События'
+  events:
+    new:
+      new_event: 'Новое событие'
+    form:
+      event_date: 'Дата События'
+      event_type_id: 'Тип события'
+      description: 'Описание'
+    index:
+      list_of_events: 'Список событий'
+#END:event

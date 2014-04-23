@@ -1,4 +1,4 @@
-he:
+﻿he:
   date:
     abbr_day_names:
     - א
@@ -224,8 +224,6 @@ he:
   actions: "פעולות"
   people_list: "רשימת אנשים"
   person_new: 'אדם (חדש)'
-  events: 'אירועים'
-  event_new: 'אירוע (חדש)'
   sign_out: 'יציאה'
   name: 'שם'
   show: 'הצג'
@@ -234,6 +232,21 @@ he:
   back: 'לחזור'
   save: 'לשמור'
 
+ #START:Active Records 
+  activerecord:
+    models:
+      event: 'אירוע'
+      event_type: 'סוג האירוע'
+      person: 'אדם'
+      person_event_relationship: 'קשר אירוע אדם'
+    attributes:
+      event:
+        name: 'שם'	
+      event_type:
+        name: 'שמו של סוג אירועים'
+      person:
+        name: 'שמו של האדם'		
+#END:Active Records
 
 #START:event_types 
   event_types_name: 'סוגי אירוע'
@@ -245,3 +258,16 @@ he:
     edit:
       edit_event_type: 'עריכת סוג אירוע'
 #END:event_types
+
+#START:event
+  events_name: 'אירועים'
+  events:
+    new:
+      new_event: 'אירוע חדש'
+    form:
+      event_date: 'תאריך אירוע'
+      event_type_id: 'סוג האירוע'
+      description: 'תיאור'
+    index:
+      list_of_events: 'רשימת אירועים'
+#END:event

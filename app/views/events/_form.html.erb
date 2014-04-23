@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :event_date %>: <%= f.date_field :event_date, class:'date' %>
-    <%= f.label :event_type_id %>: <%= f.select :event_type_id, 
+    <%= f.label :event_date, t('.event_date') %>: <%= f.date_field :event_date, class:'date' %>
+    <%= f.label :event_type_id, t('.event_type_id') %>: <%= f.select :event_type_id, 
     								@event.event_types_array %>
   </div>
   
   <div class="field">
-    <%= f.label :description %>:
+    <%= f.label :description, t('.description') %>:
     <%= f.text_field :description, class:'extended_input' %>
     <%= f.submit class:"submit" %>
   </div>

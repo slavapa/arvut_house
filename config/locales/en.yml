@@ -1,4 +1,4 @@
-en:
+﻿en:
   date:
     abbr_day_names:
     - Sun
@@ -224,9 +224,6 @@ en:
   actions: "Actions"
   people_list: "People List"
   person_new: 'Person (new)'
-  events: 'Events'
-  event_new: 'Event (new)'
-  event_types_new_dd_menu: 'Event Types (new)'
   account: 'Account'
   sign_out: 'Sign out'
   show: 'Show'
@@ -245,3 +242,16 @@ en:
     edit:
       edit_event_type: 'Editing event type'
 #END:event_types
+
+#START:event
+  events_name: 'Events'
+  events:
+    new:
+      new_event: 'New event'
+    form:
+      event_date: 'Event Date'
+      event_type_id: 'Event Type'
+      description: 'Description'
+    index:
+      list_of_events: 'List of events'
+#END:event

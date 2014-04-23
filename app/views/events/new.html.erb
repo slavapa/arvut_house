@@ -1,4 +1,8 @@
-<h1>New event</h1>
+<h1>
+	<span><%=t('.new_event') %></span>
+	<span  class:"link_header" style="white-space:pre;">      |</span>
+	<%= link_to t('events.index.list_of_events'), events_path, class:"link_header" %>	
+</h1>
 
 <%= render 'form' %>
 
