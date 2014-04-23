@@ -263,3 +263,19 @@ input {
   background:   #d9edf7;
 }
 
+.header_title{
+  margin-right: 5em;  
+}
+
+.he{  
+  .header_title{
+    margin-left: 5em;  
+  }  
+}
+
+.link_header{
+  a{
+    margin-left: 2em;    
+  }
+}
+

@@ -231,27 +231,41 @@
   delete: 'Delete'
   back: 'Back'
   save: 'Save'
+  add: 'Add'
+  remove: 'Remove'
+  will_paginate:
+    previous_label: 'Previous'
+    next_label: 'Next'
 
 #START:event_types
   event_types_name: 'Event Types'
   event_types:
     new:
-      new_event_type: 'New event type'
+      new_event_type: 'New event Type'
     index:
-      list_of_events: 'List of events'
+      list_of_events: 'List of Events'
     edit:
-      edit_event_type: 'Editing event type'
+      edit_event_type: 'Editing event Type'
 #END:event_types
 
 #START:event
   events_name: 'Events'
   events:
     new:
-      new_event: 'New event'
+      new_event: 'New Event'
     form:
       event_date: 'Event Date'
       event_type_id: 'Event Type'
       description: 'Description'
     index:
-      list_of_events: 'List of events'
+      list_of_events: 'List of Events'
+    edit:
+      edit_event: 'Editing Event'
 #END:event
+
+#START:people
+  people_name: 'People'
+  people:
+    form:
+      family_name: 'Family Name'
+#END:people

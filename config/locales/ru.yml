@@ -277,6 +277,11 @@
   delete: 'Удалить'
   back: 'Вернуться'
   save: 'Сохранить'
+  add: 'Добавить'
+  remove: 'Удалить'
+  will_paginate:
+    previous_label: 'Предыдущий'
+    next_label: 'Следующий'
 
  #START:Active Records   
   activerecord:
@@ -317,4 +322,13 @@
       description: 'Описание'
     index:
       list_of_events: 'Список событий'
+    edit:
+      edit_event: 'Редактирование события'
 #END:event
+
+#START:people
+  people_name: 'People'
+  people:
+    form:
+      family_name: 'Фамилия'
+#END:people

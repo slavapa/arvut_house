@@ -1,7 +1,8 @@
 <h1>
-	<span style="margin-right: 5em;">Editing event</span>	
-	<%= link_to 'Show', @event %> |
-	<%= link_to 'Back', events_path %>
+	<span class="header_title"><%=t('.edit_event') %></span>	
+	<%= link_to t(:show), @event, class:"link_header" %> | 
+	<%= link_to t(:new_event, scope:[:events, :new]), new_event_path, class:"link_header" %> |
+	<%= link_to t('events.index.list_of_events'), events_path, class:"link_header" %>
 </h1>
 
 <%= render 'form' %>

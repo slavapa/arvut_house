@@ -231,6 +231,11 @@
   delete: 'למחוק'
   back: 'לחזור'
   save: 'לשמור'
+  add: 'הוסף'
+  remove: 'הסר'
+  will_paginate:
+    previous_label: 'קודם'
+    next_label: 'הבא'
 
  #START:Active Records 
   activerecord:
@@ -270,4 +275,13 @@
       description: 'תיאור'
     index:
       list_of_events: 'רשימת אירועים'
+    edit:
+      edit_event: 'עריכת אירוע'
 #END:event
+
+#START:people
+  people_name: 'People'
+  people:
+    form:
+      family_name: 'שם משפחה'
+#END:people
