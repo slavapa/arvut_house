@@ -254,9 +254,16 @@
       event_type:
         name: 'Name'
       person:
+        family_name: 'Family Name'
         email: 'Email'
         password: 'Password'
-        password_confirmation: 'Confirmation'
+        password_confirmation: 'Confirm Password'
+        admin: 'Admin'
+        gender: 'Gender'
+        status: 'Status'
+        phone: 'Tелефон'
+        id_card_number: 'ID Card Number'
+        address: 'Address'
 #END:Active Records
 
 #START:event_types
@@ -294,4 +301,6 @@
       family_name: 'Family Name'
     index:
       list: 'People list'
+    edit:
+      editing: 'Editing Person Profile'
 #END:people

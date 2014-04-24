@@ -300,9 +300,16 @@
       event_type:
         name: 'Имя Типа События'
       person:
+        family_name: 'Фамилия'
         email: 'E-mail'
         password: 'Пароль'
-        password_confirmation: 'Подтверждение'		  
+        password_confirmation: 'Подтвердить пароль'
+        admin: 'Админ'	
+        gender: 'Пол'
+        status: 'Статус'
+        phone: 'Телефон'
+        id_card_number: 'Номер удостоверения личности'
+        address: 'Адрес'	  
 #END:Active Records
 
 #START:event_types 
@@ -340,4 +347,6 @@
       family_name: 'Фамилия'
     index:
       list: 'Список людей'
+    edit:
+      editing: 'Изменение Профиля Личности'
 #END:people

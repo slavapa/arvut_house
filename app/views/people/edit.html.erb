@@ -1,18 +1,18 @@
-<% provide(:title, "Edit Person") %>
-<%= form_for(@person) do |f| %>
-	<div class="row">		
-		<h1>
-			<span>Edit Perosn Profile</span>
-			<%= link_to 'Back', people_path, class:"link_header" %>
-			<span class="btns_holder">
-	  			<%= f.submit "Save changes", class: "btn btn-primary" %> 	    			
-			</span>	
-		</h1>
+<% provide(:title, t('.editing')) %>
+<%= form_for(@person) do |f| %>		
+	<h1>
+		<span class="header_title"><%=t('.editing') %></span>
+		<%= link_to t('people.index.list'), people_path, class:"link_header btn" %>
+		<%= link_to t(:show), @person, class:"link_header btn" %> 
+		<%= link_to t(:new), new_person_path, class:"link_header btn" %> 
+		<%= f.submit t(:save), class: "link_header btn" %> 	    
+	</h1>
+	<div class="row">
 	  	<%= render 'shared/error_messages', object: f.object %>
 		<table>
 			<tr>
 				<td>					
-				  	<%= f.label :name %>
+				  	<%= f.label :name, t(:name) %>
 				  	<%= f.text_field :name %>
 				  	
 				  	<%= f.label :family_name %>
@@ -24,11 +24,11 @@
 				  	<%= f.label :password %>
 				  	<%= f.password_field :password %>
 				
-				  	<%= f.label :password_confirmation, "Confirm Password" %>
+				  	<%= f.label :password_confirmation %>
 				  	<%= f.password_field :password_confirmation %>
 				  	<br>
-				  	<%= f.label :admin, class: "label_checkbox" %>
 				  	<%= f.check_box :admin, class:"input_checkbox" %>
+				  	<%= f.label :admin, class: "label_checkbox" %>
 				</td>
 				<td>										
 				  	<%= f.label :gender %>

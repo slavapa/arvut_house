@@ -231,7 +231,7 @@
   edit: 'ערוך'
   delete: 'למחוק'
   back: 'לחזור'
-  save: 'לשמור'
+  save: 'שמור'
   add: 'הוסף'
   remove: 'הסר'
   will_paginate:
@@ -253,9 +253,16 @@
       event_type:
         name: 'שמו של סוג אירועים'
       person:
+        family_name: 'שם משפחה'
         email: 'דוא"ל'
         password: 'סיסמא'
-        password_confirmation: 'אימות'		
+        password_confirmation: 'אימות סיסמא'
+        admin: 'Admin'
+        gender: 'מין'
+        status: 'סטטוס'
+        phone: 'טלפון'
+        id_card_number: 'מספר תעודת זהות'
+        address: 'כתובת'		
 #END:Active Records
 
 #START:event_types 
@@ -293,4 +300,6 @@
       family_name: 'שם משפחה'
     index:
       list: 'רשימת אנשים'
+    edit:
+      editing: 'עריכת פרופיל של אדם'
 #END:people
