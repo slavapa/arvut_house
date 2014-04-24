@@ -226,6 +226,7 @@
   person_new: 'Person (new)'
   account: 'Account'
   sign_out: 'Sign out'
+  new: 'New'
   show: 'Show'
   edit: 'Edit'
   delete: 'Delete'
@@ -236,6 +237,27 @@
   will_paginate:
     previous_label: 'Previous'
     next_label: 'Next'
+  description: 'Description'
+  confirm: 'Are you sure?' 
+
+ #START:Active Records   
+  activerecord:
+    models:
+      event: 'Event'
+      event_type: 'Event Type'
+      person: 'Person'
+      person_event_relationship: 'взаимосвязь события и человека'
+    attributes:
+      event:
+        name: 'Name' 
+        event_date: 'Event date'  
+      event_type:
+        name: 'Name'
+      person:
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Confirmation'
+#END:Active Records
 
 #START:event_types
   event_types_name: 'Event Types'
@@ -243,7 +265,7 @@
     new:
       new_event_type: 'New event Type'
     index:
-      list_of_events: 'List of Events'
+      list_of_events: 'List of Events Types'
     edit:
       edit_event_type: 'Editing event Type'
 #END:event_types
@@ -266,6 +288,10 @@
 #START:people
   people_name: 'People'
   people:
+    new:
+      new: 'New Person'
     form:
       family_name: 'Family Name'
+    index:
+      list: 'People list'
 #END:people

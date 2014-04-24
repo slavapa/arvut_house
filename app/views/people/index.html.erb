@@ -1,12 +1,7 @@
-<% provide(:title, 'All users') %>
+<% provide(:title, t('.list')) %>
 <h1>
-	<div class="container-fluid">
-		<div class="inline_container">All people</div>
-		<div class="inline_container link_container">		
-	      <%= link_to "New Person", new_person_path,
-	                  class: "btn btn-primary" %>
-		</div>		
-	</div>
+	<span  class="header_title"><%=  t('.list') %></span>
+	<%= link_to t(:new), new_person_path, class: "link_header btn btn-small" %>
 </h1>
 
 <%= will_paginate %>
@@ -14,8 +9,8 @@
   <thead>
     <tr>
       <th></th>
-      <th>Name</th>
-      <th>Family Name</th>
+      <th><%=  t(:name) %></th>
+      <th><%= t('people.form.family_name')%></th>
       <th class="btn_holder"></th>
       <th class="btn_holder"></th>
     </tr>

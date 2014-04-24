@@ -271,6 +271,7 @@
   people_list: "Список Людей"
   person_new: 'Человек (новый)'
   sign_out: 'Выйти'
+  new: 'Новый'
   name: 'Имя'
   show: 'Показать'
   edit: 'Изменить'
@@ -282,6 +283,8 @@
   will_paginate:
     previous_label: 'Предыдущий'
     next_label: 'Следующий'
+  description: 'Описание'
+  confirm: 'Вы уверены?' 
 
  #START:Active Records   
   activerecord:
@@ -297,7 +300,9 @@
       event_type:
         name: 'Имя Типа События'
       person:
-        name: 'Имя Человека'		  
+        email: 'E-mail'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение'		  
 #END:Active Records
 
 #START:event_types 
@@ -306,7 +311,7 @@
     new:
       new_event_type: 'Новый тип события'
     index:
-      list_of_events: 'Список событий'
+      list_of_events: 'Список тип событий'
     edit:
       edit_event_type: 'Изменение тип события'
 #END:event_types
@@ -329,6 +334,10 @@
 #START:people
   people_name: 'People'
   people:
+    new:
+      new: 'Новая Личность'
     form:
       family_name: 'Фамилия'
+    index:
+      list: 'Список людей'
 #END:people

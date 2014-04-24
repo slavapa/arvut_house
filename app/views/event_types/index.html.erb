@@ -1,4 +1,7 @@
-<h1><%=t('.list_of_events') %></h1>
+<h1>
+	<span  class="header_title"><%=t('.list_of_events') %></span>
+	<%= link_to t(:new), new_event_type_path, class: "link_header btn btn-small" %>	
+</h1>
 
 <table>
   <thead>
@@ -21,7 +24,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to t(:new_event_type, scope:[:event_types, :new]), new_event_type_path %>

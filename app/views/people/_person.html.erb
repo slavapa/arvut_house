@@ -4,8 +4,8 @@
 	<td class='td_holder'><%= link_to person.family_name, person %></td>
 	
   <% if current_user.admin? && !current_user?(person) %>
-	  <td class='td_holder'><%= link_to "Edit", edit_person_path(person), class: "btn btn-small" %></td>
-	  <td class='td_holder td_right'><%= link_to "Delete", person, method: :delete, class: "btn btn-small",
-	                                  data: { confirm: "You sure?" } %></td>
+	  <td class='td_holder'><%= link_to t(:edit), edit_person_path(person), class: "btn btn-small" %></td>
+	  <td class='td_holder td_right'><%= link_to t(:delete), person, method: :delete, class: "btn btn-small",
+	                                  data: { confirm: t(:confirm) } %></td>
   <% end %>
 </tr>

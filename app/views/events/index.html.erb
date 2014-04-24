@@ -1,18 +1,15 @@
-<% provide(:title, 'All events') %>
+<% provide(:title, t('events.index.list_of_events')) %>
 <h1>
-	<span>All events</span>
-	<span>		
-	      <%= link_to "New Event", new_event_path,
-	                  class: "btn btn-primary" %>
-	</span>
+	<span  class="header_title"><%=  t('events.index.list_of_events') %></span>
+	<%= link_to t(:new), new_event_path, class: "link_header btn btn-small" %>
 </h1>
 <%= will_paginate %>
 <table>
   <thead>
     <tr>
-      <th>Event Date</th>
-      <th>Name</th>
-      <th>Description</th>
+      <th><%=t('events.form.event_date')%></th>
+      <th><%=t(:name)%></th>
+      <th><%=t(:description)%></th>
       <th></th>
       <th></th>
     </tr>
@@ -22,7 +19,3 @@
   	<%= render @events %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
