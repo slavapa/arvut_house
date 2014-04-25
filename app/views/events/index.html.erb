@@ -1,10 +1,8 @@
-<% provide(:title, t('events.index.list_of_events')) %>
-<h1>
-	<span  class="header_title"><%=  t('events.index.list_of_events') %></span>
-	<%= link_to t(:new), new_event_path, class: "link_header btn btn-small" %>
-</h1>
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path:new_event_path} %>
+
 <%= will_paginate %>
-<table>
+<table class='table-bordered tabletable-hover table-index'>
   <thead>
     <tr>
       <th><%=t('events.form.event_date')%></th>

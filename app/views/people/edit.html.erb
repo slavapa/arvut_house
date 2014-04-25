@@ -1,7 +1,7 @@
 <% provide(:title, t('.editing')) %>
 <%= form_for(@person) do |f| %>		
 	<h1>
-		<span class="header_title"><%=t('.editing') %></span>
+		<span class="header-title"><%=t('.editing') %></span>
 		<%= link_to t('people.index.list'), people_path, class:"link_header btn" %>
 		<%= link_to t(:show), @person, class:"link_header btn" %> 
 		<%= link_to t(:new), new_person_path, class:"link_header btn" %> 

@@ -1,18 +1,15 @@
-<% provide(:title, t('.list')) %>
-<h1>
-	<span  class="header_title"><%=  t('.list') %></span>
-	<%= link_to t(:new), new_person_path, class: "link_header btn btn-small" %>
-</h1>
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path:new_person_path} %>
 
 <%= will_paginate %>
-<table>
+<table class='table-bordered tabletable-hover table-index'>
   <thead>
     <tr>
       <th></th>
       <th><%=  t(:name) %></th>
       <th><%= t('people.form.family_name')%></th>
-      <th class="btn_holder"></th>
-      <th class="btn_holder"></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 

@@ -280,6 +280,7 @@
   save: 'Сохранить'
   add: 'Добавить'
   remove: 'Удалить'
+  open: 'Открыть'
   will_paginate:
     previous_label: 'Предыдущий'
     next_label: 'Следующий'
@@ -316,26 +317,26 @@
   event_types_name: 'Типы событий' 
   event_types:
     new:
-      new_event_type: 'Новый тип события'
+      new: 'Новый тип события'
     index:
-      list_of_events: 'Список тип событий'
+      list: 'Список тип событий'
     edit:
-      edit_event_type: 'Изменение тип события'
+      editing: 'Изменение тип события'
 #END:event_types
 
 #START:event
   events_name: 'События'
   events:
     new:
-      new_event: 'Новое событие'
+      new: 'Новое событие'
     form:
       event_date: 'Дата События'
       event_type_id: 'Тип события'
       description: 'Описание'
     index:
-      list_of_events: 'Список событий'
+      list: 'Список событий'
     edit:
-      edit_event: 'Редактирование события'
+      editing: 'Редактирование события'
 #END:event
 
 #START:people

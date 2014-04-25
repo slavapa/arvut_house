@@ -1,7 +1,7 @@
-<h1><%=t('.edit_event_type') %></h1>
+<h1><%=t('.editing') %></h1>
 
 <%= render 'form' %>
 
 <%= link_to t(:show), @event_type %> |
-<%= link_to t(:new_event_type, scope:[:event_types, :new]), new_event_type_path %> |
-<%= link_to t('event_types.index.list_of_events'), event_types_path %>
+<%= link_to t(:new, scope:[:event_types, :new]), new_event_type_path %> |
+<%= link_to t('event_types.index.list'), event_types_path %>

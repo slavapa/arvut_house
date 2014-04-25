@@ -234,6 +234,7 @@
   save: 'Save'
   add: 'Add'
   remove: 'Remove'
+  open: 'Open'
   will_paginate:
     previous_label: 'Previous'
     next_label: 'Next'
@@ -270,26 +271,26 @@
   event_types_name: 'Event Types'
   event_types:
     new:
-      new_event_type: 'New event Type'
+      new: 'New event Type'
     index:
-      list_of_events: 'List of Events Types'
+      list: 'List of Events Types'
     edit:
-      edit_event_type: 'Editing event Type'
+      editing: 'Editing event Type'
 #END:event_types
 
 #START:event
   events_name: 'Events'
   events:
     new:
-      new_event: 'New Event'
+      new: 'New Event'
     form:
       event_date: 'Event Date'
       event_type_id: 'Event Type'
       description: 'Description'
     index:
-      list_of_events: 'List of Events'
+      list: 'List of Events'
     edit:
-      edit_event: 'Editing Event'
+      editing: 'Editing Event'
 #END:event
 
 #START:people

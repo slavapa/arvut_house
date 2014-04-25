@@ -234,6 +234,7 @@
   save: 'שמור'
   add: 'הוסף'
   remove: 'הסר'
+  open: 'לפתוח'
   will_paginate:
     previous_label: 'קודם'
     next_label: 'הבא'
@@ -269,26 +270,26 @@
   event_types_name: 'סוגי אירוע'
   event_types:
     new:
-      new_event_type: 'סוג האירוע חדש'
+      new: 'סוג האירוע חדש'
     index:
-      list_of_events: 'רשימת סוגי אירועים'
+      list: 'רשימת סוגי אירועים'
     edit:
-      edit_event_type: 'עריכת סוג אירוע'
+      editing: 'עריכת סוג אירוע'
 #END:event_types
 
 #START:event
   events_name: 'אירועים'
   events:
     new:
-      new_event: 'אירוע חדש'
+      new: 'אירוע חדש'
     form:
       event_date: 'תאריך אירוע'
       event_type_id: 'סוג האירוע'
       description: 'תיאור'
     index:
-      list_of_events: 'רשימת אירועים'
+      list: 'רשימת אירועים'
     edit:
-      edit_event: 'עריכת אירוע'
+      editing: 'עריכת אירוע'
 #END:event
 
 #START:people

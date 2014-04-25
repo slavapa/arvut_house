@@ -1,9 +1,8 @@
-<h1>
-	<span  class="header_title"><%=t('.list_of_events') %></span>
-	<%= link_to t(:new), new_event_type_path, class: "link_header btn btn-small" %>	
-</h1>
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path:new_event_type_path} %>
 
-<table>
+<%= will_paginate %>
+<table class='table-bordered tabletable-hover table-index'>
   <thead>
     <tr>
       <th><%=t(:name) %></th>
@@ -14,13 +13,6 @@
   </thead>
 
   <tbody>
-    <% @event_types.each do |event_type| %>
-      <tr>
-        <td><%= event_type.name %></td>
-        <td><%= link_to t(:show), event_type %></td>
-        <td><%= link_to t(:edit), edit_event_type_path(event_type) %></td>
-        <td><%= link_to t(:delete), event_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  	<%= render @event_types %>
   </tbody>
 </table>

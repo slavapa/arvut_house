@@ -1,8 +1,18 @@
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-  <td class='td_left'><%= event.event_date.to_formatted_s(:long) %></td>
-  <td class='td_holder'><%= link_to event.event_types_name, event %></td>
-  <td class='td_holder'><%= event.description %></td>
-  <td class='td_holder btn_holder'><%= link_to t(:edit), edit_event_path(event), class: "btn btn-small" %></td>
-  <td class='td_holder btn_holder td_right'><%= link_to t(:delete), event, method: :delete, class: "btn btn-small",
-  							data: { confirm: t(:confirm) } %></td>
+  <td class='td_left'>
+  	<%= event.event_date.to_formatted_s(:long) %>  	
+  </td>
+  <td class='td_holder medium-size-td'>
+  	<%= link_to event.event_types_name, event %>  	
+  </td>
+  <td class='td_holder  long-size-td'>
+  	<%= event.description %>  	
+  </td>
+  <td class='btn_holder'>
+  	<%= link_to t(:open), edit_event_path(event), class: "btn btn-small" %>  	
+  </td>
+  <td class='btn_holder btn-holder-last{'>
+  	<%= link_to t(:delete), event, method: :delete, class: "btn btn-small",
+  							data: { confirm: t(:confirm) } %>
+  </td>
 </tr>

@@ -243,6 +243,10 @@ input {
   padding-bottom: 0.5em;  
 }
 
+btn-holder-last{
+  padding-right: 0;  
+}
+
 .td_left{
   padding-left: 0.1em;
 }
@@ -263,8 +267,10 @@ input {
   background:   #d9edf7;
 }
 
-.header_title{
-  margin-right: 5em;  
+.header-title{
+  display:inline-block;
+  margin-right: 5em; 
+  width: 10em;
 }
 
 .he{  
@@ -280,7 +286,7 @@ input {
 }
 
 .btn-small{
-  width:7em !important;
+  width:5em !important;
 }
 
 .display_none{
@@ -291,5 +297,29 @@ input {
 	display: inline ;
 	vertical-align:baseline ;
 	margin-bottom: 0;	
+}
+
+.long-size-td{
+  width: 25em;
+}
+
+.medium-size-td{
+  width: 10em;
+}
+
+.table-index{ 
+  thead{
+    tr{
+      background: #428bca;
+    }
+  }
+  
+  .btn-small{
+    line-height: 15px;
+  } 
+  
+  td{
+    vertical-align: baseline; //default    
+  }   
 }
 
