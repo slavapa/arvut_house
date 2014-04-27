@@ -1,12 +1,10 @@
-<% provide(:title, t('.editing')) %>
+<%= render partial: 'shared/header_edit', 
+	locals:{ title: t('.editing'), edit_title: t('.list'), new_path:new_person_path, 
+		index_path_name: t('people.index.list'), index_path: people_path} %>
+
+
 <%= form_for(@person) do |f| %>		
-	<h1>
-		<span class="header-title"><%=t('.editing') %></span>
-		<%= link_to t('people.index.list'), people_path, class:"link_header btn" %>
-		<%= link_to t(:show), @person, class:"link_header btn" %> 
-		<%= link_to t(:new), new_person_path, class:"link_header btn" %> 
-		<%= f.submit t(:save), class: "link_header btn" %> 	    
-	</h1>
+	<%= f.submit t(:save), class: "display_none" %>
 	<div class="row">
 	  	<%= render 'shared/error_messages', object: f.object %>
 		<table>

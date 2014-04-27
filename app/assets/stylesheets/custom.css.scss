@@ -1,6 +1,7 @@
 @import "bootstrap";
 
 /* mixins, variables, etc. */
+//Left Menue color: #E3E7EB
 
 $grayMediumLight: #eaeaea;
 
@@ -256,21 +257,21 @@ btn-holder-last{
 }
 
 .td_holder{
-  padding-left: 1em;
+  padding-left: 0.2em;
 }
 
 .list_line_even {
-  background:   #5bc0de;
+  background: #E5E5E5;
 }
 
 .list_line_odd {
-  background:   #d9edf7;
+  background: transporant;
 }
 
 .header-title{
   display:inline-block;
   margin-right: 5em; 
-  width: 10em;
+  width: 12em;
 }
 
 .he{  
@@ -303,14 +304,28 @@ btn-holder-last{
   width: 25em;
 }
 
+.long-long-size-td{
+  width: 35em;
+}
+
 .medium-size-td{
   width: 10em;
 }
 
+.mm-size-td{
+  width: 15em;
+}
+
+.short-size-td{
+  width: 8em;
+}
+
+
+
 .table-index{ 
   thead{
     tr{
-      background: #428bca;
+      background: #B4C0D0;
     }
   }
   
@@ -320,6 +335,20 @@ btn-holder-last{
   
   td{
     vertical-align: baseline; //default    
+  }
+  
+  tr{
+    height: 2.0em;
   }   
+}
+
+.module-link{
+  a{
+    color:-webkit-link;
+  }
+  
+  a:visited{
+    color:#3366FF    
+  }  
 }
 

@@ -1,12 +1,5 @@
 <tr  class="<%= cycle('list_line_odd', 'list_line_even') %>">
-	<td class='td_left long-size-td'>
-		<%= event_type.name %>		
-	</td>
-	<td class='btn_holder'>
-		<%= link_to t(:open), edit_event_type_path(event_type), class: "btn btn-small" %>		
-	</td>
-	<td class='btn_holder btn-holder-last{'>
-		<%= link_to t(:delete), event_type, method: :delete, class: "btn btn-small", 
-			data: { confirm: 'Are you sure?' } %>
+	<td class='td_holder long-long-size-td module-link'>
+  		<%= link_to event_type.name, edit_event_type_path(event_type) %>  			
 	</td>
 </tr>

@@ -2,20 +2,19 @@
 	<td class='td_left '>
 		<%= gravatar_for person, size: 32 %>		
 	</td>
-	<td class='td_holder medium-size-td'>
-		<%= link_to person.name, person %>		
+	<td class='td_holder medium-size-td  module-link'>
+		<%= link_to person.name, edit_person_path(person) %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= link_to person.family_name, person %>		
+		<%= person.family_name %>		
 	</td>
-	
-  <% if current_user.admin? && !current_user?(person) %>
-	  <td class='btn_holder'>
-	  	<%= link_to t(:open), edit_person_path(person), class: "btn btn-small" %>
-	  </td>
-	  <td class='btn_holder btn-holder-last{'>
-	  	<%= link_to t(:delete), person, method: :delete, class: "btn btn-small",
-	                                  data: { confirm: t(:confirm) } %>
-	  </td>
-  <% end %>
+	<td class='td_holder medium-size-td'>
+		<%= person.status %>		
+	</td>
+	<td class='td_holder mm-size-td'>
+		<%= person.email %>		
+	</td>
+	<td class='td_holder mm-size-td'>
+		<%= person.phone %>		
+	</td>
 </tr>
