@@ -1,9 +1,7 @@
-<h1>
-	<span class="header-title"><%=t('.editing') %></span>	
-	<%= link_to t(:show), @event, class:"link_header" %> | 
-	<%= link_to t(:new, scope:[:events, :new]), new_event_path, class:"link_header" %> |
-	<%= link_to t('events.index.list'), events_path, class:"link_header" %>
-</h1>
+<%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
+	new_path: new_event_path, 
+	index_path_name: t('event_types.index.list'), 
+	index_path: events_path} %>
 
 <%= render 'form' %>
 <%= render partial: "people" %>

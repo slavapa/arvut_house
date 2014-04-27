@@ -32,7 +32,11 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { 
+          flash[:success] = 'Event was successfully created.'
+          redirect_to edit_event_path(@event) 
+          }
+          
         format.json { render action: 'show', status: :created, location: @event }
       else
         format.html { render action: 'new' }
@@ -46,7 +50,10 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to edit_event_path(@event), notice: 'Event was successfully updated.' }
+        format.html { 
+          flash[:success] = 'Event was successfully updated.' 
+          redirect_to edit_event_path(@event)
+          }          
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

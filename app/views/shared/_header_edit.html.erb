@@ -1,9 +1,9 @@
 <% provide(:title, title) %>
 <h1>
 	<div class="header-title"><%= title %></div>
-	<%= link_to index_path_name, index_path, class:"link_header btn" %>
-	<%= link_to t(:new), new_path, class:"link_header btn" %>
-	<%= link_to t(:save), '#', class:"link_header btn", id: "save_link_header"  %> 	 	
+	<%= link_to t(:list), index_path, class:"link_header btn btn-small" %>
+	<%= link_to t(:new), new_path, class:"link_header btn btn-small" %>
+	<%= link_to t(:save), '#', class:"link_header btn btn-small", id: "save_link_header"  %> 	 	
 </h1>
 
 <script type="text/javascript">

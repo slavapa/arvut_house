@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
     if @person.save
       sign_in @person
       flash[:success] = "The new person created!"
-      redirect_to @person
+      redirect_to edit_person_path(@person)
     else
       render 'new'
     end
