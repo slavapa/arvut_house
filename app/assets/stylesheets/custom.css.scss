@@ -287,7 +287,7 @@ btn-holder-last{
 }
 
 .btn-small{
-  width:5em !important;
+  width:5em;
 }
 
 .display_none{
@@ -339,6 +339,10 @@ btn-holder-last{
   
   tr{
     height: 2.0em;
+  }
+  
+  .form_holder{
+    vertical-align: middle;    
   }   
 }
 
@@ -351,4 +355,5 @@ btn-holder-last{
     color:#3366FF    
   }  
 }
+
 

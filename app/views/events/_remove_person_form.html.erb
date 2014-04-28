@@ -4,5 +4,6 @@
 	  	<%= f.hidden_field :person_id %>
 	  	<%= f.hidden_field :event_id %>
 	  </div>
-  <%= f.submit t(:remove), class: "btn btn-small", data: { confirm: 'Are you sure?' } %>
+  <%= f.submit t(:remove), class: "btn btn-small btn-medium", id: "remove_person_btn",
+  data: { confirm: 'Are you sure?' } %>
 <% end %>
