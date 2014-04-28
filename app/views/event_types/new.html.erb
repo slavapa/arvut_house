@@ -1,7 +1,5 @@
-<h1>
-	<span><%=t('.new') %></span>
-	<%= link_to t('event_types.index.list'), event_types_path, class:"link_header" %>	
-</h1>
+<%= render partial: 'shared/header_edit', locals:{ title: t('.new'), 
+	index_path_name: t('event_types.index.list'), index_path: event_types_path} %>
 
 <%= render 'form' %>
 

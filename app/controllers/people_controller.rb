@@ -81,9 +81,10 @@ class PeopleController < ApplicationController
 
   # DELETE /people/1
   # DELETE /people/1.json
-  def destroy    
-    Person.find(params[:id]).destroy
-    flash[:success] = "User deleted."
+  def destroy  
+    @person = Person.find(params[:id])  
+    @person.destroy
+    flash[:success] = "Person #{@person.name} #{@person.family_name} was deleted."
     redirect_to people_url
     # respond_to do |format|
       # format.html { redirect_to people_url }

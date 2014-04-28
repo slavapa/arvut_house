@@ -63,6 +63,7 @@ class EventTypesController < ApplicationController
   # DELETE /event_types/1.json
   def destroy
     @event_type.destroy
+    flash[:success] = "Event Type #{@event_type.name} was deleted."
     respond_to do |format|
       format.html { redirect_to event_types_url }
       format.json { head :no_content }

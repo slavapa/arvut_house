@@ -262,7 +262,7 @@
         admin: 'Admin'
         gender: 'Gender'
         status: 'Status'
-        phone: 'Tелефон'
+        phone: 'Phone'
         id_card_number: 'ID Card Number'
         address: 'Address'
 #END:Active Records

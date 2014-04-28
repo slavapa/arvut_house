@@ -1,6 +1,5 @@
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
-	new_path: new_event_type_path, 
-	index_path_name: t('event_types.index.list'), 
-	index_path: event_types_path} %>
+	new_path: new_event_type_path, cur_item: @event_type, 
+	index_path_name: t('event_types.index.list'), index_path: event_types_path} %>
 
 <%= render 'form' %>

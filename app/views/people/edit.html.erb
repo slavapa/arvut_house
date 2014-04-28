@@ -1,7 +1,6 @@
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
-	new_path: new_person_path, 
-	index_path_name: t('people.index.list'), 
-	index_path: people_path} %>
+	new_path: new_person_path, cur_item: @person,
+	index_path_name: t('people.index.list'), index_path: people_path} %>
 
 <%= form_for(@person) do |f| %>	
 	<div class="row">
