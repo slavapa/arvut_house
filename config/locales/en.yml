@@ -235,6 +235,7 @@
   add: 'Add'
   remove: 'Remove'
   open: 'Open'
+  open: 'List'
   will_paginate:
     previous_label: 'Previous'
     next_label: 'Next'
@@ -291,6 +292,7 @@
       list: 'List of Events'
     edit:
       editing: 'Editing Event'
+      present: 'Present'
 #END:event
 
 #START:people

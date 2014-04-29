@@ -281,6 +281,7 @@
   add: 'Добавить'
   remove: 'Удалить'
   open: 'Открыть'
+  list: 'Список'
   will_paginate:
     previous_label: 'Предыдущий'
     next_label: 'Следующий'
@@ -337,6 +338,7 @@
       list: 'Список событий'
     edit:
       editing: 'Редактирование события'
+      present: 'Присут.'
 #END:event
 
 #START:people

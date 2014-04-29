@@ -235,6 +235,7 @@
   add: 'הוסף'
   remove: 'הסר'
   open: 'לפתוח'
+  list: 'רשימה'
   will_paginate:
     previous_label: 'קודם'
     next_label: 'הבא'
@@ -290,6 +291,7 @@
       list: 'רשימת אירועים'
     edit:
       editing: 'עריכת אירוע'
+      present: 'נוכח'
 #END:event
 
 #START:people
