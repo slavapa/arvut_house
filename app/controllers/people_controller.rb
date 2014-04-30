@@ -41,8 +41,7 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
 
     if @person.save
-      sign_in @person
-      flash[:success] = "The new person created!"
+      flash[:success] = t(:person_created)
       redirect_to edit_person_path(@person)
     else
       render 'new'
@@ -72,7 +71,7 @@ class PeopleController < ApplicationController
     # end
     
     if @person.update_attributes(person_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = t(:person_updated) 
       redirect_to  edit_person_path(@person)
     else
       render 'edit'
@@ -84,7 +83,8 @@ class PeopleController < ApplicationController
   def destroy  
     @person = Person.find(params[:id])  
     @person.destroy
-    flash[:success] = "Person #{@person.name} #{@person.family_name} was deleted."
+    flash[:success] = t(:person_deleted, 
+          name: "#{@person.name} #{@person.family_name}") 
     redirect_to people_url
     # respond_to do |format|
       # format.html { redirect_to people_url }
@@ -109,7 +109,7 @@ class PeopleController < ApplicationController
     def correct_user
       @person = Person.find(params[:id])
       unless current_user.admin?
-        redirect_to(root_url, notice: "You are not authorized to perform this action" ) 
+        redirect_to(root_url, notice: t(:not_authorized)) 
       end
     end
   

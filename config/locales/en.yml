@@ -241,6 +241,17 @@
     next_label: 'Next'
   description: 'Description'
   confirm: 'Are you sure?' 
+  event_type_created: 'Event type was successfully created.' 
+  event_type_updated: 'Event type was successfully updated.' 
+  event_type_deleted: "Event type %{name} was deleted." 
+  event_created: 'Event was successfully created.' 
+  event_updated: 'Event was successfully updated.' 
+  event_deleted: "Event %{name} was deleted." 
+  person_created: 'The new person created!' 
+  person_updated: 'Profile updated.' 
+  person_deleted: "Person %{name} was deleted." 
+  invalid_email_password: 'Invalid email/password combination.'
+  not_authorized: 'You are not authorized to perform this action.'  
 
  #START:Active Records   
   activerecord:

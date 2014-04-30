@@ -31,7 +31,7 @@
                   <%= link_to t('sign_out'), signout_path, method: "delete" %>
                 </li>
           	<% else %>
-            	<li><%= link_to "Sign in", signin_path %></li>
+            	<li><%= link_to t(:log_id), signin_path %></li>
           	<% end %>
           <li>
           	<%= form_tag language_path, :method => :post, class: 'locale' do %>          	

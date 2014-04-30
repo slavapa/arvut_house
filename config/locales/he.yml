@@ -205,7 +205,7 @@
 
  
  
- 
+   
  
  
  
@@ -240,7 +240,18 @@
     previous_label: 'קודם'
     next_label: 'הבא'
   description: 'תיאור'
-  confirm: 'האם אתה בטוח?' 
+  confirm: 'האם אתה בטוח?'
+  event_type_created: 'סוג האירוע נוצר בהצלחה' 
+  event_type_updated: 'סוג האירוע עודכן בהצלחה' 
+  event_type_deleted: "סוג האירוע %{name} נמחק"
+  event_created: 'האירוע נוצר בהצלחה' 
+  event_updated: 'האירוע עודכן בהצלחה' 
+  event_deleted: "האירוע %{name} נמחק" 
+  person_created: 'האדם החדש נוצר' 
+  person_updated: 'פרופיל עודכן' 
+  person_deleted: "האדם %{name} נמחק" 
+  invalid_email_password: 'שילוב דואר אלקטרוני/סיסמא לא חוקי'  
+  not_authorized: 'אין לך הרשאה לבצע פעולה זו'   
 
  #START:Active Records 
   activerecord:

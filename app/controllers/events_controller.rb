@@ -33,7 +33,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         format.html { 
-          flash[:success] = 'Event was successfully created.'
+          flash[:success] = t(:event_created)
           redirect_to edit_event_path(@event) 
           }
           
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         format.html { 
-          flash[:success] = 'Event was successfully updated.' 
+          flash[:success] = t(:event_updated) 
           redirect_to edit_event_path(@event)
           }          
         format.json { head :no_content }
@@ -66,7 +66,8 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event.destroy
-    flash[:success] = "Event #{@event.event_types_name}-#{@event.event_date.to_formatted_s(:long)} was deleted."
+    flash[:success] = t(:event_type_deleted, 
+          name: "#{@event.event_types_name}-#{@event.event_date.to_formatted_s(:long)}") 
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }

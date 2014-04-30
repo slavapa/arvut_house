@@ -2,7 +2,7 @@
 	new_path: new_person_path, cur_item: @person,
 	index_path_name: t('people.index.list'), index_path: people_path} %>
 
-<%= form_for(@person) do |f| %>	
+<%= form_for(@person, :html => {:autocomplete => "off"}) do |f| %>	
 	<div class="row">
 	  	<%= render 'shared/error_messages', object: f.object %>
 		<table>
@@ -15,10 +15,10 @@
 				  	<%= f.text_field :family_name %>
 				
 				  	<%= f.label :email %>
-				  	<%= f.text_field :email %>
+				  	<%= f.text_field :email, :autocomplete => :off %>
 				
 				  	<%= f.label :password %>
-				  	<%= f.password_field :password %>
+				  	<%= f.password_field :password, :autocomplete => :off, value:'' %>
 				
 				  	<%= f.label :password_confirmation %>
 				  	<%= f.password_field :password_confirmation %>

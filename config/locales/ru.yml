@@ -287,6 +287,17 @@
     next_label: 'Следующий'
   description: 'Описание'
   confirm: 'Вы уверены?' 
+  event_type_created: 'Тип события был успешно создан.' 
+  event_type_updated: 'Тип события был успешно обновлен.' 
+  event_type_deleted: "Тип события %{name} был удален." 
+  event_created: 'Событие было успешно создано.' 
+  event_updated: 'Событие было успешно обновлено.' 
+  event_deleted: "Событие %{name} было удален."
+  person_created: 'The new person created!' 
+  person_updated: 'Профиль был обновлен' 
+  person_deleted: "Человек %{name} был удален." 
+  invalid_email_password: 'Неправильное сочетание электронной почты/пароля.' 
+  not_authorized: 'Вы не авторизованы для выполнения этого действия.'   
 
  #START:Active Records   
   activerecord:
