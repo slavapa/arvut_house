@@ -2,6 +2,9 @@
 <h1>
 	<div class="header-title"><%= title %></div>
 	<%= link_to t(:list), index_path, class:"link_header btn btn-small" %>
+	<%= link_to t(:new), new_path, class: "link_header btn btn-small" %>
+	<%= link_to t(:delete), cur_item, method: :delete, class: "link_header btn btn-small", 
+	                                  data: { confirm: t(:confirm) } %>
 	<%= link_to t(:save), '#', class:"link_header btn btn-small", id: "save_link_header"  %> 	 	
 </h1>
 

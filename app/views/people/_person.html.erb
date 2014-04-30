@@ -1,6 +1,8 @@
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 	<td class='td_left '>
-		<%= gravatar_for person, size: 32 %>		
+		<% if person.email.present?%>
+			<%= gravatar_for person, size: 32 %>
+		<% end %>				
 	</td>
 	<td class='td_holder medium-size-td  module-link'>
 		<%= link_to person.name, edit_person_path(person) %>		

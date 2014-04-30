@@ -48,6 +48,7 @@
 		</table>
 	</div>
 <% end %>
-
-<%= gravatar_for @person %>
+<% if @person.email.present?%>
+	<%= gravatar_for @person %>
+<% end %>
 <a href="http://gravatar.com/emails">change</a>

@@ -2,7 +2,9 @@
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
 		id="tr_for_person_id_<%= person.id %>">
 		<td class='td_left'>
-			<%= gravatar_for person, size: 32 %>		
+			<% if person.email.present?%>
+				<%= gravatar_for person, size: 32 %>
+			<% end %>		
 		</td>
 		<td class='td_holder field  medium-size-td  module-link'>
 			<%= link_to person.name, edit_person_path(person) %>
@@ -27,7 +29,9 @@
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
 		id="tr_for_person_id_<%= person.id %>">
 		<td class='td_left'>
-			<%= gravatar_for person, size: 32 %>		
+			<% if person.email.present?%>
+				<%= gravatar_for person, size: 32 %>
+			<% end %>		
 		</td>
 		<td class='td_holder field  medium-size-td  module-link'>
 			<%= link_to person.name, edit_person_path(person) %>

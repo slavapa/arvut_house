@@ -1,25 +1,49 @@
-<% provide(:title, t('.new')) %>
-<h1>
-	<span class="header-title"><%=t('.new') %></span>
-	<%= link_to t('people.index.list'), people_path, class:"link_header btn" %>	
-</h1>
+<%= render partial: 'shared/header_new', locals:{ title: t('.new'), 
+	index_path_name: t('events.index.list'), index_path: people_path} %>
+
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@person) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <%= f.label :name, t(:name) %>
-        <%= f.text_field :name %>
-
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-
-        <%= f.submit t(:save), class: "btn btn-primary" %>
-    <% end %>
-  </div>
+<%= form_for(@person) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+		<table>
+			<tr>
+				<td>					
+				  	<%= f.label :name, t(:name) %>
+				  	<%= f.text_field :name %>
+				  	
+				  	<%= f.label :family_name %>
+				  	<%= f.text_field :family_name %>
+				
+				  	<%= f.label :email %>
+				  	<%= f.text_field :email %>
+				
+				  	<%= f.label :password %>
+				  	<%= f.password_field :password %>
+				
+				  	<%= f.label :password_confirmation %>
+				  	<%= f.password_field :password_confirmation %>
+				  	<br>
+				  	<%= f.check_box :admin, class:"input_checkbox" %>
+				  	<%= f.label :admin, class: "label_checkbox" %>
+				</td>
+				<td>										
+				  	<%= f.label :gender %>
+				  	<%= f.select :gender, @person.gender_arr %>	
+				  						
+				  	<%= f.label :status %>
+				  	<%= f.text_field :status %>	
+				  					
+				  	<%= f.label :phone %>
+				  	<%= f.telephone_field :phone %>
+				  							
+				  	<%= f.label :id_card_number %>
+				  	<%= f.text_field :id_card_number %>	
+				</td>
+				<td>					
+				  	<%= f.label :address %>
+				  	<%= f.text_area :address, class:"text_area_address" %>
+				  	
+				</td>
+			</tr>
+		</table>
+<% end %>
 </div>

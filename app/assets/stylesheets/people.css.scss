@@ -6,15 +6,15 @@
   margin-left: 5em;
 }
 
-.edit_person{
+.edit_person, .new_person{
   label{
     display: block;
+    width:243px;
   }
   
   input{
-    width:17em; 
+    width:238px;
     height: auto;  
-    padding: 4px 6px; 
   }
   
   .input_checkbox{
@@ -25,19 +25,19 @@
   
   .label_checkbox{
     display: inline;
-	vertical-align:baseline ;
     margin-bottom: 0;
   }
 }
 
 table{
   td{
-    vertical-align: top
+    vertical-align: top;
   }
 }
 
 select{
   margin-bottom: 10px;
+  width: 238px;
 }
 
 .text_area_address{
