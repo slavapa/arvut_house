@@ -1,5 +1,5 @@
 $cur_tr = $('#tr_for_person_id_<%= @person.id %>');
-$cur_tr.find('#td_present_person_<%= @person.id %>').html('<img alt="Vicon" src="/assets/vicon.gif">')
+$cur_tr.find('#td_present_person_<%= @person.id %>').html('<img alt="Vicon" src="<%= image_path('vicon.gif') %>">')
 $cur_tr.find('.form_holder').
 	html("<%= escape_javascript(render(partial: 'events/remove_person_form', 
 			locals: {event: @event, person: @person})) %>");
