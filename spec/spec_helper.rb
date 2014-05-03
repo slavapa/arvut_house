@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'rubygems'
+require 'spork'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -40,4 +42,14 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include Capybara::DSL
+  
+  # Use color in STDOUT
+  config.color_enabled = true
+
+ # Use color not only in STDOUT but also in pagers and files
+   config.tty = true
+
+ # Use the specified formatter
+   config.formatter = :documentation # :progress, :html, :textmate
+   
 end

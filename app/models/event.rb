@@ -2,7 +2,8 @@ class Event < ActiveRecord::Base
   has_one :event_types
   has_many :person_event_relationships, dependent: :destroy
   has_many :people, through: :person_event_relationships
-  validates :event_date, presence: true, uniqueness: { case_sensitive: false, scope: :event_date }
+  validates :event_date, presence: true, 
+    uniqueness: { case_sensitive: false, scope: :event_type_id }
   default_scope -> { order('event_date DESC, event_type_id ASC') }
   
   after_initialize :default_values

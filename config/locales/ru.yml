@@ -297,7 +297,9 @@
   person_updated: 'Профиль был обновлен' 
   person_deleted: "Человек %{name} был удален." 
   invalid_email_password: 'Неправильное сочетание электронной почты/пароля.' 
-  not_authorized: 'Вы не авторизованы для выполнения этого действия.'   
+  not_authorized: 'Вы не авторизованы для выполнения этого действия.'  
+  cannot_delete_event_type: "%{name} не был удален, так это уже используется"
+  delete_event_error: "Событие не было удалено, так это уже используется"     
 
  #START:Active Records   
   activerecord:

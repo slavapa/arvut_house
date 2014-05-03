@@ -62,11 +62,15 @@ class EventTypesController < ApplicationController
   # DELETE /event_types/1
   # DELETE /event_types/1.json
   def destroy
-    @event_type.destroy
-    flash[:success] = t(:event_type_deleted, name: @event_type.name) 
-    respond_to do |format|
-      format.html { redirect_to event_types_url }
-      format.json { head :no_content }
+    if @event_type.destroy
+      flash[:success] = t(:event_type_deleted, name: @event_type.name) 
+      respond_to do |format|
+        format.html { redirect_to event_types_url }
+        format.json { head :no_content }
+      end
+    else
+        flash[:error] = t(:delete_event_error) 
+        redirect_to edit_event_type_path(@event_type)
     end
   end
 

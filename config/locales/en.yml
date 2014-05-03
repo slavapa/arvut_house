@@ -252,6 +252,8 @@
   person_deleted: "Person %{name} was deleted." 
   invalid_email_password: 'Invalid email/password combination.'
   not_authorized: 'You are not authorized to perform this action.'  
+  cannot_delete_event_type: "%{name} was not deleted as it already in use by events" 
+  delete_event_error: "Cannot delete Event Type as it already in use by events" 
 
  #START:Active Records   
   activerecord:

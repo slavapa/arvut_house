@@ -7,9 +7,10 @@ namespace :db do
   end
 end
 
-def make_users  
-  admin = Person.create!(name:     "Example User", family_name:'Railstutorial',
-                       email:    "example@railstutorial.org",
+def make_users   
+  
+  admin = Person.create!(name:     "Haifa", family_name:'Arvut House',
+                       email:    "haifa@arvuthouse.org",
                        password: "xxxxxx",
                        password_confirmation: "xxxxxx",
                        admin: true)
@@ -47,7 +48,7 @@ def make_events
     if ev_type_inx >= event_types_array.length 
       ev_type_inx=0
     end
-    event_date =  Date.today + n.days
+    event_date =  Date.today.ago(1.year) + n.days
     Event.create!(event_type_id: event_type_id, description: description, event_date: event_date)
   end
 end
