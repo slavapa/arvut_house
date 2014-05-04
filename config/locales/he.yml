@@ -253,7 +253,9 @@
   invalid_email_password: 'שילוב דואר אלקטרוני/סיסמא לא חוקי'  
   not_authorized: 'אין לך הרשאה לבצע פעולה זו'  
   cannot_delete_event_type: "%{name} לא נמחק מפני שנמצא בשימוש על ידי אירועים"  
-  delete_event_error: "Cannot delete Event Type as it already in use by events"   
+  delete_event_error: "לא יכול למחוק רשימה מפני שנמצא בשימוש על ידי אירועים" 
+  presence: "%{name} הוא חובה"
+  existence: "%{name} לא קיים"  
 
  #START:Active Records 
   activerecord:

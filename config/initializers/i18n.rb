@@ -7,7 +7,6 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 #encoding: utf-8
-I18n.default_locale = :en
 
 LANGUAGES = [
     ['English',                  'en'],

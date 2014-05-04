@@ -10,6 +10,10 @@ describe EventType do
   describe "Event Type attributes" do
     it { should respond_to(:name) }  
   end
+   
+  describe "Event Type relations" do
+    it { should respond_to(:events) }  
+  end
   
   describe "When Event Type Name is not present" do
     before { @event_type.name = nil }
@@ -31,9 +35,11 @@ describe EventType do
   end
   
   describe "when event type is already in use by event" do
-    event_type = EventType.create!(name: DateTime.now)
-    event = event_type.events.create!(
-      description: "Event For test delete event type #{event_type.name}")  
+    let(:event_type) { EventType.create!(name: DateTime.now) }
+    before do
+      event = event_type.events.create!(
+        description: "Event For test delete event type #{event_type.name}")        
+    end
     it "should not delete a event type" do
       expect { event_type.destroy }.not_to change(EventType, :count)
     end          

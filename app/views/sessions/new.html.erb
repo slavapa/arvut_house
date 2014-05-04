@@ -1,18 +1,18 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<% provide(:title, t(:log_id)) %>
+<h1><%= t(:log_id) %></h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_tag(sessions_path) do %>
 
-      <%= label :session, :email %>
+      <%= label :session, t('activerecord.attributes.person.email') %>
       <%= text_field :session, :email %>
 
-      <%= label :session, :password %>
+      <%= label :session, t('activerecord.attributes.person.password') %>
       <%= password_field :session, :password %>
       <br>
 		
-       <%= submit_tag("Sign in", class: "btn btn-primary") %>
+       <%= submit_tag(t(:log_id), class: "btn btn-primary") %>
     <% end %>
 
   </div>
