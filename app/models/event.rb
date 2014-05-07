@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  belongs_to :event_types, foreign_key: :event_type_id
+  belongs_to :event_type, foreign_key: :event_type_id
   #validates :event_types, :presence => true
   has_many :person_event_relationships, dependent: :destroy
   has_many :people, through: :person_event_relationships

@@ -26,8 +26,7 @@ FactoryGirl.define do
   end
   
   factory :event do
-    sequence(:descriptio)  { |n| "Event Description #{n}" }
-    event_type
+    sequence(:description)  { |n| "Event Description #{n}" }
     event_date = Date.today
   end
 end

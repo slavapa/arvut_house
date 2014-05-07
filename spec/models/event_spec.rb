@@ -2,9 +2,8 @@ require 'spec_helper'
 
 describe Event do  
   before { 
-    @event_type = EventType.create(name: 'Event Type For Test Event 2')
-    @person = Person.create(name: "First Person For Test", 
-      email: "first_person@test.com")
+    @event_type = FactoryGirl.create(:event_type) #EventType.create(name: 'Event Type For Test Event 2')
+    @person = FactoryGirl.create(:person, admin: false) #Person.create(name: "First Person For Test", email: "first_person@test.com")
     @event = @event_type.events.new(description: 'Event Descr For Test Event 2')    
   }
               
@@ -17,10 +16,13 @@ describe Event do
   end
   
   describe "person relations" do
-    it { should respond_to(:event_types) }  
+    it { should respond_to(:event_type) }  
     it { should respond_to(:people) } 
     it { should respond_to(:person_event_relationships) }
   end 
+  
+  its(:event_type) { should eq @event_type }
+  
   
   describe "when event is valid" do
     before { @event.save }
@@ -54,13 +56,15 @@ describe Event do
   
   describe "people associations through person_event_relationships" do
     before do
-      @event.add_person!(@person)
       @event.save
+      @event.add_person!(@person)
       second_person = Person.create(name: "Second Person For Test", 
                       email: "second_person@test.com")  
       third_person = Person.create(name: "Third Person For Test", 
                       email: "third_person@test.com")    
-    end     
+    end 
+    
+    its(:people) { should include @person }    
     
     # it "should not delete a event type" do
       # expect { @event.is_perosn_exists?(@person) }.to be_true
