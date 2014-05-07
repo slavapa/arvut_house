@@ -9,6 +9,18 @@ end
 
 def make_users   
   
+  Person.create!(name:'Slava', family_name:'Pasechnik', 
+  email:'slavapas13@gmail.com', password:'xxxxxx', password_confirmation:'xxxxxx',
+  admin: true)
+  
+  Person.create!(name:'Vladimir', family_name:'Rogachevsky', 
+  email:'VladR@astea.co.il', password:'xxxxxx', password_confirmation:'xxxxxx',
+  admin: true)
+  
+  Person.create!(name:'Kiril', family_name:'Rogachevsky', 
+  email:'kirilsagoth2@gmail.com', password:'xxxxxx', password_confirmation:'xxxxxx',
+  admin: true)
+  
   admin = Person.create!(name:     "Haifa", family_name:'Arvut House',
                        email:    "haifa@arvuthouse.org",
                        password: "xxxxxx",
