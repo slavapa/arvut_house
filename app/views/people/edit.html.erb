@@ -47,6 +47,8 @@
 			</tr>
 		</table>
 	</div>
+      <%= f.submit "Save changes", class: "btn btn-primary display_none",
+      		id:'btn_submit' %>
 <% end %>
 <% if @person.email.present?%>
 	<%= gravatar_for @person %>

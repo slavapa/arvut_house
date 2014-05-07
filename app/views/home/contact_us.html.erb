@@ -1,7 +1,5 @@
-<% provide(:title, 'Contact Us') %>
-<h1>Contact Us</h1>
+<% provide(:title, t('contact_us')) %>
+<h1><%= t('contact_us') %></h1>
 <p>
-  If you have any suggestions, ideas or requests concerning the Arvut (mutual guarantee)
-  Movement, please fill out the attached form and we will contact you as soon as possible.
-  You can also contact us at 1-700-707-200 (Israel).
+	<%= render 'home/contact_us_' + I18n.locale.to_s %>
 </p>

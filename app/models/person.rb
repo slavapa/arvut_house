@@ -7,18 +7,18 @@ class Person < ActiveRecord::Base
   validates :family_name,  length: { maximum: 60 }
   validates :phone,  length: { maximum: 60 }
   validates :gender,  length: { maximum: 1 }, inclusion: { in: [nil, "1", "2"],
-    message: "%{value} is not a valid size" }
+    message: "%{value} is not a valid size" }, if: lambda { |p| p.gender.present? }
   validates :status,  length: { maximum: 60 }
   validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
   has_many :person_event_relationships, dependent: :destroy
   has_many :events, through: :person_event_relationships 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i  
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }, if: lambda { |m| m.password.present? },
+            uniqueness: { case_sensitive: false }, if: lambda { |p| p.password.present? },
             length: { maximum: 60 }   
   has_secure_password validations: false
-  validates :password, length: { minimum: 6 }, if: lambda { |m| m.password.present? }
-  validates_confirmation_of :password, if: lambda { |m| m.password.present? }
+  validates :password, length: { minimum: 6 }, if: lambda { |p| p.password.present? }
+  validates_confirmation_of :password, if: lambda { |p| p.password.present? }
     
   def gender_arr
     @gender_arr = [['', nil], ['Male', '1'], ['Female', '2']]    

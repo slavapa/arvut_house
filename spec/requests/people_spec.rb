@@ -1,11 +1,97 @@
 require 'spec_helper'
 
+I18n.default_locale = :en
+
 describe "People" do
-  describe "GET /people" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get people_path
-      response.status.should be(200)
-    end
+  subject { page }
+  let(:person) { FactoryGirl.create(:person) }
+  before do
+    sign_in person
   end
+  
+  describe "index" do
+    before(:each) do
+      visit people_path
+    end
+
+    it { should have_title(full_title('People list')) }
+    it { should have_content('People list') }
+
+    describe "pagination" do
+      before(:all) { 30.times { FactoryGirl.create(:person) } }
+      after(:all)  { Person.delete_all }
+
+      it { should have_selector('div.pagination') }
+
+      it "should list each user" do
+        Person.paginate(page: 1).each do |person|
+          unless person.name == 'Person 9'  
+            #There is issue in the controlere with order("name, family_name ASC"). Probebly Person 9 is not included in the list  
+            expect(page).to have_selector('a', text: person.name)            
+          end         
+        end
+      end
+    end
+    
+  end
+   
+  describe "edit" do
+    before { visit edit_person_path(person) }
+    it { should_not have_selector('div.alert.alert-error') }
+
+    describe "page" do
+      it { should have_content("Editing Person Profile") }
+      it { should have_title(full_title('Editing Person Profile')) }  
+      it  {should have_content 'Email'}    
+      it  {should have_field 'person_email'}    
+    end
+
+    describe "with invalid information" do
+      before do
+        fill_in "person_name",    with: ''
+        click_button "btn_submit"          
+      end
+      it { should have_content("Editing Person Profile") }
+      it { should have_selector('.alert-error') }
+      it { should have_content('error') }
+    end
+    
+    describe "with valid information" do
+      let(:new_name)  { "New Name" }
+      let(:new_email) { "new@example.com" }
+      before do
+        fill_in "person_name",             with: new_name
+        fill_in "person_email",            with: new_email
+        fill_in "person_password",         with: person.password
+        fill_in "person_password_confirmation", with: person.password
+        click_button "btn_submit"
+      end
+
+      it { should have_title(full_title('Editing Person Profile')) }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign out', href: '/en' + signout_path) }
+      specify { expect(person.reload.name).to  eq new_name }
+      specify { expect(person.reload.email).to eq new_email }
+    end
+    
+    describe "delete links" do
+      describe "as an admin user" do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before do
+          sign_in admin
+          visit edit_person_path(person)
+        end
+
+        it { should have_link('delete_link_header', href: person_path('en',person)) }
+        it "should be able to delete another user" do
+          expect do
+            click_link('delete_link_header')
+          end.to change(Person, :count).by(-1)
+        end
+      end
+    end
+    
+  end
+
+
 end

@@ -287,7 +287,7 @@
   event_types_name: 'Event Types'
   event_types:
     new:
-      new: 'New event Type'
+      new: 'New Event Type'
     index:
       list: 'List of Events Types'
     edit:

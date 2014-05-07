@@ -1,17 +1,25 @@
 include ApplicationHelper
 
+def full_title(page_title)
+  base_title = "Haifa Arvut House"
+  if page_title.empty?
+    base_title
+  else
+    "#{page_title} | #{base_title}"
+  end
+end
 
 def sign_in(user, options={})
   if options[:no_capybara]
     # Sign in when not using Capybara.
-    remember_token = User.new_remember_token
+    remember_token = Person.new_remember_token
     cookies[:remember_token] = remember_token
-    user.update_attribute(:remember_token, User.hash(remember_token))
+    user.update_attribute(:remember_token, Person.hash(remember_token))
   else
     visit signin_path
-    fill_in "Email",    with: user.email
-    fill_in "Password", with: user.password
-    click_button "Sign in"
+    fill_in "session_email",    with: user.email
+    fill_in "session_password", with: user.password
+    click_button "btn_log_in"
   end
 end
 

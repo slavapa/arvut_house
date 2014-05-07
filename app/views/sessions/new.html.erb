@@ -5,14 +5,14 @@
   <div class="span6 offset3">
     <%= form_tag(sessions_path) do %>
 
-      <%= label :session, t('activerecord.attributes.person.email') %>
+      <%= label :email, t('activerecord.attributes.person.email') %>
       <%= text_field :session, :email %>
 
-      <%= label :session, t('activerecord.attributes.person.password') %>
+      <%= label :password, t('activerecord.attributes.person.password') %>
       <%= password_field :session, :password %>
       <br>
 		
-       <%= submit_tag(t(:log_id), class: "btn btn-primary") %>
+       <%= submit_tag(t(:log_id), class: "btn btn-primary", id: 'btn_log_in') %>
     <% end %>
 
   </div>

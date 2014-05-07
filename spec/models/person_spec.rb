@@ -32,6 +32,11 @@ describe Person do
     
   describe "person methods" do
     it { should respond_to(:authenticate) }
+  end
+  
+  describe "remember token" do
+    before { @person.save }
+    its(:remember_token) { should_not be_blank }
   end   
    
   describe "with admin attribute set to 'false'" do
