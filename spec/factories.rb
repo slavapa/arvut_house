@@ -1,14 +1,4 @@
 FactoryGirl.define do
-  # factory :person do
-    # sequence(:name)  { |n| "Person #{n}" }
-    # sequence(:email) { |n| "person_#{n}@example.com"}
-    # password "xxxxxx"
-    # password_confirmation "xxxxxx"
-# 	
-    # factory :admin do
-      # admin true
-    # end
-  # end  
   factory :person do
     sequence(:name)  { |n| "Person #{n}" }
     sequence(:email) { |n| "person_#{n}@example.com"}
@@ -28,5 +18,11 @@ FactoryGirl.define do
   factory :event do
     sequence(:description)  { |n| "Event Description #{n}" }
     event_date = Date.today
+    event_type 
+  end
+  
+  factory :person_event_relationship do
+    event
+    person
   end
 end

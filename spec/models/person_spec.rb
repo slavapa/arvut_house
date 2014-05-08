@@ -28,6 +28,7 @@ describe Person do
   describe "person relations" do
     it { should respond_to(:events) }  
     it { should respond_to(:person_event_relationships) }
+    it { should respond_to(:event_types) }
   end 
     
   describe "person methods" do
@@ -178,6 +179,37 @@ describe Person do
         expect(@person).not_to be_valid
       end      
     end 
+  end
+  
+  describe "event associations" do    
+    let(:event_type) {FactoryGirl.create(:event_type)}
+    let(:event) {FactoryGirl.create(:event, event_type:event_type)}    
+    let(:second_person) {FactoryGirl.create(:person, admin: false)}
+    let(:third_person) {FactoryGirl.create(:person, admin: false)}
+    
+    before do
+      @person.save
+      event.add_person!(@person)
+      #event.person_event_relationships.create(person_id: @person.id)
+      event.add_person!(second_person)
+    end   
+    
+    its(:events) { should include event }
+    
+    it "should include peaople through enent" do
+      expect(event.people).to include(@person, second_person)
+    end
+    
+    it "should not include other person" do
+      expect(event.people).not_to include(third_person)
+    end
+    
+    it "should delet person from event" do 
+      people_arr = event.people.to_a
+      expect(people_arr).to include(@person, second_person)
+      @person.destroy      
+      expect(PersonEventRelationship.where(person_id: @person.id)).to be_empty
+    end
   end
   
   it "Admin value should be valid true or false" #validates_inclusion_of :field_name, in: [true, false].            

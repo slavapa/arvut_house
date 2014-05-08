@@ -12,6 +12,7 @@ class Person < ActiveRecord::Base
   validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
   has_many :person_event_relationships, dependent: :destroy
   has_many :events, through: :person_event_relationships 
+  has_many :event_types, through: :events
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i  
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }, if: lambda { |p| p.password.present? },
@@ -19,6 +20,7 @@ class Person < ActiveRecord::Base
   has_secure_password validations: false
   validates :password, length: { minimum: 6 }, if: lambda { |p| p.password.present? }
   validates_confirmation_of :password, if: lambda { |p| p.password.present? }
+  # default_scope -> { order('name, family_name ASC') }
     
   def gender_arr
     @gender_arr = [['', nil], ['Male', '1'], ['Female', '2']]    

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PersonEventRelationship do
   let(:person) { FactoryGirl.create(:person, admin: false) }
   let(:event_type) {FactoryGirl.create(:event_type)}
-  let(:event) {event_type.events.create(description: 'Event Descr For Test Event 2')}
+  let(:event) {FactoryGirl.create(:event, event_type:event_type)}#{event_type.events.create(description: 'Event Descr For Test Event 2')}
   before do
     @person_event_relationship = event.person_event_relationships.build(person_id: person.id)
   end  
@@ -30,7 +30,7 @@ describe PersonEventRelationship do
     it { should respond_to(:person) } 
     it { should respond_to(:event_type) }
   end 
-  
+    
   describe "when person_id is not present" do
     before { @person_event_relationship.person_id = nil }
     it { should_not be_valid }
@@ -40,5 +40,6 @@ describe PersonEventRelationship do
     before { @person_event_relationship.event_id = nil }
     it { should_not be_valid }
   end
+  
   
 end

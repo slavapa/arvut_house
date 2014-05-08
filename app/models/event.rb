@@ -9,6 +9,8 @@ class Event < ActiveRecord::Base
   validates :event_type_id, presence: true
   validate :event_type_id_must_exists  
   after_initialize :default_values
+  # default_scope -> { order('name, family_name ASC') }
+  validates :description, length: { maximum: 255 }
   
   def default_values(attributes = {}, options = {})
     self.event_date = Date.today if self.event_date.nil? 
@@ -23,7 +25,7 @@ class Event < ActiveRecord::Base
   end  
   
   def is_perosn_exists?(other_person)
-    person_event_relationships.find_by(person_id: other_person.id)
+    !person_event_relationships.where(person_id: other_person.id).empty?
   end
   
   def event_types_name
