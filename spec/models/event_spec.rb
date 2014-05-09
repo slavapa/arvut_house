@@ -82,12 +82,24 @@ describe Event do
     its(:people) { should include third_person } 
     its(:people) { should_not include not_related_person }
     
+    it "should return false for not existing perosn is_perosn_exists" 
+    
     it "should exists all peaople by is_perosn_exists" do
-      expect { @event.is_perosn_exists?(@person) }.to be_true
-      expect { @event.is_perosn_exists?(second_person) }.to be_true
-      expect { @event.is_perosn_exists?(third_person) }.to be_true
-      expect { @event.is_perosn_exists?(not_related_person) }.to be_true
-    end  
+      # expect { @event.is_perosn_exists?(@person) }.to be_true
+      # expect { @event.is_perosn_exists?(second_person) }.to be_true
+      # expect { @event.is_perosn_exists?(third_person) }.to be_true
+      #expect { @event.is_perosn_exists?(not_related_person) }.to be_true
+      expect(PersonEventRelationship.where(person_id: @person.id)).not_to be_empty
+      expect(PersonEventRelationship.where(person_id: second_person.id)).not_to be_empty
+      expect(PersonEventRelationship.where(person_id: third_person.id)).not_to be_empty
+      expect(PersonEventRelationship.where(person_id: not_related_person.id)).to be_empty
+    end 
+    
+    it "should remove person by remove_person!" do
+      @event.remove_person!(second_person)
+      #expect { @event.is_perosn_exists?(second_person) }.to be_true
+      expect(PersonEventRelationship.where(person_id: second_person.id)).to be_empty     
+    end 
     
     it "should have the right peaople in the right order" do
       expect(@event.people.to_a).to eq [@person, second_person, third_person]
