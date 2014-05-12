@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe SessionsController do
-
-end
+# describe SessionsController do
+# 
+# end

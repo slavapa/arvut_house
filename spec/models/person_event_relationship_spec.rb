@@ -41,5 +41,6 @@ describe PersonEventRelationship do
     it { should_not be_valid }
   end
   
+  it "should check foregn key to events and people"
   
 end
