@@ -301,7 +301,9 @@
   cannot_delete_event_type: "%{name} не был удален, так это уже используется"
   delete_event_error: "Событие не было удалено, так это уже используется"
   presence: "%{name} является обязательным"
-  existence: "%{name} не существует"     
+  existence: "%{name} не существует" 
+  male: 'Мужской'
+  female: 'Женский'    
 
  #START:Active Records   
   activerecord:

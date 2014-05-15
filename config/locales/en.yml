@@ -256,6 +256,8 @@
   delete_event_error: "Cannot delete Event Type as it already in use by events" 
   presence: "%{name} is mandatory"
   existence: "%{name} is not exists"
+  male: 'Male'
+  female: 'Female'
 
  #START:Active Records   
   activerecord:

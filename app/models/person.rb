@@ -6,8 +6,9 @@ class Person < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 60 }
   validates :family_name,  length: { maximum: 60 }
   validates :phone,  length: { maximum: 60 }
-  validates :gender,  length: { maximum: 1 }, inclusion: { in: [nil, "1", "2"],
-    message: "%{value} is not a valid size" }, if: lambda { |p| p.gender.present? }
+  validates :gender,  inclusion: { in: [nil, 1, 2], 
+    message: "%{value} is not a valid.The valid values are: 1-Male, 2-Female" }, 
+              if: lambda { |p| p.gender.present? }
   validates :status,  length: { maximum: 60 }
   validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
   has_many :person_event_relationships, dependent: :destroy
@@ -23,7 +24,7 @@ class Person < ActiveRecord::Base
   # default_scope -> { order('name, family_name ASC') }
     
   def gender_arr
-    @gender_arr = [['', nil], ['Male', '1'], ['Female', '2']]    
+    @gender_arr = [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
   end
   
   def Person.new_remember_token

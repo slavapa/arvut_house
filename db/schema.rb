@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504065446) do
+ActiveRecord::Schema.define(version: 20140515034359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140504065446) do
     t.string   "family_name",     limit: 60
     t.string   "email",           limit: 60
     t.string   "phone",           limit: 60
-    t.string   "gender",          limit: 1
+    t.integer  "gender"
     t.string   "status",          limit: 60
     t.string   "id_card_number",  limit: 9
     t.string   "address"

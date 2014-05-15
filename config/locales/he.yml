@@ -256,6 +256,8 @@
   delete_event_error: "לא יכול למחוק רשימה מפני שנמצא בשימוש על ידי אירועים" 
   presence: "%{name} הוא חובה"
   existence: "%{name} לא קיים"  
+  male: 'זכר'
+  female: 'נקבה'
 
  #START:Active Records 
   activerecord:
