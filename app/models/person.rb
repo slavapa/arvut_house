@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
   validates :family_name,  length: { maximum: 60 }
   validates :phone,  length: { maximum: 60 }
   validates :gender,  inclusion: { in: [nil, 1, 2], 
-    message: "%{value} is not a valid.The valid values are: 1-Male, 2-Female" }, 
+    message: "%{value} is not a valid.The valid values are: 1-#{I18n.t(:male)}, 2-#{I18n.t(:female)}" }, 
               if: lambda { |p| p.gender.present? }
   validates :status,  length: { maximum: 60 }
   validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
@@ -25,6 +25,11 @@ class Person < ActiveRecord::Base
     
   def gender_arr
     @gender_arr = [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
+  end
+    
+  def family_status_arr
+    @family_status_arr = [['', nil], [I18n.t(:single), 1], [I18n.t(:married), 2],
+                            [I18n.t(:divorced), 3], [I18n.t(:widower), 4]]     
   end
   
   def Person.new_remember_token

@@ -258,6 +258,10 @@
   existence: "%{name} לא קיים"  
   male: 'זכר'
   female: 'נקבה'
+  single: 'רווק/ה'
+  married: 'נשוי'
+  divorced: 'גרוש/ה'
+  widower: 'אלמן/נה'
 
  #START:Active Records 
   activerecord:

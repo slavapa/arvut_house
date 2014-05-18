@@ -303,7 +303,11 @@
   presence: "%{name} является обязательным"
   existence: "%{name} не существует" 
   male: 'Мужской'
-  female: 'Женский'    
+  female: 'Женский' 
+  single: 'Холост/'
+  married: 'Женат/замужем'
+  divorced: 'Разведенный'
+  widower: 'вдовец/вдова'   
 
  #START:Active Records   
   activerecord:

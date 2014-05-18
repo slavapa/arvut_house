@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515034359) do
+ActiveRecord::Schema.define(version: 20140515145719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,19 +33,26 @@ ActiveRecord::Schema.define(version: 20140515034359) do
   end
 
   create_table "people", force: true do |t|
-    t.string   "name",            limit: 60
-    t.string   "family_name",     limit: 60
-    t.string   "email",           limit: 60
-    t.string   "phone",           limit: 60
+    t.string   "name",               limit: 60
+    t.string   "family_name",        limit: 60
+    t.string   "email",              limit: 60
+    t.string   "phone",              limit: 60
     t.integer  "gender"
-    t.string   "status",          limit: 60
-    t.string   "id_card_number",  limit: 9
+    t.string   "status",             limit: 60
+    t.string   "id_card_number",     limit: 9
     t.string   "address"
-    t.boolean  "admin",                      default: false
+    t.boolean  "admin",                         default: false
     t.string   "password_digest"
     t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "birth_date"
+    t.string   "workplace"
+    t.string   "skills"
+    t.string   "phone_2",            limit: 60
+    t.integer  "computer_knowledge"
+    t.integer  "family_status"
+    t.integer  "car_owner"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree

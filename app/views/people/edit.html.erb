@@ -35,14 +35,45 @@
 				  					
 				  	<%= f.label :phone %>
 				  	<%= f.telephone_field :phone %>
-				  							
+				  					  								
+				  	<%= f.label :phone_2 %>
+	  				<%= f.text_field :phone_2 %>	
+	  										
 				  	<%= f.label :id_card_number %>
-				  	<%= f.text_field :id_card_number %>	
+				  	<%= f.text_field :id_card_number %>		
 				</td>
-				<td>					
-				  	<%= f.label :address %>
-				  	<%= f.text_area :address, class:"text_area_address" %>
-				  	
+				<td>
+					<table>
+						<tr>
+							<td>							
+							  	<%= f.label :birth_date %>
+							  	<%= f.date_field :birth_date %>	
+							  								
+							  	<%= f.label :family_status %>
+							  	<%= f.select :family_status, @person.family_status_arr  %>	
+							  								
+							  	<%= f.label :car_owner %>
+							  	<%= f.text_field :car_owner %>	
+							  								
+							  	<%= f.label :computer_knowledge %>
+				  				<%= f.text_field :computer_knowledge %>				  													
+							</td>
+							<td>							
+							  	<%= f.label :workplace %>
+							  	<%= f.text_field :workplace %>	
+							  								
+							  	<%= f.label :skills %>
+							  	<%= f.text_field :skills %>	
+							  								
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							  	<%= f.label :address %>
+							  	<%= f.text_area :address, class:"text_area_address" %>								
+							</td>
+						</tr>
+					</table>				  	
 				</td>
 			</tr>
 		</table>

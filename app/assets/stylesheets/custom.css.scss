@@ -362,10 +362,12 @@ btn-holder-last{
     color:#3366FF    
   }  
 }
-
-input, input[type="password"], input[type="text"]{
+form{
+  
+}
+input, input[type="password"], input[type="text"], input[type="date"]{
   width:238px;
-  height: auto;  
+  height: 30px !important;  
 }
 
 

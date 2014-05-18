@@ -258,6 +258,10 @@
   existence: "%{name} is not exists"
   male: 'Male'
   female: 'Female'
+  single: 'Single'
+  married: 'Married'
+  divorced: 'Divorced'
+  widower: 'Widower'
 
  #START:Active Records   
   activerecord:
