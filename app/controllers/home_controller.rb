@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   def contact_us
   end
   
-  def language
+  def loc_lang
     if params[:set_locale]
       redirect_to root_path(locale: params[:set_locale])
     else

@@ -33,7 +33,7 @@
             	<li><%= link_to t(:log_id), signin_path %></li>
           	<% end %>
           <li>
-          	<%= form_tag language_path, :method => :post, class: 'locale' do %>          	
+          	<%= form_tag loc_lang_path, :method => :post, class: 'locale' do %>          	
 	          	<%= select_tag 'set_locale',  options_for_select(LANGUAGES, I18n.locale.to_s), 
 	          	onchange: 'this.form.submit()', class: 'languages' %>
 	          	<%= submit_tag 'submit' %>

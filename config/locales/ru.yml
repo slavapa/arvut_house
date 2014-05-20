@@ -330,7 +330,7 @@
         admin: 'Админ'	
         gender: 'Пол'
         status: 'Статус'
-        phone: 'Телефон'
+        phone: 'Мобильный Телефон'
         id_card_number: 'Номер удостоверения личности'
         address: 'Адрес'	  
 #END:Active Records

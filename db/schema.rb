@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515145719) do
+ActiveRecord::Schema.define(version: 20140520031649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,21 @@ ActiveRecord::Schema.define(version: 20140515145719) do
     t.integer  "event_type_id"
   end
 
+  create_table "languages", force: true do |t|
+    t.string   "name",       limit: 60, null: false
+    t.string   "code",       limit: 2,  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "languages", ["code"], name: "index_languages_on_code", unique: true, using: :btree
+  add_index "languages", ["name"], name: "index_languages_on_name", unique: true, using: :btree
+
   create_table "people", force: true do |t|
     t.string   "name",               limit: 60
     t.string   "family_name",        limit: 60
     t.string   "email",              limit: 60
-    t.string   "phone",              limit: 60
+    t.string   "phone_mob",          limit: 60
     t.integer  "gender"
     t.string   "status",             limit: 60
     t.string   "id_card_number",     limit: 9
@@ -49,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140515145719) do
     t.date     "birth_date"
     t.string   "workplace"
     t.string   "skills"
-    t.string   "phone_2",            limit: 60
+    t.string   "phone_additional",   limit: 60
     t.integer  "computer_knowledge"
     t.integer  "family_status"
     t.integer  "car_owner"
@@ -69,5 +79,16 @@ ActiveRecord::Schema.define(version: 20140515145719) do
   add_index "person_event_relationships", ["event_id"], name: "index_person_event_relationships_on_event_id", using: :btree
   add_index "person_event_relationships", ["person_id", "event_id"], name: "index_person_event_relationships_on_person_id_and_event_id", unique: true, using: :btree
   add_index "person_event_relationships", ["person_id"], name: "index_person_event_relationships_on_person_id", using: :btree
+
+  create_table "person_languages", force: true do |t|
+    t.integer  "language_id", null: false
+    t.integer  "person_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "person_languages", ["language_id", "person_id"], name: "index_person_languages_on_language_id_and_person_id", unique: true, using: :btree
+  add_index "person_languages", ["language_id"], name: "index_person_languages_on_language_id", using: :btree
+  add_index "person_languages", ["person_id"], name: "index_person_languages_on_person_id", using: :btree
 
 end

@@ -284,7 +284,7 @@
         admin: 'Admin'
         gender: 'Gender'
         status: 'Status'
-        phone: 'Phone'
+        phone_mob: 'Mobile Phone'
         id_card_number: 'ID Card Number'
         address: 'Address'
 #END:Active Records

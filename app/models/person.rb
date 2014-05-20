@@ -5,7 +5,7 @@ class Person < ActiveRecord::Base
   
   validates :name, presence: true, length: { maximum: 60 }
   validates :family_name,  length: { maximum: 60 }
-  validates :phone,  length: { maximum: 60 }
+  validates :phone_mob,  length: { maximum: 60 }
   validates :gender,  inclusion: { in: [nil, 1, 2], 
     message: "%{value} is not a valid.The valid values are: 1-#{I18n.t(:male)}, 2-#{I18n.t(:female)}" }, 
               if: lambda { |p| p.gender.present? }

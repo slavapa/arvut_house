@@ -3,7 +3,7 @@ ArvutHouse::Application.routes.draw do
 
   root 'home#default'
   scope '(:locale)' do 
-    match "/home/language" => "home#language", :as => 'language', via: 'post'
+    match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
     resources :event_types   
     resources :person_event_relationships, only: [:create, :destroy]
     resources :events
@@ -16,6 +16,7 @@ ArvutHouse::Application.routes.draw do
     match '/signout',     to: 'sessions#destroy',     via: 'delete'
     
     resources :sessions, only: [:new, :create, :destroy]
+    resources :languages
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

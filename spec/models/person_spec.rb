@@ -12,7 +12,7 @@ describe Person do
     it { should respond_to(:name) } 
     it { should respond_to(:family_name) }
     it { should respond_to(:email) }
-    it { should respond_to(:phone) }
+    it { should respond_to(:phone_mob) }
     it { should respond_to(:gender) }
     it { should respond_to(:status) }
     it { should respond_to(:id_card_number) }
@@ -142,7 +142,7 @@ describe Person do
   end
    
   describe "when phone is too long" do
-    before { @person.phone = "a" * 61 }
+    before { @person.phone_mob = "a" * 61 }
     it { should_not be_valid }
   end
    
@@ -151,7 +151,7 @@ describe Person do
     it { should_not be_valid }
   end
    
-  describe "when phone is too long" do
+  describe "when status is too long" do
     before { @person.status = "a" * 61 }
     it { should_not be_valid }
   end 

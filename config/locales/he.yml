@@ -283,7 +283,7 @@
         admin: 'Admin'
         gender: 'מין'
         status: 'סטטוס'
-        phone: 'טלפון'
+        phone: 'טלפון סלולרי'
         id_card_number: 'מספר תעודת זהות'
         address: 'כתובת'		
 #END:Active Records

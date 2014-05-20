@@ -1,3 +1,5 @@
+# rails generate migration event_type_foreignkey_to_events
+
 class EventTypeForeignkeyToEvents < ActiveRecord::Migration
   def up
     execute <<-SQL

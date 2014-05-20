@@ -1,6 +1,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    make_language
     make_event_types
     make_users
     make_events
@@ -26,15 +27,15 @@ def make_users
                        password: "xxxxxx",
                        password_confirmation: "xxxxxx",
                        admin: true)
-  99.times do |n|
-    name  = Faker::Name.first_name
-    family_name = Faker::Name.last_name
-    email = "example-#{n+1}@railstutorial.org"
-    password  = "xxxxxx"
-    Person.create!(name: name, family_name: family_name,
-                 email:    email, password: password,
-                 password_confirmation: password)
-  end
+  # 99.times do |n|
+    # name  = Faker::Name.first_name
+    # family_name = Faker::Name.last_name
+    # email = "example-#{n+1}@railstutorial.org"
+    # password  = "xxxxxx"
+    # Person.create!(name: name, family_name: family_name,
+                 # email:    email, password: password,
+                 # password_confirmation: password)
+  # end
   
 end
 
@@ -71,5 +72,12 @@ def make_event_types
   EventType.create!(name:'Tuesday Meeting')
   EventType.create!(name:'Repast')
 end
+
+def make_language
+  Language.create!(name:'English', code:'en')
+  Language.create!(name:'Russian', code:'ru')
+  Language.create!(name:'Hebrew', code:'he')
+end
+
 
 
