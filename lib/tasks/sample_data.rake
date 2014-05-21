@@ -1,6 +1,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    make_statuses
     make_language
     make_event_types
     make_users
@@ -79,5 +80,9 @@ def make_language
   Language.create!(name:'Hebrew', code:'he')
 end
 
+def make_statuses
+  Status.create!(name:'Active')
+  Status.create!(name:'Absorbed')
+end
 
 

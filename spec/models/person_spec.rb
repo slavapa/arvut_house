@@ -14,7 +14,7 @@ describe Person do
     it { should respond_to(:email) }
     it { should respond_to(:phone_mob) }
     it { should respond_to(:gender) }
-    it { should respond_to(:status) }
+    it { should respond_to(:status_id) }
     it { should respond_to(:id_card_number) }
     it { should respond_to(:address) }
     it { should respond_to(:admin) }
@@ -150,11 +150,12 @@ describe Person do
     before { @person.gender = "M" * 2 }
     it { should_not be_valid }
   end
-   
-  describe "when status is too long" do
-    before { @person.status = "a" * 61 }
-    it { should_not be_valid }
-  end 
+ 
+  it "should describe status_id"  
+  # describe "when status is too long" do
+    # before { @person.status = "a" * 61 }
+    # it { should_not be_valid }
+  # end 
   
   describe "when cardid is too long" do
     before { @person.id_card_number = "a" * 10 }

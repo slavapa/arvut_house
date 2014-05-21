@@ -7,7 +7,7 @@ class EventTypeForeignkeyToEvents < ActiveRecord::Migration
       ADD CONSTRAINT fk_events_event_types
       FOREIGN KEY (event_type_id)
       REFERENCES event_types(id) 
-      ON UPDATE CASCADE ON DELETE RESTRICT
+      ON DELETE RESTRICT
     SQL
     
   end

@@ -1,6 +1,8 @@
 ArvutHouse::Application.routes.draw do
 
 
+  
+
   root 'home#default'
   scope '(:locale)' do 
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
@@ -17,6 +19,7 @@ ArvutHouse::Application.routes.draw do
     
     resources :sessions, only: [:new, :create, :destroy]
     resources :languages
+    resources :statuses
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
