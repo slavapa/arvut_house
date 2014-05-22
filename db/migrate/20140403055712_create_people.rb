@@ -17,8 +17,8 @@ class CreatePeople < ActiveRecord::Migration
       t.string  :skills
       t.string  :phone_additional, limit: 60
       t.integer :computer_knowledge
-      t.integer :family_status, :integer
-      t.integer :people, :car_owner, :integer
+      t.integer :family_status
+      t.integer :people, :car_owner
 
       t.timestamps
     end
