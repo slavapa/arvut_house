@@ -4,6 +4,7 @@
 <div class="row">
 <%= form_for(@person, :html => {:autocomplete => "off"}) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
+
 		<table>
 			<tr>
 				<td>					
@@ -14,7 +15,7 @@
 				  	<%= f.text_field :family_name %>
 				
 				  	<%= f.label :email %>
-				  	<%= f.text_field :email, :autocomplete => :off, value:'' %>
+				  	<%= f.text_field :email, :autocomplete => :off %>
 				
 				  	<%= f.label :password %>
 				  	<%= f.password_field :password, :autocomplete => :off, value:'' %>
@@ -30,20 +31,52 @@
 				  	<%= f.select :gender, @person.gender_arr %>	
 				  						
 				  	<%= f.label :status_id %>
-				  	<%= f.text_field :status_id %>	
+				  	<%= f.select :status_id, @person.statuses_array %>	
 				  					
 				  	<%= f.label :phone_mob %>
 				  	<%= f.telephone_field :phone_mob %>
-				  							
+				  					  								
+				  	<%= f.label :phone_additional %>
+	  				<%= f.text_field :phone_additional %>	
+	  										
 				  	<%= f.label :id_card_number %>
-				  	<%= f.text_field :id_card_number %>	
+				  	<%= f.text_field :id_card_number %>		
 				</td>
-				<td>					
-				  	<%= f.label :address %>
-				  	<%= f.text_area :address, class:"text_area_address" %>
-				  	
+				<td>
+					<table>
+						<tr>
+							<td>							
+							  	<%= f.label :birth_date %>
+							  	<%= f.date_field :birth_date %>	
+							  								
+							  	<%= f.label :family_status %>
+							  	<%= f.select :family_status, @person.family_status_arr  %>	
+							  								
+							  	<%= f.label :car_owner %>
+							  	<%= f.select :car_owner, @person.car_owner_arr %>	
+							  								
+							  	<%= f.label :computer_knowledge %>
+				  				<%= f.select :computer_knowledge, @person.computer_knowledge_arr %>				  													
+							</td>
+							<td>							
+							  	<%= f.label :workplace %>
+							  	<%= f.text_field :workplace %>	
+							  								
+							  	<%= f.label :skills %>
+							  	<%= f.text_field :skills %>	
+							  								
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							  	<%= f.label :address %>
+							  	<%= f.text_area :address, class:"text_area_address" %>								
+							</td>
+						</tr>
+					</table>				  	
 				</td>
 			</tr>
 		</table>
+		
 <% end %>
 </div>
