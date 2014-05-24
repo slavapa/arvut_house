@@ -6,7 +6,6 @@ class CreatePeople < ActiveRecord::Migration
       t.string  :email, limit: 60
       t.string  :phone_mob, limit: 60
       t.integer :gender
-      t.string  :status, limit: 60
       t.string  :id_card_number, limit: 9
       t.string  :address
       t.boolean :admin, default: false
@@ -18,7 +17,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string  :phone_additional, limit: 60
       t.integer :computer_knowledge
       t.integer :family_status
-      t.integer :people, :car_owner
+      t.integer :car_owner
 
       t.timestamps
     end

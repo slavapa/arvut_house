@@ -240,7 +240,9 @@
     previous_label: 'קודם'
     next_label: 'הבא'
   description: 'תיאור'
-  confirm: 'האם אתה בטוח?'
+  confirm: 'האם אתה בטוח?' 
+  item_updated: '%{name} עודכן/ה בהצלחה' 
+  item_created: '%{name} נוצר/ה בהצלחה' 
   event_type_created: 'סוג האירוע נוצר בהצלחה' 
   event_type_updated: 'סוג האירוע עודכן בהצלחה' 
   event_type_deleted: "סוג האירוע %{name} נמחק"
@@ -262,6 +264,11 @@
   married: 'נשוי'
   divorced: 'גרוש/ה'
   widower: 'אלמן/נה'
+  private: 'פרטי'
+  commercial: 'מסחרי'
+  weak: 'חלש'
+  usual: 'רגיל'
+  advanced: 'מתקדם'
 
  #START:Active Records 
   activerecord:
@@ -270,7 +277,11 @@
       event_type: 'סוג האירוע'
       person: 'אדם'
       person_event_relationship: 'קשר אירוע אדם'
+      language: 'שפה'
+      status: 'סטטוס'
     attributes:
+      language:
+        code: 'קוד' 
       event:
         name: 'שם'	
       event_type:
@@ -282,10 +293,17 @@
         password_confirmation: 'אימות סיסמא'
         admin: 'Admin'
         gender: 'מין'
-        status: 'סטטוס'
-        phone: 'טלפון סלולרי'
+        status_id: 'סטטוס'
+        phone_mob: 'טלפון סלולרי'
         id_card_number: 'מספר תעודת זהות'
-        address: 'כתובת'		
+        address: 'כתובת'
+        phone_additional: 'טלפון בבית/עבודה'	
+        birth_date: 'תאריך לידה'	
+        family_status: 'מצב משפחתי'
+        car_owner: 'בעל רכב'
+        computer_knowledge: 'שליטה במחשב'
+        workplace: 'מקום עבודה'
+        skills: 'כישורים'
 #END:Active Records
 
 #START:event_types 
@@ -316,7 +334,7 @@
 #END:event
 
 #START:people
-  people_name: 'People'
+  people_name: 'אנשים'
   people:
     new:
       new: 'אישיות חדשה'
@@ -327,3 +345,25 @@
     edit:
       editing: 'עריכת פרופיל של אדם'
 #END:people
+
+#START:language
+  languages:
+    name: 'שפות'
+    new:
+      new: 'שפה חדשה'
+    index:
+      list: 'רשימת שפות'
+    edit:
+      editing: 'עריכת שפה'
+#END:language
+
+#START:status
+  statuses:
+    name: 'סטטוסים'
+    new:
+      new: 'סטטוס חדש'
+    index:
+      list: 'רשימת סטטוסים'
+    edit:
+      editing: 'עריכת סטטוס'
+#END:status

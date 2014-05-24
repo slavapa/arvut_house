@@ -28,7 +28,10 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
+        format.html { 
+          flash[:success] = t(:item_created, name: t('activerecord.models.status'))
+          redirect_to edit_status_path(@status)  
+        }
         format.json { render action: 'show', status: :created, location: @status }
       else
         format.html { render action: 'new' }
@@ -42,7 +45,11 @@ class StatusesController < ApplicationController
   def update
     respond_to do |format|
       if @status.update(status_params)
-        format.html { redirect_to @status, notice: 'Status was successfully updated.' }
+        format.html { 
+          flash[:success] = t(:item_updated, name: t('activerecord.models.status')) 
+          redirect_to edit_status_path(@status)  
+        }
+        
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

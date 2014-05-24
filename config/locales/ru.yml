@@ -287,6 +287,8 @@
     next_label: 'Следующий'
   description: 'Описание'
   confirm: 'Вы уверены?' 
+  item_updated: '%{name} был успешно обновлен.' 
+  item_created: '%{name} был успешно создан.'
   event_type_created: 'Тип события был успешно создан.' 
   event_type_updated: 'Тип события был успешно обновлен.' 
   event_type_deleted: "Тип события %{name} был удален." 
@@ -307,7 +309,12 @@
   single: 'Холост/'
   married: 'Женат/замужем'
   divorced: 'Разведенный'
-  widower: 'вдовец/вдова'   
+  widower: 'вдовец/вдова'
+  private: 'Частный' 
+  commercial: 'Коммерческий' 
+  weak: 'Слабый'
+  usual: 'Обычный'
+  advanced: 'Продвинутый' 
 
  #START:Active Records   
   activerecord:
@@ -316,7 +323,11 @@
       event_type: 'Тип события'
       person: 'Человек'
       person_event_relationship: 'взаимосвязь события и человека'
+      language: 'Язык'
+      status: 'Статус'
     attributes:
+      language:
+        code: 'Код' 
       event:
         name: 'Имя События'	
         event_date: 'Дата События'	
@@ -329,10 +340,17 @@
         password_confirmation: 'Подтвердить пароль'
         admin: 'Админ'	
         gender: 'Пол'
-        status: 'Статус'
-        phone: 'Мобильный Телефон'
+        status_id: 'Статус'
+        phone_mob: 'Мобильный Телефон'
         id_card_number: 'Номер удостоверения личности'
-        address: 'Адрес'	  
+        address: 'Адрес'	
+        phone_additional: 'Домашний/Рабочий телефон' 
+        birth_date: 'Дата рождения' 
+        family_status: 'Семейное положение'
+        car_owner: 'Автовладелец'
+        computer_knowledge: 'Знание компьютера'
+        workplace: 'Место работы'
+        skills: 'Навыки'
 #END:Active Records
 
 #START:event_types 
@@ -374,3 +392,25 @@
     edit:
       editing: 'Изменение Профиля Личности'
 #END:people
+
+#START:language
+  languages:
+    name: 'Языки'
+    new:
+      new: 'Новый Язык'
+    index:
+      list: 'Список Языков'
+    edit:
+      editing: 'Изменение Языка'
+#END:language
+
+#START:status
+  statuses:
+    name: 'Статусы'
+    new:
+      new: 'Новый Статус'
+    index:
+      list: 'Список Статусов'
+    edit:
+      editing: 'Редактирование Статуса'
+#END:status

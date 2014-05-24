@@ -1,14 +1,21 @@
-<h1>Listing languages</h1>
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path: new_language_path} %>
 
-<table>
+<table class='table-bordered table-index'>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class='td_holder long-long-size-td module-link'><%=t(:name) %></th>
+      <th class='td_holder ss-size-td'><%=t('activerecord.attributes.language.code') %></th>
     </tr>
+  </thead>
+
+  <tbody>
+  	<%= render @languages %>
+  </tbody>
+</table>
+
+<!-- <table>
+  <thead>
   </thead>
 
   <tbody>
@@ -26,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Language', new_language_path %>
+<%= link_to 'New Language', new_language_path %> -->

@@ -11,6 +11,9 @@ class Person < ActiveRecord::Base
               if: lambda { |p| p.gender.present? }
   
   validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
+  belongs_to :status
+  has_many :languages, through: :person_languages
+  has_many :person_languages, dependent: :destroy
   has_many :person_event_relationships, dependent: :destroy
   has_many :events, through: :person_event_relationships 
   has_many :event_types, through: :events
@@ -31,6 +34,15 @@ class Person < ActiveRecord::Base
     @family_status_arr = [['', nil], [I18n.t(:single), 1], [I18n.t(:married), 2],
                             [I18n.t(:divorced), 3], [I18n.t(:widower), 4]]     
   end
+    
+  def car_owner_arr
+    @car_owner_arr = [['', nil], [I18n.t(:private), 1], [I18n.t(:commercial), 2]]     
+  end
+    
+  def computer_knowledge_arr
+    @computer_knowledge = [['', nil], [I18n.t(:weak), 1], [I18n.t(:usual), 2], 
+                            [I18n.t(:advanced), 3]]     
+  end
   
   def Person.new_remember_token
     SecureRandom.urlsafe_base64
@@ -40,6 +52,10 @@ class Person < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
   
+  def statuses_array
+    @statuses_array ||= 
+      Status.all.map { |stat| [stat.name, stat.id] }.unshift(['', nil])
+  end  
     
 private
 # http://stackoverflow.com/questions/7202319/rails-force-empty-string-to-null-in-the-database

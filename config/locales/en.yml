@@ -240,7 +240,9 @@
     previous_label: 'Previous'
     next_label: 'Next'
   description: 'Description'
-  confirm: 'Are you sure?' 
+  confirm: 'Are you sure?'
+  item_updated: "%{name} was successfully updated." 
+  item_created: '%{name} was successfully created.'
   event_type_created: 'Event type was successfully created.' 
   event_type_updated: 'Event type was successfully updated.' 
   event_type_deleted: "Event type %{name} was deleted." 
@@ -262,6 +264,11 @@
   married: 'Married'
   divorced: 'Divorced'
   widower: 'Widower'
+  private: 'Private'
+  commercial: 'Commercial'
+  weak: 'Weak'
+  usual: 'Usual'
+  advanced: 'Advanced'
 
  #START:Active Records   
   activerecord:
@@ -270,7 +277,11 @@
       event_type: 'Event Type'
       person: 'Person'
       person_event_relationship: 'взаимосвязь события и человека'
+      language: 'Language'
+      status: 'Status'
     attributes:
+      language:
+        code: 'Code' 
       event:
         name: 'Name' 
         event_date: 'Event date'  
@@ -283,10 +294,17 @@
         password_confirmation: 'Confirm Password'
         admin: 'Admin'
         gender: 'Gender'
-        status: 'Status'
+        status_id: 'Status'
         phone_mob: 'Mobile Phone'
         id_card_number: 'ID Card Number'
         address: 'Address'
+        phone_additional: 'Home/Work Phone'
+        birth_date: 'Birth Date'
+        family_status: 'Family status'
+        car_owner: 'Car owner'
+        computer_knowledge: 'Computer Knowledge'
+        workplace: 'Place of Work'
+        skills: 'Skills'
 #END:Active Records
 
 #START:event_types
@@ -328,3 +346,25 @@
     edit:
       editing: 'Editing Person Profile'
 #END:people
+
+#START:language
+  languages:
+    name: 'Languages'
+    new:
+      new: 'New Language'
+    index:
+      list: 'List of Language'
+    edit:
+      editing: 'Editing Language'
+#END:language
+
+#START:Statuse
+  statuses_name: 'Statuses'
+  statuses:
+    new:
+      new: 'New Status'
+    index:
+      list: 'List of Statuses'
+    edit:
+      editing: 'Editing Status'
+#END:Statuse

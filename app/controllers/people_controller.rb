@@ -103,7 +103,10 @@ class PeopleController < ApplicationController
       params.require(:person).permit(
       :name, :email, :family_name, :email, :phone_mob, :gender, :status,
       :password, :password_confirmation,
-      :id_card_number, :address, :admin)
+      :id_card_number, :address, :admin,
+      :birth_date, :workplace, :skills,
+      :phone_additional, :computer_knowledge, :family_status,
+      :car_owner, :status_id)
     end
     
     def correct_user

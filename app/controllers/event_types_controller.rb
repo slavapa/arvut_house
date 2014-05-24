@@ -32,7 +32,7 @@ class EventTypesController < ApplicationController
         format.html { 
           flash[:success] = t(:event_type_created) 
           redirect_to edit_event_type_path(@event_type)
-          }
+        }
         format.json { render action: 'show', status: :created, location: @event_type }
       else
         format.html { render action: 'new' }
@@ -49,7 +49,7 @@ class EventTypesController < ApplicationController
         format.html { 
           flash[:success] = t(:event_type_updated) 
           redirect_to edit_event_type_path(@event_type) 
-          }
+        }
           
         format.json { head :no_content }
       else

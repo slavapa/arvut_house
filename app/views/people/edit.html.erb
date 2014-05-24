@@ -31,7 +31,7 @@
 				  	<%= f.select :gender, @person.gender_arr %>	
 				  						
 				  	<%= f.label :status_id %>
-				  	<%= f.text_field :status_id %>	
+				  	<%= f.select :status_id, @person.statuses_array %>	
 				  					
 				  	<%= f.label :phone_mob %>
 				  	<%= f.telephone_field :phone_mob %>
@@ -53,10 +53,10 @@
 							  	<%= f.select :family_status, @person.family_status_arr  %>	
 							  								
 							  	<%= f.label :car_owner %>
-							  	<%= f.text_field :car_owner %>	
+							  	<%= f.select :car_owner, @person.car_owner_arr %>	
 							  								
 							  	<%= f.label :computer_knowledge %>
-				  				<%= f.text_field :computer_knowledge %>				  													
+				  				<%= f.select :computer_knowledge, @person.computer_knowledge_arr %>				  													
 							</td>
 							<td>							
 							  	<%= f.label :workplace %>

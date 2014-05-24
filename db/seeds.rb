@@ -38,8 +38,8 @@ def make_language
 end
 
 def make_statuses
-  Status.create!(id:1, name:'פעיל/ה')
-  Status.create!(id:2, name:'נקלט')
+  Status.create!(name:'פעיל/ה')
+  Status.create!(name:'נקלט')
 end
 
   
