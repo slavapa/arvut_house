@@ -245,7 +245,8 @@
   item_created: '%{name} was successfully created.'
   event_type_created: 'Event type was successfully created.' 
   event_type_updated: 'Event type was successfully updated.' 
-  event_type_deleted: "Event type %{name} was deleted." 
+  event_type_deleted: "Event type %{name} was deleted."
+  item_deleted: "%{module_name} %{name} was deleted."  
   event_created: 'Event was successfully created.' 
   event_updated: 'Event was successfully updated.' 
   event_deleted: "Event %{name} was deleted." 
@@ -255,7 +256,8 @@
   invalid_email_password: 'Invalid email/password combination.'
   not_authorized: 'You are not authorized to perform this action.'  
   cannot_delete_event_type: "%{name} was not deleted as it already in use by events" 
-  delete_event_error: "Cannot delete Event Type as it already in use by events" 
+  delete_event_error: "Cannot delete Event Type as it already in use by events"
+  delete_item_restrict_error: "Cannot delete %{module_name} as it already in use" 
   presence: "%{name} is mandatory"
   existence: "%{name} is not exists"
   male: 'Male'
@@ -280,7 +282,10 @@
       language: 'Language'
       status: 'Status'
     attributes:
+      status:
+        name: 'Name' 
       language:
+        name: 'Name' 
         code: 'Code' 
       event:
         name: 'Name' 

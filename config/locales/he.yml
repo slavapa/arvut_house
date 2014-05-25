@@ -246,6 +246,7 @@
   event_type_created: 'סוג האירוע נוצר בהצלחה' 
   event_type_updated: 'סוג האירוע עודכן בהצלחה' 
   event_type_deleted: "סוג האירוע %{name} נמחק"
+  item_deleted: "%{name} נמחק"  
   event_created: 'האירוע נוצר בהצלחה' 
   event_updated: 'האירוע עודכן בהצלחה' 
   event_deleted: "האירוע %{name} נמחק" 
@@ -256,6 +257,7 @@
   not_authorized: 'אין לך הרשאה לבצע פעולה זו'  
   cannot_delete_event_type: "%{name} לא נמחק מפני שנמצא בשימוש על ידי אירועים"  
   delete_event_error: "לא יכול למחוק רשימה מפני שנמצא בשימוש על ידי אירועים" 
+  delete_item_restrict_error: "%{module_name} לא נמחק מפני שנמצא בשימוש"
   presence: "%{name} הוא חובה"
   existence: "%{name} לא קיים"  
   male: 'זכר'
@@ -280,12 +282,15 @@
       language: 'שפה'
       status: 'סטטוס'
     attributes:
+      status:
+        name: 'שם' 
       language:
+        name: 'שם'  
         code: 'קוד' 
       event:
         name: 'שם'	
       event_type:
-        name: 'שמו של סוג אירועים'
+        name: 'שמ של סוג אירועים'
       person:
         family_name: 'שם משפחה'
         email: 'דוא"ל'

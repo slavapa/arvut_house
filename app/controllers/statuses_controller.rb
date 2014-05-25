@@ -61,10 +61,15 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
-    @status.destroy
-    respond_to do |format|
-      format.html { redirect_to statuses_url }
-      format.json { head :no_content }
+    if @status.destroy
+      flash[:success] = t(:item_deleted, name: @status.name) 
+      respond_to do |format|
+        format.html { redirect_to statuses_url }
+        format.json { head :no_content }
+      end
+    else
+        flash[:error] = t(:delete_item_restrict_error, module_name: t('activerecord.models.status')) 
+        redirect_to edit_status_path(@status)
     end
   end
 

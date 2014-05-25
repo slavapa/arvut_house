@@ -292,6 +292,7 @@
   event_type_created: 'Тип события был успешно создан.' 
   event_type_updated: 'Тип события был успешно обновлен.' 
   event_type_deleted: "Тип события %{name} был удален." 
+  item_deleted: "%{module_name} %{item_name} был удален."  
   event_created: 'Событие было успешно создано.' 
   event_updated: 'Событие было успешно обновлено.' 
   event_deleted: "Событие %{name} было удален."
@@ -302,6 +303,7 @@
   not_authorized: 'Вы не авторизованы для выполнения этого действия.'  
   cannot_delete_event_type: "%{name} не был удален, так это уже используется"
   delete_event_error: "Событие не было удалено, так это уже используется"
+  delete_item_restrict_error: "%{module_name} не был удален, так это уже используется"
   presence: "%{name} является обязательным"
   existence: "%{name} не существует" 
   male: 'Мужской'
@@ -326,7 +328,10 @@
       language: 'Язык'
       status: 'Статус'
     attributes:
+      status:
+        name: 'Имя' 
       language:
+        name: 'Имя' 
         code: 'Код' 
       event:
         name: 'Имя События'	
