@@ -271,6 +271,7 @@
   weak: 'חלש'
   usual: 'רגיל'
   advanced: 'מתקדם'
+  lang_code_val: "הוא לא חוקי. הערכים החוקיים צריכים להיות באותיות קטנות באנגלית עם 2 תווים"
 
  #START:Active Records 
   activerecord:

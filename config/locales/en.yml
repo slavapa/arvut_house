@@ -271,6 +271,7 @@
   weak: 'Weak'
   usual: 'Usual'
   advanced: 'Advanced'
+  lang_code_val: "is not a valid. The valid values should be in english lowercase with 2 characters"
 
  #START:Active Records   
   activerecord:
