@@ -35,6 +35,8 @@ def make_language
   Language.create!(name:'אנגלית', code:'en')
   Language.create!(name:'רוסית', code:'ru')
   Language.create!(name:'עברית', code:'he')
+  Language.create!(name:'צרפתית', code:'fr')
+  Language.create!(name:'ספרדית', code:'es')
 end
 
 def make_statuses
@@ -98,6 +100,22 @@ def populate_people_by_sql_file
   # @connection.execute(sql)
 end
 
+def populate_person_languages_by_sql_file
+  files_arr = ['db/person_languages_eng.sql', 'db/person_languages_fr_es.sql', 
+                'db/person_languages_heb.sql', 'db/person_languages_russion.sql'] 
+                
+  files_arr.each do |file_name|              
+    sql = File.read(file_name)    
+    statements = sql.split(/;$/)
+     
+    ActiveRecord::Base.transaction do
+      statements.each do |statement|
+        @connection.execute(statement)
+      end
+    end    
+  end  
+end
+
 
 make_statuses
 make_language
@@ -105,5 +123,6 @@ make_event_types
 make_users
 make_events
 populate_people_by_sql_file
+populate_person_languages_by_sql_file
  
 
