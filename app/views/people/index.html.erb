@@ -1,6 +1,9 @@
 <%= render partial: 'shared/header_index', 
 	locals:{ title: t('.list'),  path:new_person_path} %>
 
+<%= render partial: 'person_search', 
+	locals:{ search: @search} %>	
+
 <%= will_paginate %>
 <table class='table-bordered tabletable-hover table-index'>
   <thead>

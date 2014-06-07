@@ -362,12 +362,25 @@ btn-holder-last{
     color:#3366FF    
   }  
 }
-form{
-  
-}
+
+
 input, input[type="password"], input[type="text"], input[type="date"]{
   width:238px;
   height: 30px !important;  
 }
 
+input[type="search"]{
+  width:100px;
+  height: 20px !important;  
+}
 
+.search_span{
+  float: none;
+  display: inline-block;
+  
+  input[type="submit"]{
+    width:70px;
+    margin-bottom: 10px; 
+  }
+  
+}  

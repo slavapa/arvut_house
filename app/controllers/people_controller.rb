@@ -17,7 +17,9 @@ class PeopleController < ApplicationController
   # end
   
   def index
-    @people = Person.paginate(page: params[:page]).order("name, family_name ASC")
+    @search = PersonSearch.new params[:f], params[:page]
+    #@people = Person.paginate(page: params[:page]).order("name, family_name ASC")
+    @people = @search.results
   end
 
   # GET /people/1
