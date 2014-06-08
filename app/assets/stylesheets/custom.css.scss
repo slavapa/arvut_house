@@ -370,7 +370,6 @@ input, input[type="password"], input[type="text"], input[type="date"]{
 }
 
 input[type="search"]{
-  width:100px;
   height: 20px !important;  
 }
 
@@ -385,6 +384,12 @@ input[type="search"]{
   
 } 
 
-.select-short{
-  width:5em;
+.search_field{
+  width:100px;
 } 
+
+.search_result{
+  color: #0064cd;
+  padding-left: 0.5em;
+  font-size: 15px;
+}

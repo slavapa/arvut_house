@@ -3,3 +3,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+function reset_search_elements(){
+	$('.search_field').val('');
+}
