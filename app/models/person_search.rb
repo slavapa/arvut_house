@@ -8,7 +8,9 @@ class PersonSearch
   
   sort_by :name, :family_name, :gender, :status
   
-  option :person_id
+  option :person_id  
+  option :gender 
+  option :status_id
   
   option :name do |scope, value|
     scope.where 'name LIKE ?', escape_search_term(value)
@@ -17,6 +19,7 @@ class PersonSearch
   option :family_name do |scope, value|
     scope.where 'family_name LIKE ?', escape_search_term(value)
   end
+  
   
   private
   

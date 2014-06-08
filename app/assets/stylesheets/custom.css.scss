@@ -378,9 +378,13 @@ input[type="search"]{
   float: none;
   display: inline-block;
   
-  input[type="submit"]{
+  input[type="submit"], input[type="button"]{
     width:70px;
     margin-bottom: 10px; 
   }
   
-}  
+} 
+
+.select-short{
+  width:5em;
+} 

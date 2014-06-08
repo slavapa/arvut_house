@@ -8,8 +8,19 @@
   	  <%= search_form.label :family_name, t('activerecord.attributes.person.family_name') %>
 	  <%= search_form.search_field :family_name, placeholder: t('activerecord.attributes.person.family_name') %> 		
   	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :gender, t('activerecord.attributes.person.gender') %>
+	  	<%= search_form.select :gender, Person.gender_arr %>	
+  	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :status_id, t('activerecord.attributes.person.status_id') %>
+	  	<%= search_form.select :status_id, Status.all.map { |stat| [stat.name, stat.id] }, include_blank: true %>	
+  	</span>
   	<span class='search_span'>
 	  <%= search_form.submit t(:search)%>  		
   	</span>
+  	<!-- <span class='search_span'>
+	  <%= button_to_function t(:clear), "return false" %>  		
+  	</span> -->
   <% end %>
 <% end %>	

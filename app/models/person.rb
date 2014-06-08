@@ -26,6 +26,9 @@ class Person < ActiveRecord::Base
   validates_confirmation_of :password, if: lambda { |p| p.password.present? }
   # default_scope -> { order('name, family_name ASC') }
     
+  def self.gender_arr
+    @gender_arr = [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
+  end    
   def gender_arr
     @gender_arr = [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
   end

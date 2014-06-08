@@ -227,6 +227,7 @@
   account: 'Account'
   sign_out: 'Sign out'
   search: 'Search'
+  clear: 'Clear'
   new: 'New'
   name: 'Name'
   show: 'Show'
