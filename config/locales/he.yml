@@ -276,6 +276,9 @@
   lang_code_val: "הוא לא חוקי. הערכים החוקיים צריכים להיות באותיות קטנות באנגלית עם 2 תווים"
   tot_rows: 'סה"כ שורות'
   page: 'עמוד'
+  sort_by: 'מיין לפי'
+  a-z: 'A-z'
+  z-a: 'z-A'
 
  #START:Active Records 
   activerecord:

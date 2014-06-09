@@ -277,6 +277,9 @@
   lang_code_val: "is not a valid. The valid values should be in english lowercase with 2 characters"
   tot_rows: 'Total Rows'
   page: 'Page'
+  sort_by: 'Sort By'
+  a-z: 'A-z'
+  z-a: 'z-A'
 
  #START:Active Records   
   activerecord:

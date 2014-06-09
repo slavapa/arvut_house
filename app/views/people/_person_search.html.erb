@@ -18,6 +18,11 @@
 	  	<%= search_form.select :status_id, Status.all.map { |stat| [stat.name, stat.id] }, {include_blank: true}, 
 	  		{ class: 'search_field' } %>	
   	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
+	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: true},
+	  		{ class: 'search_field long' } %>		
+  	</span>
   	<!-- <span class='search_span'>
 	  <%= search_form.submit t(:search), id:'sf_btn_search'%>  		
   	</span>
