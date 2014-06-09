@@ -277,8 +277,8 @@
   tot_rows: 'סה"כ שורות'
   page: 'עמוד'
   sort_by: 'מיין לפי'
-  a-z: 'A-z'
-  z-a: 'z-A'
+  a-z: 'א-ת'
+  z-a: 'ת-א'
 
  #START:Active Records 
   activerecord:

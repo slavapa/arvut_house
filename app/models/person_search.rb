@@ -23,12 +23,18 @@ class PersonSearch
   
     
   def sort_params_arr
-    [[I18n.t(:name), 'name asc'], 
-      [I18n.t('activerecord.attributes.person.family_name'), 'family_name asc'],
-      [I18n.t('activerecord.attributes.person.gender'), 'gender asc'], 
-      [I18n.t('activerecord.attributes.person.status_id'), 'status_id asc']]     
+    [
+      ["#{I18n.t(:name)} #{I18n.t('a-z')}", 'name asc'],  
+      ["#{I18n.t(:name)} #{I18n.t('z-a')}", 'name desc'],
+      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('a-z')}", 'family_name asc'],
+      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('z-a')}", 'family_name desc']      
+    ]     
   end 
-    
+  
+  def initialize(filters = {}, page = 1)
+    filters['sort'] = 'name asc' unless filters.has_key?('sort') 
+    super filters, page
+  end  
   
   private
   

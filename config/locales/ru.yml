@@ -323,8 +323,8 @@
   tot_rows: 'Всего строк'
   page: 'Страница'
   sort_by: 'Сортировка по'
-  a-z: 'A-z'
-  z-a: 'z-A'
+  a-z: 'А-я'
+  z-a: 'я-А'
 
  #START:Active Records   
   activerecord:
