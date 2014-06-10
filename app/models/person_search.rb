@@ -20,6 +20,10 @@ class PersonSearch
   option :family_name do |scope, value|
     scope.where 'family_name LIKE ?', escape_search_term(value)
   end
+    
+  option :phone_mob do |scope, value|
+    scope.where 'phone_mob LIKE ?', escape_search_term(value)
+  end
   
     
   def sort_params_arr
@@ -32,6 +36,7 @@ class PersonSearch
   end 
   
   def initialize(filters = {}, page = 1)
+    filters = Hash.new if filters.nil?
     filters['sort'] = 'name asc' unless filters.has_key?('sort') 
     super filters, page
   end  

@@ -24,27 +24,57 @@ class Person < ActiveRecord::Base
   has_secure_password validations: false
   validates :password, length: { minimum: 6 }, if: lambda { |p| p.password.present? }
   validates_confirmation_of :password, if: lambda { |p| p.password.present? }
-  # default_scope -> { order('name, family_name ASC') }
+    
+  def statuses_array
+    Person.statuses_array 
+  end   
+  def self.statuses_array
+    @@statuses_array ||= Status.all.map { |stat| [stat.name, stat.id] }.unshift(['', nil])
+  end   
+  def status_name
+    statuses_array[status_id][0] unless status_id.nil? 
+  end 
     
   def self.gender_arr
-    @gender_arr = [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
+    @@gender_arr ||= [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
   end    
   def gender_arr
-    @gender_arr = [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
+    Person.gender_arr     
+  end  
+  def gender_name    
+      gender_arr[gender][0] unless gender.nil?
   end
     
-  def family_status_arr
-    @family_status_arr = [['', nil], [I18n.t(:single), 1], [I18n.t(:married), 2],
+  def self.family_status_arr
+    @@family_status_arr = [['', nil], [I18n.t(:single), 1], [I18n.t(:married), 2],
                             [I18n.t(:divorced), 3], [I18n.t(:widower), 4]]     
+  end   
+  def family_status_arr
+    Person.family_status_arr  
+  end  
+  def family_status_name
+    family_status_arr[family_status][0] unless family_status.nil?  
   end
     
+  def self.car_owner_arr
+    @@car_owner_arr = [['', nil], [I18n.t(:private), 1], [I18n.t(:commercial), 2]]     
+  end  
   def car_owner_arr
-    @car_owner_arr = [['', nil], [I18n.t(:private), 1], [I18n.t(:commercial), 2]]     
+    Person.car_owner_arr     
+  end  
+  def car_owner_name
+    car_owner_arr[car_owner][0] unless car_owner.nil?    
   end
     
-  def computer_knowledge_arr
-    @computer_knowledge = [['', nil], [I18n.t(:weak), 1], [I18n.t(:usual), 2], 
+  def self.computer_knowledge_arr
+    @@computer_knowledge_arr = [['', nil], [I18n.t(:weak), 1], [I18n.t(:usual), 2], 
                             [I18n.t(:advanced), 3]]     
+  end   
+  def computer_knowledge_arr
+    Person.computer_knowledge_arr
+  end  
+  def computer_knowledge_name
+    computer_knowledge_arr[computer_knowledge][0] unless computer_knowledge.nil? 
   end
   
   def Person.new_remember_token
@@ -55,10 +85,6 @@ class Person < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
   
-  def statuses_array
-    @statuses_array ||= 
-      Status.all.map { |stat| [stat.name, stat.id] }.unshift(['', nil])
-  end  
     
 private
 # http://stackoverflow.com/questions/7202319/rails-force-empty-string-to-null-in-the-database

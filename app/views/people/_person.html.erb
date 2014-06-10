@@ -1,5 +1,5 @@
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-	<td class='td_left '>
+	<td class='td_left' style='width: 32px'>
 		<% if person.email.present?%>
 			<%= gravatar_for person, size: 32 %>
 		<% end %>				
@@ -11,12 +11,24 @@
 		<%= person.family_name %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= person.status_id %>		
+		<%= person.gender_name %>		
+	</td>
+	<td class='td_holder medium-size-td'>
+		<%= person.status_name %>		
 	</td>
 	<td class='td_holder mm-size-td'>
 		<%= person.email %>		
 	</td>
 	<td class='td_holder mm-size-td'>
 		<%= person.phone_mob %>		
+	</td>
+	<td class='td_holder medium-size-td'>
+		<%= person.family_status_name %>		
+	</td>
+	<td class='td_holder medium-size-td'>
+		<%= person.car_owner_name %>		
+	</td>
+	<td class='td_holder medium-size-td'>
+		<%= person.computer_knowledge_name %>		
 	</td>
 </tr>
