@@ -8,10 +8,10 @@
   	  <%= search_form.label :family_name, t('activerecord.attributes.person.family_name') %>
 	  <%= search_form.search_field :family_name, class:'search_field' %> 		
   	</span>
-  	<!-- <span class='search_span'> 	  
+  	<span class='search_span'> 	  
   	  <%= search_form.label :phone_mob, t('activerecord.attributes.person.phone_mob') %>
 	  <%= search_form.search_field :phone_mob, class:'search_field' %> 		
-  	</span> -->
+  	</span>
   	<span class='search_span'>  												
 	  	<%= search_form.label :gender, t('activerecord.attributes.person.gender') %>
 	  	<%= search_form.select :gender, Person.gender_arr, {}, 
@@ -20,6 +20,16 @@
   	<span class='search_span'>  												
 	  	<%= search_form.label :status_id, t('activerecord.attributes.person.status_id') %>
 	  	<%= search_form.select :status_id, Status.all.map { |stat| [stat.name, stat.id] }, {include_blank: true}, 
+	  		{ class: 'search_field' } %>	
+  	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :family_status, t('activerecord.attributes.person.family_status') %>
+	  	<%= search_form.select :family_status, Person.family_status_arr, {}, 
+	  		{ class: 'search_field' } %>	
+  	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :computer_knowledge, t('activerecord.attributes.person.computer_knowledge') %>
+	  	<%= search_form.select :computer_knowledge, Person.computer_knowledge_arr, {}, 
 	  		{ class: 'search_field' } %>	
   	</span>
   	<span class='search_span'>  												

@@ -280,6 +280,8 @@
   sort_by: 'Sort By'
   a-z: 'A-z'
   z-a: 'z-A'
+  date_before: 'Date Before'
+  date_after: 'Date After'
 
  #START:Active Records   
   activerecord:

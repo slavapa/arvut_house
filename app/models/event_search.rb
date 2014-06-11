@@ -1,30 +1,28 @@
 # encoding: utf-8
-class PersonSearch
+class EventSearch
   include SearchObject.module(:model, :sorting, :will_paginate)
   
-  #scope { Person.all.order("name, family_name ASC") }
-  scope { Person.all }
+  scope { Event.all }
   
   per_page 30
   
-  sort_by :name, :family_name, :gender, :status_id
+  sort_by :event_type_id, :event_date, :description
   
-  option :person_id  
-  option :gender 
-  option :status_id
-  option :family_status
-  option :computer_knowledge
+  option :event_type_id
   
-  option :name do |scope, value|
-    scope.where 'name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  
+  option :event_date_after do |scope, value|
+    date = parse_date value
+    scope.where('DATE(event_date) >= ?', date) if date.present?
+  end
+
+  option :event_date_before do |scope, value|
+    date = parse_date value
+    scope.where('DATE(event_date) <= ?', date) if date.present?
   end
   
-  option :family_name do |scope, value|
-    scope.where 'family_name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
-  end
-    
-  option :phone_mob do |scope, value|
-    scope.where 'phone_mob LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  option :description do |scope, value|
+    scope.where 'description LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
   end
   
     
@@ -38,12 +36,14 @@ class PersonSearch
   end 
   
   def initialize(filters = {}, page = 1)
-    filters = Hash.new if filters.nil?
-    filters['sort'] = 'name asc' unless filters.has_key?('sort') 
     super filters, page
   end  
   
   private
+  
+  def parse_date(date)
+    Date.strptime(date, '%Y-%m-%d') rescue nil
+  end
   
   def is_not_nil_empty?(value)
     !value.nil? && !value.empty? && value.strip.length > 0

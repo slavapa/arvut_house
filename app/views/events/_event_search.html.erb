@@ -1,0 +1,21 @@
+<%= form_for search, as: :f, method: :get, url: events_path, html: {id: 'search-form'} do |search_form| %>
+  <% field_set_tag do %>
+  	<span class='search_span'>
+	  <%= search_form.label :event_date_after, t(:date_after) %>
+	  <%= search_form.date_field :event_date_after, class:'search_field' %>  		
+  	</span>
+  	<span class='search_span'>
+	  <%= search_form.label :event_date_before, t(:date_before) %>
+	  <%= search_form.date_field :event_date_before, class:'search_field' %>  		
+  	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :event_type_id, t('activerecord.attributes.event.event_type_id') %>
+	  	<%= search_form.select :event_type_id, EventType.all.map { |et| [et.name, et.id] }, {include_blank: true}, 
+	  		{ class: 'search_field' } %>	
+  	</span>
+  	<span class='search_span'> 	  
+  	  <%= search_form.label :description, t('activerecord.attributes.event.description') %>
+	  <%= search_form.search_field :description, class:'search_field' %> 		
+  	</span>
+  <% end %>
+<% end %>	

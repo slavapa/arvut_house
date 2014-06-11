@@ -279,6 +279,8 @@
   sort_by: 'מיין לפי'
   a-z: 'א-ת'
   z-a: 'ת-א'
+  date_before: 'תאריך לפני'
+  date_after: 'תאריך לאחר'
 
  #START:Active Records 
   activerecord:

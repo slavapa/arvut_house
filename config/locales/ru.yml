@@ -325,6 +325,8 @@
   sort_by: 'Сортировка по'
   a-z: 'А-я'
   z-a: 'я-А'
+  date_before: 'Дата Перед'
+  date_after: 'Дата После'
 
  #START:Active Records   
   activerecord:
