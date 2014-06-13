@@ -36,7 +36,7 @@ class Person < ActiveRecord::Base
   end 
     
   def self.gender_arr
-    @@gender_arr ||= [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
+    [['', nil], [I18n.t(:male), 1], [I18n.t(:female), 2]]     
   end    
   def gender_arr
     Person.gender_arr     
@@ -46,7 +46,7 @@ class Person < ActiveRecord::Base
   end
     
   def self.family_status_arr
-    @@family_status_arr = [['', nil], [I18n.t(:single), 1], [I18n.t(:married), 2],
+    [['', nil], [I18n.t(:single), 1], [I18n.t(:married), 2],
                             [I18n.t(:divorced), 3], [I18n.t(:widower), 4]]     
   end   
   def family_status_arr
@@ -57,7 +57,7 @@ class Person < ActiveRecord::Base
   end
     
   def self.car_owner_arr
-    @@car_owner_arr = [['', nil], [I18n.t(:private), 1], [I18n.t(:commercial), 2]]     
+    [['', nil], [I18n.t(:private), 1], [I18n.t(:commercial), 2]]     
   end  
   def car_owner_arr
     Person.car_owner_arr     

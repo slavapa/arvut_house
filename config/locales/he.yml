@@ -281,6 +281,8 @@
   z-a: 'ת-א'
   date_before: 'תאריך לפני'
   date_after: 'תאריך לאחר'
+  asc: 'עולה'
+  desc: 'יורד'
 
  #START:Active Records 
   activerecord:
@@ -298,7 +300,8 @@
         name: 'שם'  
         code: 'קוד' 
       event:
-        name: 'שם'	
+        name: 'שם'
+        event_date: 'תאריך אירוע'  	
       event_type:
         name: 'שמ של סוג אירועים'
       person:

@@ -11,11 +11,16 @@
   	<span class='search_span'>  												
 	  	<%= search_form.label :event_type_id, t('activerecord.attributes.event.event_type_id') %>
 	  	<%= search_form.select :event_type_id, EventType.all.map { |et| [et.name, et.id] }, {include_blank: true}, 
-	  		{ class: 'search_field' } %>	
+	  		{ class: 'search_field long_search_select' } %>	
   	</span>
   	<span class='search_span'> 	  
   	  <%= search_form.label :description, t('activerecord.attributes.event.description') %>
-	  <%= search_form.search_field :description, class:'search_field' %> 		
+	  <%= search_form.search_field :description, class:'search_field long_search_input' %> 		
+  	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
+	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
+	  		{ class: 'search_field long_search_select' } %>		
   	</span>
   <% end %>
 <% end %>	

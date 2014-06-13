@@ -327,6 +327,8 @@
   z-a: 'я-А'
   date_before: 'Дата Перед'
   date_after: 'Дата После'
+  asc: 'Возр.'
+  desc: 'Убыв.'
 
  #START:Active Records   
   activerecord:

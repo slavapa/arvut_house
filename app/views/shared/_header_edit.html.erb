@@ -8,7 +8,12 @@
 	<%= link_to t(:delete), cur_item, method: :delete, class: "link_header btn btn-small", 
 	        id: "delete_link_header", data: { confirm: t(:confirm) } %>
 	<%= link_to t(:save), '#', class:"link_header btn btn-small", 
-			id: "save_link_header"  %> 	 	
+			id: "save_link_header"  %> 
+	
+	<% if (defined? search) %>		
+		<%= render partial: 'shared/search_header', 
+			locals:{ search: search} %>	 
+	<% end %>	
 </h1>
 
 <script type="text/javascript">

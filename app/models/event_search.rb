@@ -28,14 +28,14 @@ class EventSearch
     
   def sort_params_arr
     [
-      ["#{I18n.t(:name)} #{I18n.t('a-z')}", 'name asc'],  
-      ["#{I18n.t(:name)} #{I18n.t('z-a')}", 'name desc'],
-      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('a-z')}", 'family_name asc'],
-      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('z-a')}", 'family_name desc']      
+      ["#{I18n.t('activerecord.attributes.event.event_date')} #{I18n.t('asc')}", 'event_date asc'],
+      ["#{I18n.t('activerecord.attributes.event.event_date')} #{I18n.t('desc')}", 'event_date desc']      
     ]     
   end 
   
   def initialize(filters = {}, page = 1)
+    filters = Hash.new if filters.nil?
+    filters['sort'] = 'event_date desc' unless filters.has_key?('sort') 
     super filters, page
   end  
   

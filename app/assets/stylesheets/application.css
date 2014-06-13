@@ -12,3 +12,8 @@
  *= require_tree .
  */
 
+input[type="date"].search_field{
+	 width:160px;  
+}
+
+

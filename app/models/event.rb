@@ -5,11 +5,10 @@ class Event < ActiveRecord::Base
   has_many :people, through: :person_event_relationships
   validates :event_date, presence: true, 
     uniqueness: { case_sensitive: false, scope: :event_type_id }
-  default_scope -> { order('event_date DESC, event_type_id ASC') }
+  #default_scope -> { order('event_date DESC, event_type_id ASC') }
   validates :event_type_id, presence: true
   validate :event_type_id_must_exists  
   after_initialize :default_values
-  # default_scope -> { order('name, family_name ASC') }
   validates :description, length: { maximum: 255 }
   
   def default_values(attributes = {}, options = {})
