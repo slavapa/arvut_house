@@ -2,11 +2,13 @@
   <% field_set_tag do %>
   	<span class='search_span'>
 	  <%= search_form.label :event_date_after, t(:date_after) %>
-	  <%= search_form.date_field :event_date_after, class:'search_field' %>  		
+	  <%= date_field_tag('event_date_after', search.event_date_after, 
+	  					{name:'f[event_date_after]', id:'f_event_date_after', class:'search_field'})%>  
   	</span>
   	<span class='search_span'>
 	  <%= search_form.label :event_date_before, t(:date_before) %>
-	  <%= search_form.date_field :event_date_before, class:'search_field' %>  		
+	  <%= date_field_tag('event_date_before', search.event_date_before, 
+	  					{name:'f[event_date_before]' , id:'event_date_before', class:'search_field'})%>  		
   	</span>
   	<span class='search_span'>  												
 	  	<%= search_form.label :event_type_id, t('activerecord.attributes.event.event_type_id') %>
