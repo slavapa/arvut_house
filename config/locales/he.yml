@@ -301,7 +301,9 @@
         code: 'קוד' 
       event:
         name: 'שם'
-        event_date: 'תאריך אירוע'  	
+        event_date: 'תאריך אירוע'  
+        event_type_id: 'סוג האירוע' 
+        description: 'תיאור' 	
       event_type:
         name: 'שמ של סוג אירועים'
       person:

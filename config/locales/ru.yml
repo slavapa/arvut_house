@@ -348,6 +348,8 @@
       event:
         name: 'Имя События'	
         event_date: 'Дата События'	
+        event_type_id: 'Тип события' 
+        description: 'Описание' 
       event_type:
         name: 'Имя Типа События'
       person:

@@ -16,4 +16,12 @@ input[type="date"].search_field{
 	 width:160px;  
 }
 
+a.link_header{
+	letter-spacing: 1px;
+}
+
+.search_result{
+	letter-spacing: normal;
+}
+
 

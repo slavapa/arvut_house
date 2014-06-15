@@ -302,7 +302,9 @@
         code: 'Code' 
       event:
         name: 'Name' 
-        event_date: 'Event date'  
+        event_date: 'Event date' 
+        event_type_id: 'Event Type'
+        description: 'Description' 
       event_type:
         name: 'Name'
       person:
