@@ -1,1 +1,44 @@
-This is the aplication for Arvut House managemen.
+This is the aplication for Arvut House management.
+
+Installation:
+1.Install PostgreSQL : 
+	Download PostgreSQL : http://www.enterprisedb.com/products-services-training/pgdownload#windows.
+	Pay Attention that during installation you will be promoted to insert Username (by default this name is postgres) and password. 
+	You can overwrite this but also change these settings in a ...config/database.yml file.
+2.	Install Ruby on Rails:  http://railsinstaller.org/en.
+3.Install Arvut House Application by command line:
+	Go to root website directory: For Example if root site located in C/ Sites: cd /C/ Sites/ : 
+	Run: git clone git://github.com/slavapa/arvut_house.git.
+4.Go to arvut_house directory:  cd /d/Sites/arvut_house or cd arvut_house.
+5.Config /d/Sites/arvut_house/config/database.yml file. 
+	database.yml for Example (Change username and password.):
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: arvut_house_dev
+  pool: 5
+  username: postgres
+  password: password_value
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: arvut_house_test
+  pool: 5
+  username: postgres
+  password: password_value
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: arvut_house
+  pool: 5
+  username: postgres
+  password: password_value
+
+6.Run: bundle install.
+7.Run: rake db:create (or db:reset).
+8.Run: rake db:migrate.
+9.Run: rake db:seed.
+ 
+You can locally test the application by running:  rails server
+Open browser  by : http://127.0.0.1:3000/
+
