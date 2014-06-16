@@ -8,6 +8,9 @@
 	      <li><%= link_to t('about_us'),   about_path %></li>
 	      <li><%= link_to t('contact_us'), contact_us_path %></li>
           <% if admin_user? %>
+          	<li><%= link_to t('people.index.list'), people_path %></li>
+          	<li><%= link_to t('events.index.list'), events_path %></li>
+          	<li><%= link_to t('events.new.new'), new_event_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= t('actions')%> <b class="caret"></b>
