@@ -30,7 +30,10 @@ class Person < ActiveRecord::Base
   end   
   def self.statuses_array
     @@statuses_array ||= Status.all.map { |stat| [stat.name, stat.id] }.unshift(['', nil])
-  end   
+  end 
+  def self.reset_status_array
+    @@statuses_array = nil
+  end  
   def status_name
     statuses_array[status_id][0] unless status_id.nil? 
   end 
