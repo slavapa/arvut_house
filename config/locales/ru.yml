@@ -329,6 +329,9 @@
   date_after: 'Дата После'
   asc: 'Возр.'
   desc: 'Убыв.'
+  "yes": 'Да'
+  "no": 'Нет'
+
 
  #START:Active Records   
   activerecord:

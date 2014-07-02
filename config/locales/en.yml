@@ -284,6 +284,9 @@
   date_after: 'After Date'
   asc: 'Asc'
   desc: 'Desc'
+  "yes": 'Yes'
+  "no": 'No'
+
 
  #START:Active Records   
   activerecord:

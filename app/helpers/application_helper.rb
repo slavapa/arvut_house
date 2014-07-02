@@ -8,4 +8,8 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+  
+  def self.yes_no_arr
+    [['', nil], [I18n.t('yes'), 1], [I18n.t('no'), 2]]
+  end
 end

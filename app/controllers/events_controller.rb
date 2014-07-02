@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     store_current_event_id(@event.id)
-    @search = PersonSearch.new params[:f], params[:page]
+    @search = PersonSearch.new params[:f], params[:page], {event_id: @event.id}
     @people = @search.results
   end
 

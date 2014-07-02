@@ -26,6 +26,22 @@ class PersonSearch
   option :phone_mob do |scope, value|
     scope.where 'phone_mob LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
   end
+    
+  option :is_present do |scope, value|
+    unless @atributes[:event_id].nil?
+      if value == '1'
+        sql = "(exists (select 'x' from person_event_relationships
+                where people.id=person_event_relationships.person_id 
+                and person_event_relationships.event_id=#{@atributes[:event_id]}))"
+        scope.where sql
+      elsif value == '2'
+        sql = "(not exists (select 'x' from person_event_relationships
+                where people.id=person_event_relationships.person_id 
+                and person_event_relationships.event_id=#{@atributes[:event_id]}))"
+        scope.where sql
+      end
+    end
+  end
   
     
   def sort_params_arr
@@ -37,7 +53,8 @@ class PersonSearch
     ]     
   end 
   
-  def initialize(filters = {}, page = 1)
+  def initialize(filters = {}, page = 1, atributes = {})
+    @atributes = atributes
     filters = Hash.new if filters.nil?
     filters['sort'] = 'name asc' unless filters.has_key?('sort') 
     super filters, page

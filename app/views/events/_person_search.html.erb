@@ -33,15 +33,14 @@
 	  		{ class: 'search_field' } %>	
   	</span>
   	<span class='search_span'>  												
+	  	<%= search_form.label :is_present, t('events.edit.present') %>
+	  	<%= search_form.select :is_present, ApplicationHelper.yes_no_arr, {}, 
+	  		{ class: 'search_field' } %>	
+  	</span>
+  	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
 	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
 	  		{ class: 'search_field long_search_select' } %>		
   	</span>
-  	<!-- <span class='search_span'>
-	  <%= search_form.submit t(:search), id:'sf_btn_search'%>  		
-  	</span>
-  	<span class='search_span'>
-	  <%= button_to_function t(:clear), "reset_search_elements()", id:'sf_btn_clear' %>  		
-  	</span> -->
   <% end %>
 <% end %>	

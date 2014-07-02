@@ -283,6 +283,9 @@
   date_after: 'תאריך לאחר'
   asc: 'עולה'
   desc: 'יורד'
+  "yes": 'כן'
+  "no": 'לא'
+
 
  #START:Active Records 
   activerecord:
