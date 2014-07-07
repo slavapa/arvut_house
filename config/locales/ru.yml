@@ -331,6 +331,8 @@
   desc: 'Убыв.'
   "yes": 'Да'
   "no": 'Нет'
+  up: 'Вверх'
+  down: 'Вниз'
 
 
  #START:Active Records   

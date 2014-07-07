@@ -285,6 +285,8 @@
   desc: 'יורד'
   "yes": 'כן'
   "no": 'לא'
+  up: 'למעלה'
+  down: 'למטה'
 
 
  #START:Active Records 

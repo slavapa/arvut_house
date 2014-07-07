@@ -24,7 +24,14 @@ class Person < ActiveRecord::Base
   has_secure_password validations: false
   validates :password, length: { minimum: 6 }, if: lambda { |p| p.password.present? }
   validates_confirmation_of :password, if: lambda { |p| p.password.present? }
-    
+  
+  
+  scope :person_left_outer_event, lambda { |event_id|
+    joins("left outer join person_event_relationships 
+            on people.id=person_event_relationships.person_id 
+            and person_event_relationships.event_id = #{event_id}")
+  }
+      
   def statuses_array
     Person.statuses_array 
   end   

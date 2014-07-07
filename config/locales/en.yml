@@ -286,6 +286,8 @@
   desc: 'Desc'
   "yes": 'Yes'
   "no": 'No'
+  up: 'Up'
+  down: 'Down'
 
 
  #START:Active Records   
