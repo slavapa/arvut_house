@@ -299,6 +299,7 @@
       person_event_relationship: 'взаимосвязь события и человека'
       language: 'Language'
       status: 'Status'
+      role: 'Role'
     attributes:
       status:
         name: 'Name' 
@@ -393,3 +394,14 @@
     edit:
       editing: 'Editing Status'
 #END:Statuse
+
+#START:Roles
+  roles_name: 'Roles'
+  roles:
+    new:
+      new: 'New Role'
+    index:
+      list: 'List of Roles'
+    edit:
+      editing: 'Editing Role'
+#END:Roles

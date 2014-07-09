@@ -298,6 +298,7 @@
       person_event_relationship: 'קשר אירוע אדם'
       language: 'שפה'
       status: 'סטטוס'
+      role: 'תפקיד'
     attributes:
       status:
         name: 'שם' 
@@ -392,3 +393,14 @@
     edit:
       editing: 'עריכת סטטוס'
 #END:status
+
+#START:Roles
+  roles_name: 'תפקידים'
+  roles:
+    new:
+      new: 'תפקיד חדש'
+    index:
+      list: 'רשימת תפקידים'
+    edit:
+      editing: 'עריכת  תפקיד'
+#END:Roles

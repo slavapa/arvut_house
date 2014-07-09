@@ -1,0 +1,5 @@
+<%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
+	new_path: new_role_path, cur_item: @role, 
+	index_path_name: t('roles.index.list'), index_path: roles_path} %>
+
+<%= render 'form' %>

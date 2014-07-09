@@ -14,6 +14,8 @@ class Person < ActiveRecord::Base
   belongs_to :status
   has_many :languages, through: :person_languages
   has_many :person_languages, dependent: :destroy
+  has_many :roles, through: :person_roles
+  has_many :person_roles, dependent: :destroy
   has_many :person_event_relationships, dependent: :destroy
   has_many :events, through: :person_event_relationships 
   has_many :event_types, through: :events

@@ -1,0 +1,14 @@
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path:new_role_path} %>
+
+<table class='table-bordered table-index'>
+  <thead>
+    <tr>
+      <th class='td_holder long-long-size-td module-link'><%=t(:name) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<%= render @roles %>
+  </tbody>
+</table>

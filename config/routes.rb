@@ -20,6 +20,7 @@ ArvutHouse::Application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     resources :languages
     resources :statuses
+    resources :roles
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

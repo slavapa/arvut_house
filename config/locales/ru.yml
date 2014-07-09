@@ -344,6 +344,7 @@
       person_event_relationship: 'взаимосвязь события и человека'
       language: 'Язык'
       status: 'Статус'
+      role: 'Должность'
     attributes:
       status:
         name: 'Имя' 
@@ -438,3 +439,14 @@
     edit:
       editing: 'Редактирование Статуса'
 #END:status
+
+#START:Roles
+  roles_name: 'Должности'
+  roles:
+    new:
+      new: 'Новая Должность'
+    index:
+      list: 'Список Должностей'
+    edit:
+      editing: 'Редактирование Должности'
+#END:Roles
