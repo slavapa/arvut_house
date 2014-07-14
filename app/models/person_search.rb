@@ -26,6 +26,10 @@ class PersonSearch
   option :phone_mob do |scope, value|
     scope.where 'phone_mob LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
   end
+  
+  option :area do |scope, value|
+    scope.where 'area LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end
     
   option :is_present do |scope, value|
     unless @atributes[:event_id].nil?
@@ -49,7 +53,9 @@ class PersonSearch
       ["#{I18n.t(:name)} #{I18n.t('a-z')}", 'name asc'],  
       ["#{I18n.t(:name)} #{I18n.t('z-a')}", 'name desc'],
       ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('a-z')}", 'family_name asc'],
-      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('z-a')}", 'family_name desc']      
+      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('z-a')}", 'family_name desc'] ,
+      ["#{I18n.t('activerecord.attributes.person.area')} #{I18n.t('a-z')}", 'area asc'],
+      ["#{I18n.t('activerecord.attributes.person.area')} #{I18n.t('z-a')}", 'area desc']     
     ]     
   end 
   

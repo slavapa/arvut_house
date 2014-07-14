@@ -330,6 +330,7 @@
         computer_knowledge: 'שליטה במחשב'
         workplace: 'מקום עבודה'
         skills: 'כישורים'
+        area: 'אזור'
 #END:Active Records
 
 #START:event_types 

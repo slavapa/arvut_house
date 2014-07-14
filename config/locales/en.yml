@@ -331,6 +331,7 @@
         computer_knowledge: 'Computer Knowledge'
         workplace: 'Place of Work'
         skills: 'Skills'
+        area: 'Area'
 #END:Active Records
 
 #START:event_types

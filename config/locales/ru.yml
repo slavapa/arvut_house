@@ -376,6 +376,7 @@
         computer_knowledge: 'Знание компьютера'
         workplace: 'Место работы'
         skills: 'Навыки'
+        area: 'Район'
 #END:Active Records
 
 #START:event_types 
