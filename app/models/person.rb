@@ -3,6 +3,7 @@ class Person < ActiveRecord::Base
   before_save { email.downcase! if  email.present?}
   before_create :create_remember_token
   
+  validates :department,  length: { maximum: 60 }
   validates :area,  length: { maximum: 60 }
   validates :name, presence: true, length: { maximum: 60 }
   validates :family_name,  length: { maximum: 60 }

@@ -332,6 +332,7 @@
         workplace: 'Place of Work'
         skills: 'Skills'
         area: 'Area'
+        department: 'Department'
 #END:Active Records
 
 #START:event_types

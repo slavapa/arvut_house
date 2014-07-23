@@ -10,7 +10,7 @@ class PersonEventSearch
   
   per_page 30
   
-  sort_by 'name', 'family_name', 'gender', 'status_id', 'person_event_relationships.event_id'
+  sort_by 'area', 'department', 'name', 'family_name', 'gender', 'status_id', 'person_event_relationships.event_id'
   
   option :person_id  
   option :gender 
@@ -29,7 +29,15 @@ class PersonEventSearch
   option :phone_mob do |scope, value|
     scope.where 'phone_mob LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
   end
-    
+   
+  option :area do |scope, value|
+    scope.where 'area LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end
+     
+  option :department do |scope, value|
+    scope.where 'department LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end
+   
   option :is_present do |scope, value|
     unless @atributes[:event_id].nil?
       if value == '1'
@@ -53,6 +61,10 @@ class PersonEventSearch
       ["#{I18n.t(:name)} #{I18n.t('z-a')}", 'name desc'],
       ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('a-z')}", 'family_name asc'],
       ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('z-a')}", 'family_name desc'],
+      ["#{I18n.t('activerecord.attributes.person.area')} #{I18n.t('a-z')}", 'area asc'],
+      ["#{I18n.t('activerecord.attributes.person.area')} #{I18n.t('z-a')}", 'area desc'],
+      ["#{I18n.t('activerecord.attributes.person.department')} #{I18n.t('a-z')}", 'department asc'],
+      ["#{I18n.t('activerecord.attributes.person.department')} #{I18n.t('z-a')}", 'department desc'],
       ["#{I18n.t('events.edit.present')} #{I18n.t('up')}", 'person_event_relationships.event_id asc'],  
       ["#{I18n.t('events.edit.present')} #{I18n.t('down')}", 'person_event_relationships.event_id desc']          
     ]     

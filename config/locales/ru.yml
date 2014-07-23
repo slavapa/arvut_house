@@ -377,6 +377,7 @@
         workplace: 'Место работы'
         skills: 'Навыки'
         area: 'Район'
+        department: 'Отделение'
 #END:Active Records
 
 #START:event_types 

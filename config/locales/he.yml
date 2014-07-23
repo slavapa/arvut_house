@@ -331,6 +331,7 @@
         workplace: 'מקום עבודה'
         skills: 'כישורים'
         area: 'אזור'
+        department: 'מחלקה'
 #END:Active Records
 
 #START:event_types 

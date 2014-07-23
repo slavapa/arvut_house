@@ -108,7 +108,7 @@ class PeopleController < ApplicationController
       :id_card_number, :address, :admin,
       :birth_date, :workplace, :skills,
       :phone_additional, :computer_knowledge, :family_status,
-      :car_owner, :status_id, :area)
+      :car_owner, :status_id, :area, :department)
     end
     
     def correct_user

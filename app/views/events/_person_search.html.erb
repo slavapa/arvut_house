@@ -38,6 +38,14 @@
 	  		{ class: 'search_field' } %>	
   	</span>
   	<span class='search_span'>  												
+	  	<%= search_form.label :area, t('activerecord.attributes.person.area') %>
+	  	<%= search_form.search_field :area, class:'search_field' %> 	
+  	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :area, t('activerecord.attributes.person.department') %>
+	  	<%= search_form.search_field :department, class:'search_field' %> 	
+  	</span>
+  	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
 	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
 	  		{ class: 'search_field long_search_select' } %>		
