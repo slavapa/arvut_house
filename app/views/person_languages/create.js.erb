@@ -1,0 +1,5 @@
+$cur_tr = $('#tr_for_language_id_<%= @language.id %>');
+$cur_tr.find('#td_existing_language_<%= @language.id %>').html('<img alt="Vicon" src="<%= image_path('vicon.gif') %>">')
+$cur_tr.find('.form_holder').
+	html("<%= escape_javascript(render(partial: 'people/remove_language_form', 
+			locals: {person: @person, language: @language})) %>");

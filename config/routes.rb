@@ -8,8 +8,18 @@ ArvutHouse::Application.routes.draw do
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
     resources :event_types   
     resources :person_event_relationships, only: [:create, :destroy]
-    resources :events
-    resources :people
+    resources :events    
+ 
+    resources :people do
+      member do
+        get 'languages'
+        get 'roles'
+      end
+    end
+    
+    resources :person_languages, only: [:create, :destroy]
+    resources :person_roles, only: [:create, :destroy]
+  
     get "home/default"
     match '/about',       to: 'home#about',           via: 'get'
     match '/contact_us',  to: 'home#contact_us',      via: 'get'    

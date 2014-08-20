@@ -36,6 +36,18 @@ class PeopleController < ApplicationController
   # GET /people/1/edit
   def edit
   end
+  
+  # GET /people/1/languages
+  def languages
+    @person = Person.find(params[:id])
+    @languages = Language.paginate(page: params[:page])
+  end
+  
+  # GET /people/1/roles
+  def roles
+    @person = Person.find(params[:id])
+    @roles = Role.paginate(page: params[:page])
+  end
 
   # POST /people
   # POST /people.json

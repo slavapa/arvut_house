@@ -1,0 +1,9 @@
+<%= form_for(person.person_languages.find_by(language_id: language.id),
+     html: { method: :delete }, remote: true) do |f| %>
+     <div>
+	  	<%= f.hidden_field :person_id %>
+	  	<%= f.hidden_field :language_id %>
+	  </div>
+  <%= f.submit t(:remove), class: "btn btn-small btn-medium", id: "remove_language_btn",
+  data: { confirm: 'Are you sure?' } %>
+<% end %>

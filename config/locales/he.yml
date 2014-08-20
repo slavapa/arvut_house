@@ -287,6 +287,7 @@
   "no": 'לא'
   up: 'למעלה'
   down: 'למטה'
+  main: 'ראשי'
 
 
  #START:Active Records 
@@ -397,8 +398,8 @@
 #END:status
 
 #START:Roles
-  roles_name: 'תפקידים'
   roles:
+    name: 'תפקידים'
     new:
       new: 'תפקיד חדש'
     index:

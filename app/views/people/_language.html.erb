@@ -1,0 +1,30 @@
+<% if @person.is_language_exists?(language) %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
+		id="tr_for_language_id_<%= language.id %>">
+		<td class='td_left field long-long-size-td module-link'>
+			<%= link_to language.name, edit_language_path(language) %>	
+		</td>	
+		<td class='td-img-holder ss-size-td' id="td_existing_language_<%= language.id %>" >
+			<%= image_tag("vicon.gif") %>
+		</td>
+	  	<td class='td_holder form_holder'>
+		  	<%= render partial: "remove_language_form", 
+				locals: {person: @person, language: language} %>
+	  	</td>
+	</tr>
+<% else %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
+		id="tr_for_language_id_<%= language.id %>">		
+		<td class='td_left field long-long-size-td module-link'>
+			<%= link_to language.name, edit_language_path(language) %>	
+		</td>	
+		<td class='td-img-holder ss-size-td' id="td_existing_language_<%= language.id %>" >
+			&nbsp;
+		</td>
+	  	<td class='td_holder form_holder'>
+		  	<%= render partial: "add_language_form", 
+				locals: {person: @person, language: language} %>
+	  	</td>
+	</tr>
+<% end %>
+

@@ -288,6 +288,7 @@
   "no": 'No'
   up: 'Up'
   down: 'Down'
+  main: 'Main'
 
 
  #START:Active Records   
@@ -398,8 +399,8 @@
 #END:Statuse
 
 #START:Roles
-  roles_name: 'Roles'
   roles:
+    name: 'Roles'
     new:
       new: 'New Role'
     index:

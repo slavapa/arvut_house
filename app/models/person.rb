@@ -35,7 +35,20 @@ class Person < ActiveRecord::Base
             on people.id=person_event_relationships.person_id 
             and person_event_relationships.event_id = #{event_id}")
   }
-      
+  
+   
+  def is_language_exists?(language)
+    !person_languages.where(language_id: language.id).empty?
+  end
+  
+  def add_language!(language)
+    !person_languages.create!(language_id: language.id)     
+  end
+  
+  def remove_language!(language) 
+    !person_languages.find_by(language_id: language.id).destroy    
+  end  
+        
   def statuses_array
     Person.statuses_array 
   end   

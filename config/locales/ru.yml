@@ -333,6 +333,7 @@
   "no": 'Нет'
   up: 'Вверх'
   down: 'Вниз'
+  main: 'Главная'
 
 
  #START:Active Records   
@@ -443,8 +444,8 @@
 #END:status
 
 #START:Roles
-  roles_name: 'Должности'
   roles:
+    name: 'Должности'
     new:
       new: 'Новая Должность'
     index:
