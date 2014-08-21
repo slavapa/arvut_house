@@ -1,0 +1,30 @@
+<% if @person.is_role_exists?(role) %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
+		id="tr_item_id_<%= role.id %>">
+		<td class='td_left field long-long-size-td module-link'>
+			<%= role.name %>	
+		</td>	
+		<td class='td-img-holder ss-size-td' id="td_item_exist_<%= role.id %>" >
+			<%= image_tag("vicon.gif") %>
+		</td>
+	  	<td class='td_holder form_holder'>
+		  	<%= render partial: "remove_role_form", 
+				locals: {person: @person, role: role} %>
+	  	</td>
+	</tr>
+<% else %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
+		id="tr_item_id_<%= role.id %>">		
+		<td class='td_left field long-long-size-td module-link'>
+			<%= role.name %>	
+		</td>	
+		<td class='td-img-holder ss-size-td' id="td_item_exist_<%= role.id %>" >
+			&nbsp;
+		</td>
+	  	<td class='td_holder form_holder'>
+		  	<%= render partial: "add_role_form", 
+				locals: {person: @person, role: role} %>
+	  	</td>
+	</tr>
+<% end %>
+

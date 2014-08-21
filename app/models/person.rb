@@ -34,8 +34,19 @@ class Person < ActiveRecord::Base
     joins("left outer join person_event_relationships 
             on people.id=person_event_relationships.person_id 
             and person_event_relationships.event_id = #{event_id}")
-  }
+  }   
+   
+  def is_role_exists?(role)
+    !person_roles.where(role_id: role.id).empty?
+  end
   
+  def add_role!(role)
+    !person_roles.create!(role_id: role.id)     
+  end
+  
+  def remove_role!(role) 
+    !person_roles.find_by(role_id: role.id).destroy    
+  end   
    
   def is_language_exists?(language)
     !person_languages.where(language_id: language.id).empty?

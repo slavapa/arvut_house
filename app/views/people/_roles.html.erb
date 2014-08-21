@@ -1,4 +1,4 @@
-<%= will_paginate @languages %>
+<%= will_paginate @roles %>
 <table class='table-bordered tabletable-hover table-index'>
   <thead>
     <tr>
@@ -9,7 +9,7 @@
   </thead>
 
   <tbody  class="tbody_events">
-  	<%= render partial: "language", collection: @languages %>
+  	<%= render partial: "role", collection: @roles %>
   </tbody>
 </table>
-<%= will_paginate @languages %>
+<%= will_paginate @roles %>
