@@ -50,7 +50,28 @@ class PersonSearch
       end
     end
   end
-  
+      
+  option :role do |scope, value|
+    if is_not_nil_empty?(value)
+      sqlVal = escape_search_term(value)
+      sql = "(exists (select 'x' from person_roles, roles
+              where people.id=person_roles.person_id 
+              and person_roles.role_id = roles.id
+              and roles.name like '#{sqlVal}'))"
+      scope.where sql
+    end
+  end 
+       
+  option :language do |scope, value|
+    if is_not_nil_empty?(value)
+      sqlVal = escape_search_term(value)
+      sql = "(exists (select 'x' from person_languages, languages
+              where people.id=person_languages.person_id 
+              and person_languages.language_id = languages.id
+              and languages.name like '#{sqlVal}'))"
+      scope.where sql
+    end
+  end       
     
   def sort_params_arr
     [

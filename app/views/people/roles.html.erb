@@ -2,6 +2,9 @@
   <li><%= link_to t('main'), edit_person_path(@person) %></li>
   <li><%= link_to t('languages.name'), languages_person_path(@person) %></li>
   <li class="active"><a><%= t('roles.name') %></a></li>
+  <li style="width: 82%; text-align: right;padding-top: 8px">
+  	<label style="font-size: 20px; font-weight: bold;"><%= "#{@person.name} #{@person.family_name}" %></label>  	 
+  </li>
 </ul>
 
 <%= render partial: "roles" %>

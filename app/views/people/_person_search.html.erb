@@ -41,6 +41,14 @@
 	  	<%= search_form.search_field :department, class:'search_field' %> 	
   	</span>
   	<span class='search_span'>  												
+	  	<%= search_form.label :language, t('activerecord.models.language') %>
+	  	<%= search_form.search_field :language, class:'search_field' %> 	
+  	</span>
+  	<span class='search_span'>  												
+	  	<%= search_form.label :role, t('activerecord.models.role') %>
+	  	<%= search_form.search_field :role, class:'search_field' %> 	
+  	</span>
+  	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
 	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
 	  		{ class: 'search_field long_search_select' } %>		

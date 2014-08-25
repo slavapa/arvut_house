@@ -1,4 +1,8 @@
 @import "bootstrap";
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities";
+
 
 /* mixins, variables, etc. */
 //Left Menue color: #E3E7EB
@@ -396,9 +400,39 @@ input[type="search"]{
    width:200px;  
 }
 
-
 .search_result{
   color: #0064cd;
   padding-left: 0.5em;
   font-size: 15px;
 }
+
+.nav-tabs li{ 
+  //http://compass-style.org/examples/compass/css3/border_radius/ 
+}
+
+.nav-tabs li a:hover{  
+  background-color: #CCCCFF;
+}
+
+.nav-tabs li.active a{  
+  //http://ie.microsoft.com/TestDrive/Graphics/CSSGradientBackgroundMaker/Default.html
+  // /* IE10 Consumer Preview */ 
+  // background-image: -ms-linear-gradient(top, #FFFFFF 0%, #00A3EF 100%);
+  // /* Mozilla Firefox */ 
+  // background-image: -moz-linear-gradient(top, #FFFFFF 0%, #00A3EF 100%);
+  // /* Opera */ 
+  // background-image: -o-linear-gradient(top, #FFFFFF 0%, #00A3EF 100%);
+  // /* Webkit (Safari/Chrome 10) */ 
+  // background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #00A3EF));
+  // /* Webkit (Chrome 11+) */ 
+  // background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #00A3EF 100%);
+  // /* W3C Markup, IE10 Release Preview */ 
+  // background-image: linear-gradient(to bottom, #FFFFFF 0%, #00A3EF 100%);  
+  
+  //http://www.colorzilla.com/gradient-editor/
+  // needs latest Compass, add '@import "compass"' to your scss
+  background-color: #00A3EF; // Old browsers
+  @include filter-gradient(#FFFFFF, #00A3EF, vertical); // IE6-9
+  @include background-image(linear-gradient(top, #FFFFFF 0%, #00A3EF 100%));
+}
+
