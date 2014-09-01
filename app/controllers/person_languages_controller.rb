@@ -1,5 +1,5 @@
 class PersonLanguagesController < ApplicationController
-  before_action :check_current_user_admin
+  before_action :check_current_user_correct
   
   def create 
     @person = Person.find(params[:person_language][:person_id])

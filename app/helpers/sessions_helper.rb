@@ -45,7 +45,11 @@ module SessionsHelper
   end
   
   def redirect_back_or(default)
-    redirect_to(session[:return_to] || events_path)
+    if current_user.admin?
+      redirect_to(session[:return_to] || events_path)
+    else
+      redirect_to(edit_person_path(@current_user))
+    end
     session.delete(:return_to)
   end
 
@@ -67,8 +71,13 @@ module SessionsHelper
   
   def check_current_user_admin
     if current_user.nil? || !current_user.admin?
-      redirect_to(signin_url, notice: "You are not authorized to perform this action" ) 
+      redirect_to(signin_url, notice: t(:not_authorized) ) 
     end
   end
 
+  def check_current_user_correct
+    if current_user.nil? || (!current_user.admin? && !current_user?(current_user))
+      redirect_to(signin_url, notice: t(:not_authorized) ) 
+    end
+  end
 end

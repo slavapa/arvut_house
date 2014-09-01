@@ -1,12 +1,14 @@
 <% provide(:title, title) %>
 <h1>
 	<div class="header-title"><%= title %></div>
-	<%= link_to t(:list), index_path, class:"link_header btn btn-small", 
-			id: "list_link_header" %>
-	<%= link_to t(:new), new_path, class: "link_header btn btn-small", 
-			id: "new_link_header" %>
-	<%= link_to t(:delete), cur_item, method: :delete, class: "link_header btn btn-small", 
-	        id: "delete_link_header", data: { confirm: t(:confirm) } %>
+	<% if admin_user? %>
+		<%= link_to t(:list), index_path, class:"link_header btn btn-small", 
+				id: "list_link_header" %>
+		<%= link_to t(:new), new_path, class: "link_header btn btn-small", 
+				id: "new_link_header" %>
+		<%= link_to t(:delete), cur_item, method: :delete, class: "link_header btn btn-small", 
+		        id: "delete_link_header", data: { confirm: t(:confirm) } %>
+	<% end %>
 	<%= link_to t(:save), '#', class:"link_header btn btn-small", 
 			id: "save_link_header"  %> 
 	

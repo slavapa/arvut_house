@@ -29,8 +29,10 @@
 				  	<%= f.label :password_confirmation %>
 				  	<%= f.password_field :password_confirmation %>
 				  	<br>
-				  	<%= f.check_box :admin, class:"input_checkbox" %>
-				  	<%= f.label :admin, class: "label_checkbox" %>
+				  	<% if admin_user? %>
+					  	<%= f.check_box :admin, class:"input_checkbox" %>
+					  	<%= f.label :admin, class: "label_checkbox" %>
+				  	<% end %>
 				</td>
 				<td>										
 				  	<%= f.label :gender %>

@@ -1,8 +1,8 @@
 class PeopleController < ApplicationController
   # before_action :set_person, only: [:show, :edit, :update, :destroy] 
   before_action :signed_in_user
-  before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: [:edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :show, :languages, :roles]
+  before_action :admin_user,     only: [:index, :new, :destroy]
     
   def destroy
     Person.find(params[:id]).destroy
@@ -123,10 +123,12 @@ class PeopleController < ApplicationController
       :car_owner, :status_id, :area, :department)
     end
     
-    def correct_user
+    def correct_user      
       @person = Person.find(params[:id])
-      unless current_user.admin?
-        redirect_to(root_url, notice: t(:not_authorized)) 
+      unless current_user.admin? 
+        unless current_user?(@person)
+          redirect_to(root_url, notice: t(:not_authorized))          
+        end 
       end
     end
   

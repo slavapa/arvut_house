@@ -33,6 +33,7 @@
           <% else %>
           <% end %>
           	<% if signed_in? %>
+          		<li><%= link_to t('profile'), edit_person_path(current_user) %></li>
                 <li>
                   <%= link_to t('sign_out'), signout_path, method: "delete" %>
                 </li>

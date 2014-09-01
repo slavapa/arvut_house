@@ -224,6 +224,7 @@
   actions: "פעולות"
   people_list: "רשימת אנשים"
   person_new: 'אדם (חדש)'
+  account: 'חשבון'
   sign_out: 'יציאה'
   search: 'חפש'
   clear: 'איפוס'
@@ -288,6 +289,7 @@
   up: 'למעלה'
   down: 'למטה'
   main: 'ראשי'
+  profile: 'פרופיל'
 
 
  #START:Active Records 

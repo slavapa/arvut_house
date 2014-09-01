@@ -270,6 +270,7 @@
   actions: "Действия"
   people_list: "Список Людей"
   person_new: 'Человек (новый)'
+  account: 'Счет'
   sign_out: 'Выйти'
   search: 'Поиск'
   clear: 'Очистить'
@@ -334,6 +335,7 @@
   up: 'Вверх'
   down: 'Вниз'
   main: 'Главная'
+  profile: 'Профиль'
 
 
  #START:Active Records   
