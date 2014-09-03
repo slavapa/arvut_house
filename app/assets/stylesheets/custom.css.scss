@@ -27,6 +27,11 @@ body {
 
 .he{
   direction: rtl !important; 
+  
+  .nav-tabs > li, .nav-pills > li, .navbar .nav > li{
+    float: right;
+  }
+  
 }
 
 .inline_container{
@@ -406,12 +411,27 @@ input[type="search"]{
   font-size: 15px;
 }
 
-.nav-tabs li{ 
-  //http://compass-style.org/examples/compass/css3/border_radius/ 
+.nav-tabs li:not(.tab-heading){ 
+  //http://compass-style.org/examples/compass/css3/border_radius/  
+  background-color: #E5E5E5;
+  @include border-top-right-radius(25px);
+  @include border-top-left-radius(1px);
+}
+
+.he .nav-tabs li{ 
+  @include border-top-right-radius(1px);
+  @include border-top-left-radius(25px);
 }
 
 .nav-tabs li a:hover{  
   background-color: #CCCCFF;
+  @include border-top-right-radius(25px);
+  @include border-top-left-radius(1px);
+}
+
+.he .nav-tabs li a:hover{ 
+  @include border-top-right-radius(1px);
+  @include border-top-left-radius(25px);
 }
 
 .nav-tabs li.active a{  
@@ -434,5 +454,24 @@ input[type="search"]{
   background-color: #00A3EF; // Old browsers
   @include filter-gradient(#FFFFFF, #00A3EF, vertical); // IE6-9
   @include background-image(linear-gradient(top, #FFFFFF 0%, #00A3EF 100%));
+  @include border-top-right-radius(25px);
+  @include border-top-left-radius(1px);
 }
 
+.he .nav-tabs li.active a{
+  @include border-top-right-radius(1px);
+  @include border-top-left-radius(25px);
+}
+
+.tab-heading{
+  background-color: none;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+
+.he{
+  .tab-heading{
+    padding-left: 0px;
+    padding-right: 20px;
+  }
+}
