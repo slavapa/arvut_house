@@ -5,6 +5,7 @@ I18n.default_locale = :en
 
 describe "Home Pages" do
   subject { page }
+  let(:lng) { I18n.default_locale }
 
   # shared_examples_for "all home pages" do
     # it { should have_selector('h1', text: heading) }

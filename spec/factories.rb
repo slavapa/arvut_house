@@ -25,4 +25,8 @@ FactoryGirl.define do
     event
     person
   end
+  
+  factory :role do
+    sequence(:name)  { |n| "Role #{n}" }
+  end
 end

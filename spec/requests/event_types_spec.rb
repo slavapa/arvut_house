@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+I18n.default_locale = :en
+
 describe "EventTypes" do
   let(:lng) { I18n.default_locale }
   subject { page }

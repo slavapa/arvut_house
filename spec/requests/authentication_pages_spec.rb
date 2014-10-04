@@ -1,8 +1,15 @@
 require 'spec_helper'
 
+I18n.default_locale = :en
+
 describe "Authentication" do
   let(:lng) { I18n.default_locale }
   subject { page }
+    
+  before do     
+    @event_type = FactoryGirl.create(:event_type) 
+    @event = @event_type.events.new(description: 'Event Descr For Test Authentication')  
+  end
 
   describe "signin page" do
     before { visit signin_path }

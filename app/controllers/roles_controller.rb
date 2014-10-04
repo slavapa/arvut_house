@@ -64,7 +64,7 @@ class RolesController < ApplicationController
   # DELETE /roles/1.json
   def destroy       
     if @role.destroy
-      flash[:success] = t(:item_deleted, name: @role.name) 
+      flash[:success] = t(:role_deleted, name: @role.name) 
       respond_to do |format|
         format.html { redirect_to roles_url }
         format.json { head :no_content }
