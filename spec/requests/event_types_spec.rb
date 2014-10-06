@@ -101,7 +101,26 @@ describe "EventTypes" do
     end
    
   end
-  
-  it "describe index page"
-  it "describe editing page"
+   
+  describe "index" do
+    before(:each) do
+      visit event_types_path
+    end
+
+    it { should have_title(full_title('List of Events Types')) }
+    it { should have_content('List of Events Types') }
+    it { should have_link('new_link_header', href: new_event_type_path(lng)) }
+
+    describe "should list all roles" do
+      before(:all) { 30.times { FactoryGirl.create(:event_type) } }
+      after(:all)  { EventType.delete_all }
+
+
+      it "should list each role" do
+        EventType.all.each do |item|
+          expect(page).to have_selector('a', text: item.name)
+        end
+      end
+    end
+  end 
 end

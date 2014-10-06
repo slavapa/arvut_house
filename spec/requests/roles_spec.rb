@@ -83,5 +83,45 @@ describe "Roles" do
       expect { click_link('delete_link_header') }.to change(Role, :count).by(-1)
     end
   end
+  
+  describe "roles destruction that in use by person" do      
+    let(:role1) {FactoryGirl.create(:role, name: 'Role that in use by person to test destroy')}
+    let!(:person1) {FactoryGirl.create(:person)}
+    before {
+      person1.add_role!(role1)
+      visit edit_role_path(role1)
+    }
+        
+    it "should not delete a role" do
+      expect { click_link('delete_link_header') }.not_to change(Role, :count)
+    end
+    
+    describe "error messages" do
+      before {click_link('delete_link_header')} 
+      it { should have_selector('div.alert.alert-error') }
+    end   
+  end
+  
+  describe "index" do
+    before(:each) do
+      visit roles_path
+    end
 
+    it { should have_title(full_title('List of Roles')) }
+    it { should have_content('List of Roles') }
+    it { should have_link('new_link_header', href: new_role_path(lng)) }
+
+    describe "should list all roles" do
+      before(:all) { 30.times { FactoryGirl.create(:role) } }
+      after(:all)  { Role.delete_all }
+
+
+      it "should list each role" do
+        Role.all.each do |item|
+          expect(page).to have_selector('a', text: item.name)
+        end
+      end
+    end
+  end 
+  
 end

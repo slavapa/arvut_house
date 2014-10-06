@@ -25,8 +25,24 @@ FactoryGirl.define do
     event
     person
   end
+   
+  factory :person_role do
+    role
+    person
+  end
+   
+  factory :person_language do
+    language
+    person
+  end
   
   factory :role do
     sequence(:name)  { |n| "Role #{n}" }
   end
+  
+  factory :language do
+    name = 'language1'
+    code = 'aa'
+  end
+  
 end

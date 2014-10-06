@@ -63,7 +63,7 @@ class LanguagesController < ApplicationController
   # DELETE /languages/1.json
   def destroy    
     if @language.destroy
-      flash[:success] = t(:item_deleted, name: @language.name) 
+      flash[:success] = t(:language_deleted, name: @language.name) 
       respond_to do |format|
         format.html { redirect_to languages_url }
         format.json { head :no_content }

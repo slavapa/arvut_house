@@ -4,7 +4,8 @@
 		<span><%= title %></span>
 	</div>	
 	
-	<%= link_to t(:new), path, class: "link_header btn btn-small" %>
+	<%= link_to t(:new), path, class: "link_header btn btn-small", 
+				id: "new_link_header" %>
 	
 	<% if (defined? search) %>
 		<%= render partial: 'shared/search_header', 

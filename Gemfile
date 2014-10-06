@@ -54,5 +54,5 @@ end
 
 gem 'pg', '0.15.1'
 gem 'rails_12factor', '0.0.2'
-gem 'search_object'
+gem 'search_object', '~> 0.1' #https://rubygems.org/gems/search_object TODO: Check version 1.0
 gem 'slim'

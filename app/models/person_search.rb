@@ -90,7 +90,12 @@ class PersonSearch
     @atributes = atributes
     filters = Hash.new if filters.nil?
     filters['sort'] = 'name asc' unless filters.has_key?('sort') 
-    super filters, page
+    
+    # if Rails.env.test?#TODO: Rspec Test doesn't work. Check how to reslove this for Rspec
+      # super filters
+    # else
+      super filters, page      
+    # end
   end  
   
   private

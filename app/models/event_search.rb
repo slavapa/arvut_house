@@ -37,11 +37,11 @@ class EventSearch
     filters = Hash.new if filters.nil?
     filters['sort'] = 'event_date desc' unless filters.has_key?('sort') 
     
-    if Rails.env.test?#TODO: Rspec Test doesn't work. Check how to reslove this for Rspec
-      super filters
-    else
+    # if Rails.env.test?#TODO: Rspec Test doesn't work. Check how to reslove this for Rspec
+      # super filters
+    # else
       super filters, page      
-    end
+    # end
   end  
   
   private
