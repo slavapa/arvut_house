@@ -82,11 +82,24 @@ describe Language do
     it { should_not be_valid }
   end
   
-  describe "Should Create Language row in DB and chamge count by 1" do 
+  describe "Should Create Language row in DB and change count by 1" do 
     let(:lang) { Language.new(name: 'Belarus', code: 'br') }
     
     it "should change count of languages in DB  by 1" do
       expect { lang.save }.to change(Language, :count).by(1)
     end          
   end
+  
+  describe "when role is already in use by person" do
+    let(:lng1) { Language.new(name: 'Kazakhstan', code: 'kz') }
+    let!(:person1) {FactoryGirl.create(:person)}
+    before do
+      lng1.save
+      person1.add_language!(lng1)      
+    end
+    it "should not delete a role" do
+      expect { lng1.destroy }.not_to change(Language, :count)
+    end          
+  end
+  
 end

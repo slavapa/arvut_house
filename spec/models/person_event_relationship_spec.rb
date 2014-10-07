@@ -41,6 +41,26 @@ describe PersonEventRelationship do
     it { should_not be_valid }
   end
   
-  it "should check foregn key to events and people"
+  # it "should check foregn key to events and people"
+  describe "should check foregn key to people" do
+    before { 
+      @person_event_relationship.person_id = -1 
+    }
+    it { should_not be_valid }
+       
+    it "should not add row when person_id is invalid" do
+      expect { @person_event_relationship.save }.not_to change(PersonEventRelationship, :count)
+    end
+  end
   
+  describe "should check foregn key to event" do
+    before { 
+      @person_event_relationship.event_id = -1 
+    }
+    it { should_not be_valid }
+       
+    it "should not add row when event_id is invalid" do
+      expect { @person_event_relationship.save }.not_to change(PersonEventRelationship, :count)
+    end
+  end
 end
