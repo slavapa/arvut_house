@@ -13,7 +13,7 @@ class PersonRolesController < ApplicationController
   end
 
   def destroy
-    @role = Language.find(params[:person_role][:role_id])
+    @role = Role.find(params[:person_role][:role_id])
     @person = Person.find(params[:person_role][:person_id])
     @person.remove_role!(@role)
     respond_to do |format|
