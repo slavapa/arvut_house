@@ -22,9 +22,9 @@ describe "Home Pages" do
     
     it  {should  have_title(full_title(''))}    
     it  {should  have_link('Home', :href => root_path + '?locale=en')}
-    it  {should  have_link('About us', :href => '/en' + about_path )}
-    it  {should  have_link('Contact us', :href => '/en' + contact_us_path )}
-    it  {should  have_link('Log in', :href => '/en' + signin_path )}
+    it  {should  have_link('About us', :href =>  about_path(lng) )}
+    it  {should  have_link('Contact us', :href => contact_us_path(lng) )}
+    it  {should  have_link('Log in', :href => signin_path(lng) )}
     it  {should  have_select('set_locale'), :selected => 'English'}
   end
 
