@@ -455,3 +455,14 @@
     edit:
       editing: 'Редактирование Должности'
 #END:Roles
+
+#START:paymet_types
+  paymet_types:
+    name: 'Тип платежей'
+    new:
+      new: 'Новый тип платежа'
+    index:
+      list: 'Список тип платежей'
+    edit:
+      editing: 'Редактирование тип платежа'
+#END:paymet_types

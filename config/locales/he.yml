@@ -409,3 +409,14 @@
     edit:
       editing: 'עריכת  תפקיד'
 #END:Roles
+
+#START:paymet_types
+  paymet_types:
+    name: 'סוגי תשלומים'
+    new:
+      new: 'סוג תשלום חדש'
+    index:
+      list: 'רשימת סוגי תשלומים'
+    edit:
+      editing: 'עריכת סוג תשלום'
+#END:paymet_types

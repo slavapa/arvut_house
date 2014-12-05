@@ -409,3 +409,14 @@
     edit:
       editing: 'Editing Role'
 #END:Roles
+
+#START:paymet_types
+  paymet_types:
+    name: 'Payment Types'
+    new:
+      new: 'New Payment Type'
+    index:
+      list: 'List of Payment Types'
+    edit:
+      editing: 'Editing Payment Type'
+#END:paymet_types

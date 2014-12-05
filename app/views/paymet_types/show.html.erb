@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @paymet_type.name %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @paymet_type.frequency %>
+</p>
+
+<%= link_to 'Edit', edit_paymet_type_path(@paymet_type) %> |
+<%= link_to 'Back', paymet_types_path %>

@@ -1,0 +1,29 @@
+<h1>Listing paymet_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Frequency</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paymet_types.each do |paymet_type| %>
+      <tr>
+        <td><%= paymet_type.name %></td>
+        <td><%= paymet_type.frequency %></td>
+        <td><%= link_to 'Show', paymet_type %></td>
+        <td><%= link_to 'Edit', edit_paymet_type_path(paymet_type) %></td>
+        <td><%= link_to 'Destroy', paymet_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paymet type', new_paymet_type_path %>
