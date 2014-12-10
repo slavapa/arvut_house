@@ -1,5 +1,4 @@
-<h1>New paymet_type</h1>
+<%= render partial: 'shared/header_new', locals:{ title: t('.new'), 
+	index_path_name: t('paymet_types.index.list'), index_path: paymet_types_path} %>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', paymet_types_path %>

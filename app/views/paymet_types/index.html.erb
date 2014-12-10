@@ -1,29 +1,14 @@
-<h1>Listing paymet_types</h1>
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path: new_paymet_type_path} %>
 
-<table>
+<table class='table-bordered table-index'>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Frequency</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class='td_holder long-long-size-td module-link'><%=t(:name) %></th>
+      <th class='td_holder ss-size-td'><%=t('activerecord.attributes.paymet_type.frequency') %></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @paymet_types.each do |paymet_type| %>
-      <tr>
-        <td><%= paymet_type.name %></td>
-        <td><%= paymet_type.frequency %></td>
-        <td><%= link_to 'Show', paymet_type %></td>
-        <td><%= link_to 'Edit', edit_paymet_type_path(paymet_type) %></td>
-        <td><%= link_to 'Destroy', paymet_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <%= render @paymet_types %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Paymet type', new_paymet_type_path %>

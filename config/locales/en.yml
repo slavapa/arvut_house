@@ -246,6 +246,7 @@
   confirm: 'Are you sure?'
   item_updated: "%{name} was successfully updated." 
   item_created: '%{name} was successfully created.'
+  paymet_type_created: 'Payment type was successfully created.' 
   event_type_created: 'Event type was successfully created.' 
   event_type_updated: 'Event type was successfully updated.' 
   event_type_deleted: "Event type %{name} was deleted."
@@ -303,6 +304,9 @@
       status: 'Status'
       role: 'Role'
     attributes:
+      paymet_type:
+        name: 'Name' 
+        frequency: 'Frequency'
       status:
         name: 'Name' 
       language:

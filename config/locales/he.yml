@@ -246,6 +246,7 @@
   confirm: 'האם אתה בטוח?' 
   item_updated: '%{name} עודכן/ה בהצלחה' 
   item_created: '%{name} נוצר/ה בהצלחה' 
+  paymet_type_created: 'סוג תשלום נוצר בהצלחה' 
   event_type_created: 'סוג האירוע נוצר בהצלחה' 
   event_type_updated: 'סוג האירוע עודכן בהצלחה' 
   event_type_deleted: "סוג האירוע %{name} נמחק"
@@ -303,6 +304,9 @@
       status: 'סטטוס'
       role: 'תפקיד'
     attributes:
+      paymet_type:
+        name: 'שם' 
+        frequency: 'תדירות'
       status:
         name: 'שם' 
       language:

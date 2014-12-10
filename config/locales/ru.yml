@@ -292,6 +292,7 @@
   confirm: 'Вы уверены?' 
   item_updated: '%{name} был успешно обновлен.' 
   item_created: '%{name} был успешно создан.'
+  paymet_type_created: 'Тип платежа был успешно создан.' 
   event_type_created: 'Тип события был успешно создан.' 
   event_type_updated: 'Тип события был успешно обновлен.' 
   event_type_deleted: "Тип события %{name} был удален." 
@@ -349,6 +350,9 @@
       status: 'Статус'
       role: 'Должность'
     attributes:
+      paymet_type:
+        name: 'Имя' 
+        frequency: 'периодичность'
       status:
         name: 'Имя' 
       language:

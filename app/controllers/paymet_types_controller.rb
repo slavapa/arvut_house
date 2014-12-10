@@ -1,9 +1,12 @@
 class PaymetTypesController < ApplicationController
   before_action :set_paymet_type, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user_admin
 
   # GET /paymet_types
   # GET /paymet_types.json
   def index
+    #@search = PaymetType.new params[:f], params[:page]
+    #@paymet_types = @search.results
     @paymet_types = PaymetType.all
   end
 
@@ -28,7 +31,10 @@ class PaymetTypesController < ApplicationController
 
     respond_to do |format|
       if @paymet_type.save
-        format.html { redirect_to @paymet_type, notice: 'Paymet type was successfully created.' }
+        format.html { 
+          flash[:success] = t(:paymet_type_created)
+          redirect_to edit_paymet_type_path(@paymet_type)           
+          }
         format.json { render action: 'show', status: :created, location: @paymet_type }
       else
         format.html { render action: 'new' }
