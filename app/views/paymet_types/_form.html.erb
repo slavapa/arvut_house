@@ -7,7 +7,7 @@
   </div>
   <div class="field">
     <%= f.label :frequency %><br>
-    <%= f.text_field :frequency %>
+    <%= f.select :frequency, @paymet_type.frequency_arr  %>
   </div>
 <% end %>
 

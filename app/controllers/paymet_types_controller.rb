@@ -48,7 +48,10 @@ class PaymetTypesController < ApplicationController
   def update
     respond_to do |format|
       if @paymet_type.update(paymet_type_params)
-        format.html { redirect_to @paymet_type, notice: 'Paymet type was successfully updated.' }
+        format.html { 
+          flash[:success] = t(:paymet_type_updated) 
+          redirect_to edit_paymet_type_path(@paymet_type)           
+          }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

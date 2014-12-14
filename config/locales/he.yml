@@ -247,6 +247,7 @@
   item_updated: '%{name} עודכן/ה בהצלחה' 
   item_created: '%{name} נוצר/ה בהצלחה' 
   paymet_type_created: 'סוג תשלום נוצר בהצלחה' 
+  paymet_type_updated: 'סוג תשלום עודכן בהצלחה'  
   event_type_created: 'סוג האירוע נוצר בהצלחה' 
   event_type_updated: 'סוג האירוע עודכן בהצלחה' 
   event_type_deleted: "סוג האירוע %{name} נמחק"
@@ -291,6 +292,11 @@
   down: 'למטה'
   main: 'ראשי'
   profile: 'פרופיל'
+  general: 'כללי'
+  daily: 'יומי'
+  weekly: 'שבועי'
+  monthly: 'חודשי'
+  annually: 'שנתי'
 
 
  #START:Active Records 

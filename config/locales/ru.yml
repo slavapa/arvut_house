@@ -292,7 +292,8 @@
   confirm: 'Вы уверены?' 
   item_updated: '%{name} был успешно обновлен.' 
   item_created: '%{name} был успешно создан.'
-  paymet_type_created: 'Тип платежа был успешно создан.' 
+  paymet_type_created: 'Тип платежа был успешно создан.'
+  paymet_type_updated: 'Тип платежа был успешно обновлен.'  
   event_type_created: 'Тип события был успешно создан.' 
   event_type_updated: 'Тип события был успешно обновлен.' 
   event_type_deleted: "Тип события %{name} был удален." 
@@ -337,6 +338,11 @@
   down: 'Вниз'
   main: 'Главная'
   profile: 'Профиль'
+  general: 'Общие'
+  daily: 'Ежедневно'
+  weekly: 'Еженедельно'
+  monthly: 'Ежемесячно'
+  annually: 'Ежегодно'
 
 
  #START:Active Records   
