@@ -25,3 +25,5 @@ doc/
 .idea
 .secret
 /nbproject/private/
+/.c9/
+/nbproject/
