@@ -77,7 +77,7 @@ describe "Languages" do
     
   end
   
-  describe "Editing Role" do     
+  describe "Editing Language" do     
     let(:lng1) {FactoryGirl.create(:language, name: 'Language 1', code: 'aa')}
     before {visit edit_language_path(lng1)}
      

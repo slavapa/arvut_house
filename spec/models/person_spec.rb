@@ -163,7 +163,7 @@ describe Person do
   end 
      
   describe "when gender values are valid" do 
-    it "should be invalid" do   
+    it "should be valid" do   
       valid_values = [nil, "1", "2"]      
       valid_values.each do |value|
         @person.gender = value

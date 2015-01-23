@@ -1,4 +1,4 @@
-<%= form_for(@paymet_type) do |f| %>
+<%= form_for(@payment_type) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
   <div class="field">
@@ -7,7 +7,11 @@
   </div>
   <div class="field">
     <%= f.label :frequency %><br>
-    <%= f.select :frequency, @paymet_type.frequency_arr  %>
+    <%= f.select :frequency, @payment_type.frequency_arr  %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
   </div>
 <% end %>
 

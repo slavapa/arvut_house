@@ -246,8 +246,8 @@
   confirm: 'Are you sure?'
   item_updated: "%{name} was successfully updated." 
   item_created: '%{name} was successfully created.'
-  paymet_type_created: 'Payment type was successfully created.' 
-  paymet_type_updated: 'Payment type was successfully updated.' 
+  payment_type_created: 'Payment type was successfully created.' 
+  payment_type_updated: 'Payment type was successfully updated.' 
   event_type_created: 'Event type was successfully created.' 
   event_type_updated: 'Event type was successfully updated.' 
   event_type_deleted: "Event type %{name} was deleted."
@@ -297,6 +297,7 @@
   weekly: 'Weekly'
   monthly: 'Monthly'
   annually: 'Annually'
+  validates_inclusion: "%{value} is not a valid.The valid values are: %{valid_values}"
 
 
  #START:Active Records   
@@ -310,9 +311,10 @@
       status: 'Status'
       role: 'Role'
     attributes:
-      paymet_type:
+      payment_type:
         name: 'Name' 
         frequency: 'Frequency'
+        amount: 'Amount'
       status:
         name: 'Name' 
       language:
@@ -420,8 +422,8 @@
       editing: 'Editing Role'
 #END:Roles
 
-#START:paymet_types
-  paymet_types:
+#START:payment_types
+  payment_types:
     name: 'Payment Types'
     new:
       new: 'New Payment Type'
@@ -429,4 +431,4 @@
       list: 'List of Payment Types'
     edit:
       editing: 'Editing Payment Type'
-#END:paymet_types
+#END:payment_types

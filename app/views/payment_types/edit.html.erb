@@ -1,0 +1,6 @@
+<%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
+	new_path: new_payment_type_path, cur_item: @payment_type,
+	index_path_name: t('payment_types.index.list'), index_path: payment_types_path} %>
+
+
+<%= render 'form' %>

@@ -292,8 +292,8 @@
   confirm: 'Вы уверены?' 
   item_updated: '%{name} был успешно обновлен.' 
   item_created: '%{name} был успешно создан.'
-  paymet_type_created: 'Тип платежа был успешно создан.'
-  paymet_type_updated: 'Тип платежа был успешно обновлен.'  
+  payment_type_created: 'Тип платежа был успешно создан.'
+  payment_type_updated: 'Тип платежа был успешно обновлен.'  
   event_type_created: 'Тип события был успешно создан.' 
   event_type_updated: 'Тип события был успешно обновлен.' 
   event_type_deleted: "Тип события %{name} был удален." 
@@ -343,6 +343,7 @@
   weekly: 'Еженедельно'
   monthly: 'Ежемесячно'
   annually: 'Ежегодно'
+  validates_inclusion: "%{value} не действителен. Допустимые значения: %{valid_values}"
 
 
  #START:Active Records   
@@ -356,9 +357,10 @@
       status: 'Статус'
       role: 'Должность'
     attributes:
-      paymet_type:
+      payment_type:
         name: 'Имя' 
         frequency: 'периодичность'
+        amount: 'Сумма'
       status:
         name: 'Имя' 
       language:
@@ -466,8 +468,8 @@
       editing: 'Редактирование Должности'
 #END:Roles
 
-#START:paymet_types
-  paymet_types:
+#START:payment_types
+  payment_types:
     name: 'Тип платежей'
     new:
       new: 'Новый тип платежа'
@@ -475,4 +477,4 @@
       list: 'Список тип платежей'
     edit:
       editing: 'Редактирование тип платежа'
-#END:paymet_types
+#END:payment_types

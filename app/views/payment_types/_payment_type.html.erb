@@ -1,0 +1,11 @@
+<tr  class="<%= cycle('list_line_odd', 'list_line_even') %>">
+	<td class='td_holder long-long-size-td module-link'>
+  		<%= link_to payment_type.name, edit_payment_type_path(payment_type) %>  			
+	</td>
+	<td class='td_holder ss-size-td'>
+		<%= payment_type.frequency_name %>		
+	</td>
+	<td class='td_holder ss-size-td'>
+		<%= payment_type.amount %>		
+	</td>
+</tr>

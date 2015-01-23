@@ -44,5 +44,10 @@ FactoryGirl.define do
     name = 'language1'
     code = 'aa'
   end
-  
+   
+  factory :payment_type do
+    sequence(:name)  { |n| "Payment Types factory #{n}" }
+    frequency = 1
+    amount = 15
+  end
 end

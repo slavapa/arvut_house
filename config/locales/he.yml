@@ -246,8 +246,8 @@
   confirm: 'האם אתה בטוח?' 
   item_updated: '%{name} עודכן/ה בהצלחה' 
   item_created: '%{name} נוצר/ה בהצלחה' 
-  paymet_type_created: 'סוג תשלום נוצר בהצלחה' 
-  paymet_type_updated: 'סוג תשלום עודכן בהצלחה'  
+  payment_type_created: 'סוג תשלום נוצר בהצלחה' 
+  payment_type_updated: 'סוג תשלום עודכן בהצלחה'  
   event_type_created: 'סוג האירוע נוצר בהצלחה' 
   event_type_updated: 'סוג האירוע עודכן בהצלחה' 
   event_type_deleted: "סוג האירוע %{name} נמחק"
@@ -297,6 +297,7 @@
   weekly: 'שבועי'
   monthly: 'חודשי'
   annually: 'שנתי'
+  validates_inclusion: "%{value} לא חוקית. הערכים חוקיים הם: %{valid_values}"
 
 
  #START:Active Records 
@@ -310,9 +311,10 @@
       status: 'סטטוס'
       role: 'תפקיד'
     attributes:
-      paymet_type:
+      payment_type:
         name: 'שם' 
         frequency: 'תדירות'
+        amount: 'הסכום'
       status:
         name: 'שם' 
       language:
@@ -420,8 +422,8 @@
       editing: 'עריכת  תפקיד'
 #END:Roles
 
-#START:paymet_types
-  paymet_types:
+#START:payment_types
+  payment_types:
     name: 'סוגי תשלומים'
     new:
       new: 'סוג תשלום חדש'
@@ -429,4 +431,4 @@
       list: 'רשימת סוגי תשלומים'
     edit:
       editing: 'עריכת סוג תשלום'
-#END:paymet_types
+#END:payment_types
