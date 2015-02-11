@@ -35,7 +35,7 @@ body {
 }
 
 .inline_container{
-  display: inline;
+  display: inline  !important; 
 }
 
 .languages{
@@ -481,3 +481,18 @@ input[type="search"]{
   }
 }
 
+.extended_input{
+  width: 550px !important;   
+} 
+
+.medium_fz{
+    font-size: 18px;
+}
+
+:not(.he) holder_end{
+    margin-right: 10px;
+}
+
+.he .holder_end{
+  margin-left: 10px;
+}

@@ -1,0 +1,20 @@
+<%#= will_paginate @people %>
+<table class='table-bordered tabletable-hover table-index'>
+  <thead>
+    <tr>
+      <th class='td_left '></th>
+      <th class='td_holder field  medium-size-td'><%= t(:name)%></th>
+      <th class='td_holder field  medium-size-td'><%= t('people.form.family_name')%></th>
+      <th class='td_holder field  medium-size-td'><%=  t('activerecord.attributes.person.status') %></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.area') %></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.department') %></th>
+      <th class='td-img-holder ss-size-td'><%=  t('events.edit.present') %></th>
+      <th class="btn_holder"></th>
+    </tr>
+  </thead>
+
+  <tbody  class="tbody_events">
+  	<%= render partial: "person", collection: @people %>
+  </tbody>
+</table>
+<%#= will_paginate @people %>

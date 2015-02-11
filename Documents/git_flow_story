@@ -1,0 +1,3 @@
+http://stackoverflow.com/questions/1519006/how-do-you-create-a-remote-git-branch
+git checkout -b payments
+git add .

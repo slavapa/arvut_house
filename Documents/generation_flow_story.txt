@@ -1,0 +1,17 @@
+rails generate migration event_type_foreignkey_to_events
+rails generate scaffold Language name:string:index code:string:index 
+rails generate model PersonLanguage language:references person:references
+rails generate migration add_foreignkey_to_person_event_relationships
+rails generate scaffold Status name:string:index
+rails generate migration add_status_to_people status:references
+rails generate migration add_status_foreign_key_to_people
+rails generate scaffold Role name:string:index
+rails generate model PersonRole person:references role:references
+rails generate migration add_area_to_people area:string
+rails generate scaffold PaymentType name:string:index frequency:integer:index amount:decimal
+rails generate scaffold Payment description:string:index payment_date:date payment_type:references
+rails generate migration payment_type_foreignkey_to_payments
+rails generate model PersonPayment person:references role:payment amount:decimal
+rails destroy model PersonPayment  
+rails generate model PersonPayment person:references payment:references amount:decimal
+rails generate migration add_foreignkey_to_person_payments

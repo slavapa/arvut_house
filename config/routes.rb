@@ -1,6 +1,8 @@
 ArvutHouse::Application.routes.draw do
 
 
+  resources :payments
+
   root 'home#default'
   scope '(:locale)' do 
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'

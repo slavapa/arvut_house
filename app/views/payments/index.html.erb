@@ -1,0 +1,20 @@
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path:new_payment_path} %>
+
+<%#= render partial: 'event_search', 
+	locals:{ search: @search} %>
+	
+<%#= will_paginate %>
+<table class='table-bordered tabletable-hover table-index'>
+  <thead>
+    <tr>
+      <th class='td_left short-size-td'><%=t('activerecord.attributes.payment.payment_date')%></th>
+      <th class='td_holder mm-size-td'><%=t('type')%></th>
+      <th class='td_holder  long-size-td'><%=t(:description)%></th>
+    </tr>
+  </thead>
+
+  <tbody  class="tbody_events">
+  	<%= render @payments %>
+  </tbody>
+</table>
