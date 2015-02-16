@@ -452,4 +452,5 @@
       list: 'List of Payments'
     edit:
       editing: 'Editing Payment'
+      paid: 'Paid'
 #END:payments

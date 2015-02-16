@@ -1,0 +1,9 @@
+<%= form_for(payment.person_payments.find_by(person_id: person.id),
+     html: { method: :delete }, remote: true) do |f| %>
+     <div>
+	  	<%= f.hidden_field :person_id %>
+	  	<%= f.hidden_field :payment_id %>
+	  </div>
+  <%= f.submit t(:remove), class: "btn btn-small btn-medium", id: "remove_person_btn",
+  data: { confirm: 'Are you sure?' } %>
+<% end %>

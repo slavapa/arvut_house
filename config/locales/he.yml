@@ -452,4 +452,5 @@
       list: 'רשימת תשלומים'
     edit:
       editing: 'עריכת תשלום'
+      paid: 'שילמו'
 #END:payments

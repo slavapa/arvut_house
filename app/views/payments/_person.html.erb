@@ -26,8 +26,8 @@
 		</td>
 	  	<td class='td_holder form_holder'>
 		  	<% if current_user.admin?%>
-			  	<%#= render partial: "remove_person_form", 
-					locals: {event: @event, person: person} %>
+			  	<%= render partial: "remove_person_form", 
+					locals: {payment: @payment, person: person} %>
 		  	<% end %>
 	  	</td>
 	</tr>
@@ -59,8 +59,8 @@
 		</td>
 	  	<td class='td_holder form_holder'>
 		  	<% if current_user.admin?%>
-			  	<%#= render partial: "add_person_form", 
-					locals: {event: @event, person: person} %>
+			  	<%= render partial: "add_person_form", 
+					locals: {payment: @payment, person: person} %>
 		  	<% end %>
 	  	</td>
 	</tr>

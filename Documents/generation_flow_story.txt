@@ -15,3 +15,4 @@ rails generate model PersonPayment person:references role:payment amount:decimal
 rails destroy model PersonPayment  
 rails generate model PersonPayment person:references payment:references amount:decimal
 rails generate migration add_foreignkey_to_person_payments
+rails generate controller PersonPayments create destroy update
