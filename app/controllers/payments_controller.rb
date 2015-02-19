@@ -4,7 +4,9 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @payments = Payment.all
+    @search = PaymentSearch.new params[:f], params[:page]
+    @payments = @search.results
+#    @payments = Payment.all
   end
 
   # GET /payments/1

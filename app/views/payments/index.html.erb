@@ -1,10 +1,10 @@
 <%= render partial: 'shared/header_index', 
-	locals:{ title: t('.list'),  path:new_payment_path} %>
+	locals:{ title: t('.list'),  path:new_payment_path, search: @search} %>
 
-<%#= render partial: 'event_search', 
+<%= render partial: 'payment_search', 
 	locals:{ search: @search} %>
 	
-<%#= will_paginate %>
+<%= will_paginate %>
 <table class='table-bordered tabletable-hover table-index'>
   <thead>
     <tr>
