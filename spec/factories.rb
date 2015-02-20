@@ -50,4 +50,15 @@ FactoryGirl.define do
     frequency = 1
     amount = 15
   end
+   
+  factory :person_payment do
+    payment
+    person
+  end
+   
+  factory :payment do
+    sequence(:description)  { |n| "Payment Description #{n}" }
+    payment_date = Date.today
+    payment_type 
+  end
 end

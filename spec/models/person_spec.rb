@@ -29,6 +29,8 @@ describe Person do
     it { should respond_to(:events) }  
     it { should respond_to(:person_event_relationships) }
     it { should respond_to(:event_types) }
+    it { should respond_to(:payments) }
+    it { should respond_to(:person_payments) }
   end 
     
   describe "person methods" do

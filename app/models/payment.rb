@@ -1,6 +1,6 @@
 class Payment < ActiveRecord::Base
   belongs_to :payment_type
-  has_many :person_payments, :dependent => :restrict_with_error 
+  has_many :person_payments , dependent: :destroy
   has_many :people, through: :person_payments
   validates :payment_date, presence: true
   validates :payment_type_id, presence: true
