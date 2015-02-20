@@ -21,7 +21,11 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1/edit
   def edit
-    @people = Person.all
+    store_current_payment_id(@payment.id)
+    PersonPaymentSearch.set_payment_id(@payment.id)
+    @search = PersonPaymentSearch.new params[:f], params[:page], {payment_id: @payment.id}
+    @people = @search.results
+#    @people = Person.all
   end
 
   # POST /payments

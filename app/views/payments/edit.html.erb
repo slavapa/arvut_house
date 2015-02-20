@@ -1,8 +1,12 @@
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
 	new_path: new_payment_path, cur_item: @payment,
-	index_payment_name: t('payments.index.list'), index_path: payments_path} %>
+	index_payment_name: t('payments.index.list'), index_path: payments_path,
+        search: @search} %>
 
 <%= render 'form' %>
+
+<%= render partial: 'person_search', 
+	locals:{ search: @search} %>	
 
 <%= render partial: "people" %>
 
