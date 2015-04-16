@@ -80,4 +80,16 @@ module SessionsHelper
       redirect_to(signin_url, notice: t(:not_authorized) ) 
     end
   end
+  
+  def store_current_payment_id(payment_id)
+    session[:current_payment_id] = payment_id
+  end
+  
+  def get_current_payment_id
+    session[:current_payment_id]
+  end
+  
+  def delete_current_payment_id(payment_id)
+    session.delete(:current_payment_id)
+  end
 end

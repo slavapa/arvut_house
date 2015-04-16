@@ -1,0 +1,68 @@
+<% if @payment.is_perosn_exists?(person) %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
+		id="tr_for_person_id_<%= person.id %>">
+		<td class='td_left'>
+			<% if person.email.present?%>
+				<%= gravatar_for person, size: 32 %>
+			<% end %>		
+		</td>
+		<td class='td_holder field  medium-size-td  module-link'>
+			<%= link_to person.name, edit_person_path(person) %>
+		</td>
+		<td class='td_holder field  medium-size-td'>
+			<%= person.family_name %>		
+		</td>	
+		<td class='td_holder field  medium-size-td'>
+			<%= person.status_name %>
+		</td>
+		<td class='td_holder medium-size-td'>
+			<%= person.area %>		
+		</td>
+		<td class='td_holder medium-size-td'>
+			<%= person.department %>		
+		</td>	
+		<td class='td-img-holder ss-size-td' id="td_present_person_<%= person.id %>" >
+			<%= image_tag("vicon.gif") %>
+		</td>
+	  	<td class='td_holder form_holder'>
+		  	<% if current_user.admin?%>
+			  	<%= render partial: "remove_person_form", 
+					locals: {payment: @payment, person: person} %>
+		  	<% end %>
+	  	</td>
+	</tr>
+<% else %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
+		id="tr_for_person_id_<%= person.id %>">
+		<td class='td_left'>
+			<% if person.email.present?%>
+				<%= gravatar_for person, size: 32 %>
+			<% end %>		
+		</td>
+		<td class='td_holder field  medium-size-td  module-link'>
+			<%= link_to person.name, edit_person_path(person) %>
+		</td>
+		<td class='td_holder field  medium-size-td'>
+			<%= person.family_name %>		
+		</td>	
+		<td class='td_holder field  medium-size-td'>
+			<%= person.status_name %>
+		</td>
+		<td class='td_holder medium-size-td'>
+			<%= person.area %>		
+		</td>
+		<td class='td_holder medium-size-td'>
+			<%= person.department %>		
+		</td>	
+		<td class='td-img-holder ss-size-td' id="td_present_person_<%= person.id %>" >
+			&nbsp;
+		</td>
+	  	<td class='td_holder form_holder'>
+		  	<% if current_user.admin?%>
+			  	<%= render partial: "add_person_form", 
+					locals: {payment: @payment, person: person} %>
+		  	<% end %>
+	  	</td>
+	</tr>
+<% end %>
+

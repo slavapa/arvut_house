@@ -1,0 +1,5 @@
+$cur_tr = $('#tr_for_person_id_<%= @person.id %>');
+$cur_tr.find('#td_present_person_<%= @person.id %>').html('&nbsp;')
+$cur_tr.find('.form_holder').
+	html("<%= escape_javascript(render(partial: 'payments/add_person_form', 
+			locals: {payment: @payment, person: @person})) %>");

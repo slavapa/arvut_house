@@ -14,6 +14,8 @@ class Person < ActiveRecord::Base
   
   validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
   belongs_to :status
+  has_many :payments, through: :person_payments
+  has_many :person_payments, dependent: :destroy
   has_many :languages, through: :person_languages
   has_many :person_languages, dependent: :destroy
   has_many :roles, through: :person_roles
@@ -35,7 +37,13 @@ class Person < ActiveRecord::Base
             on people.id=person_event_relationships.person_id 
             and person_event_relationships.event_id = #{event_id}")
   }   
-   
+  
+  scope :person_left_outer_payment, lambda { |payment_id|
+    joins("left outer join person_payments 
+            on people.id=person_payments.person_id 
+            and person_payments.payment_id = #{payment_id}")
+  }  
+  
   def is_role_exists?(role)
     !person_roles.where(role_id: role.id).empty?
   end

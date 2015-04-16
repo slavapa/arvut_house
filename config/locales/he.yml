@@ -298,6 +298,7 @@
   monthly: 'חודשי'
   annually: 'שנתי'
   validates_inclusion: "%{value} לא חוקית. הערכים חוקיים הם: %{valid_values}"
+  type: 'סוג'
 
 
  #START:Active Records 
@@ -310,7 +311,16 @@
       language: 'שפה'
       status: 'סטטוס'
       role: 'תפקיד'
+      payment_type: 'סוג תשלום'
+      payment: 'תשלום'
     attributes:
+      payment:
+        name: 'Name' 
+        payment_date: 'מועד תשלום' 
+        payment_type_id: 'סוג תשלום'
+        description: 'תיאור'  
+        payment_date: 'מועד תשלום' 
+        payment_type_id: 'סוג תשלום'
       payment_type:
         name: 'שם' 
         frequency: 'תדירות'
@@ -432,3 +442,15 @@
     edit:
       editing: 'עריכת סוג תשלום'
 #END:payment_types
+
+#START:payments
+  payments:
+    name: 'תשלומים'
+    new:
+      new: 'תשלום חדש'
+    index:
+      list: 'רשימת תשלומים'
+    edit:
+      editing: 'עריכת תשלום'
+      paid: 'שילמו'
+#END:payments

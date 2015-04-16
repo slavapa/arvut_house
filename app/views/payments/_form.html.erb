@@ -1,0 +1,18 @@
+<%= form_for(@payment) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+ 
+  <div class="field">
+    <%= f.label :event_date, t('activerecord.attributes.payment.payment_date'), 
+      class:'inline_container medium_fz' %>: 
+    <%= f.date_field :payment_date, class:'date inline_container holder_end' %>
+    
+    <%= f.label :event_type_id, t('activerecord.attributes.payment.payment_type_id'), 
+      class:'inline_container medium_fz' %>: 
+    <%= f.select :payment_type_id, @payment.payment_type_array %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, t('description'), class:'inline_container medium_fz' %>:
+    <%= f.text_field :description, class:'extended_input' %>
+  </div>
+<% end %>

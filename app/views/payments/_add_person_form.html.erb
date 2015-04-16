@@ -1,0 +1,9 @@
+<%= form_for(payment.person_payments.build(person_id: person.id), 
+		remote: true) do |f| %>
+  <div>
+  	<%= f.hidden_field :person_id %>
+  	<%= f.hidden_field :payment_id %>
+  </div>
+  <%= f.submit t(:add), class: "btn btn-primary btn-small  btn-medium", 
+  		id: "add_person_btn" %>
+<% end %>	  	

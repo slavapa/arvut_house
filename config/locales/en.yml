@@ -298,6 +298,7 @@
   monthly: 'Monthly'
   annually: 'Annually'
   validates_inclusion: "%{value} is not a valid.The valid values are: %{valid_values}"
+  type: 'Type'
 
 
  #START:Active Records   
@@ -310,7 +311,16 @@
       language: 'Language'
       status: 'Status'
       role: 'Role'
+      payment_type: 'Payment Type'
+      payment: 'Payment'
     attributes:
+      payment:
+        name: 'Name' 
+        payment_date: 'Payment date' 
+        payment_type_id: 'Payment Type'
+        description: 'Description' 
+        payment_date: 'Payment date' 
+        payment_type_id: 'Payment Type'
       payment_type:
         name: 'Name' 
         frequency: 'Frequency'
@@ -432,3 +442,15 @@
     edit:
       editing: 'Editing Payment Type'
 #END:payment_types
+
+#START:payments
+  payments:
+    name: 'Payments'
+    new:
+      new: 'New Payment'
+    index:
+      list: 'List of Payments'
+    edit:
+      editing: 'Editing Payment'
+      paid: 'Paid'
+#END:payments

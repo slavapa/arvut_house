@@ -15,7 +15,7 @@ describe Event do
     it { should respond_to(:event_type_id) }
   end
   
-  describe "person relations" do
+  describe "event relations" do
     it { should respond_to(:event_type) }  
     it { should respond_to(:people) } 
     it { should respond_to(:person_event_relationships) }

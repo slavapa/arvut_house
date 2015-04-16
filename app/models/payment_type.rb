@@ -1,4 +1,5 @@
-class PaymentType < ActiveRecord::Base  
+class PaymentType < ActiveRecord::Base 
+  has_many :payments , :dependent => :restrict_with_error
   validates :name, presence: true, length: { maximum: 60 },
     uniqueness: { case_sensitive: false } 
   validates :frequency, presence: true,  

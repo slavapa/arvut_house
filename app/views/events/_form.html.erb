@@ -2,9 +2,11 @@
   <%= render 'shared/error_messages', object: f.object %>
   
   <div class="field">
-    <%= f.label :event_date, t('.event_date') %>: <%= f.date_field :event_date, class:'date' %>
-    <%= f.label :event_type_id, t('.event_type_id') %>: <%= f.select :event_type_id, 
-    								@event.event_types_array %>
+    <%= f.label :event_date, t('.event_date') %>: 
+    <%= f.date_field :event_date, class:'date inline_container' %>
+    
+    <%= f.label :event_type_id, t('.event_type_id') %>: 
+    <%= f.select :event_type_id, @event.event_types_array %>
   </div>
   
   <div class="field">

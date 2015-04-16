@@ -44,7 +44,7 @@ describe PaymentType do
     end 
   end
       
-  describe "when Payment Type Frequency values are valid" do 
+  describe "when Payment Amount values are valid" do 
     it "should be valid" do   
       valid_values = [0.01, 0.11, 1, 2.2, 3, 4.99, 999.99, '111.11']      
       valid_values.each do |value|
@@ -80,7 +80,17 @@ describe PaymentType do
       expect { pt1.save }.to change(PaymentType, :count).by(1)
     end   
   end
-     
-  pending "Payment Type relations"
-  pending "Payment Type  is already in use"
+   
+  describe "Payment Type  is already in use" do 
+    let(:pt1) { PaymentType.new(name: DateTime.now, frequency: 1) }
+    
+    before do
+      pt1.save
+      payment = pt1.payments.create!(
+        description: "Payment to test delete payment type #{pt1.name}")        
+    end
+    it "should not delete a event type" do
+      expect { pt1.destroy }.not_to change(PaymentType, :count)
+    end          
+  end
 end

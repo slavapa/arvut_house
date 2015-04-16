@@ -344,6 +344,7 @@
   monthly: 'Ежемесячно'
   annually: 'Ежегодно'
   validates_inclusion: "%{value} не действителен. Допустимые значения: %{valid_values}"
+  type: 'Тип'
 
 
  #START:Active Records   
@@ -356,7 +357,16 @@
       language: 'Язык'
       status: 'Статус'
       role: 'Должность'
+      payment_type: 'Тип Платежа'
+      payment: 'Payment'
     attributes:
+      payment:
+        name: 'Имя' 
+        payment_date: 'Дата Платежа' 
+        payment_type_id: 'Тип Платежа'
+        description: 'Описание' 
+        payment_date: 'Дата платежа' 
+        payment_type_id: 'Тип Платежа' 
       payment_type:
         name: 'Имя' 
         frequency: 'периодичность'
@@ -478,3 +488,15 @@
     edit:
       editing: 'Редактирование тип платежа'
 #END:payment_types
+
+#START:payments
+  payments:
+    name: 'Платежи'
+    new:
+      new: 'Новый платёж'
+    index:
+      list: 'Список платежей'
+    edit:
+      editing: 'Редактирование платежа'
+      paid: 'Оплачен'
+#END:payments
