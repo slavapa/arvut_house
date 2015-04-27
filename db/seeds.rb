@@ -122,7 +122,7 @@ make_language
 make_event_types
 make_users
 make_events
-populate_people_by_sql_file
-populate_person_languages_by_sql_file
+#populate_people_by_sql_file
+#populate_person_languages_by_sql_file
  
 
