@@ -72,8 +72,8 @@ def make_users
   email:'kirilsagoth2@gmail.com', password:'xxxxxx', password_confirmation:'xxxxxx',
   admin: true)
   
-  Person.create!(name: "Haifa", family_name:'Arvut House',
-                       email:    "haifa@arvuthouse.org",
+  Person.create!(name: "Alexey", family_name:'N',
+                       email:    "alexeyn66@gmail.com",
                        password: "xxxxxx",
                        password_confirmation: "xxxxxx",
                        admin: true)
