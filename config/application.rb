@@ -21,8 +21,9 @@ module ArvutHouse
     # config.i18n.default_locale = :de
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    #I18n.enforce_available_locales = true
-    #I18n.default_locale = :he
+    I18n.enforce_available_locales = false
+    config.i18n.available_locales = [:en, :ru, :he]
+    I18n.default_locale = :he
     #config.active_record.schema_format = :sql
   end
 end
