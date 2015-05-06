@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '1.9.3'
 #ruby-gemset=railstutorial_rails_4_0
 
@@ -53,6 +53,6 @@ end
 
 gem 'pg', '0.15.1'
 gem 'rails_12factor', '0.0.2'
-gem 'search_object', '~> 0.1' #https://rubygems.org/gems/search_object TODO: Check version 1.0
+gem 'search_object', '~> 0.1' #http://rubygems.org/gems/search_object TODO: Check version 1.0
 gem 'slim'
-gem "validates_existence", ">= 0.4" #https://github.com/perfectline/validates_existence
+gem "validates_existence", ">= 0.4" #http://github.com/perfectline/validates_existence
