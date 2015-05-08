@@ -59,9 +59,13 @@ describe "People" do
     describe "with valid information" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
+      let(:new_email_2) { "new-2@example.com" }
+      let(:car_number)  { "55-555-55" }
       before do
         fill_in "person_name",             with: new_name
         fill_in "person_email",            with: new_email
+        fill_in "person_email_2",          with: new_email_2
+        fill_in "person_car_number",       with: car_number
         fill_in "person_password",         with: person.password
         fill_in "person_password_confirmation", with: person.password
         click_button "btn_submit"
@@ -72,6 +76,8 @@ describe "People" do
       it { should have_link('Sign out', href: '/en' + signout_path) }
       specify { expect(person.reload.name).to  eq new_name }
       specify { expect(person.reload.email).to eq new_email }
+      specify { expect(person.reload.email_2).to eq new_email_2 }
+      specify { expect(person.reload.car_number).to eq car_number }
     end
     
     describe "delete links" do
