@@ -386,6 +386,7 @@
       person:
         family_name: 'Фамилия'
         email: 'E-mail'
+        email_2: 'E-mail 2'
         password: 'Пароль'
         password_confirmation: 'Подтвердить пароль'
         admin: 'Админ'	
@@ -398,6 +399,7 @@
         birth_date: 'Дата рождения' 
         family_status: 'Семейное положение'
         car_owner: 'Автовладелец'
+        car_number: 'Номер автомобиля'
         computer_knowledge: 'Знание компьютера'
         workplace: 'Место работы'
         skills: 'Навыки'

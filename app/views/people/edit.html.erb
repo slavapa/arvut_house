@@ -23,6 +23,9 @@
 				  	<%= f.label :email %>
 				  	<%= f.text_field :email, :autocomplete => :off %>
 				
+				  	<%= f.label :email_2 %>
+				  	<%= f.text_field :email_2, :autocomplete => :off %>
+				
 				  	<%= f.label :password %>
 				  	<%= f.password_field :password, :autocomplete => :off, value:'' %>
 				
@@ -63,6 +66,9 @@
 							  								
 							  	<%= f.label :car_owner %>
 							  	<%= f.select :car_owner, @person.car_owner_arr %>	
+							  	
+							  	<%= f.label :car_number %>
+							  	<%= f.text_field :car_number, :autocomplete => :off %>
 							  								
 							  	<%= f.label :computer_knowledge %>
 				  				<%= f.select :computer_knowledge, @person.computer_knowledge_arr %>				  													

@@ -340,6 +340,7 @@
       person:
         family_name: 'שם משפחה'
         email: 'דוא"ל'
+        email_2: 'דוא"ל 2'
         password: 'סיסמא'
         password_confirmation: 'אימות סיסמא'
         admin: 'Admin'
@@ -352,6 +353,7 @@
         birth_date: 'תאריך לידה'	
         family_status: 'מצב משפחתי'
         car_owner: 'בעל רכב'
+        car_number: 'מספר רכב'
         computer_knowledge: 'שליטה במחשב'
         workplace: 'מקום עבודה'
         skills: 'כישורים'

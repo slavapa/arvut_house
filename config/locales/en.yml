@@ -340,6 +340,7 @@
       person:
         family_name: 'Family Name'
         email: 'Email'
+        email_2: 'Email 2'
         password: 'Password'
         password_confirmation: 'Confirm Password'
         admin: 'Admin'
@@ -352,6 +353,7 @@
         birth_date: 'Birth Date'
         family_status: 'Family status'
         car_owner: 'Car owner'
+        car_number: 'Car number'
         computer_knowledge: 'Computer Knowledge'
         workplace: 'Place of Work'
         skills: 'Skills'

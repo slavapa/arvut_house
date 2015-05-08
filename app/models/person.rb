@@ -1,8 +1,10 @@
 class Person < ActiveRecord::Base
   before_save :normalize_blank_values
   before_save { email.downcase! if  email.present?}
+  before_save { email_2.downcase! if  email_2.present?}
   before_create :create_remember_token
   
+  validates :car_number,  length: { maximum: 60 }
   validates :department,  length: { maximum: 60 }
   validates :area,  length: { maximum: 60 }
   validates :name, presence: true, length: { maximum: 60 }
@@ -26,7 +28,12 @@ class Person < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i  
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }, if: lambda { |p| p.password.present? },
-            length: { maximum: 60 }   
+            length: { maximum: 60 }
+            
+  validates :email_2, format: { with: VALID_EMAIL_REGEX },
+            uniqueness: { case_sensitive: false }, length: { maximum: 60 }, 
+            if: lambda { |p| p.email_2.present? }   
+            
   has_secure_password validations: false
   validates :password, length: { minimum: 6 }, if: lambda { |p| p.password.present? }
   validates_confirmation_of :password, if: lambda { |p| p.password.present? }

@@ -12,10 +12,13 @@ describe Person do
     it { should respond_to(:name) } 
     it { should respond_to(:family_name) }
     it { should respond_to(:email) }
+    it { should respond_to(:email_2) }
     it { should respond_to(:phone_mob) }
     it { should respond_to(:gender) }
     it { should respond_to(:status_id) }
     it { should respond_to(:id_card_number) }
+    it { should respond_to(:car_owner) }
+    it { should respond_to(:car_number) }
     it { should respond_to(:address) }
     it { should respond_to(:admin) }
     it { should respond_to(:password) }
@@ -60,22 +63,46 @@ describe Person do
     it { should_not be_valid }    
   end
   
+  def get_invalid_email_arr
+    %w[user@foo,com user_at_foo.org example.user@foo.
+                     foo@bar_baz.com foo@bar+baz.com foo@bar..com]
+  end
+  
   describe "when email format is invalid" do
     it "should be invalid" do
-      emails = %w[user@foo,com user_at_foo.org example.user@foo.
-                     foo@bar_baz.com foo@bar+baz.com foo@bar..com]
-      emails.each do |invalid_eaddress|
+      get_invalid_email_arr().each do |invalid_eaddress|
         @person.email = invalid_eaddress
         expect(@person).not_to be_valid
       end
     end
   end
   
+  describe "when email 2 format is invalid" do
+    it "should be invalid" do
+      get_invalid_email_arr().each do |invalid_eaddress|
+        @person.email_2 = invalid_eaddress
+        expect(@person).not_to be_valid
+      end
+    end
+  end
+  
+  def get_valid_email_arr
+    %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+  end
+  
   describe "when email format is valid" do
     it "should be valid" do
-      emails = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
-      emails.each do |valid_eaddress|
+      get_valid_email_arr().each do |valid_eaddress|
         @person.email = valid_eaddress
+        expect(@person).to be_valid
+      end
+    end
+  end
+  
+  describe "when email 2 format is valid" do
+    it "should be valid" do
+      get_valid_email_arr().each do |valid_eaddress|
+        @person.email_2 = valid_eaddress
         expect(@person).to be_valid
       end
     end
@@ -99,6 +126,16 @@ describe Person do
       @person.email = mixed_case_email
       @person.save
       expect(@person.reload.email).to eq mixed_case_email.downcase
+    end
+  end
+  
+  describe "email 2 address with mixed case" do
+    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+
+    it "should be saved as all lower-case" do
+      @person.email_2 = mixed_case_email
+      @person.save
+      expect(@person.reload.email_2).to eq mixed_case_email.downcase
     end
   end
   
@@ -139,10 +176,20 @@ describe Person do
   end
   
   describe "when email name is too long" do
-    before { @person.family_name = "a" * 61 }
+    before { @person.email = "a" * 61 }
     it { should_not be_valid }
   end
-   
+  
+  describe "when email 2 name is too long" do
+    before { @person.email_2 = "a" * 61 }
+    it { should_not be_valid }
+  end
+    
+  describe "when car number name is too long" do
+    before { @person.car_number = "a" * 61 }
+    it { should_not be_valid }
+  end
+  
   describe "when phone is too long" do
     before { @person.phone_mob = "a" * 61 }
     it { should_not be_valid }

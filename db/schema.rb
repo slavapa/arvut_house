@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206091811) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20150508064243) do
 
   create_table "event_types", force: true do |t|
     t.string   "name",       limit: 60, null: false
@@ -22,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "event_types", ["name"], name: "index_event_types_on_name", unique: true, using: :btree
+  add_index "event_types", ["name"], name: "index_event_types_on_name", unique: true
 
   create_table "events", force: true do |t|
     t.string   "description"
@@ -32,8 +29,8 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["event_type_id", "event_date"], name: "index_events_on_event_type_id_and_event_date", unique: true, using: :btree
-  add_index "events", ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
+  add_index "events", ["event_type_id", "event_date"], name: "index_events_on_event_type_id_and_event_date", unique: true
+  add_index "events", ["event_type_id"], name: "index_events_on_event_type_id"
 
   create_table "languages", force: true do |t|
     t.string   "name",       limit: 60, null: false
@@ -42,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "languages", ["code"], name: "index_languages_on_code", unique: true, using: :btree
-  add_index "languages", ["name"], name: "index_languages_on_name", unique: true, using: :btree
+  add_index "languages", ["code"], name: "index_languages_on_code", unique: true
+  add_index "languages", ["name"], name: "index_languages_on_name", unique: true
 
   create_table "payment_types", force: true do |t|
     t.string   "name"
@@ -53,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "payment_types", ["frequency"], name: "index_payment_types_on_frequency", using: :btree
-  add_index "payment_types", ["name"], name: "index_payment_types_on_name", unique: true, using: :btree
+  add_index "payment_types", ["frequency"], name: "index_payment_types_on_frequency"
+  add_index "payment_types", ["name"], name: "index_payment_types_on_name", unique: true
 
   create_table "payments", force: true do |t|
     t.string   "description"
@@ -64,8 +61,8 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "payments", ["description"], name: "index_payments_on_description", using: :btree
-  add_index "payments", ["payment_type_id"], name: "index_payments_on_payment_type_id", using: :btree
+  add_index "payments", ["description"], name: "index_payments_on_description"
+  add_index "payments", ["payment_type_id"], name: "index_payments_on_payment_type_id"
 
   create_table "people", force: true do |t|
     t.string   "name",               limit: 60,                 null: false
@@ -90,14 +87,16 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.integer  "status_id"
     t.string   "area",               limit: 60
     t.string   "department",         limit: 60
+    t.string   "car_number",         limit: 60
+    t.string   "email_2",            limit: 60
   end
 
-  add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
-  add_index "people", ["family_name"], name: "index_people_on_family_name", using: :btree
-  add_index "people", ["id_card_number"], name: "index_people_on_id_card_number", unique: true, using: :btree
-  add_index "people", ["name"], name: "index_people_on_name", using: :btree
-  add_index "people", ["remember_token"], name: "index_people_on_remember_token", using: :btree
-  add_index "people", ["status_id"], name: "index_people_on_status_id", using: :btree
+  add_index "people", ["email"], name: "index_people_on_email", unique: true
+  add_index "people", ["family_name"], name: "index_people_on_family_name"
+  add_index "people", ["id_card_number"], name: "index_people_on_id_card_number", unique: true
+  add_index "people", ["name"], name: "index_people_on_name"
+  add_index "people", ["remember_token"], name: "index_people_on_remember_token"
+  add_index "people", ["status_id"], name: "index_people_on_status_id"
 
   create_table "person_event_relationships", force: true do |t|
     t.integer  "person_id",  null: false
@@ -106,9 +105,9 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "person_event_relationships", ["event_id"], name: "index_person_event_relationships_on_event_id", using: :btree
-  add_index "person_event_relationships", ["person_id", "event_id"], name: "index_person_event_relationships_on_person_id_and_event_id", unique: true, using: :btree
-  add_index "person_event_relationships", ["person_id"], name: "index_person_event_relationships_on_person_id", using: :btree
+  add_index "person_event_relationships", ["event_id"], name: "index_person_event_relationships_on_event_id"
+  add_index "person_event_relationships", ["person_id", "event_id"], name: "index_person_event_relationships_on_person_id_and_event_id", unique: true
+  add_index "person_event_relationships", ["person_id"], name: "index_person_event_relationships_on_person_id"
 
   create_table "person_languages", force: true do |t|
     t.integer  "language_id", null: false
@@ -117,9 +116,9 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "person_languages", ["language_id", "person_id"], name: "index_person_languages_on_language_id_and_person_id", unique: true, using: :btree
-  add_index "person_languages", ["language_id"], name: "index_person_languages_on_language_id", using: :btree
-  add_index "person_languages", ["person_id"], name: "index_person_languages_on_person_id", using: :btree
+  add_index "person_languages", ["language_id", "person_id"], name: "index_person_languages_on_language_id_and_person_id", unique: true
+  add_index "person_languages", ["language_id"], name: "index_person_languages_on_language_id"
+  add_index "person_languages", ["person_id"], name: "index_person_languages_on_person_id"
 
   create_table "person_payments", force: true do |t|
     t.integer  "person_id",  null: false
@@ -129,9 +128,9 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "person_payments", ["payment_id"], name: "index_person_payments_on_payment_id", using: :btree
-  add_index "person_payments", ["person_id", "payment_id"], name: "index_person_payments_on_person_id_and_payment_id", unique: true, using: :btree
-  add_index "person_payments", ["person_id"], name: "index_person_payments_on_person_id", using: :btree
+  add_index "person_payments", ["payment_id"], name: "index_person_payments_on_payment_id"
+  add_index "person_payments", ["person_id", "payment_id"], name: "index_person_payments_on_person_id_and_payment_id", unique: true
+  add_index "person_payments", ["person_id"], name: "index_person_payments_on_person_id"
 
   create_table "person_roles", force: true do |t|
     t.integer  "person_id"
@@ -140,9 +139,9 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "person_roles", ["person_id", "role_id"], name: "index_person_roles_on_person_id_and_role_id", unique: true, using: :btree
-  add_index "person_roles", ["person_id"], name: "index_person_roles_on_person_id", using: :btree
-  add_index "person_roles", ["role_id"], name: "index_person_roles_on_role_id", using: :btree
+  add_index "person_roles", ["person_id", "role_id"], name: "index_person_roles_on_person_id_and_role_id", unique: true
+  add_index "person_roles", ["person_id"], name: "index_person_roles_on_person_id"
+  add_index "person_roles", ["role_id"], name: "index_person_roles_on_role_id"
 
   create_table "roles", force: true do |t|
     t.string   "name",       null: false
@@ -150,7 +149,7 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "roles", ["name"], name: "index_roles_on_name", unique: true, using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", unique: true
 
   create_table "statuses", force: true do |t|
     t.string   "name",       limit: 60, null: false
@@ -158,6 +157,6 @@ ActiveRecord::Schema.define(version: 20150206091811) do
     t.datetime "updated_at"
   end
 
-  add_index "statuses", ["name"], name: "index_statuses_on_name", using: :btree
+  add_index "statuses", ["name"], name: "index_statuses_on_name"
 
 end
