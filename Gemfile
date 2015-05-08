@@ -12,7 +12,7 @@ gem 'bootstrap-will_paginate'
 gem 'rails-i18n', '~> 4.0.0'
 
 group :development, :test do
-  #gem 'sqlite3', '1.3.8'
+  gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.14.2'
   # The following optional lines are part of the advanced setup.
   gem 'guard-rspec'
@@ -51,8 +51,13 @@ group :doc do
   gem 'sdoc', '0.3.20', require: false
 end
 
-gem 'pg', '0.15.1'
 gem 'rails_12factor', '0.0.2'
 gem 'search_object', '~> 0.1' #http://rubygems.org/gems/search_object TODO: Check version 1.0
 gem 'slim'
 gem "validates_existence", ">= 0.4" #http://github.com/perfectline/validates_existence
+
+
+group :production do
+  gem 'pg',             '0.17.1'
+  gem 'unicorn',        '4.8.3'
+end
