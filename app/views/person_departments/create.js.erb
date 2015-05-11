@@ -1,0 +1,5 @@
+$cur_tr = $('#tr_item_id_<%= @department.id %>');
+$cur_tr.find('#td_item_exist_<%= @department.id %>').html('<img alt="Vicon" src="<%= image_path('vicon.gif') %>">')
+$cur_tr.find('.form_holder').
+	html("<%= escape_javascript(render(partial: 'people/remove_department_form', 
+			locals: {person: @person, department: @department})) %>");

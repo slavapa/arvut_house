@@ -313,7 +313,10 @@
       role: 'Role'
       payment_type: 'Payment Type'
       payment: 'Payment'
+      department: 'Department'
     attributes:
+      department:
+        description: 'Description' 
       payment:
         name: 'Name' 
         payment_date: 'Payment date' 
@@ -456,3 +459,15 @@
       editing: 'Editing Payment'
       paid: 'Paid'
 #END:payments
+#END:Statuse
+
+#START:Departments
+  departments:
+    name: 'Departments'
+    new:
+      new: 'New Department'
+    index:
+      list: 'List of Departments'
+    edit:
+      editing: 'Editing Department'
+#END:Departments

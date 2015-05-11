@@ -16,15 +16,23 @@ class Person < ActiveRecord::Base
   
   validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
   belongs_to :status
+  
   has_many :payments, through: :person_payments
   has_many :person_payments, dependent: :destroy
+  
   has_many :languages, through: :person_languages
   has_many :person_languages, dependent: :destroy
+  
   has_many :roles, through: :person_roles
   has_many :person_roles, dependent: :destroy
+  
+  has_many :departments, through: :person_departments
+  has_many :person_departments, dependent: :destroy
+  
   has_many :person_event_relationships, dependent: :destroy
   has_many :events, through: :person_event_relationships 
   has_many :event_types, through: :events
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i  
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }, if: lambda { |p| p.password.present? },
@@ -49,7 +57,19 @@ class Person < ActiveRecord::Base
     joins("left outer join person_payments 
             on people.id=person_payments.person_id 
             and person_payments.payment_id = #{payment_id}")
-  }  
+  } 
+  
+  def is_department_exists?(department)
+    !person_departments.where(department_id: department.id).empty?
+  end
+  
+  def add_department!(department)
+    !person_departments.create!(department_id: department.id)     
+  end
+  
+  def remove_department!(department) 
+    !person_departments.find_by(department_id: department.id).destroy    
+  end   
   
   def is_role_exists?(role)
     !person_roles.where(role_id: role.id).empty?

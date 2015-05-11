@@ -1,0 +1,14 @@
+<%= form_for(@department) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <div class="field">
+    <%= f.label :name, t(:name) %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description, t('.description') %>
+    <%= f.text_field :description, class:'extended_input' %>
+  </div>
+<% end %>
+

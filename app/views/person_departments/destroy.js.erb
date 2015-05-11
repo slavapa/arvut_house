@@ -1,0 +1,5 @@
+$cur_tr = $('#tr_item_id_<%= @department.id %>');
+$cur_tr.find('#td_item_exist_<%= @department.id %>').html('&nbsp;')
+$cur_tr.find('.form_holder').
+	html("<%= escape_javascript(render(partial: 'people/add_department_form', 
+			locals: {person: @person, department: @department})) %>");

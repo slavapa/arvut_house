@@ -48,6 +48,13 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @roles = Role.paginate(page: params[:page])
   end
+  
+  # GET /people/1/departments
+  def departments
+    @person = Person.find(params[:id])
+    @department = Department.paginate(page: params[:page])
+  end
+
 
   # POST /people
   # POST /people.json

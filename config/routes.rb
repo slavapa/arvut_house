@@ -1,10 +1,6 @@
 ArvutHouse::Application.routes.draw do
 
 
-
-  get "person_payments/create"
-  get "person_payments/destroy"
-  get "person_payments/update"
   root 'home#default'
   scope '(:locale)' do 
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
@@ -19,11 +15,13 @@ ArvutHouse::Application.routes.draw do
       member do
         get 'languages'
         get 'roles'
+        get 'departments'
       end
     end
     
     resources :person_languages, only: [:create, :destroy]
     resources :person_roles, only: [:create, :destroy]
+    resources :person_departments, only: [:create, :destroy]
   
     get "home/default"
     match '/about',       to: 'home#about',           via: 'get'
@@ -36,6 +34,13 @@ ArvutHouse::Application.routes.draw do
     resources :languages
     resources :statuses
     resources :roles
+    resources :departments
+    
+    get "person_departments/create"
+    get "person_departments/destroy"
+    get "person_payments/create"
+    get "person_payments/destroy"
+    get "person_payments/update"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

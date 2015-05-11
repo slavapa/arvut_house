@@ -359,7 +359,10 @@
       role: 'Должность'
       payment_type: 'Тип Платежа'
       payment: 'Payment'
+      department: 'Отдел'
     attributes:
+      department:
+        description: 'Описание' 
       payment:
         name: 'Имя' 
         payment_date: 'Дата Платежа' 
@@ -502,3 +505,14 @@
       editing: 'Редактирование платежа'
       paid: 'Оплачен'
 #END:payments
+
+#START:Departments
+  departments:
+    name: 'Отделы'
+    new:
+      new: 'Новый Отдел'
+    index:
+      list: 'Список Отделов'
+    edit:
+      editing: 'Редактирование Отдела'
+#END:Departments

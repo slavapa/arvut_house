@@ -19,3 +19,12 @@ rails generate controller PersonPayments create destroy update
 
 #May 8, 2015
 rails generate migration AddCarNumberEmail2ToPeople car_number:string email_2:string
+
+#May 11, 2015: Add Departments to Persons
+rails generate scaffold Department name:string:index description:string
+###rails generate model PersonDepartmen person:references department:references
+rails destroy model PersonDepartmen
+rails generate model PersonDepartment person:references department:references
+###rails generate migration add_foreignkey_to_person_departments
+rails generate controller PersonDepartments create destroy
+

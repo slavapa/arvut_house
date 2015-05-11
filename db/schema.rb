@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508064243) do
+ActiveRecord::Schema.define(version: 20150511153120) do
+
+  create_table "departments", force: true do |t|
+    t.string   "name",        limit: 60, null: false
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "departments", ["name"], name: "index_departments_on_name", unique: true
 
   create_table "event_types", force: true do |t|
     t.string   "name",       limit: 60, null: false
@@ -97,6 +106,17 @@ ActiveRecord::Schema.define(version: 20150508064243) do
   add_index "people", ["name"], name: "index_people_on_name"
   add_index "people", ["remember_token"], name: "index_people_on_remember_token"
   add_index "people", ["status_id"], name: "index_people_on_status_id"
+
+  create_table "person_departments", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "department_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "person_departments", ["department_id"], name: "index_person_departments_on_department_id"
+  add_index "person_departments", ["person_id", "department_id"], name: "index_person_departments_on_person_id_and_department_id", unique: true
+  add_index "person_departments", ["person_id"], name: "index_person_departments_on_person_id"
 
   create_table "person_event_relationships", force: true do |t|
     t.integer  "person_id",  null: false
