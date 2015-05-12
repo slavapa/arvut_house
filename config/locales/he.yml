@@ -1,4 +1,4 @@
-﻿he:
+he:
   date:
     abbr_day_names:
     - א
@@ -315,8 +315,6 @@
       payment: 'תשלום'
       department: 'מחלקה'
     attributes:
-      department:
-        description: 'תיאור' 
       payment:
         name: 'Name' 
         payment_date: 'מועד תשלום' 

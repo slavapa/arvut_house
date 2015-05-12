@@ -1,4 +1,4 @@
-﻿en:
+en:
   date:
     abbr_day_names:
     - Sun
@@ -315,8 +315,6 @@
       payment: 'Payment'
       department: 'Department'
     attributes:
-      department:
-        description: 'Description' 
       payment:
         name: 'Name' 
         payment_date: 'Payment date' 
