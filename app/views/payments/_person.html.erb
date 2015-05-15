@@ -1,4 +1,4 @@
-<% if @payment.is_perosn_exists?(person) %>
+<% if @payment.is_perosn_ext_exists?(person) %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
 		id="tr_for_person_id_<%= person.id %>">
 		<td class='td_left'>
@@ -7,7 +7,7 @@
 			<% end %>		
 		</td>
 		<td class='td_holder field  medium-size-td  module-link'>
-			<%= link_to person.name, edit_person_path(person) %>
+			<%= person.name %>
 		</td>
 		<td class='td_holder field  medium-size-td'>
 			<%= person.family_name %>		
@@ -30,6 +30,15 @@
 					locals: {payment: @payment, person: person} %>
 		  	<% end %>
 	  	</td>
+		<td class='td_holder medium-size-td'>
+			<%= form_tag("/person_payments/#{person.person_payments_id}", method: "PUT") do %>
+			  <%= text_field_tag(:amount, number_with_precision(person.amount, precision: 2), type: "number", min: 0.1, 
+			  step:'any', autocomplete:'off', class:'number') %>
+			  <%= submit_tag("Update", class: "btn btn-small btn-medium") %>
+			<% end %>
+			<%= person.amount %>
+			<%= person.person_payments_id %>	
+		</td>
 	</tr>
 <% else %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
@@ -40,7 +49,7 @@
 			<% end %>		
 		</td>
 		<td class='td_holder field  medium-size-td  module-link'>
-			<%= link_to person.name, edit_person_path(person) %>
+			<%= person.name %>
 		</td>
 		<td class='td_holder field  medium-size-td'>
 			<%= person.family_name %>		
@@ -63,6 +72,9 @@
 					locals: {payment: @payment, person: person} %>
 		  	<% end %>
 	  	</td>
+		<td class='td_holder medium-size-td'>
+			<%= person.amount %>		
+		</td>
 	</tr>
 <% end %>
 

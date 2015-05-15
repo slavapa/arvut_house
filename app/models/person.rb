@@ -56,7 +56,8 @@ class Person < ActiveRecord::Base
   scope :person_left_outer_payment, lambda { |payment_id|
     joins("left outer join person_payments 
             on people.id=person_payments.person_id 
-            and person_payments.payment_id = #{payment_id}")
+            and person_payments.payment_id = #{payment_id}").
+            select("*, people.id As id, person_payments.id As person_payments_id")
   } 
   
   def is_department_exists?(department)

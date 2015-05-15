@@ -25,7 +25,7 @@ class Payment < ActiveRecord::Base
   end 
   
   def add_person!(person)
-    person_payments.create!(person_id: person.id)     
+    person_payments.create!(person_id: person.id, amount: payment_type.amount)     
   end
   
   def remove_person!(person) 
@@ -34,6 +34,10 @@ class Payment < ActiveRecord::Base
   
   def is_perosn_exists?(other_person)
     !person_payments.where(person_id: other_person.id).empty?
+  end
+  
+  def is_perosn_ext_exists?(other_person)
+    !other_person.payment_id.nil?
   end
   
 end

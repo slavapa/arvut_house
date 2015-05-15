@@ -1,5 +1,6 @@
 class PersonPaymentsController < ApplicationController
   before_action :check_current_user_admin
+   before_action :set_person_payment, only: [:update]
   
   def create
     @payment = Payment.find(params[:person_payment][:payment_id])
@@ -21,6 +22,22 @@ class PersonPaymentsController < ApplicationController
     end
   end
 
-  def update
+  def update 
+    if params[:amount].nil?
+      redirect_to people_url
+    else
+      if @person_payment.update_attributes(amount: params[:amount])
+        flash[:success] = t(:person_updated) 
+      else
+        #render 'edit'
+      end
+    end
   end
+  
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_person_payment
+      @person_payment = PersonPayment.find(params[:id])
+    end
+   
 end
