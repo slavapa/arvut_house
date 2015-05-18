@@ -24,20 +24,17 @@
 		<td class='td-img-holder ss-size-td' id="td_present_person_<%= person.id %>" >
 			<%= image_tag("vicon.gif") %>
 		</td>
-	  	<td class='td_holder form_holder'>
+	  	<td class='td_holder form_holder add-remove-person_form-holder'>
 		  	<% if current_user.admin?%>
 			  	<%= render partial: "remove_person_form", 
 					locals: {payment: @payment, person: person} %>
 		  	<% end %>
 	  	</td>
-		<td class='td_holder medium-size-td'>
-			<%= form_tag("/person_payments/#{person.person_payments_id}", method: "PUT") do %>
-			  <%= text_field_tag(:amount, number_with_precision(person.amount, precision: 2), type: "number", min: 0.1, 
-			  step:'any', autocomplete:'off', class:'number') %>
-			  <%= submit_tag("Update", class: "btn btn-small btn-medium") %>
-			<% end %>
-			<%= person.amount %>
-			<%= person.person_payments_id %>	
+		<td class='td_holder form_holder input_holder update_holder amount_holder'>
+		  	<% if current_user.admin?%>
+			  	<%= render partial: "update_person_form", 
+					locals: {payment: @payment, person: person} %>
+		  	<% end %>
 		</td>
 	</tr>
 <% else %>
@@ -66,14 +63,13 @@
 		<td class='td-img-holder ss-size-td' id="td_present_person_<%= person.id %>" >
 			&nbsp;
 		</td>
-	  	<td class='td_holder form_holder'>
+	  	<td class='td_holder form_holder add-remove-person_form-holder'>
 		  	<% if current_user.admin?%>
 			  	<%= render partial: "add_person_form", 
 					locals: {payment: @payment, person: person} %>
 		  	<% end %>
 	  	</td>
-		<td class='td_holder medium-size-td'>
-			<%= person.amount %>		
+		<td class='td_holder form_holder input_holder update_holder amount_holder'>
 		</td>
 	</tr>
 <% end %>

@@ -1,0 +1,7 @@
+var $cur_tr = $('#tr_for_person_id_<%= @person.id %>');
+
+$cur_tr.find('.amount_holder').
+	html("<%= escape_javascript(render(partial: 'payments/update_person_form', 
+			locals: {payment: @payment, person: @person})) %>");
+			
+//alert('<%= flash.now[:success] %>');

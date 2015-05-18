@@ -5,7 +5,10 @@ class PersonPaymentsController < ApplicationController
   def create
     @payment = Payment.find(params[:person_payment][:payment_id])
     @person = Person.find(params[:person_payment][:person_id])
-    @payment.add_person!(@person)
+    @person_payment = @payment.add_person!(@person)
+    #Person.merge_payment_attr(@person,  @person_payment)
+    @person.merge_payment_attr(@person_payment)
+    
     respond_to do |format|
       format.html {redirect_to edit_payment_path(@payment)}
       format.js      
@@ -23,15 +26,19 @@ class PersonPaymentsController < ApplicationController
   end
 
   def update 
-    if params[:amount].nil?
-      redirect_to people_url
-    else
+      @payment = Payment.find(@person_payment.payment_id)
+      @person = Person.find(@person_payment.person_id)
+      @person.merge_payment_attr(@person_payment)
       if @person_payment.update_attributes(amount: params[:amount])
-        flash[:success] = t(:person_updated) 
+        flash.now[:success] = t(:person_payment_updated) 
+      
       else
-        #render 'edit'
+        flash.now[:error] = t(:person_payment_not_updated) 
+      end  
+      respond_to do |format|
+        format.html {redirect_to edit_payment_path(@payment)}
+        format.js      
       end
-    end
   end
   
   private

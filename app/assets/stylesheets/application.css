@@ -24,4 +24,28 @@ a.link_header{
 	letter-spacing: normal;
 }
 
+.td_holder.form_holder.input_holder.update_holder{
+	width: 20em;
+	padding-top: 0.2em;
+}
+
+
+
+td form{
+	margin-top: 0.6em;
+	margin-bottom: 0.3em;
+}
+
+td form input[type="number"]{
+	display: inline;
+	width: 10em;
+	margin-top: 0.01em;
+	margin-bottom: 0;
+}
+
+td form input[type="text"]{
+	display: inline;
+	margin-bottom: 0;
+}
+
 

@@ -25,7 +25,7 @@ class Payment < ActiveRecord::Base
   end 
   
   def add_person!(person)
-    person_payments.create!(person_id: person.id, amount: payment_type.amount)     
+    person_payments.create(person_id: person.id, amount: payment_type.amount)     
   end
   
   def remove_person!(person) 

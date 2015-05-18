@@ -21,7 +21,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#save_link_header').click(function(){
-        $('form').submit();
+		<% if (defined? formClassName) %>
+        	$('<%= "form.#{formClassName}" %>').submit(); 
+		<% else %>	
+        	$('form').submit();
+		<% end %>
+    
         return false;
     });
 });

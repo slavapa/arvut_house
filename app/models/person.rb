@@ -159,6 +159,28 @@ class Person < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
   
+  # def self.merge_payment_attr(person, person_payment)
+  #   person.class_eval do
+  #     attr_accessor :person_payments_id
+  #     attr_accessor :amount
+  #   end
+     
+  #   person.person_payments_id = person_payment.id
+  #   person.amount =  person_payment.amount
+  #   person
+  # end
+  
+  def merge_payment_attr(person_payment)
+    self.class_eval do
+      attr_accessor :person_payments_id
+      attr_accessor :amount
+    end
+     
+    self.person_payments_id = person_payment.id
+    self.amount =  person_payment.amount
+    self
+  end
+  
     
 private
 # http://stackoverflow.com/questions/7202319/rails-force-empty-string-to-null-in-the-database

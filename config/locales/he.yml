@@ -237,6 +237,7 @@ he:
   save: 'שמור'
   add: 'הוסף'
   remove: 'הסר'
+  update: 'עדכון'
   open: 'לפתוח'
   list: 'רשימה'
   will_paginate:
@@ -244,6 +245,8 @@ he:
     next_label: 'הבא'
   description: 'תיאור'
   confirm: 'האם אתה בטוח?' 
+  person_payment_not_updated: 'תשלום לא עודכן' 
+  person_payment_updated: 'תשלום עודכן בהצלחה' 
   item_updated: '%{name} עודכן/ה בהצלחה' 
   item_created: '%{name} נוצר/ה בהצלחה' 
   payment_type_created: 'סוג תשלום נוצר בהצלחה' 

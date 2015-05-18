@@ -237,13 +237,16 @@ en:
   save: 'Save'
   add: 'Add'
   remove: 'Remove'
+  update: 'Update'
   open: 'Open'
-  open: 'List'
+  list: 'List'
   will_paginate:
     previous_label: 'Previous'
     next_label: 'Next'
   description: 'Description'
-  confirm: 'Are you sure?'
+  confirm: 'Are you sure?' 
+  person_payment_not_updated: 'Payment was not updated.'  
+  person_payment_updated: 'Payment was successfully updated.' 
   item_updated: "%{name} was successfully updated." 
   item_created: '%{name} was successfully created.'
   payment_type_created: 'Payment type was successfully created.' 
