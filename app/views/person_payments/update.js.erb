@@ -4,4 +4,5 @@ $cur_tr.find('.amount_holder').
 	html("<%= escape_javascript(render(partial: 'payments/update_person_form', 
 			locals: {payment: @payment, person: @person})) %>");
 			
-//alert('<%= flash.now[:success] %>');
+$('.flash_section').
+	html("<%= escape_javascript(render(partial: 'shared/flash_messages')) %>");
