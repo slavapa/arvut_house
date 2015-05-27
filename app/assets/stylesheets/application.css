@@ -48,4 +48,14 @@ td form input[type="text"]{
 	margin-bottom: 0;
 }
 
+.download-excel-container{
+	display: inline;
+	margin-left :1em;
+}
+.download-excel-container a{
+	font-size: 0.5em;
+	font-weight: normal;
+	letter-spacing:  0.1em;
+}
+
 

@@ -348,6 +348,7 @@ ru:
   annually: 'Ежегодно'
   validates_inclusion: "%{value} не действителен. Допустимые значения: %{valid_values}"
   type: 'Тип'
+  download_as_excel: 'Скачать Excel'
 
 
  #START:Active Records   

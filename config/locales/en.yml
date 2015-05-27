@@ -302,6 +302,7 @@ en:
   annually: 'Annually'
   validates_inclusion: "%{value} is not a valid.The valid values are: %{valid_values}"
   type: 'Type'
+  download_as_excel: 'Download as Excel'
 
 
  #START:Active Records   

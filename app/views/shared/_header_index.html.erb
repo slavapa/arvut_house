@@ -11,4 +11,9 @@
 		<%= render partial: 'shared/search_header', 
 			locals:{ search: search} %>
 	<% end %>
+	
+	<% if (defined? xlsx_download_path) %>
+		<%= render partial: 'shared/xlsx_download', 
+			locals:{ download_path: xlsx_download_path} %>
+	<% end %>
 </h1>

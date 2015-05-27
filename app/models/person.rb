@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+  acts_as_xlsx
   before_save :normalize_blank_values
   before_save { email.downcase! if  email.present?}
   before_save { email_2.downcase! if  email_2.present?}

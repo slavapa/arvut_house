@@ -302,6 +302,7 @@ he:
   annually: 'שנתי'
   validates_inclusion: "%{value} לא חוקית. הערכים חוקיים הם: %{valid_values}"
   type: 'סוג'
+  download_as_excel: 'הורד אקסל'
 
 
  #START:Active Records 
