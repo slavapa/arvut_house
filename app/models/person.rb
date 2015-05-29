@@ -51,7 +51,9 @@ class Person < ActiveRecord::Base
   scope :person_left_outer_event, lambda { |event_id|
     joins("left outer join person_event_relationships 
             on people.id=person_event_relationships.person_id 
-            and person_event_relationships.event_id = #{event_id}")
+            and person_event_relationships.event_id = #{event_id}").
+            select("*, people.id As id, 
+            person_event_relationships.id As person_event_relationships_id")
   }   
   
   scope :person_left_outer_payment, lambda { |payment_id|

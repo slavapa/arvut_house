@@ -1,7 +1,8 @@
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
 	new_path: new_payment_path, cur_item: @payment,
 	index_payment_name: t('payments.index.list'), index_path: payments_path,
-        search: @search, formClassName: 'edit_payment'} %>
+        search: @search, formClassName: 'edit_payment', 
+        xlsx_download_path: all_people_payment_path(@payment.id, format: "xlsx")} %>
 
 <%= render 'form' %>
 

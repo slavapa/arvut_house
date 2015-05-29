@@ -391,6 +391,8 @@ en:
     edit:
       editing: 'Editing Event'
       present: 'Present'
+      event_people: 'Event for people'
+      event_id: 'Event ID'
 #END:event
 
 #START:people
@@ -460,8 +462,9 @@ en:
     edit:
       editing: 'Editing Payment'
       paid: 'Paid'
+      payments_people: 'Payments of people'
+      payment_id: 'Paymnt ID'
 #END:payments
-#END:Statuse
 
 #START:Departments
   departments:

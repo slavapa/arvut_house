@@ -1,6 +1,13 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_payment, only: [:show, :edit, :update, :destroy, :all_people]
+  before_action :check_current_user_admin
 
+  def all_people
+    if request.path_parameters[:format] == 'xlsx'
+      @people = Person.person_left_outer_payment( @payment.id)
+    end
+  end
+  
   # GET /payments
   # GET /payments.json
   def index

@@ -1,7 +1,13 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :all_people]
   before_action :check_current_user_admin
 
+  def all_people
+    if request.path_parameters[:format] == 'xlsx'
+      @people = Person.person_left_outer_event( @event.id)
+    end
+  end
+  
   # GET /events
   # GET /events.json
   def index

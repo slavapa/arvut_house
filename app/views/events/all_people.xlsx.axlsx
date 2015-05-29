@@ -1,0 +1,43 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: t('events.edit.event_people')) do |sheet|
+    sheet.add_row [ t('events.edit.event_people') ]
+    sheet.add_row [ t('events.edit.event_id') , t('activerecord.attributes.event.event_type_id'),
+    t('activerecord.attributes.event.event_date'), t('description')]
+    
+    sheet.add_row [ @event.id,  @event.event_types_name,
+    @event.event_date, @event.description]
+    
+    sheet.add_row [ ]
+    sheet.add_row [ ]
+    
+    sheet.add_row [ 
+        t('events.edit.present'),
+        "ID", t(:name),  t(:name), t('people.form.family_name'),
+        t('activerecord.attributes.person.email'), t('activerecord.attributes.person.email_2'),
+        t('activerecord.attributes.person.gender'), t('activerecord.attributes.person.status_id'),
+        t('activerecord.attributes.person.phone_mob'), t('activerecord.attributes.person.phone_additional'),
+        t('activerecord.attributes.person.id_card_number'), t('activerecord.attributes.person.birth_date'),
+        t('activerecord.attributes.person.family_status'),  t('activerecord.attributes.person.car_owner'),
+        t('activerecord.attributes.person.car_number'), t('activerecord.attributes.person.computer_knowledge'), 
+        t('activerecord.attributes.person.workplace'), t('activerecord.attributes.person.skills'), 
+        t('activerecord.attributes.person.department'), t('activerecord.attributes.person.area'), 
+        t('activerecord.attributes.person.address')
+      ] ## Header values of Excel
+
+ 
+  @people.each do |person|
+    sheet.add_row [
+    @event.is_perosn_ext_exists?(person),
+    person.id, person.name, person.family_name,
+    person.email, person.email_2,
+    person.gender_name,  person.status_name,
+    person.phone_mob, person.phone_additional, 
+    person.id_card_number, person.birth_date,
+    person.status_name, person.car_owner_name,
+    person.car_number, person.computer_knowledge_name,
+    person.workplace, person.skills,
+    person.department, person.area, 
+    person.address
+    ]
+  end
+end

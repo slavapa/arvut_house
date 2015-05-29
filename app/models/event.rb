@@ -27,6 +27,10 @@ class Event < ActiveRecord::Base
     !person_event_relationships.where(person_id: other_person.id).empty?
   end
   
+  def is_perosn_ext_exists?(other_person)
+    !other_person.person_event_relationships_id.nil?
+  end
+  
   def event_types_name
     unless event_type_id.nil?
       event_types_array[event_type_id-1][0]

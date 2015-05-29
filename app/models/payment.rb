@@ -1,4 +1,5 @@
 class Payment < ActiveRecord::Base
+  acts_as_xlsx
   belongs_to :payment_type
   has_many :person_payments , dependent: :destroy
   has_many :people, through: :person_payments

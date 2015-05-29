@@ -391,6 +391,8 @@ he:
     edit:
       editing: 'עריכת אירוע'
       present: 'נוכח'
+      event_people: 'אירוע לאנשים'
+      event_id: 'מזהה אירוע'
 #END:event
 
 #START:people
@@ -460,6 +462,8 @@ he:
     edit:
       editing: 'עריכת תשלום'
       paid: 'שילמו'
+      payments_people: 'תשלום של אנשים'
+      payment_id: 'Paymnt ID'
 #END:payments
 
 #START:Departments

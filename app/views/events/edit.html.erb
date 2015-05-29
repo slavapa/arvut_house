@@ -1,7 +1,8 @@
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
 	new_path: new_event_path, cur_item: @event,
 	index_path_name: t('event_types.index.list'), index_path: events_path,
-	search: @search, formClassName: 'edit_event'} %>
+	search: @search, formClassName: 'edit_event', 
+    xlsx_download_path: all_people_event_path(@event.id, format: "xlsx")} %>
 
 	
 <%= render 'form' %>
