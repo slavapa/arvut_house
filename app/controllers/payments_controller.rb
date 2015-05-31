@@ -5,6 +5,8 @@ class PaymentsController < ApplicationController
   def all_people
     if request.path_parameters[:format] == 'xlsx'
       @people = Person.person_left_outer_payment( @payment.id)
+      fileName = "payment_#{@payment.id}_all_people.xlsx"
+      response.headers['Content-Disposition'] = "attachment; filename=#{fileName}"
     end
   end
   

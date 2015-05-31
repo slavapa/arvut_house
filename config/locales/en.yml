@@ -393,6 +393,7 @@ en:
       present: 'Present'
       event_people: 'Event for people'
       event_id: 'Event ID'
+      all_people_title: 'List of all people for event %{event_type_name},  %{event_date}, %{description}'
 #END:event
 
 #START:people
@@ -464,6 +465,7 @@ en:
       paid: 'Paid'
       payments_people: 'Payments of people'
       payment_id: 'Paymnt ID'
+      all_people_title: 'List of all people for payment %{payment_type_name}, %{payment_date}, %{description}'
 #END:payments
 
 #START:Departments

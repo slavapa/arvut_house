@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  acts_as_xlsx
   belongs_to :event_type, foreign_key: :event_type_id
   #validates :event_types, :presence => true
   has_many :person_event_relationships, dependent: :destroy
@@ -29,6 +30,14 @@ class Event < ActiveRecord::Base
   
   def is_perosn_ext_exists?(other_person)
     !other_person.person_event_relationships_id.nil?
+  end
+   
+  def get_is_perosn_present_val(person)
+    if person.person_event_relationships_id.nil?
+      I18n.t("no")
+    else
+       I18n.t("yes")
+    end
   end
   
   def event_types_name

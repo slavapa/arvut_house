@@ -40,5 +40,12 @@ class Payment < ActiveRecord::Base
   def is_perosn_ext_exists?(other_person)
     !other_person.payment_id.nil?
   end
-  
+    
+  def get_is_perosn_payed_val(person)
+    if person.payment_id.nil?
+      I18n.t("no")
+    else
+       I18n.t("yes")
+    end
+  end
 end

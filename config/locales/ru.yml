@@ -439,6 +439,7 @@ ru:
       present: 'Присут.'
       event_people: 'Событие для людей'
       event_id: 'Event ID'
+      all_people_title: 'Список всех людей, для события %{event_type_name},  %{event_date}, %{description}'
 #END:event
 
 #START:people
@@ -510,6 +511,7 @@ ru:
       paid: 'Оплачен'
       payments_people: 'Оплата людей'
       payment_id: 'Paymnt ID'
+      all_people_title: 'Список всех людей, для оплаты %{payment_type_name},  %{payment_date} , %{description}'
 #END:payments
 
 #START:Departments
