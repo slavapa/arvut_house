@@ -393,7 +393,7 @@ he:
       present: 'נוכח'
       event_people: 'אירוע לאנשים'
       event_id: 'מזהה אירוע'
-      all_people_title: 'רשימת אנשים עבור אירוע %{event_type_name}, %{event_date}, %{description}'
+      all_people_title: 'רשימת אנשים עבור אירוע %{event_type_name}, %{event_date} %{description}'
 #END:event
 
 #START:people
@@ -465,7 +465,7 @@ he:
       paid: 'שילמו'
       payments_people: 'תשלום של אנשים'
       payment_id: 'Paymnt ID'
-      all_people_title: 'רשימת אנשים עבור תשלום %{payment_type_name}, %{payment_date}, %{description}'
+      all_people_title: 'רשימת אנשים עבור תשלום %{payment_type_name}, %{payment_date} %{description}'
 #END:payments
 
 #START:Departments
