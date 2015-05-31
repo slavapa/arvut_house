@@ -393,7 +393,7 @@ en:
       present: 'Present'
       event_people: 'Event for people'
       event_id: 'Event ID'
-      all_people_title: 'List of all people for event %{event_type_name},  %{event_date}, %{description}'
+      all_people_title: 'People list for event %{event_type_name},  %{event_date}, %{description}'
 #END:event
 
 #START:people

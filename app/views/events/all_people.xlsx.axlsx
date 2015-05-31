@@ -5,15 +5,18 @@ default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
 header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
 
 wb.add_worksheet(name: t('events.edit.event_people')) do |sheet|
-    sheet.add_row [ t('events.edit.all_people_title', 
-    event_type_name: @event.event_types_name, 
-    event_date: @event.event_date,  
-    description: @event.description) ],  :style => title
-    sheet.column_widths 60
+    sheet.add_row [
+        nil, nil, 
+        t('events.edit.all_people_title', 
+        event_type_name: @event.event_types_name, 
+        event_date: @event.event_date,  
+        description: @event.description) 
+    ],  :style => title
+    sheet.column_widths nil, nil, 30
     
     sheet.add_row [ ]
     
-    sheet.add_row ['',  
+    sheet.add_row [  
         t('events.edit.present'),
         t(:name), t('people.form.family_name'),
         t('activerecord.attributes.person.email'), t('activerecord.attributes.person.email_2'),
@@ -24,7 +27,7 @@ wb.add_worksheet(name: t('events.edit.event_people')) do |sheet|
  
   @people.each do |person|
     sheet.add_row [
-        '', @event.get_is_perosn_present_val(person),
+        @event.get_is_perosn_present_val(person),
         person.name, person.family_name,
         person.email, person.email_2,
         person.gender_name,  person.status_name,

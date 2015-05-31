@@ -6,15 +6,18 @@ header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
 money = styles.add_style(:format_code => '#,###,##0.00', :border => Axlsx::STYLE_THIN_BORDER)
 
 wb.add_worksheet(name: t('payments.edit.payments_people')) do |sheet|
-    sheet.add_row [ t('payments.edit.all_people_title', 
-    payment_type_name: @payment.payment_type_name, 
-    payment_date: @payment.payment_date,  
-    description: @payment.description) ],  :style => title
-    sheet.column_widths 60
+    sheet.add_row [
+        nil, nil, nil,  
+        t('payments.edit.all_people_title', 
+        payment_type_name: @payment.payment_type_name, 
+        payment_date: @payment.payment_date,  
+        description: @payment.description) 
+    ],  :style => title
+    sheet.column_widths nil, nil, nil, 30
   
     sheet.add_row [ ]
     
-    sheet.add_row ['', 
+    sheet.add_row [ 
         t('payments.edit.paid'),
         t('activerecord.attributes.payment_type.amount'),
         t(:name), t('people.form.family_name'),
@@ -26,16 +29,17 @@ wb.add_worksheet(name: t('payments.edit.payments_people')) do |sheet|
  
   @people.each do |person|
     sheet.add_row [
-        '', @payment.get_is_perosn_payed_val(person),
+        @payment.get_is_perosn_payed_val(person),
         person.amount,
         person.name, person.family_name,
         person.email, person.email_2,
         person.gender_name,  person.status_name,
         person.phone_mob, person.phone_additional
     ], :style => [
+        default, 
+        money, 
         default, default, 
-        money, default, 
-        default, default, 
+        default, default,
         default, default,
         default, default
     ]

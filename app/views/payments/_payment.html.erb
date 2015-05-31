@@ -8,4 +8,8 @@
   <td class='td_holder  long-size-td'>
   	<%= payment.description %>  	
   </td>
+  <td class='td_holder short-size-td text-center btn_holder'>
+    	<%= render partial: 'shared/xlsx_download_grid', 
+			locals:{ download_path: all_people_payment_path(payment.id, format: "xlsx")} %>
+  </td>
 </tr>
