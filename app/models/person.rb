@@ -15,7 +15,7 @@ class Person < ActiveRecord::Base
     message: "%{value} is not a valid.The valid values are: 1-#{I18n.t(:male)}, 2-#{I18n.t(:female)}" }, 
               if: lambda { |p| p.gender.present? }
   
-  validates :id_card_number,  length: { is: 9 }, if: lambda { |m| m.id_card_number.present? }
+  validates :id_card_number,  length: { in: 8..9 }, if: lambda { |m| m.id_card_number.present? }
   belongs_to :status
   
   has_many :payments, through: :person_payments
