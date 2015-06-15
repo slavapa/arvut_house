@@ -1,6 +1,18 @@
 class PaymentTypesController < ApplicationController
- before_action :set_payment_type, only: [:show, :edit, :update, :destroy]
+ before_action :set_payment_type, only: [:show, :edit, :update, :destroy, :payments_report]
   before_action :check_current_user_admin
+
+
+  def payments_report
+    if request.path_parameters[:format] == 'xlsx'
+      @start_date =  (Date.today -  (Date.today.day-1) - ((Date.today.month-1).month))
+      @end_date = Date.today
+      @payments = Payment.between_dates(
+        (Date.today -  (Date.today.day-1) - ((Date.today.month-1).month)),
+        Date.today
+      )
+    end
+  end
 
   # GET /payment_types
   # GET /payment_types.json

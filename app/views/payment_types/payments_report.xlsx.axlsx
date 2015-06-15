@@ -1,0 +1,38 @@
+wb = xlsx_package.workbook
+styles = wb.styles
+title = styles.add_style(:sz => 12, :b => true, :u => true)
+default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
+header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
+
+wb.add_worksheet(name: t('events.edit.event_people')) do |sheet|
+  
+    
+    sheet.add_row [
+        nil, nil, nil,  
+        t('payment_types.rpt_ttl_between_dates', 
+        payment_type_name: @payment_type.name, 
+        start_date:@start_date,  
+        end_date: @end_date) 
+    ],  :style => title
+    sheet.column_widths nil, nil, nil, 30
+    
+    
+    
+    @payments.each do |payment|
+    
+        sheet.add_row [
+            payment.payment_type_name, 
+            payment.payment_date,  
+            payment.description
+        ]
+        
+    end
+    
+  
+    sheet.add_row [
+        @payments.count,
+        @payments[0].payment_date
+    ]
+ 
+ 
+end

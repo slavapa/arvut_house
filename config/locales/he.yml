@@ -445,6 +445,7 @@ he:
 #START:payment_types
   payment_types:
     name: 'סוגי תשלומים'
+    rpt_ttl_between_dates: 'דו"ח תשלומים עבור %{payment_type_name} בין תאריך  %{start_date} ו - %{end_date}'
     new:
       new: 'סוג תשלום חדש'
     index:

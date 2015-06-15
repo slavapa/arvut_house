@@ -9,6 +9,11 @@ class Payment < ActiveRecord::Base
   validates_uniqueness_of :payment_date, scope: [:payment_type_id]
   validates :description, length: { maximum: 255 }
   after_initialize :default_values
+  
+  scope :between_dates, lambda { |start_date, end_date|
+    where("payment_date >= ? AND payment_date <= ?", start_date, end_date )
+    .order(:payment_date)
+  } 
     
   def default_values(attributes = {}, options = {})
     self.payment_date = Date.today if self.payment_date.nil? 

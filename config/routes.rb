@@ -6,7 +6,6 @@ ArvutHouse::Application.routes.draw do
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
     resources :event_types   
     resources :person_event_relationships, only: [:create, :destroy]
-    resources :payment_types 
     resources :person_payments, only: [:create, :destroy, :update]
  
     resources :people do
@@ -28,6 +27,13 @@ ArvutHouse::Application.routes.draw do
         get 'all_people'
       end
     end
+     
+    resources :payment_types do
+      member do
+        get 'payments_report'
+      end
+    end
+    
     
     resources :person_languages, only: [:create, :destroy]
     resources :person_roles, only: [:create, :destroy]

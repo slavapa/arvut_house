@@ -445,6 +445,7 @@ en:
 #START:payment_types
   payment_types:
     name: 'Payment Types'
+    rpt_ttl_between_dates: 'Payment report for %{payment_type_name} between date %{start_date} and %{end_date}'
     new:
       new: 'New Payment Type'
     index:
