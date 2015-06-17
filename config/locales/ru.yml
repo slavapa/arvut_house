@@ -491,6 +491,7 @@ ru:
 #START:payment_types
   payment_types:
     name: 'Тип платежей'
+    rpt_ttl: 'Отчет оплат'
     rpt_ttl_between_dates: 'Отчет оплат за %{payment_type_name} между датой %{start_date} и %{end_date}'
     new:
       new: 'Новый тип платежа'

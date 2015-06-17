@@ -22,16 +22,16 @@
   url:  payments_report_payment_type_path(@payment_type.id, format: "xlsx"),
   html: {method: "get"}) do |f| %>
   <div class="form-group">
-    <label for="payment_date_from">Date From</label>
-    <%= date_field_tag('payment_date_from', 
+    <label for="payment_date_start">Date From</label>
+    <%= date_field_tag('payment_date_start', 
       (Date.today -  (Date.today.day-1) - ((Date.today.month-1).month)), 
       {:required => true}) %>
   </div>
   <!--Biginig of a month  (Date.today -  (Date.today.day-1)) -->
   <!- Biginig of a month before  (Date.today -  (Date.today.day-1) - 1.month)--->
   <div class="form-group">
-    <label for="payment_date_to">Date To</label>
-     <%= date_field_tag('payment_date_to', Date.today, {:required => true}) %>
+    <label for="payment_date_end">Date To</label>
+     <%= date_field_tag('payment_date_end', Date.today, {:required => true}) %>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 <% end %>

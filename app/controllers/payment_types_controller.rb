@@ -5,12 +5,9 @@ class PaymentTypesController < ApplicationController
 
   def payments_report
     if request.path_parameters[:format] == 'xlsx'
-      @start_date =  (Date.today -  (Date.today.day-1) - ((Date.today.month-1).month))
-      @end_date = Date.today
-      @payments = Payment.between_dates(
-        (Date.today -  (Date.today.day-1) - ((Date.today.month-1).month)),
-        Date.today
-      )
+      @start_date =  params[:payment_date_start]
+      @end_date = params[:payment_date_end]
+      @payments = Payment.between_dates(@start_date, @end_date)
     end
   end
 
