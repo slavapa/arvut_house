@@ -303,6 +303,10 @@ en:
   validates_inclusion: "%{value} is not a valid.The valid values are: %{valid_values}"
   type: 'Type'
   download_as_excel: 'Download as Excel'
+  report: 'Report'
+  create: 'Create'
+  date_start: 'Date Start'
+  date_end: 'Date End'
 
 
  #START:Active Records   

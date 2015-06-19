@@ -303,6 +303,10 @@ he:
   validates_inclusion: "%{value} לא חוקית. הערכים חוקיים הם: %{valid_values}"
   type: 'סוג'
   download_as_excel: 'הורד אקסל'
+  report: 'דו"ח'
+  create: 'צור'
+  date_start: 'תאריך התחלה'
+  date_end: 'תאריך סיום'
 
 
  #START:Active Records 

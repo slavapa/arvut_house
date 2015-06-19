@@ -349,6 +349,10 @@ ru:
   validates_inclusion: "%{value} не действителен. Допустимые значения: %{valid_values}"
   type: 'Тип'
   download_as_excel: 'Скачать Excel'
+  report: 'Отчет'
+  create: 'Создать'
+  date_start: 'Дата старта'
+  date_end: 'Дата завершения'
 
 
  #START:Active Records   
