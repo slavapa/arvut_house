@@ -8,7 +8,7 @@
     
     <%= f.label :event_type_id, t('activerecord.attributes.payment.payment_type_id'), 
       class:'inline_container medium_fz' %>: 
-    <%= f.select :payment_type_id, @payment.payment_type_array %>
+    <%= f.select :payment_type_id, @payment.payment_type_array.map { |key, value| [value, key] } %>
   </div>
 
   <div class="field">

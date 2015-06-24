@@ -21,13 +21,18 @@ class Payment < ActiveRecord::Base
   
   def payment_type_name
     unless payment_type_id.nil?
-      payment_type_array[payment_type_id-1][0]
+      payment_type_array[payment_type_id]
     end
   end
    
   def payment_type_array
-    @payment_type_array ||= 
-      PaymentType.all.map { |payment_type| [payment_type.name, payment_type.id] }
+    if @payment_type_array.nil?
+      @payment_type_array = Hash.new
+      PaymentType.all.each do |payment_type|
+         @payment_type_array[payment_type.id] = payment_type.name
+      end
+    end
+    return @payment_type_array
   end 
   
   def add_person!(person)

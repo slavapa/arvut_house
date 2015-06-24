@@ -1,6 +1,6 @@
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
   <td class='td_left short-size-td'>
-  	<%= payment.payment_date %>  	
+  	<%= payment.payment_date.to_formatted_s(:long) %>  	
   </td>
   <td class='td_holder mm-size-td  module-link'>
   	<%= link_to payment.payment_type_name, edit_payment_path(payment) %> 
