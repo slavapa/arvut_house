@@ -379,6 +379,9 @@ he:
       list: 'רשימת סוגי אירועים'
     edit:
       editing: 'עריכת סוג אירוע'
+    report:
+      name: 'דו"ח אירועים'
+      title_between_dates: 'דו"ח אירועים עבור %{name}  בין תאריך  %{start_date} ו - %{end_date}'
 #END:event_types
 
 #START:event

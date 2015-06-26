@@ -1,7 +1,16 @@
 class EventTypesController < ApplicationController
   before_action :check_current_user_admin
-  before_action :set_event_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_event_type, only: [:show, :edit, :update, :destroy, :events_report]
 
+
+  def events_report
+    if request.path_parameters[:format] == 'xlsx'
+      @start_date =  params[:date_start]
+      @end_date = params[:date_end]
+      @events = Event.between_dates(@start_date, @end_date)
+    end
+  end
+  
   # GET /event_types
   # GET /event_types.json
   def index

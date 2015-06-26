@@ -1,0 +1,87 @@
+wb = xlsx_package.workbook
+styles = wb.styles
+title = styles.add_style(:sz => 12, :b => true, :u => true)
+default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
+header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
+money = styles.add_style(:format_code => '#,###,##0.00', :border => Axlsx::STYLE_THIN_BORDER)
+
+wb.add_worksheet(name: t('event_types.report.name')) do |sheet|
+    sheet.add_row [
+        nil, nil,  
+        t('event_types.report.title_between_dates', 
+            name: @event_type.name, 
+            start_date:@start_date,  
+            end_date: @end_date) 
+    ],  :style => title
+    sheet.column_widths nil, 30, 30
+    sheet.add_row [ ]
+    
+    titleRow =  [
+        t(:name), 
+        t('people.form.family_name'),
+        t('activerecord.attributes.person.email'),
+        t('activerecord.attributes.person.phone_mob'),
+        t('activerecord.attributes.person.gender'), 
+        t('activerecord.attributes.person.status_id')
+    ]
+    sheetCelsBefore = titleRow.count
+    sheetCellIndexArr = []
+    
+    @events.each_with_index {|item, index|  
+        sheetCellIndexArr[index] = sheetCelsBefore + index
+        titleRow.push(I18n.l item.event_date, :format => :default)
+        
+    }
+    sheet.add_row titleRow , :style => header ## Header values of Excel
+  
+    columnsCount = @events.count
+    sheetPersonRowIndexArr = []
+    sheetRowsBefore = sheet.rows.count
+    isPresentValue = t('events.edit.present')
+    
+    @events.each_with_index {|event, eventIndex| 
+        @people = Person.person_left_outer_event(event.id)
+            if eventIndex == 0 
+                @people.each_with_index do |person, personIndex|
+                    sheetPersonRowIndexArr[personIndex] = 
+                            personIndex + sheetRowsBefore
+                            
+                    cellArr = [
+                        person.name, person.family_name,
+                        person.email, person.phone_mob, 
+                        person.gender_name,  person.status_name,
+                        ((event.is_perosn_ext_exists?(person))) ? isPresentValue : nil
+                    ]
+                    
+                    styleArr = []
+                    typeArr = []
+                    cellArr.each { |person| 
+                        typeArr.push(:string)
+                        styleArr.push(default)
+                    }
+                    typeArr.pop
+                    styleArr.pop
+                    
+                    @events.each_with_index {|event, thirdLoopIndex|
+                        cellArr.push(nil)
+                        styleArr.push(default)
+                        typeArr.push(:string)
+                    }
+                    cellArr.pop
+                    
+                    sheet.add_row cellArr,  :style => styleArr, :types => typeArr
+                end
+            else
+                cellIndex =  sheetCellIndexArr[eventIndex]
+                
+                 @people.each_with_index do |person, personIndex|
+                    if event.is_perosn_ext_exists? person
+                        rowIndex = sheetPersonRowIndexArr[personIndex] 
+                        sheet.rows[rowIndex].cells[cellIndex].value = isPresentValue
+                    end
+                 end
+            end
+    }
+    
+  
+end

@@ -379,6 +379,9 @@ en:
       list: 'List of Events Types'
     edit:
       editing: 'Editing event Type'
+    report:
+      name: 'Events report'
+      title_between_dates: 'Events report for %{name} between date %{start_date} and %{end_date}'
 #END:event_types
 
 #START:event

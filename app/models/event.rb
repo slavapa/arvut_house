@@ -12,6 +12,11 @@ class Event < ActiveRecord::Base
   after_initialize :default_values
   validates :description, length: { maximum: 255 }
   
+  scope :between_dates, lambda { |start_date, end_date|
+    where("event_date >= ? AND event_date <= ?", start_date, end_date )
+    .order(:event_date)
+  } 
+  
   def default_values(attributes = {}, options = {})
     self.event_date = Date.today if self.event_date.nil? 
   end

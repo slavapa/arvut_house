@@ -425,6 +425,9 @@ ru:
       list: 'Список тип событий'
     edit:
       editing: 'Изменение тип события'
+    report:
+      name: 'Отчет событий'
+      title_between_dates: 'Отчет оплат за %{name} между датой %{start_date} и %{end_date}'
 #END:event_types
 
 #START:event
