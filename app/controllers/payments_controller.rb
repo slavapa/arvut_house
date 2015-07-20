@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_payment, only: [:show, :edit, :update, :destroy, :all_people]
-  before_action :check_current_user_admin
+  before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
   def all_people
     if request.path_parameters[:format] == 'xlsx'

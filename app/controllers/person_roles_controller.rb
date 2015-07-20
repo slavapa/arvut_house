@@ -1,5 +1,5 @@
 class PersonRolesController < ApplicationController
-  before_action :check_current_user_correct
+  before_action :check_current_user_admin
   
   def create 
     @person = Person.find(params[:person_role][:person_id])

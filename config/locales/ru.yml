@@ -259,6 +259,7 @@ ru:
 
   layouts:
   application:
+  about: "О нас"
   home_page: "Главная"
   about_us: "О нас"
   contact_us: "Пишите нам"

@@ -213,6 +213,7 @@ en:
 #START:layout
   layouts:
   application:
+  about: "About"
   home_page: "Home"
   about_us: "About us"
   contact_us: "Contact us"

@@ -1,8 +1,8 @@
 class PeopleController < ApplicationController
   # before_action :set_person, only: [:show, :edit, :update, :destroy] 
   before_action :signed_in_user
-  before_action :correct_user,   only: [:edit, :update, :show, :languages, :roles]
-  before_action :admin_user,     only: [:index, :new, :destroy]
+  before_action :correct_user,   only: [:index, :edit, :update, :show, :languages, :roles]
+  before_action :admin_user,     only: [:new, :destroy]
     
   def destroy
     Person.find(params[:id]).destroy
@@ -44,6 +44,7 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    @person = Person.find(params[:id])
   end
   
   # GET /people/1/languages
@@ -90,16 +91,7 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
-    # respond_to do |format|
-      # if @person.update(person_params)
-        # format.html { redirect_to @person, notice: 'Person was successfully updated.' }
-        # format.json { head :no_content }
-      # else
-        # format.html { render action: 'edit' }
-        # format.json { render json: @person.errors, status: :unprocessable_entity }
-      # end
-    # end
-    
+    @person = Person.find(params[:id])
     if @person.update_attributes(person_params)
       flash[:success] = t(:person_updated) 
       redirect_to  edit_person_path(@person)
@@ -139,12 +131,9 @@ class PeopleController < ApplicationController
       :car_owner, :status_id, :area, :department, :email_2, :car_number)
     end
     
-    def correct_user      
-      @person = Person.find(params[:id])
-      unless current_user.admin? 
-        unless current_user?(@person)
-          redirect_to(root_url, notice: t(:not_authorized))          
-        end 
+    def correct_user
+      unless signed_in?
+        redirect_to(root_url, notice: t(:not_authorized))          
       end
     end
   

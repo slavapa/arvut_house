@@ -5,25 +5,37 @@
       <nav class="inline_container">
         <ul class="nav pull-right">
           <li><%= link_to t('home_page'), root_path %></li>
-	      <li><%= link_to t('about_us'),   about_path %></li>
-	      <li><%= link_to t('contact_us'), contact_us_path %></li>
-          <% if admin_user? %>
+	      <li id="fat-menu" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= t('about')%> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+    	      <li><%= link_to t('about_us'),   about_path %></li>
+    	      <li><%= link_to t('contact_us'), contact_us_path %></li>
+          </ul>
+	      </li>
+          <% if signed_in? %>
           	<li><%= link_to t('people.index.list'), people_path %></li>
           	<li><%= link_to t('events.index.list'), events_path %></li>
-          	<li><%= link_to t('events.new.new'), new_event_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= t('actions')%> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-            	<li><%= link_to t('people.index.list'), people_path %></li>
-            	<li><%= link_to t('people.new.new'), new_person_path %></li>
+            	  <li><%= link_to t('people.index.list'), people_path %></li>
+            	  <% if admin_user? %>
+            	    <li><%= link_to t('people.new.new'), new_person_path %></li>
+            	  <% end %>
                 <li class="divider"></li>
                 <li><%= link_to t('events.index.list'), events_path %></li>
-                <li><%= link_to t('events.new.new'), new_event_path %></li>
+            	  <% if admin_user? %>
+                  <li><%= link_to t('events.new.new'), new_event_path %></li>
+            	  <% end %>
                 <li class="divider"></li>
                 <li><%= link_to t('event_types.index.list'), event_types_path %></li>
-                <li><%= link_to t('event_types.new.new'), new_event_type_path %></li>
+            	  <% if admin_user? %>
+                  <li><%= link_to t('event_types.new.new'), new_event_type_path %></li>
+            	  <% end %>
                 <li class="divider"></li>
                 <li><%= link_to t('languages.index.list'), languages_path %></li>
                 <li><%= link_to t('statuses.index.list'), statuses_path %></li>
@@ -33,20 +45,15 @@
                 <li><%= link_to t('departments.index.list'), departments_path %></li>
               </ul>
             </li>
-          <% else %>
-          <% end %>
-          	<% if signed_in? %>
           		<li><%= link_to t('profile'), edit_person_path(current_user) %></li>
-                <li>
-                  <%= link_to t('sign_out'), signout_path, method: "delete" %>
-                </li>
-          	<% else %>
-            	<li><%= link_to t(:log_id), signin_path %></li>
-          	<% end %>
+              <li><%= link_to t('sign_out'), signout_path, method: "delete" %></li>
+          <% else %>
+            <li><%= link_to t(:log_id), signin_path %></li>
+          <% end %>
           <li>
           	<%= form_tag loc_lang_path, :method => :post, class: 'locale' do %>          	
 	          	<%= select_tag 'set_locale',  options_for_select(LANGUAGES, I18n.locale.to_s), 
-	          	onchange: 'this.form.submit()', class: 'languages' %>
+	          	onchange: 'this.form.submit()', class: 'languages hide' %>
 	          	<%= submit_tag 'submit' %>
 	          	<%= javascript_tag "$('.locale input').hide()" %>
           	<% end %>

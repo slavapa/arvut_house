@@ -1,6 +1,7 @@
 class PaymentTypesController < ApplicationController
- before_action :set_payment_type, only: [:show, :edit, :update, :destroy, :payments_report]
-  before_action :check_current_user_admin
+  before_action :signed_in_user
+  before_action :set_payment_type, only: [:show, :edit, :update, :destroy, :payments_report]
+  before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
 
   def payments_report

@@ -1,6 +1,7 @@
 class StatusesController < ApplicationController
+  before_action :signed_in_user
   before_action :set_status, only: [:show, :edit, :update, :destroy]
-  before_action :check_current_user_admin
+  before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
   # GET /statuses
   # GET /statuses.json

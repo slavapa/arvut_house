@@ -36,6 +36,9 @@ module SessionsHelper
     signed_in? && current_user.admin?
   end
 
+  def is_current_user_authorized_by_person?(user)
+    admin_user? || current_user?(user)
+  end
 
   def sign_out
     current_user.update_attribute(:remember_token,
@@ -45,10 +48,10 @@ module SessionsHelper
   end
   
   def redirect_back_or(default)
-    if current_user.admin?
-      redirect_to(session[:return_to] || events_path)
+    if signed_in?
+      redirect_to(session[:return_to] || root_url)
     else
-      redirect_to(edit_person_path(@current_user))
+      redirect_to(root_url)
     end
     session.delete(:return_to)
   end
@@ -71,13 +74,25 @@ module SessionsHelper
   
   def check_current_user_admin
     if current_user.nil? || !current_user.admin?
-      redirect_to(signin_url, notice: t(:not_authorized) ) 
+      redirect_to(root_url, notice: t(:not_authorized) ) 
     end
   end
 
   def check_current_user_correct
     if current_user.nil? || (!current_user.admin? && !current_user?(current_user))
-      redirect_to(signin_url, notice: t(:not_authorized) ) 
+      redirect_to(root_url, notice: t(:not_authorized) ) 
+    end
+  end
+  
+  def check_current_user_correct
+    if current_user.nil? || (!current_user.admin? && !current_user?(current_user))
+      redirect_to(root_url, notice: t(:not_authorized) ) 
+    end
+  end
+  
+  def authorize_current_user_by_person(personId)
+    if current_user.nil? || (!current_user.admin? && !current_user?(personId))
+      redirect_to(root_url, notice: t(:not_authorized) ) 
     end
   end
   

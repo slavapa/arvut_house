@@ -8,8 +8,10 @@
 			<%= image_tag("vicon.gif") %>
 		</td>
 	  	<td class='td_holder form_holder'>
-		  	<%= render partial: "remove_role_form", 
-				locals: {person: @person, role: role} %>
+	  		<% if admin_user? %>
+			  	<%= render partial: "remove_role_form", 
+					locals: {person: @person, role: role} %>
+			<% end %>
 	  	</td>
 	</tr>
 <% else %>
@@ -22,8 +24,10 @@
 			&nbsp;
 		</td>
 	  	<td class='td_holder form_holder'>
-		  	<%= render partial: "add_role_form", 
-				locals: {person: @person, role: role} %>
+	  		<% if admin_user? %>
+			  	<%= render partial: "add_role_form", 
+					locals: {person: @person, role: role} %>
+			<% end %>
 	  	</td>
 	</tr>
 <% end %>

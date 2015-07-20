@@ -1,5 +1,6 @@
 class EventTypesController < ApplicationController
-  before_action :check_current_user_admin
+  before_action :signed_in_user
+  before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
   before_action :set_event_type, only: [:show, :edit, :update, :destroy, :events_report]
 
 

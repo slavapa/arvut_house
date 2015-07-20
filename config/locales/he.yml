@@ -213,6 +213,7 @@ he:
  #START:layout
   layouts:
   application:
+  about: "אודות"
   home_page: "דף הבית"
   about_us: "מי אנחנו"
   contact_us: "צרו קשר"

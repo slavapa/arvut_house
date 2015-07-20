@@ -1,6 +1,7 @@
 class DepartmentsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_department, only: [:show, :edit, :update, :destroy]
-  before_action :check_current_user_admin
+  before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
   # GET /departments
   # GET /departments.json

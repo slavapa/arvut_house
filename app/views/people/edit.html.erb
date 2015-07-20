@@ -7,7 +7,9 @@
 
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
 	new_path: new_person_path, cur_item: @person,
-	index_path_name: t('people.index.list'), index_path: people_path} %>
+	index_path_name: t('people.index.list'), index_path: people_path,
+	isForceSave: current_user?(@person)
+}%>
 
 <%= form_for(@person, :html => {:autocomplete => "off"}) do |f| %>	
 	<div class="row">
@@ -106,3 +108,5 @@
 	<%= gravatar_for @person %>
 <% end %>
 <a href="http://gravatar.com/emails">change</a>
+
+<%= render 'edit_js' %>

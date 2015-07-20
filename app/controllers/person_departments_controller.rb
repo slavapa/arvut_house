@@ -1,4 +1,6 @@
 class PersonDepartmentsController < ApplicationController
+  before_action :check_current_user_admin
+  
   def create
     @person = Person.find(params[:person_department][:person_id])
     @department = Department.find(params[:person_department][:department_id])
