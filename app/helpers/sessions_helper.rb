@@ -49,7 +49,7 @@ module SessionsHelper
   
   def redirect_back_or(default)
     if signed_in?
-      redirect_to(session[:return_to] || root_url)
+      redirect_to(session[:return_to] || events_path)
     else
       redirect_to(root_url)
     end
