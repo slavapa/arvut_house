@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511153120) do
+ActiveRecord::Schema.define(version: 20150724090642) do
+
+  create_table "department_person_roles", force: true do |t|
+    t.integer  "department_id", null: false
+    t.integer  "person_id",     null: false
+    t.integer  "role_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "department_person_roles", ["department_id", "person_id", "role_id"], name: "index_department_person_roles_department_id_person_id_role_id", unique: true
+  add_index "department_person_roles", ["department_id"], name: "index_department_person_roles_on_department_id"
+  add_index "department_person_roles", ["person_id"], name: "index_department_person_roles_on_person_id"
+  add_index "department_person_roles", ["role_id"], name: "index_department_person_roles_on_role_id"
 
   create_table "departments", force: true do |t|
     t.string   "name",        limit: 60, null: false

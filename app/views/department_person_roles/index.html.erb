@@ -1,0 +1,31 @@
+<h1>Listing department_person_roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Department</th>
+      <th>Person</th>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @department_person_roles.each do |department_person_role| %>
+      <tr>
+        <td><%= department_person_role.department %></td>
+        <td><%= department_person_role.person %></td>
+        <td><%= department_person_role.role %></td>
+        <td><%= link_to 'Show', department_person_role %></td>
+        <td><%= link_to 'Edit', edit_department_person_role_path(department_person_role) %></td>
+        <td><%= link_to 'Destroy', department_person_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Department person role', new_department_person_role_path %>

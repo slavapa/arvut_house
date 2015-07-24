@@ -1,11 +1,13 @@
 ArvutHouse::Application.routes.draw do
 
 
+
   root 'home#default'
   scope '(:locale)' do 
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
     resources :person_event_relationships, only: [:create, :destroy]
     resources :person_payments, only: [:create, :destroy, :update]
+    resources :department_person_roles
  
     resources :people do
       member do
