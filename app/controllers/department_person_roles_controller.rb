@@ -4,7 +4,7 @@ class DepartmentPersonRolesController < ApplicationController
   # GET /department_person_roles
   # GET /department_person_roles.json
   def index
-    @department_person_roles = DepartmentPersonRole.all
+    @department_person_roles = DepartmentPersonRole.inner_departments_people_roles
   end
 
   # GET /department_person_roles/1
