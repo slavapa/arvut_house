@@ -420,6 +420,7 @@ ru:
 #START:event_types 
   event_types_name: 'Типы событий' 
   event_types:
+    name: 'Типы событий' 
     new:
       new: 'Новый тип события'
     index:
@@ -434,6 +435,7 @@ ru:
 #START:event
   events_name: 'События'
   events:
+    name: 'События'
     new:
       new: 'Новое событие'
     form:
@@ -453,6 +455,7 @@ ru:
 #START:people
   people_name: 'People'
   people:
+    name: 'People'
     new:
       new: 'Новая Личность'
     form:
@@ -534,3 +537,14 @@ ru:
     edit:
       editing: 'Редактирование Отдела'
 #END:Departments
+
+#START:department_person_roles
+  department_person_roles:
+    name: 'Отделы и роли для лица'
+    new:
+      new: 'New Departments And Roles For Person'
+    index:
+      list: 'List of Departments And Roles For Person'
+    edit:
+      editing: 'Editing Departments And Roles For Person'
+#END:department_person_roles

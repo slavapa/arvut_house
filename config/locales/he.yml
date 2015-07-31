@@ -373,7 +373,8 @@ he:
 
 #START:event_types 
   event_types_name: 'סוגי אירוע'
-  event_types:
+  event_types: 
+    name: 'סוגי אירוע'
     new:
       new: 'סוג האירוע חדש'
     index:
@@ -388,6 +389,7 @@ he:
 #START:event
   events_name: 'אירועים'
   events:
+    name: 'אירועים'
     new:
       new: 'אירוע חדש'
     form:
@@ -407,6 +409,7 @@ he:
 #START:people
   people_name: 'אנשים'
   people:
+    name: 'אנשים'
     new:
       new: 'אישיות חדשה'
     form:
@@ -488,3 +491,14 @@ he:
     edit:
       editing: 'עריכת מחלקה'
 #END:Departments
+
+#START:department_person_roles
+  department_person_roles:
+    name: 'מחלקות ותפקידים לאדם'
+    new:
+      new: 'New Departments And Roles For Person'
+    index:
+      list: 'List of Departments And Roles For Person'
+    edit:
+      editing: 'Editing Departments And Roles For Person'
+#END:department_person_roles

@@ -374,6 +374,7 @@ en:
 #START:event_types
   event_types_name: 'Event Types'
   event_types:
+    name: 'Event Types'
     new:
       new: 'New Event Type'
     index:
@@ -388,6 +389,7 @@ en:
 #START:event
   events_name: 'Events'
   events:
+    name: 'Events'
     new:
       new: 'New Event'
     form:
@@ -407,6 +409,7 @@ en:
 #START:people
   people_name: 'People'
   people:
+    name: 'People'
     new:
       new: 'New Person'
     form:
@@ -488,3 +491,14 @@ en:
     edit:
       editing: 'Editing Department'
 #END:Departments
+
+#START:department_person_roles
+  department_person_roles:
+    name: 'Departments And Roles For Person'
+    new:
+      new: 'New Departments And Roles For Person'
+    index:
+      list: 'List of Departments And Roles For Person'
+    edit:
+      editing: 'Editing Departments And Roles For Person'
+#END:department_person_roles

@@ -22,27 +22,29 @@
                 <%= t('actions')%> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-            	  <li><%= link_to t('people.index.list'), people_path %></li>
+            	  <li><%= link_to t('people.name'), people_path %></li>
             	  <% if admin_user? %>
             	    <li><%= link_to t('people.new.new'), new_person_path %></li>
             	  <% end %>
                 <li class="divider"></li>
-                <li><%= link_to t('events.index.list'), events_path %></li>
+                <li><%= link_to t('events.name'), events_path %></li>
             	  <% if admin_user? %>
                   <li><%= link_to t('events.new.new'), new_event_path %></li>
             	  <% end %>
                 <li class="divider"></li>
-                <li><%= link_to t('event_types.index.list'), event_types_path %></li>
+                <li><%= link_to t('event_types.name'), event_types_path %></li>
             	  <% if admin_user? %>
                   <li><%= link_to t('event_types.new.new'), new_event_type_path %></li>
             	  <% end %>
                 <li class="divider"></li>
-                <li><%= link_to t('languages.index.list'), languages_path %></li>
-                <li><%= link_to t('statuses.index.list'), statuses_path %></li>
-                <li><%= link_to t('roles.index.list'), roles_path %></li>
-                <li><%= link_to t('payment_types.index.list'), payment_types_path %></li>
-                <li><%= link_to t('payments.index.list'), payments_path %></li>
-                <li><%= link_to t('departments.index.list'), departments_path %></li>
+                <li><%= link_to t('languages.name'), languages_path %></li>
+                <li><%= link_to t('statuses.name'), statuses_path %></li>
+                <li><%= link_to t('payment_types.name'), payment_types_path %></li>
+                <li><%= link_to t('payments.name'), payments_path %></li>
+                 <li class="divider"></li>
+                <li><%= link_to t('departments.name'), departments_path %></li>
+                <li><%= link_to t('roles.name'), roles_path %></li>
+                <li><%= link_to t('department_person_roles.name'), department_person_roles_path %></li>
               </ul>
             </li>
           		<li><%= link_to t('profile'), edit_person_path(current_user) %></li>
