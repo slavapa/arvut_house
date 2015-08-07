@@ -58,4 +58,13 @@ td form input[type="text"]{
 	letter-spacing:  0.1em;
 }
 
+.he .td_holder{
+  padding-right: 0.2em;
+}
+
+.he .btn_holder{
+  padding-right: 0.5em;
+}
+
+
 

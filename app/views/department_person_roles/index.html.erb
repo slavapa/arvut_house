@@ -1,45 +1,46 @@
-<h1>Listing department_person_roles</h1>
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('department_person_roles.name'),  
+	path:new_department_person_role_path } %>
+
 
 <table  class='table-bordered table-index'>
   <thead>
     <tr>
-      <th class='td_holder ss-size-td'>ID</th>
-      <th class='td_holder ss-size-td'>Dep. ID</th>
-      <th class='td_holder medium-size-td'><%=t(:name) %></th>
-      <th class='td_holder medium-size-td'><%=t(:name) %></th>
-      <th>Person ID</th>
+      <th class='hide td_holder ss-size-td'>ID</th>
+      <th class='hide td_holder ss-size-td'>Dep. ID</th>
+      <th class='td_holder medium-size-td'><%=t('activerecord.models.department') %></th>
+      <th class='hide td_holder ss-size-td'>Role ID</th>
+      <th class='td_holder medium-size-td'><%=t('activerecord.models.role') %></th>
+      <th class="hide">Person ID</th>
       <th class='td_holder medium-size-td'><%=  t(:name) %></th>
       <th class='td_holder medium-size-td'><%= t('people.form.family_name')%></th>
-      <th class='td_holder ss-size-td'>Role ID</th>
-      <th class='td_holder medium-size-td'><%=t(:name) %></th>
-      <th class='td_holder medium-size-td'>Role By Hash</th>
-      <th class='td_holder ss-size-td'></th>
-      <th class='td_holder ss-size-td'></th>
-      <th class='td_holder ss-size-td'></th>
+      <th class='td_holder ss-size-td'>#</th>
     </tr>
   </thead>
 
   <tbody>
     <% @department_person_roles.each do |department_person_role| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td><%= department_person_role.id %></td>
-        <td><%= department_person_role.department_id %></td>
-        <td><%= department_person_role.department_name %></td>
-        <td><%= department_person_role.department_name_by_hash %></td>
-        <td><%= department_person_role.person_id %></td>
-        <td><%= department_person_role.person_name %></td>
-        <td><%= department_person_role.person_family_name %></td>
-        <td><%= department_person_role.role_id %></td>
-        <td><%= department_person_role.role_name %></td>
-        <td><%= department_person_role.role_name_by_hash %></td>
-        <td><%= link_to 'Show', department_person_role %></td>
-        <td><%= link_to 'Edit', edit_department_person_role_path(department_person_role) %></td>
-        <td><%= link_to 'Destroy', department_person_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="hide"><%= department_person_role.id %></td>
+        <td class="hide"><%= department_person_role.department_id %></td>
+        <td class='td_holder medium-size-td   module-link'>
+          	<%= link_to department_person_role.department_name, 
+          	edit_department_person_role_path(department_person_role) %>
+        </td>
+        <td class="hide"><%= department_person_role.role_id %></td>
+        <td class='td_holder medium-size-td'><%= department_person_role.role_name %></td>
+        <td class="hide"><%= department_person_role.person_id %></td>
+        <td class='td_holder medium-size-td'><%= department_person_role.person_name %></td>
+        <td class='td_holder medium-size-td'><%= department_person_role.person_family_name %></td>
+        <td class='td_holder btn_holder'>
+          	<% if admin_user? %>
+          		<%= link_to t(:delete), department_person_role, method: :delete, 
+          		        class: "btn-warning btn btn-small delete-link-index", 
+          		        id: "delete_link_index", data: { confirm: t(:confirm) } %>
+          	<% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Department person role', new_department_person_role_path %>
