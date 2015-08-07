@@ -4,7 +4,9 @@ class DepartmentPersonRolesController < ApplicationController
   # GET /department_person_roles
   # GET /department_person_roles.json
   def index
-    @department_person_roles = DepartmentPersonRole.inner_departments_people_roles
+    #@department_person_roles = DepartmentPersonRole.inner_departments_people_roles
+    @search = DepartmentPersonRoleSearch.new params[:f], params[:page]
+    @department_person_roles = @search.results
   end
 
   # GET /department_person_roles/1

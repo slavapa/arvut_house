@@ -1,7 +1,13 @@
 <%= render partial: 'shared/header_index', 
-	locals:{ title: t('department_person_roles.name'),  
+	locals:{ title: t('department_person_roles.name'),  search: @search, 
 	path:new_department_person_role_path } %>
 
+
+<%= render partial: 'department_person_roles_search', 
+	locals:{ search: @search} %>	
+
+
+<%= will_paginate %>
 
 <table  class='table-bordered table-index'>
   <thead>
@@ -43,4 +49,6 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate %>
 

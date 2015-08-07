@@ -39,6 +39,10 @@ FactoryGirl.define do
   factory :role do
     sequence(:name)  { |n| "Role #{n}" }
   end
+   
+  factory :department do
+    sequence(:name)  { |n| "Department #{n}" }
+  end
   
   factory :language do
     name = 'language1'
