@@ -418,6 +418,9 @@ en:
       list: 'People list'
     edit:
       editing: 'Editing Person Profile'
+    searching:
+      name: 'Person Name'
+      fam_name: 'Family Name'
 #END:people
 
 #START:language
@@ -451,6 +454,8 @@ en:
       list: 'List of Roles'
     edit:
       editing: 'Editing Role'
+    searching:
+      name: 'Role Name'
 #END:Roles
 
 #START:payment_types
@@ -490,6 +495,9 @@ en:
       list: 'List of Departments'
     edit:
       editing: 'Editing Department'
+    searching:
+      name: 'Department Name'
+    
 #END:Departments
 
 #START:department_person_roles

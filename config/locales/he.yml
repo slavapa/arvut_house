@@ -418,6 +418,9 @@ he:
       list: 'רשימת אנשים'
     edit:
       editing: 'עריכת פרופיל של אדם'
+    searching:
+      name: 'שם האדם'
+      fam_name: 'שם משפחה'
 #END:people
 
 #START:language
@@ -451,6 +454,8 @@ he:
       list: 'רשימת תפקידים'
     edit:
       editing: 'עריכת  תפקיד'
+    searching:
+      name: 'שם התפקיד'
 #END:Roles
 
 #START:payment_types
@@ -490,6 +495,8 @@ he:
       list: 'רשימת מחלקות'
     edit:
       editing: 'עריכת מחלקה'
+    searching:
+      name: 'שם המחלקה'
 #END:Departments
 
 #START:department_person_roles

@@ -11,8 +11,7 @@ class DepartmentPersonRole < ActiveRecord::Base
             select("department_person_roles.*, 
             people.name As person_name, people.family_name As person_family_name, 
             roles.name As role_name,
-            departments.name As department_name").
-            order('departments.name, roles.name, people.name, people.family_name')
+            departments.name As department_name")
   }
    
   def departments_array

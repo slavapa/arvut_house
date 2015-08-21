@@ -24,6 +24,31 @@
 	  	<%= search_form.select :person_gender, Person.gender_arr, {}, 
 	  		{ class: 'search_field' } %>	
   	</span>
+  		
+  	<span class='search_span'>  												
+	  	<%= search_form.label :sort_params_for, "1 #{ t(:sort_by)}" %>
+	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
+	  		{ class: 'search_field long_search_select' } %>		
+  	</span>
+  	
+  	<span class='search_span'>  												
+	  	<%= search_form.label :sort_params_for, "2 #{ t(:sort_by)}" %>
+	  	<%= search_form.select :sort_2, search.sort_params_arr,  {include_blank: true},
+	  		{ class: 'search_field long_search_select' } %>		
+  	</span>
+  	
+  	
+  	<span class='search_span'>  												
+	  	<%= search_form.label :sort_params_for, "3 #{ t(:sort_by)}" %>
+	  	<%= search_form.select :sort_3, search.sort_params_arr,  {include_blank: true},
+	  		{ class: 'search_field long_search_select' } %>		
+  	</span>
+  	
+  	<span class='search_span'>  												
+	  	<%= search_form.label :sort_params_for,"4 #{ t(:sort_by)}" %>
+	  	<%= search_form.select :sort_4, search.sort_params_arr,  {include_blank: true},
+	  		{ class: 'search_field long_search_select' } %>		
+  	</span>
   	
   	<!-- <span class='search_span'>
 	  <%= search_form.submit t(:search), id:'sf_btn_search'%>  		

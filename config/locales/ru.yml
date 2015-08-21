@@ -464,6 +464,9 @@ ru:
       list: 'Список людей'
     edit:
       editing: 'Изменение Профиля Личности'
+    searching:
+      name: 'Имя Лица'
+      fam_name: 'Фамилия'
 #END:people
 
 #START:language
@@ -497,6 +500,8 @@ ru:
       list: 'Список Должностей'
     edit:
       editing: 'Редактирование Должности'
+    searching:
+      name: 'Имя Должности'
 #END:Roles
 
 #START:payment_types
@@ -536,6 +541,8 @@ ru:
       list: 'Список Отделов'
     edit:
       editing: 'Редактирование Отдела'
+    searching:
+      name: 'Имя Отдела'
 #END:Departments
 
 #START:department_person_roles
