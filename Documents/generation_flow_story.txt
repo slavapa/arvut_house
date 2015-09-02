@@ -28,4 +28,5 @@ rails generate model PersonDepartment person:references department:references
 ###rails generate migration add_foreignkey_to_person_departments
 rails generate controller PersonDepartments create destroy
 rails generate scaffold DepartmentPersonRole department:references person:references role:references
+rails g controller ajax users
 

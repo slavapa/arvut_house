@@ -43,7 +43,8 @@ end
 gem 'sass-rails', '5.0.3'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
-gem 'jquery-rails', '3.0.4'
+gem 'jquery-rails'
+gem 'jquery-ui-rails' #https://github.com/joliss/jquery-ui-rails
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 

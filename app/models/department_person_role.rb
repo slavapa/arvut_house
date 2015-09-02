@@ -13,6 +13,8 @@ class DepartmentPersonRole < ActiveRecord::Base
             roles.name As role_name,
             departments.name As department_name")
   }
+  
+  default_scope inner_departments_people_roles
    
   def departments_array
     if defined?(@@departments_array).nil? || @@departments_array.nil?
@@ -49,5 +51,25 @@ class DepartmentPersonRole < ActiveRecord::Base
   def role_name_by_hash
     roles_array[role_id] 
   end
+  
+  def person_full_name=(full_name)
+    # user = Person.find_by_name(full_name)
+    # if user
+    #   self.person_id = user.id
+    # else
+      errors[:person_full_name] << "Invalid name entered"
+    # end
+    errors.add(:person_full_name, "Invalid name entered")
+  end
+  
+   def validate!
+    errors.add(:name, "cannot be nil") if name.nil?
+  end
 
+  def person_full_name
+    #"#{person_name} #{person_family_name}"
+    if person_id
+        "#{person_name} #{person_family_name}"
+    end
+  end
 end

@@ -20,6 +20,7 @@
   <div class="field">
     <%= f.label :person_id %><br>
     <%= f.text_field :person_id %>
+    <%= f.text_field :person_full_name %>
   </div>
   <div class="field">
     <%= f.label :role_id %><br>
@@ -31,3 +32,30 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<!--<input id="autocomplete">-->
+
+  
+  
+<script>
+
+// $( "#autocomplete" ).autocomplete({
+//   source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+// });
+  
+$(function() {
+  //$('#autocomplete').autocomplete({source: "/ajax/users"})
+  $('#department_person_role_person_full_name').autocomplete({
+    source: "/ajax/users",
+    select: function( event, ui ) {
+      $('#department_person_role_person_id').val(ui.item.person_id);
+    },
+    // change: function( event, ui ) {
+    //   alert(ui.item.person_id);
+    // }
+  });
+  
+});
+
+</script>
