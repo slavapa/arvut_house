@@ -4,7 +4,7 @@ class DepartmentPersonRoleSearch
   
   scope { DepartmentPersonRole.inner_departments_people_roles }
   
-  per_page 10
+  per_page 30
   
   sort_by 'departments.name', 'roles.name', 'people.name', 'people.family_name'
    

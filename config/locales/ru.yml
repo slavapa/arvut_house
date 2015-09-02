@@ -369,6 +369,7 @@ ru:
       payment_type: 'Тип Платежа'
       payment: 'Payment'
       department: 'Отдел'
+      department_person_role: 'Отдел и Должность для пользователя'
     attributes:
       payment:
         name: 'Имя' 
@@ -415,6 +416,10 @@ ru:
         skills: 'Навыки'
         area: 'Район'
         department: 'Отделение'
+      department_person_role:
+        department_id: 'Отдел'
+        person_id: 'Личность'
+        role_id: 'Должность'
 #END:Active Records
 
 #START:event_types 
@@ -549,9 +554,9 @@ ru:
   department_person_roles:
     name: 'Отделы и роли для лица'
     new:
-      new: 'New Departments And Roles For Person'
+      new: 'Новый Отдел и Должность для пользователя'
     index:
-      list: 'List of Departments And Roles For Person'
+      list: 'Список Отделов и Должностей для пользователя'
     edit:
-      editing: 'Editing Departments And Roles For Person'
+      editing: 'Редактирование Отдела и Должности для пользователя'
 #END:department_person_roles

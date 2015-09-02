@@ -28,34 +28,10 @@
 		              @department_person_role.roles_array
 		                .map { |key, value| [value, key] } %>	
   </div>
-  <div class="actions">
+  <div class="actions hide">
     <%= f.submit %>
   </div>
 <% end %>
 
-
-<!--<input id="autocomplete">-->
-
+<%= render 'form_js' %>  
   
-  
-<script>
-
-// $( "#autocomplete" ).autocomplete({
-//   source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-// });
-  
-$(function() {
-  //$('#autocomplete').autocomplete({source: "/ajax/users"})
-  $('#department_person_role_person_full_name').autocomplete({
-    source: "/ajax/users",
-    select: function( event, ui ) {
-      $('#department_person_role_person_id').val(ui.item.person_id);
-    },
-    // change: function( event, ui ) {
-    //   alert(ui.item.person_id);
-    // }
-  });
-  
-});
-
-</script>

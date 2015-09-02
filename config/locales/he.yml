@@ -323,6 +323,7 @@ he:
       payment_type: 'סוג תשלום'
       payment: 'תשלום'
       department: 'מחלקה'
+      department_person_role: 'מחלקה ותפקיד לאדם'
     attributes:
       payment:
         name: 'Name' 
@@ -369,6 +370,10 @@ he:
         skills: 'כישורים'
         area: 'אזור'
         department: 'מחלקה'
+      department_person_role:
+        department_id: 'מחלקה'
+        person_id: 'אדם'
+        role_id: 'תפקיד'
 #END:Active Records
 
 #START:event_types 
@@ -503,9 +508,9 @@ he:
   department_person_roles:
     name: 'מחלקות ותפקידים לאדם'
     new:
-      new: 'New Departments And Roles For Person'
+      new: 'יצירת מחלקה ותפקיד לאדם'
     index:
-      list: 'List of Departments And Roles For Person'
+      list: 'רשימה של מחלקות ותפקידים לאדם'
     edit:
-      editing: 'Editing Departments And Roles For Person'
+      editing: 'עריכת מחלקה ותפקיד לאדם'
 #END:department_person_roles

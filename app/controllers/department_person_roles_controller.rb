@@ -1,10 +1,12 @@
 class DepartmentPersonRolesController < ApplicationController
+  before_action :signed_in_user
   before_action :set_department_person_role, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
+  
 
   # GET /department_person_roles
   # GET /department_person_roles.json
   def index
-    #@department_person_roles = DepartmentPersonRole.inner_departments_people_roles
     @search = DepartmentPersonRoleSearch.new params[:f], params[:page]
     @department_person_roles = @search.results
   end
@@ -30,7 +32,11 @@ class DepartmentPersonRolesController < ApplicationController
 
     respond_to do |format|
       if @department_person_role.save
-        format.html { redirect_to @department_person_role, notice: 'Department person role was successfully created.' }
+         format.html { 
+          flash[:success] = t(:item_created, name: t('activerecord.models.department_person_role'))
+          redirect_to edit_department_person_role_path(@department_person_role) 
+        }
+        
         format.json { render action: 'show', status: :created, location: @department_person_role }
       else
         format.html { render action: 'new' }
@@ -43,8 +49,13 @@ class DepartmentPersonRolesController < ApplicationController
   # PATCH/PUT /department_person_roles/1.json
   def update
     respond_to do |format|
+      @department_person_role.person_full_name = params[:person_full_name]
       if @department_person_role.update(department_person_role_params)
-        format.html { redirect_to @department_person_role, notice: 'Department person role was successfully updated.' }
+        format.html { 
+          flash[:success] = t(:item_updated, name: t('activerecord.models.department_person_role')) 
+          redirect_to edit_department_person_role_path(@department_person_role) 
+        }
+        
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,6 +82,7 @@ class DepartmentPersonRolesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def department_person_role_params
-      params.require(:department_person_role).permit(:department_id, :person_id, :role_id)
+      params.require(:department_person_role).permit(:department_id, :person_id, 
+                      :role_id, :person_full_name)
     end
 end

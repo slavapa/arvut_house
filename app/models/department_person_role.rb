@@ -3,6 +3,18 @@ class DepartmentPersonRole < ActiveRecord::Base
   belongs_to :person
   belongs_to :role
   
+  validates :department_id, presence: true
+  validates :person_id, presence: true
+  validates :role_id, presence: true
+  
+  validates_existence_of :department_id
+  validates_existence_of :person_id
+  validates_existence_of :role_id
+  
+  #validate :must_go_on_sale_before_event_starts
+  
+  
+  validates_uniqueness_of :department_id, scope: [:person_id, :role_id]
    
   scope :inner_departments_people_roles, lambda {
     joins("inner join departments on departments.id=department_person_roles.department_id
@@ -15,6 +27,8 @@ class DepartmentPersonRole < ActiveRecord::Base
   }
   
   default_scope inner_departments_people_roles
+  
+  #attr_accessor :person_full_name
    
   def departments_array
     if defined?(@@departments_array).nil? || @@departments_array.nil?
@@ -57,19 +71,24 @@ class DepartmentPersonRole < ActiveRecord::Base
     # if user
     #   self.person_id = user.id
     # else
-      errors[:person_full_name] << "Invalid name entered"
+    #  errors[:person_id] << "Invalid name entered"
     # end
-    errors.add(:person_full_name, "Invalid name entered")
+    errors.add(:person_id, "Invalid name entered")
+    @person_id = 1
   end
-  
-   def validate!
-    errors.add(:name, "cannot be nil") if name.nil?
-  end
-
+ 
   def person_full_name
-    #"#{person_name} #{person_family_name}"
     if person_id
-        "#{person_name} #{person_family_name}"
+        if defined?(person_name).nil?
+          "#{person_name} #{person_family_name}"
+        else
+          #{person.name} #{person.family_name}"
+        end
     end
   end
+  
+  protected
+  # def must_go_on_sale_before_event_starts
+  #   errors.add(:person_id, 'Invalid Person ID') 
+  # end
 end

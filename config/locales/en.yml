@@ -323,6 +323,7 @@ en:
       payment_type: 'Payment Type'
       payment: 'Payment'
       department: 'Department'
+      department_person_role: 'Department And Role For Person'
     attributes:
       payment:
         name: 'Name' 
@@ -369,6 +370,10 @@ en:
         skills: 'Skills'
         area: 'Area'
         department: 'Department'
+      department_person_role:
+        department_id: 'Department'
+        person_id: 'Person'
+        role_id: 'Role'
 #END:Active Records
 
 #START:event_types

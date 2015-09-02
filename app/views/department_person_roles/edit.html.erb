@@ -1,6 +1,7 @@
-<h1>Editing department_person_role</h1>
+<%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
+	new_path: new_department_person_role_path, cur_item: @department_person_role,
+	index_path_name: t('departments.index.list'), index_path: department_person_roles_path} %>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @department_person_role %> |
-<%= link_to 'Back', department_person_roles_path %>
+<%= render 'edit_js' %>
