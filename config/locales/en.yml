@@ -374,6 +374,7 @@ en:
         department_id: 'Department'
         person_id: 'Person'
         role_id: 'Role'
+        person_full_name: 'Person Full Name'
 #END:Active Records
 
 #START:event_types

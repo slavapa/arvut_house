@@ -49,7 +49,7 @@ class DepartmentPersonRolesController < ApplicationController
   # PATCH/PUT /department_person_roles/1.json
   def update
     respond_to do |format|
-      @department_person_role.person_full_name = params[:person_full_name]
+      #@department_person_role.person_full_name = params[:person_full_name]
       if @department_person_role.update(department_person_role_params)
         format.html { 
           flash[:success] = t(:item_updated, name: t('activerecord.models.department_person_role')) 
@@ -82,7 +82,7 @@ class DepartmentPersonRolesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def department_person_role_params
-      params.require(:department_person_role).permit(:department_id, :person_id, 
-                      :role_id, :person_full_name)
+      params.require(:department_person_role).permit(:person_full_name, :department_id,
+                      :person_id, :role_id)
     end
 end

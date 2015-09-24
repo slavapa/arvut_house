@@ -63,6 +63,12 @@ class Person < ActiveRecord::Base
             select("*, people.id As id, person_payments.id As person_payments_id")
   } 
   
+  
+  scope :find_by_full_name, 
+    lambda { |name| 
+      where("(people.name || ' ' || people.family_name) = ?", name)
+  }
+  
   def is_department_exists?(department)
     !person_departments.where(department_id: department.id).empty?
   end

@@ -374,6 +374,7 @@ he:
         department_id: 'מחלקה'
         person_id: 'אדם'
         role_id: 'תפקיד'
+        person_full_name: 'שם מלא'
 #END:Active Records
 
 #START:event_types 

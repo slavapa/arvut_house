@@ -420,6 +420,7 @@ ru:
         department_id: 'Отдел'
         person_id: 'Личность'
         role_id: 'Должность'
+        person_full_name: 'Фамилия и имя'
 #END:Active Records
 
 #START:event_types 
