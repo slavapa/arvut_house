@@ -507,6 +507,8 @@ he:
 
 #START:department_person_roles
   department_person_roles:
+    errors:
+      uniqueness: 'שילוב של מחלקה, אדם והתפקיד כבר בשימוש'
     name: 'מחלקות ותפקידים לאדם'
     new:
       new: 'יצירת מחלקה ותפקיד לאדם'

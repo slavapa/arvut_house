@@ -508,6 +508,8 @@ en:
 
 #START:department_person_roles
   department_person_roles:
+    errors:
+      uniqueness: 'The combination of Department, Person and Role already in use'
     name: 'Departments And Roles For Person'
     new:
       new: 'New Departments And Roles For Person'

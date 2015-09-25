@@ -553,6 +553,8 @@ ru:
 
 #START:department_person_roles
   department_person_roles:
+    errors:
+      uniqueness: 'Сочетание отдела, лица и роль уже используется'
     name: 'Отделы и роли для лица'
     new:
       new: 'Новый Отдел и Должность для пользователя'

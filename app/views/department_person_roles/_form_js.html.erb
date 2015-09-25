@@ -1,14 +1,10 @@
 <script type="text/javascript">
     $( document ).ready(function() {
-       
         $('#department_person_role_person_full_name').autocomplete({
             source: "/ajax/users",
             select: function( event, ui ) {
               $('#department_person_role_person_id').val(ui.item.person_id);
-            },
-            // change: function( event, ui ) {
-            //   alert(ui.item.person_id);
-            // }
+            }
         });
     });
 </script>

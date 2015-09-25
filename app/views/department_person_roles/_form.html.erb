@@ -8,8 +8,8 @@
 		                .map { |key, value| [value, key] } %>	
   </div>
   <div class="field">
-    <%= f.label :person_id %><br>
-    <%= f.text_field :person_id %>
+    <%= f.label :person_full_name %><br>
+    <%= f.hidden_field :person_id, class: 'hide' %>
     <%= f.text_field :person_full_name %>
   </div>
   <div class="field">
