@@ -1,4 +1,5 @@
-<%= form_for search, as: :f, method: :get, url: department_person_roles_path, html: {id: 'search-form'} do |search_form| %>
+<%= form_for search, as: :f, method: :get, url: department_person_roles_path, 
+	html: {id: 'search-form'} do |search_form| %>
   <% field_set_tag do %>
   	<span class='search_span'>
 	  <%= search_form.label :department_name, t('activerecord.models.department') %>

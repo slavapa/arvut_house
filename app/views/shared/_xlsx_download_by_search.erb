@@ -1,0 +1,21 @@
+<div class="download-excel-container">
+	<%=link_to( image_tag('excel_32x32.png', 
+	:title =>  t('download_as_excel'),  
+	:alt =>  t('download_as_excel')),
+	"#",
+	id: "xlsx_download_path_by_search_link") %>
+</div>
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#xlsx_download_path_by_search_link').click(function(){
+	    	var searchForm =  $('#search-form');
+	    	var orgPath = searchForm.attr("action");
+	    	var newPath =  '<%= download_path %>';
+	    	searchForm.attr("action", newPath);
+	        $('#search-form').submit();
+	        searchForm.attr("action", orgPath);
+	        return false;
+	    });
+	});
+</script>	

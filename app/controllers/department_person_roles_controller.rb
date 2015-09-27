@@ -7,8 +7,18 @@ class DepartmentPersonRolesController < ApplicationController
   # GET /department_person_roles
   # GET /department_person_roles.json
   def index
-    @search = DepartmentPersonRoleSearch.new params[:f], params[:page]
-    @department_person_roles = @search.results
+    if request.path_parameters[:format] == 'xlsx'
+      @search = DepartmentPersonRoleSearchForReport.new params[:f], params[:page]   
+      @department_person_roles = @search.results
+    else
+      @search = DepartmentPersonRoleSearch.new params[:f], params[:page] 
+      @department_person_roles = @search.results
+    end
+   
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /department_person_roles/1

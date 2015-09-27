@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+styles = wb.styles
+default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
+header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
+
+wb.add_worksheet(name: "Departments Roles People") do |sheet|
+  sheet.add_row [   
+    t('activerecord.models.department'), t('activerecord.models.role'),
+     t(:name), t('people.form.family_name')
+  ], :style => header ## Header values of Excel
+  
+  @department_person_roles.each do |department_person_role|
+    sheet.add_row [
+        department_person_role.department_name, department_person_role.role_name,
+        department_person_role.person_name, department_person_role.person_family_name
+    ], :style => default
+  end
+end

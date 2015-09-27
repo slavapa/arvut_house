@@ -1,6 +1,7 @@
 <%= render partial: 'shared/header_index', 
 	locals:{ title: t('department_person_roles.name'),  search: @search, 
-	path:new_department_person_role_path } %>
+	path:new_department_person_role_path,
+	xlsx_download_path_by_search: department_person_roles_path(format: "xlsx") } %>
 
 
 <%= render partial: 'department_person_roles_search', 
