@@ -23,24 +23,14 @@
               </a>
               <ul class="dropdown-menu">
             	  <li><%= link_to t('people.name'), people_path %></li>
-            	  <% if admin_user? %>
-            	    <li><%= link_to t('people.new.new'), new_person_path %></li>
-            	  <% end %>
-                <li class="divider"></li>
                 <li><%= link_to t('events.name'), events_path %></li>
-            	  <% if admin_user? %>
-                  <li><%= link_to t('events.new.new'), new_event_path %></li>
-            	  <% end %>
-                <li class="divider"></li>
-                <li><%= link_to t('event_types.name'), event_types_path %></li>
-            	  <% if admin_user? %>
-                  <li><%= link_to t('event_types.new.new'), new_event_type_path %></li>
-            	  <% end %>
+                <li><%= link_to t('payments.name'), payments_path %></li>
+                
                 <li class="divider"></li>
                 <li><%= link_to t('languages.name'), languages_path %></li>
                 <li><%= link_to t('statuses.name'), statuses_path %></li>
                 <li><%= link_to t('payment_types.name'), payment_types_path %></li>
-                <li><%= link_to t('payments.name'), payments_path %></li>
+                
                  <li class="divider"></li>
                 <li><%= link_to t('departments.name'), departments_path %></li>
                 <li><%= link_to t('roles.name'), roles_path %></li>

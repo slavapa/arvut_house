@@ -43,11 +43,7 @@ describe "Authentication" do
       it { should_not have_link('Sign in', href: signin_path(lng)) }
       it { should have_link('Actions') }
       it { should have_link('People list', href: people_path(lng)) }
-      it { should have_link('New Person', href: new_person_path(lng)) }
       it { should have_link('List of Events', href: events_path(lng)) }
-      it { should have_link('New Event', href: new_event_path(lng)) }
-      # it { should have_link('List of Events Types', href: event_types_path(lng)) }
-      it { should have_link('New Event Type', href: new_event_type_path(lng)) }
             
       describe "after visiting another page" do
         before { click_link "Home" }
