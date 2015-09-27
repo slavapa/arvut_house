@@ -24,11 +24,9 @@ class Person < ActiveRecord::Base
   has_many :languages, through: :person_languages
   has_many :person_languages, dependent: :destroy
   
-  has_many :roles, through: :person_roles
-  has_many :person_roles, dependent: :destroy
-  
-  has_many :departments, through: :person_departments
-  has_many :person_departments, dependent: :destroy
+  has_many :department_person_roles, dependent: :destroy
+  has_many :roles, through: :department_person_roles
+  has_many :departments, through: :department_person_roles
   
   has_many :person_event_relationships, dependent: :destroy
   has_many :events, through: :person_event_relationships 
@@ -69,30 +67,7 @@ class Person < ActiveRecord::Base
       where("(people.name || ' ' || people.family_name) = ?", name)
   }
   
-  def is_department_exists?(department)
-    !person_departments.where(department_id: department.id).empty?
-  end
   
-  def add_department!(department)
-    !person_departments.create!(department_id: department.id)     
-  end
-  
-  def remove_department!(department) 
-    !person_departments.find_by(department_id: department.id).destroy    
-  end   
-  
-  def is_role_exists?(role)
-    !person_roles.where(role_id: role.id).empty?
-  end
-  
-  def add_role!(role)
-    !person_roles.create!(role_id: role.id)     
-  end
-  
-  def remove_role!(role) 
-    !person_roles.find_by(role_id: role.id).destroy    
-  end   
-   
   def is_language_exists?(language)
     !person_languages.where(language_id: language.id).empty?
   end
@@ -167,17 +142,6 @@ class Person < ActiveRecord::Base
   def Person.hash(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
-  
-  # def self.merge_payment_attr(person, person_payment)
-  #   person.class_eval do
-  #     attr_accessor :person_payments_id
-  #     attr_accessor :amount
-  #   end
-     
-  #   person.person_payments_id = person_payment.id
-  #   person.amount =  person_payment.amount
-  #   person
-  # end
   
   def merge_payment_attr(person_payment)
     self.class_eval do

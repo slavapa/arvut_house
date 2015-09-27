@@ -84,23 +84,23 @@ describe "Roles" do
     end
   end
   
-  describe "roles destruction that in use by person" do      
-    let(:role1) {FactoryGirl.create(:role, name: 'Role that in use by person to test destroy')}
-    let!(:person1) {FactoryGirl.create(:person)}
-    before {
-      person1.add_role!(role1)
-      visit edit_role_path(role1)
-    }
+  # describe "roles destruction that in use by person" do      
+  #   let(:role1) {FactoryGirl.create(:role, name: 'Role that in use by person to test destroy')}
+  #   let!(:person1) {FactoryGirl.create(:person)}
+  #   before {
+  #     person1.add_role!(role1)
+  #     visit edit_role_path(role1)
+  #   }
         
-    it "should not delete a role" do
-      expect { click_link('delete_link_header') }.not_to change(Role, :count)
-    end
+  #   it "should not delete a role" do
+  #     expect { click_link('delete_link_header') }.not_to change(Role, :count)
+  #   end
     
-    describe "error messages" do
-      before {click_link('delete_link_header')} 
-      it { should have_selector('div.alert.alert-error') }
-    end   
-  end
+  #   describe "error messages" do
+  #     before {click_link('delete_link_header')} 
+  #     it { should have_selector('div.alert.alert-error') }
+  #   end   
+  # end
   
   describe "index" do
     before(:each) do

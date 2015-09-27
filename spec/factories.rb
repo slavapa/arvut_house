@@ -26,11 +26,6 @@ FactoryGirl.define do
     person
   end
    
-  factory :person_role do
-    role
-    person
-  end
-   
   factory :person_language do
     language
     person

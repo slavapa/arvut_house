@@ -1,8 +1,6 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><a><%= t(:main) %></a></li>
   <li><%= link_to t('languages.name'), languages_person_path(@person) %></li>
-  <li><%= link_to t('roles.name'), roles_person_path(@person) %></li>
-  <li><%= link_to t('departments.name'), departments_person_path(@person) %></li>
 </ul>
 
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 

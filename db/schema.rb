@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724090642) do
+ActiveRecord::Schema.define(version: 20150927085619) do
 
   create_table "department_person_roles", force: true do |t|
     t.integer  "department_id", null: false
@@ -120,17 +120,6 @@ ActiveRecord::Schema.define(version: 20150724090642) do
   add_index "people", ["remember_token"], name: "index_people_on_remember_token"
   add_index "people", ["status_id"], name: "index_people_on_status_id"
 
-  create_table "person_departments", force: true do |t|
-    t.integer  "person_id"
-    t.integer  "department_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "person_departments", ["department_id"], name: "index_person_departments_on_department_id"
-  add_index "person_departments", ["person_id", "department_id"], name: "index_person_departments_on_person_id_and_department_id", unique: true
-  add_index "person_departments", ["person_id"], name: "index_person_departments_on_person_id"
-
   create_table "person_event_relationships", force: true do |t|
     t.integer  "person_id",  null: false
     t.integer  "event_id",   null: false
@@ -164,17 +153,6 @@ ActiveRecord::Schema.define(version: 20150724090642) do
   add_index "person_payments", ["payment_id"], name: "index_person_payments_on_payment_id"
   add_index "person_payments", ["person_id", "payment_id"], name: "index_person_payments_on_person_id_and_payment_id", unique: true
   add_index "person_payments", ["person_id"], name: "index_person_payments_on_person_id"
-
-  create_table "person_roles", force: true do |t|
-    t.integer  "person_id"
-    t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "person_roles", ["person_id", "role_id"], name: "index_person_roles_on_person_id_and_role_id", unique: true
-  add_index "person_roles", ["person_id"], name: "index_person_roles_on_person_id"
-  add_index "person_roles", ["role_id"], name: "index_person_roles_on_role_id"
 
   create_table "roles", force: true do |t|
     t.string   "name",       null: false

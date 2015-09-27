@@ -1,9 +1,0 @@
-<%= form_for(person.person_roles.find_by(role_id: role.id),
-     html: { method: :delete }, remote: true) do |f| %>
-     <div>
-	  	<%= f.hidden_field :person_id %>
-	  	<%= f.hidden_field :role_id %>
-	  </div>
-  <%= f.submit t(:remove), class: "btn btn-ss-size", id: "remove_item_btn",
-  data: { confirm: 'Are you sure?' } %>
-<% end %>

@@ -12,7 +12,7 @@ describe Role do
   end
    
   describe "Event Type relations" do
-    it { should respond_to(:person_roles) }  
+    # it { should respond_to(:person_roles) }  
     it { should respond_to(:people) }
   end
   
@@ -41,17 +41,17 @@ describe Role do
   end
   
   
-  describe "when role is already in use by person" do
-    let(:role1) { Role.create!(name: 'Role:' + DateTime.now.to_s) }
-    let!(:person1) {FactoryGirl.create(:person)}
-    before do
-      role1.save
-      person1.add_role!(role1)      
-    end
-    it "should not delete a role" do
-      expect { role1.destroy }.not_to change(Role, :count)
-    end          
-  end
+  # describe "when role is already in use by person" do
+  #   let(:role1) { Role.create!(name: 'Role:' + DateTime.now.to_s) }
+  #   let!(:person1) {FactoryGirl.create(:person)}
+  #   before do
+  #     role1.save
+  #     person1.add_role!(role1)      
+  #   end
+  #   it "should not delete a role" do
+  #     expect { role1.destroy }.not_to change(Role, :count)
+  #   end          
+  # end
   
   describe "Should Create Role row in DB and change count by 1" do 
     let(:role1) { Role.create!(name: 'Role:' + DateTime.now.to_s) }

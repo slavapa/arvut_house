@@ -46,7 +46,7 @@ describe "Authentication" do
       it { should have_link('New Person', href: new_person_path(lng)) }
       it { should have_link('List of Events', href: events_path(lng)) }
       it { should have_link('New Event', href: new_event_path(lng)) }
-      it { should have_link('List of Events Types', href: event_types_path(lng)) }
+      # it { should have_link('List of Events Types', href: event_types_path(lng)) }
       it { should have_link('New Event Type', href: new_event_type_path(lng)) }
             
       describe "after visiting another page" do

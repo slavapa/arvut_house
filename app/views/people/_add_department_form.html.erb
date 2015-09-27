@@ -1,9 +1,0 @@
-<%= form_for(person.person_departments.build(department_id: department.id), 
-		remote: true) do |f| %>
-  <div>
-  	<%= f.hidden_field :person_id %>
-  	<%= f.hidden_field :department_id %>
-  </div>
-  <%= f.submit t(:add), class: "btn btn-primary btn-ss-size", 
-  		id: "add_item_btn" %>
-<% end %>	  	
