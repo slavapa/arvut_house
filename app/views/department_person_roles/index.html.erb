@@ -1,11 +1,11 @@
-<%= render partial: 'shared/header_index', 
-	locals:{ title: t('department_person_roles.name'),  search: @search, 
+<%= render partial: 'shared/header_index',
+	locals:{ title: t('department_person_roles.name'),  search: @search,
 	path:new_department_person_role_path,
 	xlsx_download_path_by_search: department_person_roles_path(format: "xlsx") } %>
 
 
-<%= render partial: 'department_person_roles_search', 
-	locals:{ search: @search} %>	
+<%= render partial: 'department_person_roles_search',
+	locals:{ search: @search} %>
 
 
 <%= will_paginate %>
@@ -28,10 +28,12 @@
   <tbody>
     <% @department_person_roles.each do |department_person_role| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td class="hide"><%= department_person_role.id %></td>
+        <td class="hide id" id="<%= department_person_role.id %>">
+          <%= department_person_role.id %>
+        </td>
         <td class="hide"><%= department_person_role.department_id %></td>
         <td class='td_holder medium-size-td   module-link'>
-          	<%= link_to department_person_role.department_name, 
+          	<%= link_to department_person_role.department_name,
           	edit_department_person_role_path(department_person_role) %>
         </td>
         <td class="hide"><%= department_person_role.role_id %></td>
@@ -41,8 +43,8 @@
         <td class='td_holder medium-size-td'><%= department_person_role.person_family_name %></td>
         <td class='td_holder btn_holder'>
           	<% if admin_user? %>
-          		<%= link_to t(:delete), department_person_role, method: :delete, 
-          		        class: "btn-warning btn btn-small delete-link-index", 
+          		<%= link_to t(:delete), department_person_role, method: :delete,
+          		        class: "btn-warning btn btn-small delete-link-index",
           		        id: "delete_link_index", data: { confirm: t(:confirm) } %>
           	<% end %>
           </td>

@@ -118,13 +118,15 @@ describe Payment do
   end
   
   
-  pending "payment type id and payment date is already taken" do
-    before do
-      @payment.save
-      payment_with_same_data = @payment.dup
-      payment_with_same_data.save
+  describe "payment type id and payment date is already taken" do
+  end
+  
+  describe "payment type id and payment date is already taken" do
+    let(:payment_with_same_data) {  @payment.dup}
+    
+    it "should not change count of Payment in DB  by 1" do
+      expect { payment_with_same_data.save }.to_not change(Payment, :count).by(1)
     end
-    it { should_not be_valid }
   end
   
 end

@@ -82,7 +82,7 @@ class DepartmentPersonRole < ActiveRecord::Base
   
   def person_full_name
     if person_id && has_attribute?('person_name') && !person_name.nil?
-      "#{person_name} #{person_family_name}"
+      "#{person_name} #{person_family_name}".strip
     end
   end
   

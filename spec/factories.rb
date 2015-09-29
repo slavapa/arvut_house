@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :person do
     sequence(:name)  { |n| "Person #{n}" }
+    sequence(:family_name)  { |n| "Family_name_#{n}" }
     sequence(:email) { |n| "person_#{n}@example.com"}
     password "xxxxxx"
     password_confirmation "xxxxxx"
@@ -59,5 +60,11 @@ FactoryGirl.define do
     sequence(:description)  { |n| "Payment Description #{n}" }
     payment_date = Date.today
     payment_type 
+  end
+  
+  factory :department_person_role do
+    department
+    person
+    role 
   end
 end
