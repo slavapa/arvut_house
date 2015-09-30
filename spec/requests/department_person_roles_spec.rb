@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'timeout'
 
 I18n.default_locale = :en
 
@@ -21,7 +22,7 @@ describe "DepartmentPersonRoles" do
         @department3 = FactoryGirl.create(:department, name:'department3')
         @person1 = FactoryGirl.create(:person, admin: false, name: 'person1', family_name: 'family_name_1')
         @person2 = FactoryGirl.create(:person, admin: false, name: 'person2', family_name: 'family_name_2')
-        @person3 = FactoryGirl.create(:person, admin: false, name: 'person3')
+        @person3 = FactoryGirl.create(:person, admin: false, name: 'person3', family_name: 'family_name_3')
 
         @department_person_role1 = FactoryGirl.create(:department_person_role,
                             department: @department1, person: @person1, role: @role1)
@@ -35,132 +36,47 @@ describe "DepartmentPersonRoles" do
         sign_in admin
     end
 
-
-  describe "Department Person Roles creation" do
-    before { visit new_department_person_role_path(lng) }
-
-    it { should have_title(full_title('Departments And Roles For Person')) }
-    it { should have_content('New Departments And Roles For Person') }
-    it { should have_link('list_link_header', href: department_person_roles_path(lng)) }
-    it { should have_link('save_link_header') }
-
-    it { should have_selector "form label[for='department_person_role_department_id']", text: "Department" }
-    it {should have_select 'department_person_role_department_id'}
-    it {find("#department_person_role_department_id").value.should eq(@department1.id.to_s)}
-
-    it "Department options" do
-        expect(page.all('select#department_person_role_department_id option').
-        map(&:value)).to eq([@department1.id.to_s, @department2.id.to_s, @department3.id.to_s])
-    end
-
-    it { should have_selector "form label[for='department_person_role_person_full_name']", text: "Person Full Name" }
-    it {should have_field 'department_person_role_person_full_name'}
-
-    it {have_selector("input", :type => "hidden", :name => "department_person_role[person_id]")}
-
-    it { should have_selector "form label[for='department_person_role_role_id']", text: "Role" }
-    it {should have_select 'department_person_role_role_id'}
-    it {find("#department_person_role_role_id").value.should eq(@role1.id.to_s)}
-
-    it "Role options" do
-        expect(page.all('select#department_person_role_role_id option').
-        map(&:value)).to eq([@role1.id.to_s, @role2.id.to_s, @role3.id.to_s])
-    end
-
-
-
-    describe "with invalid information" do
-    #   it "should not create a Payment Type" do
-    #     page.find("#new_payment_type").submit_form!
-    #     expect {click_link("Save")}.not_to change(PaymentType, :count)
-    #   end
-
-    #   describe "error messages" do
-    #     before {page.find("#new_payment_type").submit_form!}
-    #     it { should have_content('error') }
-    #   end
-
-    #   describe "with empty frequency" do
-    #     before {
-    #       fill_in 'payment_type_name', with: 'Payment Type Name'
-    #       expect {page.find("#new_payment_type").submit_form!}.not_to change(PaymentType, :count)
-    #     }
-    #     it { should have_selector('.alert-error') }
-    #     it { should have_content('error') }
-    #   end
-
-    #   describe "with empty name" do
-    #     before {
-    #       page.select 'General', :from => 'Frequency'
-    #       expect {page.find("#new_payment_type").submit_form!}.not_to change(PaymentType, :count)
-    #     }
-    #     it { should have_selector('.alert-error') }
-    #     it { should have_content('error') }
-    #   end
-    end
-
-    # describe "with valid information" do
-    #   before do
-    #     fill_in 'payment_type_name', with: 'Payment Type Name'
-    #     page.select 'General', :from => 'Frequency'
-    #   end
-
-    #   it "should create a Payment Type" do
-    #     expect { page.find("#new_payment_type").submit_form! }.to change(PaymentType, :count).by(1)
-    #   end
-    # end
-
-    # describe "with name that alrady exists" do
-    #   let(:pt1) {FactoryGirl.create(:payment_type,
-    #       name: 'PaymentType to test name that laready exists', frequency: 1)}
-    #   before {
-    #     fill_in 'payment_type_name', with: pt1.name
-    #     page.select 'General', :from => 'Frequency'
-    #   }
-
-    #   it "should not create a Payment Type" do
-    #     expect {page.find("#new_payment_type").submit_form!}.not_to change(PaymentType, :count)
-    #   end
-
-    #   describe "error messages" do
-    #     before do
-    #       page.find("#new_payment_type").submit_form!
-    #     end
-
-    #     it { should have_selector('div.alert.alert-error') }
-    #   end
-    # end
-
-    # #    describe "click list link should brings index page" do
-    # #      it do
-    # #        click_link("List")
-    # #        expect(page).to have_content 'List of Payment Types'
-    # #      end
-    # #    end
-    # #
-    # #    describe "click Save link should brings error" do
-    # #      it do
-    # #        click_link_or_button("list_link_header")
-    # #      end
-    # #    end
-
-  end
-
-    describe "index" do
+    describe "index page" do
         let(:num_of_rows) {30 - @rows_before}
         before do
-          visit department_person_roles_path
+          visit department_person_roles_path(lng)
         end
 
+        it { expect(current_path).to eq(department_person_roles_path(lng))}
         it { should have_title(full_title('Departments And Roles For Person')) }
         it { should have_content('Departments And Roles For Person') }
-        it { should have_link('new_link_header', href: new_department_person_role_path(lng)) }
+        it { should have_link('new_link_header', text: 'New',
+                href: new_department_person_role_path(lng)) }
+        it { should have_link('clear_link_header', text: 'Clear') }
+        it { should have_link('search_link_header', text: 'Search') }
+        it { should have_link('xlsx_download_path_by_search_link') }
+
+        it { should have_selector "form#search-form label[for='f_department_name']", text: "Department" }
+        it { should have_selector("form#search-form input#f_department_name")}
+
+        it { should have_selector "form#search-form label[for='f_role_name']", text: "Role" }
+        it { should have_selector("form#search-form input#f_role_name")}
+
+        it { should have_selector "form#search-form label[for='f_family_name']", text: "Family Name" }
+        it { should have_selector("form#search-form input#f_family_name")}
+
+        it { should have_selector "form#search-form label[for='f_person_gender']", text: "Gender" }
+        it { should have_selector("form#search-form select#f_person_gender")}
+
+        it { should have_selector "form#search-form label[for='f_sort_params_for']", text: "1 Sort By" }
+        it { should have_selector("form#search-form select#f_sort")}
+
+        it { should have_selector "form#search-form label[for='f_sort_params_for']", text: "2 Sort By" }
+        it { should have_selector("form#search-form select#f_sort_2")}
+
+        it { should have_selector "form#search-form label[for='f_sort_params_for']", text: "3 Sort By" }
+        it { should have_selector("form#search-form select#f_sort_3")}
+
+        it { should have_selector "form#search-form label[for='f_sort_params_for']", text: "4 Sort By" }
+        it { should have_selector("form#search-form select#f_sort_4")}
 
         describe "should list all DepartmentPersonRoles" do
             before  do
-                #Role.delete_all
-                #Department.delete_all
-                #DepartmentPersonRole.delete_all
                 num_of_rows.times do |index|
                     role = FactoryGirl.create(:role, name:"role_#{index}" )
                     department = FactoryGirl.create(:department, name:"department_#{index}")
@@ -173,12 +89,6 @@ describe "DepartmentPersonRoles" do
                 end
                 visit department_person_roles_path
             end
-            after  do
-                #Person.delete_all
-                #Role.delete_all
-                #Department.delete_all
-                #DepartmentPersonRole.delete_all
-            end
 
             it "DepartmentPersonRole count" do
                 expect(DepartmentPersonRole.count).to eq(num_of_rows + @rows_before)
@@ -190,7 +100,182 @@ describe "DepartmentPersonRoles" do
                 end
             end
         end
+    end
+
+    describe "Department Person Roles creation" do
+        before { visit new_department_person_role_path(lng) }
+
+        it { expect(current_path).to eq(new_department_person_role_path(lng))}
+        it { should have_title(full_title('Departments And Roles For Person')) }
+        it { should have_content('New Departments And Roles For Person') }
+        it { should have_link('list_link_header', href: department_person_roles_path(lng)) }
+        it { should have_link('save_link_header') }
+
+        it { should have_selector "form label[for='department_person_role_department_id']", text: "Department" }
+        it { should have_select 'department_person_role_department_id'}
+        it {find("#department_person_role_department_id").value.should eq(@department1.id.to_s)}
+
+        it "Department options" do
+            expect(page.all('select#department_person_role_department_id option').
+            map(&:value)).to eq([@department1.id.to_s, @department2.id.to_s, @department3.id.to_s])
+        end
+
+        it { should have_selector "form label[for='department_person_role_person_full_name']", text: "Person Full Name" }
+        it { should have_field 'department_person_role_person_full_name'}
+
+        it { should have_selector("input#department_person_role_person_id")}
+
+        it { should have_selector "form label[for='department_person_role_role_id']", text: "Role" }
+        it { should have_select 'department_person_role_role_id'}
+        it { find("#department_person_role_role_id").value.should eq(@role1.id.to_s)}
+
+        it "Role options" do
+            expect(page.all('select#department_person_role_role_id option').
+            map(&:value)).to eq([@role1.id.to_s, @role2.id.to_s, @role3.id.to_s])
+        end
+
+        describe "with invalid information" do
+            before do
+                fill_in 'department_person_role_person_full_name', with: ""
+                page.find("#new_department_person_role").submit_form!
+            end
+            it "should not create a DepartmentPersonRole with empty person" do
+                expect{}.not_to(change(DepartmentPersonRole, :count))
+                should have_selector('.alert-error')
+                should have_content('error')
+            end
+        end
+
+        describe "with valid information"  do
+            before do
+                fill_in 'department_person_role_person_full_name',
+                    with: "#{@person2.name} #{@person2.family_name}"
+            end
+
+            it "should create aDepartmentPersonRole" do
+                expect { page.find("#new_department_person_role").submit_form! }.to(
+                            change(DepartmentPersonRole, :count).by(1))
+            end
+        end
+
+        describe "with person that alrady exists" do
+            before do
+                fill_in 'department_person_role_person_full_name',
+                    with: "#{@person1.name} #{@person1.family_name}"
+                 page.find("#new_department_person_role").submit_form!
+            end
+            it "should not create a DepartmentPersonRole with empty person" do
+                expect{}.not_to(change(DepartmentPersonRole, :count))
+                should have_selector('.alert-error')
+                should have_content('The form contains 1 error')
+            end
+        end
+
+        describe "click list link should brings index page" do
+            it do
+                click_link("List")
+                expect(current_path).to eq(department_person_roles_path(lng))
+            end
+        end
+
+        # describe "click Save link should brings error" do
+        #     it do
+        #         click_link("Save")
+        #         should have_selector('.alert-error')
+        #         should have_content('Person Full Name is invalid')
+        #     end
+        # end
 
     end
+
+
+    describe "Editing Department Person Roles" do
+        before { visit edit_department_person_role_path(lng, @department_person_role2) }
+
+        it { expect(current_path).to eq(edit_department_person_role_path(lng, @department_person_role2))}
+        it { should have_title(full_title('Departments And Roles For Person')) }
+        it { should have_content('Editing Departments And Roles For Person') }
+        it { should have_link('list_link_header', href: department_person_roles_path(lng)) }
+        it { should have_link('save_link_header') }
+
+        it { should have_selector "form label[for='department_person_role_department_id']", text: "Department" }
+        it { should have_select 'department_person_role_department_id'}
+        it {find("#department_person_role_department_id").value.should eq(@department2.id.to_s)}
+
+        it "Department options" do
+            expect(page.all('select#department_person_role_department_id option').
+            map(&:value)).to eq([@department1.id.to_s, @department2.id.to_s, @department3.id.to_s])
+        end
+
+        it { should have_selector "form label[for='department_person_role_person_full_name']", text: "Person Full Name" }
+        it { should have_field 'department_person_role_person_full_name',
+                with: "#{@person2.name} #{@person2.family_name}"}
+
+        it { should have_selector("input#department_person_role_person_id")}
+
+        it { should have_selector "form label[for='department_person_role_role_id']", text: "Role" }
+        it { should have_select 'department_person_role_role_id'}
+        it { find("#department_person_role_role_id").value.should eq(@role2.id.to_s)}
+
+        it "Role options" do
+            expect(page.all('select#department_person_role_role_id option').
+            map(&:value)).to eq([@role1.id.to_s, @role2.id.to_s, @role3.id.to_s])
+        end
+
+        describe "with invalid information" do
+            before do
+                fill_in 'department_person_role_person_full_name', with: ""
+                page.find(".edit_department_person_role").submit_form!
+            end
+            it "should not update a DepartmentPersonRole with empty person" do
+                should have_selector('.alert-error')
+                should have_content('error')
+            end
+        end
+
+        describe "with valid information"  do
+            before do
+                fill_in 'department_person_role_person_full_name',
+                    with: "#{@person1.name} #{@person1.family_name}"
+                page.find(".edit_department_person_role").submit_form!
+            end
+
+            it "should create aDepartmentPersonRole" do
+                should have_selector('.alert-success')
+                should have_content('Department And Role For Person was successfully updated')
+            end
+        end
+
+        describe "with person that alrady exists" do
+            before do
+                page.select @department1.name, :from => 'Department'
+                page.select @role1.name, :from => 'Role'
+                fill_in 'department_person_role_person_full_name',
+                    with: "#{@person1.name} #{@person1.family_name}"
+                 page.find(".edit_department_person_role").submit_form!
+            end
+            it "should not Update a DepartmentPersonRole" do
+                should have_selector('.alert-error')
+                should have_content('The combination of Department, Person and Role already in use')
+            end
+        end
+
+        describe "click list link should brings index page" do
+            it do
+                click_link("List")
+                expect(current_path).to eq(department_person_roles_path(lng))
+            end
+        end
+
+        # describe "click Save link should brings error" do
+        #     it do
+        #         click_link("Save")
+        #         should have_selector('.alert-error')
+        #         should have_content('Person Full Name is invalid')
+        #     end
+        # end
+
+    end
+
 
 end
