@@ -23,6 +23,10 @@ def sign_in(user, options={})
   end
 end
 
+def log_test(message)
+    Rails.logger.info(message)
+    puts message
+end
 
 #
 #RSpec::Matchers.define :have_error_message do |message|

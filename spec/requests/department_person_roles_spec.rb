@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'timeout'
 
 I18n.default_locale = :en
 
@@ -10,10 +9,6 @@ describe "DepartmentPersonRoles" do
     let(:admin) { FactoryGirl.create(:admin) }
 
     before  do
-        Person.delete_all
-        Role.delete_all
-        Department.delete_all
-        DepartmentPersonRole.delete_all
         @role1 = FactoryGirl.create(:role, name:'role1')
         @role2 = FactoryGirl.create(:role, name:'role2')
         @role3 = FactoryGirl.create(:role, name:'role3')
@@ -165,7 +160,7 @@ describe "DepartmentPersonRoles" do
                 page.find("#new_department_person_role").submit_form!
             end
             it "should not create a DepartmentPersonRole with empty person" do
-                expect{}.not_to(change(DepartmentPersonRole, :count))
+                expect(DepartmentPersonRole.count).to eq(@rows_before)
                 should have_selector('.alert-error')
                 should have_content('error')
             end
@@ -190,7 +185,7 @@ describe "DepartmentPersonRoles" do
                  page.find("#new_department_person_role").submit_form!
             end
             it "should not create a DepartmentPersonRole with empty person" do
-                expect{}.not_to(change(DepartmentPersonRole, :count))
+                expect(DepartmentPersonRole.count).to eq(@rows_before)
                 should have_selector('.alert-error')
                 should have_content('The form contains 1 error')
             end

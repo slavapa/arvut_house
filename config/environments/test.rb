@@ -35,4 +35,12 @@ ArvutHouse::Application.configure do
   config.active_support.deprecation = :stderr
   ActiveModel::SecurePassword.min_cost = true
   I18n.default_locale = :en
+
+  # # Enable stdout logger
+  # config.logger = Logger.new(STDOUT)
+
+  # # Set log level
+  # config.log_level = :ERROR
+
 end
+
