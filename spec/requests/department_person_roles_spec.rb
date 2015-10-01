@@ -36,6 +36,8 @@ describe "DepartmentPersonRoles" do
         sign_in admin
     end
 
+    # describe "Test", :type => :selenium do
+
     describe "index page" do
         let(:num_of_rows) {30 - @rows_before}
         before do
@@ -100,6 +102,29 @@ describe "DepartmentPersonRoles" do
                 end
             end
         end
+
+        describe "click New link button should brings new page" do
+            before {click_link("New")}
+            it{expect(current_path).to eq(new_department_person_role_path(lng))}
+        end
+
+        describe "click link button should brings Editing page" do
+            before {click_link(@department1.name)}
+            it { expect(current_path).to eq(
+                edit_department_person_role_path(lng, @department_person_role1))}
+        end
+
+        describe "click Delete link button should brings index page" do
+            before {find("#delete_link_index_#{@department_person_role1.id}").click}
+            it {expect(DepartmentPersonRole.count).to eq(@rows_before-1)}
+        end
+
+        # it "click Delete link button should brings index page" do
+        #     expect { find("#delete_link_index_#{@department_person_role2.id}").
+        #         click }.to(change(DepartmentPersonRole, :count).by(-1))
+        # end
+
+        pending "Search functionality"
     end
 
     describe "Department Person Roles creation" do
@@ -171,21 +196,10 @@ describe "DepartmentPersonRoles" do
             end
         end
 
-        describe "click list link should brings index page" do
-            it do
-                click_link("List")
-                expect(current_path).to eq(department_person_roles_path(lng))
-            end
+        describe "click List link should brings index page" do
+            before {click_link("List")}
+            it {expect(current_path).to eq(department_person_roles_path(lng))}
         end
-
-        # describe "click Save link should brings error" do
-        #     it do
-        #         click_link("Save")
-        #         should have_selector('.alert-error')
-        #         should have_content('Person Full Name is invalid')
-        #     end
-        # end
-
     end
 
 
@@ -260,21 +274,21 @@ describe "DepartmentPersonRoles" do
             end
         end
 
-        describe "click list link should brings index page" do
-            it do
-                click_link("List")
-                expect(current_path).to eq(department_person_roles_path(lng))
-            end
+        describe "click List link should brings index page" do
+            before {click_link("List")}
+            it {expect(current_path).to eq(department_person_roles_path(lng))}
         end
 
-        # describe "click Save link should brings error" do
-        #     it do
-        #         click_link("Save")
-        #         should have_selector('.alert-error')
-        #         should have_content('Person Full Name is invalid')
-        #     end
-        # end
+        describe "click New link button should brings new page" do
+            before {click_link("New")}
+            it{expect(current_path).to eq(new_department_person_role_path(lng))}
+        end
 
+        describe "click Delete link button should brings index page" do
+            before {click_link("Delete")}
+            it{expect(current_path).to eq(department_person_roles_path(lng))}
+            it {expect(DepartmentPersonRole.count).to eq(@rows_before-1)}
+        end
     end
 
 

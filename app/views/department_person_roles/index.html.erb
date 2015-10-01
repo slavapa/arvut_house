@@ -45,7 +45,7 @@
           	<% if admin_user? %>
           		<%= link_to t(:delete), department_person_role, method: :delete,
           		        class: "btn-warning btn btn-small delete-link-index",
-          		        id: "delete_link_index", data: { confirm: t(:confirm) } %>
+          		        id: "delete_link_index_#{department_person_role.id}", data: { confirm: t(:confirm) } %>
           	<% end %>
           </td>
       </tr>
