@@ -3,7 +3,6 @@ ruby '1.9.3'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.4'
-gem 'bootstrap-sass', '3.2.0.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
@@ -42,7 +41,11 @@ group :test do
   #gem 'wdm', '0.1.0'
 end
 
-gem 'sass-rails', '5.0.3'
+gem 'compass'
+gem 'compass-rails'
+gem 'sass-rails'
+
+gem 'bootstrap-sass', '~> 2.3.2'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails'
