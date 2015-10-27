@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe PersonPayment do
   let(:person1) { FactoryGirl.create(:person, admin: false) }

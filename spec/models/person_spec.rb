@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Person do
   before { @person = Person.new(name: "Example User", 
@@ -42,7 +42,7 @@ describe Person do
   
   describe "remember token" do
     before { @person.save }
-    its(:remember_token) { should_not be_blank }
+    it(:remember_token) { should_not be_blank }
   end   
    
   describe "with admin attribute set to 'false'" do
@@ -161,7 +161,7 @@ describe Person do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
       it { should_not eq user_for_invalid_password }
-      specify { expect(user_for_invalid_password).to be_false }
+      specify { expect(user_for_invalid_password).to be_falsey }
     end
   end
   
@@ -244,7 +244,10 @@ describe Person do
       event.add_person!(second_person)
     end   
     
-    its(:events) { should include event }
+    #its(:events) { should include event }
+     it "should include event through enents" do
+      expect(@person.events).to include(event)
+    end
     
     it "should include peaople through enent" do
       expect(event.people).to include(@person, second_person)
