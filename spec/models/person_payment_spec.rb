@@ -14,12 +14,22 @@ describe PersonPayment do
   subject { @person_payment }
   
   it { should be_valid }
-  its(:person) { should eq person1 }
-  its(:payment) { should eq payment1 }
+  # its(:person) { should eq person1 }
+  it "should equal to person1" do
+    expect(person1).to eq(@person_payment.person)
+  end
+  
+  # its(:payment) { should eq payment1 }
+  it "should equal to payment1" do
+    expect(payment1).to eq(@person_payment.payment)
+  end
    
   describe "payment type relation" do
     before { @person_payment.save}
-    its(:payment_type) { should eq payment_type1 }    
+    # its(:payment_type) { should eq payment_type1 }
+    it "should equal to payment_type1" do
+      expect(payment_type1).to eq(@person_payment.payment_type)
+    end
   end
   
   describe "person_payment attributes" do 

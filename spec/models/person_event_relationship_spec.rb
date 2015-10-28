@@ -11,13 +11,23 @@ describe PersonEventRelationship do
   subject { @person_event_relationship } 
   
   it { should be_valid }
-  its(:person) { should eq person }
-  its(:event) { should eq event }
+  # its(:person) { should eq person }
+  it "should include person" do
+    expect(person).to eq(@person_event_relationship.person)
+  end
+    
+  # its(:event) { should eq event }
+  it "should include event" do
+    expect(event).to eq(@person_event_relationship.event)
+  end
   
   
   describe "event type relation" do
     before { @person_event_relationship.save}
-    its(:event_type) { should eq event_type }    
+    # its(:event_type) { should eq event_type } 
+    it "should include event" do
+      expect(event_type).to eq(@person_event_relationship.event_type)
+    end
   end
   
   describe "person_event_relationships attributes" do 

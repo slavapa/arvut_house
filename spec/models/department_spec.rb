@@ -60,7 +60,7 @@ describe Department do
     let(:department_dup) {  @department1.dup}
 
     it "should not change count of DepartmentPersonRole in DB  by 1" do
-      expect { department_dup.save }.to_not change(DepartmentPersonRole, :count).by(1)
+      expect { department_dup.save }.to_not change(DepartmentPersonRole, :count)
     end
   end
 

@@ -24,7 +24,10 @@ describe Payment do
     it { should respond_to(:person_payments) }
   end 
   
-  its(:payment_type) { should eq @payment_type } 
+  #its(:payment_type) { should eq @payment_type } 
+  it "should include payment type" do
+    expect(@payment_type.payments).to include(@payment)
+  end
    
   describe "when payment is valid" do
     before { @payment.save }
@@ -84,10 +87,17 @@ describe Payment do
       @payment.add_person!(third_person)
     end     
     
-    its(:people) { should include @person } 
-    its(:people) { should include second_person }
-    its(:people) { should include third_person } 
-    its(:people) { should_not include not_related_person }
+    # its(:people) { should include @person } 
+    # its(:people) { should include second_person }
+    # its(:people) { should include third_person } 
+    # its(:people) { should_not include not_related_person }
+    it "should include association people" do
+      expect(@person.payments).to include(@payment)
+      expect(second_person.payments).to include(@payment)
+      expect(third_person.payments).to include(@payment)
+      expect(not_related_person.payments).not_to include(@payment)
+    end
+    
     
         
     it "should exists all peaople by is_perosn_exists" do
@@ -125,7 +135,7 @@ describe Payment do
     let(:payment_with_same_data) {  @payment.dup}
     
     it "should not change count of Payment in DB  by 1" do
-      expect { payment_with_same_data.save }.to_not change(Payment, :count).by(1)
+      expect { payment_with_same_data.save }.to_not change(Payment, :count)
     end
   end
   

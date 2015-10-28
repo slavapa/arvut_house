@@ -21,7 +21,11 @@ describe Event do
     it { should respond_to(:person_event_relationships) }
   end 
   
-  its(:event_type) { should eq @event_type }  
+  # it(:event_type) { should eq @event_type }  
+   
+    it "should include event type" do
+      expect(@event_type.events).to include(@event)
+    end
   
   describe "when event is valid" do
     before { @event.save }
@@ -77,10 +81,17 @@ describe Event do
       @event.add_person!(third_person)
     end     
     
-    its(:people) { should include @person } 
-    its(:people) { should include second_person }
-    its(:people) { should include third_person } 
-    its(:people) { should_not include not_related_person }
+    #it(:people) { should include @person } 
+    # it(:people) { should include second_person }
+    # it(:people) { should include third_person } 
+    # it(:people) { should_not include not_related_person }
+    it "should include Event people association people" do
+      expect(@person.events).to include(@event)
+      expect(second_person.events).to include(@event)
+      expect(third_person.events).to include(@event)
+      expect(not_related_person.events).not_to include(@event)
+    end
+    
     
     it "should return false for not existing perosn is_perosn_exists" 
     

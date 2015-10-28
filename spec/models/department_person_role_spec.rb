@@ -72,15 +72,16 @@ describe DepartmentPersonRole do
     let(:department_person_role_dup) {  @department_person_role1.dup}
 
     it "should not change count of DepartmentPersonRole in DB  by 1" do
-      expect { department_person_role_dup.save }.to_not change(DepartmentPersonRole, :count).by(1)
+      expect { department_person_role_dup.save }.to_not change(DepartmentPersonRole, :count)
     end
   end
 
   describe "DepartmentPersonRole associations" do
-    # its(:department) { should eq @department1 }
-    # its(:person) { should eq @person1 }
-    # its(:role) { should eq @role1 }
+    # it(:department) { should eq @department1 }
+    # it(:person) { should eq @person1 }
+    # it(:role) { should eq @role1 }
 
+    
     it "should include person through @person1.department_person_roles" do
       expect(@person1.department_person_roles).to include(@department_person_role1)
     end
@@ -107,7 +108,7 @@ describe DepartmentPersonRole do
     end
 
     it "should not change count of DepartmentPersonRole in DB  by 1" do
-      expect { department_person_role4.save }.not_to change(DepartmentPersonRole, :count).by(1)
+      expect { department_person_role4.save }.not_to change(DepartmentPersonRole, :count)
     end
   end
 
@@ -122,7 +123,7 @@ describe DepartmentPersonRole do
     end
 
     it "should not change count of DepartmentPersonRole in DB  by 1" do
-      expect { department_person_role4.save }.not_to change(DepartmentPersonRole, :count).by(1)
+      expect { department_person_role4.save }.not_to change(DepartmentPersonRole, :count)
     end
   end
 
@@ -137,7 +138,7 @@ describe DepartmentPersonRole do
     end
 
     it "should not change count of DepartmentPersonRole in DB  by 1" do
-      expect { department_person_role4.save }.not_to change(DepartmentPersonRole, :count).by(1)
+      expect { department_person_role4.save }.not_to change(DepartmentPersonRole, :count)
     end
   end
 

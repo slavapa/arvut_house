@@ -11,8 +11,15 @@ describe PersonLanguage do
   subject { @person_language } 
    
   it { should be_valid }
-  its(:person) { should eq person1 }
-  its(:language) { should eq lng1 }
+  # its(:person) { should eq person1 }
+  it "should include person" do
+    expect(person1).to eq(@person_language.person)
+  end
+  
+  # its(:language) { should eq lng1 }
+  it "should include language" do
+    expect(lng1).to eq(@person_language.language)
+  end
     
   describe "person_languages attributes" do 
     it { should respond_to(:person_id) }
