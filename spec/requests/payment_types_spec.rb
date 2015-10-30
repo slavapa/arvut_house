@@ -1,3 +1,4 @@
+require 'rails_helper'
 require 'spec_helper'
 
 I18n.default_locale = :en

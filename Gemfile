@@ -8,20 +8,10 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails-i18n', '4.0.6'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
-  gem 'rspec-rails'
-  gem 'rspec-wait', '0.0.7'
-  # The following optional lines are part of the advanced setup.
-  gem 'guard-rspec'
-  gem 'spork-rails', '4.0.0'
-  # gem 'guard-spork', '1.5.0'
-  gem 'rubyzip', '0.9.9'
-  gem 'childprocess', '0.5.6'
-  gem 'test-unit'
-  gem 'minitest'
 end
 
 group :test do
@@ -30,6 +20,12 @@ group :test do
   gem 'factory_girl_rails', '4.2.0'
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'rspec-rails', '3.3.3'
+  gem 'rspec-wait', '0.0.7'
+  gem 'rubyzip', '0.9.9'
+  gem 'childprocess', '0.5.6'
+  gem 'test-unit', '3.1.5'
+  gem 'minitest', '4.7.5'
 
   # Uncomment this line on OS X.
   # gem 'growl', '1.0.3'
