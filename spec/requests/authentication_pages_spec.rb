@@ -39,12 +39,17 @@ describe "Authentication" do
       end
       
       it { should_not have_selector('div.alert.alert-error') }
+      it { should_not have_selector('*.translation_missing') }
       it { should have_title(full_title('List of Events')) }
       it { should have_link('Sign out',    href: signout_path(lng)) }
       it { should_not have_link('Sign in', href: signin_path(lng)) }
       it { should have_link('Actions') }
       it { should have_link('People list', href: people_path(lng)) }
       it { should have_link('List of Events', href: events_path(lng)) }
+      it { should have_link('Languages', href: languages_path(lng)) }
+      it { should have_link('Statuses', href: statuses_path(lng)) }
+      it { should have_link('Event Types', href: event_types_path(lng)) }
+      it { should have_link('Payment Types', href: payment_types_path(lng)) }
             
       describe "after visiting another page" do
         before { click_link "Home" }
