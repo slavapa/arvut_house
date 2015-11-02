@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927085619) do
+ActiveRecord::Schema.define(version: 20151102171048) do
 
   create_table "department_person_roles", force: true do |t|
     t.integer  "department_id", null: false
@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 20150927085619) do
     t.datetime "updated_at"
     t.integer  "status_id"
     t.string   "area",               limit: 60
-    t.string   "department",         limit: 60
     t.string   "car_number",         limit: 60
     t.string   "email_2",            limit: 60
   end

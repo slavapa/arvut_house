@@ -13,7 +13,7 @@ wb.add_worksheet(name: "People") do |sheet|
     t('activerecord.attributes.person.family_status'),  t('activerecord.attributes.person.car_owner'),
     t('activerecord.attributes.person.car_number'), t('activerecord.attributes.person.computer_knowledge'), 
     t('activerecord.attributes.person.workplace'), t('activerecord.attributes.person.skills'), 
-    t('activerecord.attributes.person.department'), t('activerecord.attributes.person.area'), 
+    t('activerecord.attributes.person.area'), 
     t('activerecord.attributes.person.address')
   ], :style => header ## Header values of Excel
   
@@ -26,7 +26,7 @@ wb.add_worksheet(name: "People") do |sheet|
         person.status_name, person.car_owner_name,
         person.car_number, person.computer_knowledge_name,
         person.workplace, person.skills,
-        person.department, person.area, 
+        person.area, 
         person.address
     ], :style => default
   end

@@ -31,4 +31,5 @@ rails generate scaffold DepartmentPersonRole department:references person:refere
 rails g controller ajax users
 rails g migration Drop_table_person_roles
 rails g migration DropPersonDepartments
+rails generate migration RemoveDepartmentFromPeople department:string
 

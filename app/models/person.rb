@@ -6,7 +6,6 @@ class Person < ActiveRecord::Base
   before_create :create_remember_token
   
   validates :car_number,  length: { maximum: 60 }
-  validates :department,  length: { maximum: 60 }
   validates :area,  length: { maximum: 60 }
   validates :name, presence: true, length: { maximum: 60 }
   validates :family_name,  length: { maximum: 60 }

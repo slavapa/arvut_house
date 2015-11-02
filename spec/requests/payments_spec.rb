@@ -57,7 +57,7 @@ describe "Payments" do
     describe "with valid information" do
 #      before { fill_in 'role_name', with: "Role Test" }
       it "should create a role" do
-        expect { page.find("#new_payment").submit_form! }.to change(Payment, :count).by(1)
+        expect { page.find("#new_payment").submit_form! }.to change(Payment, :count)
       end
     end
     
