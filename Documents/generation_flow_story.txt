@@ -32,4 +32,7 @@ rails g controller ajax users
 rails g migration Drop_table_person_roles
 rails g migration DropPersonDepartments
 rails generate migration RemoveDepartmentFromPeople department:string
-
+rails generate scaffold ApplicationSetupType code_id:integer:index name:string
+rails destroy scaffold ApplicationSetupType
+rails generate scaffold ApplicationSetupType code_id:integer:index:unique name:string:unique description:string 
+rails generate migration AddInitialApplicationSetupTypes

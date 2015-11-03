@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102171048) do
+ActiveRecord::Schema.define(version: 20151103181748) do
+
+  create_table "application_setup_types", force: true do |t|
+    t.integer  "code_id",                null: false
+    t.string   "name",        limit: 60, null: false
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "application_setup_types", ["code_id"], name: "index_application_setup_types_on_code_id", unique: true
+  add_index "application_setup_types", ["name"], name: "index_application_setup_types_on_name", unique: true
 
   create_table "department_person_roles", force: true do |t|
     t.integer  "department_id", null: false

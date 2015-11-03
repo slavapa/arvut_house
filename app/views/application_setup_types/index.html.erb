@@ -1,0 +1,31 @@
+<h1>Listing application_setup_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @application_setup_types.each do |application_setup_type| %>
+      <tr>
+        <td><%= application_setup_type.code_id %></td>
+        <td><%= application_setup_type.name %></td>
+        <td><%= application_setup_type.description %></td>
+        <td><%= link_to 'Show', application_setup_type %></td>
+        <td><%= link_to 'Edit', edit_application_setup_type_path(application_setup_type) %></td>
+        <td><%= link_to 'Destroy', application_setup_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Application setup type', new_application_setup_type_path %>
