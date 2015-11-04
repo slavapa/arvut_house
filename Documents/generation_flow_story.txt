@@ -36,3 +36,7 @@ rails generate scaffold ApplicationSetupType code_id:integer:index name:string
 rails destroy scaffold ApplicationSetupType
 rails generate scaffold ApplicationSetupType code_id:integer:index:unique name:string:unique description:string 
 rails generate migration AddInitialApplicationSetupTypes
+rails d migration AddInitialApplicationSetupTypes
+rails d migration 
+rails generate scaffold AppSetupType id:integer:index name:string:unique description:string 
+
