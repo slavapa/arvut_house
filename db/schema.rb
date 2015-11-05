@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104163627) do
+ActiveRecord::Schema.define(version: 20151105164334) do
 
   create_table "app_setup_types", force: true do |t|
     t.string   "name",        limit: 60, null: false
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20151104163627) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "application_setups", force: true do |t|
+    t.integer  "app_setup_type_id"
+    t.string   "language_code_id",  limit: 5,  null: false
+    t.string   "code_id",           limit: 60, null: false
+    t.string   "description"
+    t.string   "str_value",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "application_setups", ["app_setup_type_id"], name: "index_application_setups_on_app_setup_type_id"
+  add_index "application_setups", ["language_code_id", "code_id"], name: "index_application_setups_language_code_id_code_id", unique: true
 
   create_table "department_person_roles", force: true do |t|
     t.integer  "department_id", null: false

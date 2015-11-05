@@ -2,6 +2,7 @@ ArvutHouse::Application.routes.draw do
 
 
 
+
   get "ajax/users"
   root 'home#default'
   scope '(:locale)' do 
@@ -10,6 +11,7 @@ ArvutHouse::Application.routes.draw do
     resources :person_payments, only: [:create, :destroy, :update]
     resources :department_person_roles
     resources :app_setup_types
+    resources :application_setups
 
  
     resources :people do
