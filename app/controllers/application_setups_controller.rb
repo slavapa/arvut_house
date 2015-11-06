@@ -1,5 +1,7 @@
 class ApplicationSetupsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_application_setup, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
   # GET /application_setups
   # GET /application_setups.json
@@ -72,6 +74,6 @@ class ApplicationSetupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_setup_params
-      params.require(:application_setup).permit(:app_setup_type_id, :language_code_id, :code_id, :description, :str_value)
+      params.require(:application_setup).permit(:str_value)
     end
 end
