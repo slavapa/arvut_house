@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container-fluid">
-      <%= link_to t('house_name'), root_path, id: "logo", class:I18n.locale %>
+      <%= link_to ApplicationSetup.get_organization_name, root_path, id: "logo", class:I18n.locale %>
       <nav class="inline_container">
         <ul class="nav pull-right">
           <li><%= link_to t('home_page'), root_path %></li>

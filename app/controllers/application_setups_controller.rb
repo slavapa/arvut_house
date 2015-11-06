@@ -9,13 +9,13 @@ class ApplicationSetupsController < ApplicationController
 
   # GET /application_setups/1
   # GET /application_setups/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /application_setups/new
-  def new
-    @application_setup = ApplicationSetup.new
-  end
+  # def new
+  #   @application_setup = ApplicationSetup.new
+  # end
 
   # GET /application_setups/1/edit
   def edit
@@ -23,26 +23,29 @@ class ApplicationSetupsController < ApplicationController
 
   # POST /application_setups
   # POST /application_setups.json
-  def create
-    @application_setup = ApplicationSetup.new(application_setup_params)
+  # def create
+  #   @application_setup = ApplicationSetup.new(application_setup_params)
 
-    respond_to do |format|
-      if @application_setup.save
-        format.html { redirect_to @application_setup, notice: 'Application setup was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @application_setup }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @application_setup.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @application_setup.save
+  #       format.html { redirect_to @application_setup, notice: 'Application setup was successfully created.' }
+  #       format.json { render action: 'show', status: :created, location: @application_setup }
+  #     else
+  #       format.html { render action: 'new' }
+  #       format.json { render json: @application_setup.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /application_setups/1
   # PATCH/PUT /application_setups/1.json
   def update
     respond_to do |format|
       if @application_setup.update(application_setup_params)
-        format.html { redirect_to @application_setup, notice: 'Application setup was successfully updated.' }
+        format.html { 
+          flash[:success] = t(:item_updated, name: 'Application setup was successfully updated.') 
+          redirect_to edit_application_setup_path(@application_setup) 
+        }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -53,13 +56,13 @@ class ApplicationSetupsController < ApplicationController
 
   # DELETE /application_setups/1
   # DELETE /application_setups/1.json
-  def destroy
-    @application_setup.destroy
-    respond_to do |format|
-      format.html { redirect_to application_setups_url }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @application_setup.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to application_setups_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

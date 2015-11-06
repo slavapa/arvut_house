@@ -11,7 +11,7 @@ ArvutHouse::Application.routes.draw do
     resources :person_payments, only: [:create, :destroy, :update]
     resources :department_person_roles
     resources :app_setup_types
-    resources :application_setups
+    resources :application_setups, only: [:index, :edit, :update]
 
  
     resources :people do
