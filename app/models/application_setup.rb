@@ -18,9 +18,13 @@ class ApplicationSetup < ActiveRecord::Base
         get_app_setup_value("organization_name", I18n.locale) || I18n.t('house_name')
   end
   
+  def self.get_main_site_image_name
+      @@main_site_image_name ||=  get_app_setup_value("main_site_image", 'en')
+  end
    
    private
    def reset_cache_references
-     @@organization_name = nil     
+     @@organization_name = nil 
+     @@main_site_image_name = nil
    end
 end
