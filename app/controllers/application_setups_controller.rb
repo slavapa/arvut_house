@@ -51,7 +51,7 @@ class ApplicationSetupsController < ApplicationController
   def update
     respond_to do |format|
       
-      uploaded_io = params[:application_setup][:picture]
+      uploaded_io = params[:application_setup][:file]
       if !uploaded_io.nil?
         newfileName =  "#{ DateTime.now.to_i}_#{uploaded_io.original_filename}"
         File.open(Rails.root.join('app', 'assets', 'images', 'uploads', newfileName), 'wb') do |file|

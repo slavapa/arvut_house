@@ -13,18 +13,23 @@ class ApplicationSetup < ActiveRecord::Base
   end
   
   def self.get_organization_name
-      @@organization_name ||= Hash.new
-      @@organization_name[I18n.locale] ||= 
+    keyName = "organization_name_#{I18n.locale}"
+    app_setup_cach[keyName] ||= 
         get_app_setup_value("organization_name", I18n.locale) || I18n.t('house_name')
   end
   
   def self.get_main_site_image_name
-      @@main_site_image_name ||=  get_app_setup_value("main_site_image", 'en')
+    keyName = "main_site_image_#{I18n.locale}"
+    app_setup_cach[keyName] ||= 
+        get_app_setup_value("main_site_image", I18n.locale)
+  end
+  
+  def self.app_setup_cach
+    @@app_setup_cach ||= Hash.new
   end
    
    private
    def reset_cache_references
-     @@organization_name = nil 
-     @@main_site_image_name = nil
+     @@app_setup_cach = nil 
    end
 end
