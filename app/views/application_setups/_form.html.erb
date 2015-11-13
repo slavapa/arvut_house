@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :str_value %><br>
-    <%= f.text_field :str_value, :readonly => @application_setup.app_setup_type_id == 4 %>
+    <%= f.text_field :str_value, :readonly => @application_setup.app_setup_type_id == AppSetupType::ATTACHMENT %>
   </div>
   
   <% if @application_setup.app_setup_type_id == 4 %>

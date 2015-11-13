@@ -5,6 +5,25 @@ class ApplicationSetup < ActiveRecord::Base
   
   attr_readonly :id, :app_setup_type_id, :language_code_id, :code_id, :description
   
+  def setup_type_array
+    if defined?(@@setup_tyep_array).nil? || @@setup_type_array.nil?
+      @@setup_type_array = Hash.new
+      AppSetupType.all.map do |setupType| 
+        @@setup_type_array[setupType.id] = setupType.name
+      end
+    end
+    @@setup_type_array
+  end 
+
+  def self.reset_setup_type_array
+    @@setup_type_array = nil
+  end  
+  
+  def setup_type_name_by_hash
+    setup_type_array[app_setup_type_id] 
+  end
+
+  
   def self.get_app_setup_value(codeId, lng = nil)
       lng ||= I18n.default_locale
       appSetupCol = where(code_id: codeId, language_code_id: lng).take

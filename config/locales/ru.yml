@@ -563,3 +563,12 @@ ru:
     edit:
       editing: 'Редактирование Отдела и Должности для пользователя'
 #END:department_person_roles
+
+#START:Application Setups
+  application_setups:
+    name: 'Системные настройки'
+    index:
+      list: 'Список системных настроек'
+    edit:
+      editing: 'Editing Application Setup'
+#END:Departments

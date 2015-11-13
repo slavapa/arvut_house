@@ -4,7 +4,7 @@
 		<span><%= title %></span>
 	</div>	
 	
-	<% if admin_user? %>
+	<% if admin_user? && (defined? path) %>
 		<%= link_to t(:new), path, class: "link_header btn btn-small", 
 					id: "new_link_header" %>
 	<% end %>
