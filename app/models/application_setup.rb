@@ -18,10 +18,16 @@ class ApplicationSetup < ActiveRecord::Base
         get_app_setup_value("organization_name", I18n.locale) || I18n.t('house_name')
   end
   
-  def self.get_main_site_image_name
+  def self.get_site_main_image_name
     keyName = "main_site_image_#{I18n.locale}"
     app_setup_cach[keyName] ||= 
-        get_app_setup_value("main_site_image", I18n.locale)
+        get_app_setup_value("site_main_image", I18n.locale)
+  end
+    
+  def self.get_organization_url
+    keyName = "organization_url#{I18n.locale}"
+    app_setup_cach[keyName] ||= 
+        get_app_setup_value("organization_url", I18n.locale)
   end
   
   def self.app_setup_cach
