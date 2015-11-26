@@ -262,7 +262,7 @@ DEPENDENCIES
   axlsx_rails (= 0.1.5)
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 3.3.5)
-  bootstrap-will_paginate
+  bootstrap-will_paginate (= 0.0.10)
   capybara (= 2.5.0)
   childprocess (= 0.5.6)
   coffee-rails (= 4.0.1)

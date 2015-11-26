@@ -13,7 +13,7 @@ class Department < ActiveRecord::Base
   
    private
    def reset_cache_references
-     DepartmentPersonRole.reset_departments_array 
+     ApplicationSetup.reset_departments_array 
    end
    
 end

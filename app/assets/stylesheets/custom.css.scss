@@ -8,6 +8,11 @@
 //Left Menue color: #E3E7EB
 
 $grayMediumLight: #eaeaea;
+$grayLight: #999;
+$gray: #555;
+$grayDarker: #222;
+$grayLighter: #eee;
+$blue:  #049cdb;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -30,6 +35,10 @@ body {
   
   .nav-tabs > li, .nav-pills > li, .navbar .nav > li{
     float: right;
+  }
+  
+  .dropdown-menu > li > a{
+        text-align: right;
   }
   
 }
@@ -198,8 +207,9 @@ input {
 }
 
 .field_with_errors {
-  @extend .control-group;
-  @extend .error;
+  padding: 2px;
+  background-color: red;
+  display: table;
 }
 
 .stats {
