@@ -38,7 +38,7 @@ class ApplicationSetup < ActiveRecord::Base
   end
   
   def self.get_site_main_image_name
-    keyName = "main_site_image_#{I18n.locale}"
+    keyName = "site_main_image#{I18n.locale}"
     app_setup_cach[keyName] ||= 
         get_app_setup_value("site_main_image", I18n.locale)
   end

@@ -5,6 +5,6 @@ class AppSetupType < ActiveRecord::Base
     
    private
    def reset_cache_references
-     DepartmentPersonRole.reset_setup_type_array 
+     ApplicationSetup.reset_setup_type_array 
    end
 end

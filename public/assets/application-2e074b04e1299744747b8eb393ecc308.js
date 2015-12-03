@@ -30704,7 +30704,7 @@ if (typeof jQuery === 'undefined') {
   };
 
   browserCompatibleDocumentParser = function() {
-    var createDocumentUsingDOM, createDocumentUsingParser, createDocumentUsingWrite, e, ref1, testDoc;
+    var createDocumentUsingDOM, createDocumentUsingParser, createDocumentUsingWrite, e, error, ref1, testDoc;
     createDocumentUsingParser = function(html) {
       return (new DOMParser).parseFromString(html, 'text/html');
     };
@@ -30727,8 +30727,8 @@ if (typeof jQuery === 'undefined') {
         testDoc = createDocumentUsingParser('<html><body><p>test');
         return createDocumentUsingParser;
       }
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       testDoc = createDocumentUsingDOM('<html><body><p>test');
       return createDocumentUsingDOM;
     } finally {
