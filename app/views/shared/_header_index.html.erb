@@ -5,7 +5,7 @@
 	</div>	
 	
 	<% if admin_user? && (defined? path) %>
-		<%= link_to t(:new), path, class: "link_header btn btn-small", 
+		<%= link_to t(:new), path, class: "link_header btn btn-default btn-small active", 
 					id: "new_link_header" %>
 	<% end %>
 	

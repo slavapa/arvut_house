@@ -1,8 +1,8 @@
 <% if (defined? search) %>
-	<%= link_to t(:clear), '#', class:"link_header btn btn-small", 
+	<%= link_to t(:clear), '#', class:"link_header btn btn-default btn-small active", 
 			id: "clear_link_header"  %>
 			
-	<%= link_to t(:search), '#', class:"link_header btn btn-small", 
+	<%= link_to t(:search), '#', class:"link_header btn btn-default btn-small active", 
 			id: "search_link_header"  %> 
 			
 	<span class='search_result'><%= "#{t(:tot_rows)}:"%><span>&nbsp;</span><%="#{search.count}"%></span>
