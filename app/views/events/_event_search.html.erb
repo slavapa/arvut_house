@@ -1,4 +1,5 @@
-<%= form_for search, as: :f, method: :get, url: events_path, html: {id: 'search-form'} do |search_form| %>
+<%= form_for search, as: :f, method: :get, url: events_path, 
+	html: {id: 'search-form', class: 'search-form'} do |search_form| %>
   <% field_set_tag do %>
   	<span class='search_span'>
 	  <%= search_form.label :event_date_after, t(:date_after) %>

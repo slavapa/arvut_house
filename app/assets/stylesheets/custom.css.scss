@@ -20,6 +20,36 @@ $blue:  #049cdb;
 
 /* universal */
 
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  height: 20px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -68,25 +98,20 @@ textarea {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+.module-header{
+  margin-bottom: 1em;
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
+.he{
+  h1, h2, h3, h4, h5, h6{
+    text-align: right;
+  } 
 }
+
 
 p {
   font-size: 1.1em;
@@ -409,10 +434,12 @@ input, input[type="password"], input[type="text"], input[type="date"], input[typ
 }
 
 input[type="search"]{
-  height: 20px !important;  
+  height: 30px !important;  
 }
 
 .search_span{
+  min-height: 1px;
+  margin-left: 20px;
   float: none;
   display: inline-block;
   
@@ -521,3 +548,37 @@ input[type="search"]{
 .he .holder_end{
   margin-left: 10px;
 }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+.search-form {
+  margin: 0 0 20px;
+}
+
+.search-form label {
+  padding-left: 5px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.he .search-form label {
+  padding-left: 0;
+  padding-right: 5px;
+}
+
+select,
+input[type="file"] {
+  height: 30px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+  line-height: 30px;
+}
+
+
+
+
