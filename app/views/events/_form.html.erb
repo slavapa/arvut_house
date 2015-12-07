@@ -4,7 +4,9 @@
   <div class="field">
     <%= f.label :event_date, t('.event_date') %> 
     <%= f.date_field :event_date, class:'form-control date inline_container' %>
-    
+  </div>
+  
+  <div class="field">
     <%= f.label :event_type_id, t('.event_type_id') %> 
     <%= f.select :event_type_id, @event.event_types_array ,{}, { class: 'form-control' }%>
   </div>

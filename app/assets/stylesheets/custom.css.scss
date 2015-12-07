@@ -10,6 +10,7 @@
 
 $gray-medium-light: #eaeaea;
 $blue:  #049cdb;
+$margin-between-fields: 0.625em;
 
 
 @mixin box_sizing {
@@ -309,7 +310,7 @@ btn-holder-last{
 
 .header-title{
   display:inline-block;
-  margin-right: 5em; 
+  margin-right: 1em; 
   width: 10em;
 }
 
@@ -408,41 +409,40 @@ btn-holder-last{
 }
 
 .arvut-hous{
-  input[type="search"]{
-    height: 30px;  
-  }
-  
   input, input[type="password"], input[type="text"], input[type="date"], input[type="email"]{
     width:238px;
     height: 30px;  
   }
 }
 
+//*** Serach QBE Section
+.arvut-house .search_field{  
+  width: 9.285714285714286em;
+  height: 1.7857142857142858em;
+  padding: 1px 2px;
+  font-size: 13px;
+} 
 
 .search_span{
   min-height: 1px;
-  margin-left: 20px;
+  margin-left: $margin-between-fields;
   float: none;
   display: inline-block;
   
   input[type="submit"], input[type="button"]{
-    width:70px;
-    margin-bottom: 10px; 
+    width: 5em;
+    margin-bottom: 0.7142857142857143em; 
   }
-  
-} 
-
-.search_field{  
-  width:100px;  
 } 
 
 .long_search_select{
-  width:150px; 
+  width: 10.714285714285714em; 
 }
 
 .long_search_input{
-   width:200px;  
+   width: 14.285714285714286em;  
 }
+//*** Serach QBE Section
 
 .search_result{
   color: #0064cd;
@@ -515,8 +515,8 @@ btn-holder-last{
   }
 }
 
-.extended_input{
-  width: 550px !important;   
+.arvut-house .extended_input{
+  width: 35.714285714285715em;   
 } 
 
 .medium_fz{
@@ -538,7 +538,7 @@ fieldset {
 }
 
 .search-form {
-  margin: 0 0 20px;
+  margin: 1.4285714285714286em 0 1.4285714285714286em 0;
 }
 
 .search-form label {
@@ -582,6 +582,13 @@ input[type="file"] {
 .arvut-house{
   input, select{
     width: 15em;
+  }
+}
+
+.edit_event{
+  .field{
+    display: inline-block;
+    margin-left: $margin-between-fields;
   }
 }
 
