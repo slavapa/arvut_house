@@ -11,6 +11,8 @@
 $gray-medium-light: #eaeaea;
 $blue:  #049cdb;
 $margin-between-fields: 0.625em;
+$search-fields-line-height: 1.7857142857142858em;
+$search-fields-height: 2.142857142857143em;
 
 
 @mixin box_sizing {
@@ -418,9 +420,10 @@ btn-holder-last{
 //*** Serach QBE Section
 .arvut-house .search_field{  
   width: 9.285714285714286em;
-  height: 1.7857142857142858em;
+  height: $search-fields-height;
   padding: 1px 2px;
   font-size: 13px;
+  line-height: $search-fields-line-height;
 } 
 
 .search_span{
@@ -589,6 +592,15 @@ input[type="file"] {
   .field{
     display: inline-block;
     margin-left: $margin-between-fields;
+  }
+}
+
+.arvut-house {
+  input[type="date"].form-control,
+  input[type="time"].form-control,
+  input[type="datetime-local"].form-control,
+  input[type="month"].form-control {
+    line-height: normal;
   }
 }
 
