@@ -583,7 +583,8 @@ input[type="file"] {
 
 // General with for inputs 
 .arvut-house{
-  input, select{
+   select, 
+   input[type='text'], input[type='password'], input[type='email']{
     width: 15em;
   }
 }
