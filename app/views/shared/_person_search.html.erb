@@ -1,54 +1,53 @@
-<%= form_for search, as: :f, method: :get, url: edit_payment_path(@payment), html: {id: 'search-form'} do |search_form| %>
+<%= form_for search, as: :f, method: :get, url: search_path, 
+	html: {id: 'search-form', class: 'search-form'} do |search_form| %>
   <% field_set_tag do %>
   	<span class='search_span'>
 	  <%= search_form.label :name, t(:name) %>
-	  <%= search_form.search_field :name, class:'search_field' %>  		
+	  <%= search_form.search_field :name, class:'form-control search_field' %>  		
   	</span>
   	<span class='search_span'> 	  
   	  <%= search_form.label :family_name, t('activerecord.attributes.person.family_name') %>
-	  <%= search_form.search_field :family_name, class:'search_field' %> 		
+	  <%= search_form.search_field :family_name, class:'form-control search_field' %> 		
   	</span>
   	<span class='search_span'> 	  
   	  <%= search_form.label :phone_mob, t('activerecord.attributes.person.phone_mob') %>
-	  <%= search_form.search_field :phone_mob, class:'search_field' %> 		
+	  <%= search_form.search_field :phone_mob, class:'form-control search_field' %> 		
   	</span>
   	<span class='search_span'>  												
 	  	<%= search_form.label :gender, t('activerecord.attributes.person.gender') %>
 	  	<%= search_form.select :gender, Person.gender_arr, {}, 
-	  		{ class: 'search_field' } %>	
+	  		{ class: 'form-control search_field' } %>	
   	</span>
   	<span class='search_span'>  												
 	  	<%= search_form.label :status_id, t('activerecord.attributes.person.status_id') %>
 	  	<%= search_form.select :status_id, Person.statuses_array, {}, 
-	  		{ class: 'search_field' } %>	
+	  		{ class: 'form-control search_field' } %>	
   	</span>
   	<span class='search_span'>  												
 	  	<%= search_form.label :family_status, t('activerecord.attributes.person.family_status') %>
 	  	<%= search_form.select :family_status, Person.family_status_arr, {}, 
-	  		{ class: 'search_field' } %>	
+	  		{ class: 'form-control search_field' } %>	
   	</span>
   	<span class='search_span'>  												
 	  	<%= search_form.label :computer_knowledge, t('activerecord.attributes.person.computer_knowledge') %>
 	  	<%= search_form.select :computer_knowledge, Person.computer_knowledge_arr, {}, 
-	  		{ class: 'search_field' } %>	
+	  		{ class: 'form-control search_field' } %>	
   	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :is_paid, t('payments.edit.paid') %>
-	  	<%= search_form.select :is_paid, ApplicationHelper.yes_no_arr, {}, 
-	  		{ class: 'search_field' } %>	
-  	</span>
+  	<% if (defined? is_render_present) %>
+	  	<span class='search_span'>  												
+		  	<%= search_form.label :is_present, t('events.edit.present') %>
+		  	<%= search_form.select :is_present, ApplicationHelper.yes_no_arr, {}, 
+		  		{ class: 'form-control search_field' } %>	
+	  	</span>
+  	<% end %>
   	<span class='search_span'>  												
 	  	<%= search_form.label :area, t('activerecord.attributes.person.area') %>
-	  	<%= search_form.search_field :area, class:'search_field' %> 	
-  	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :area, t('activerecord.attributes.person.department') %>
-	  	<%= search_form.search_field :department, class:'search_field' %> 	
+	  	<%= search_form.search_field :area, class:'form-control search_field' %> 	
   	</span>
   	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
 	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
-	  		{ class: 'search_field long_search_select' } %>		
+	  		{ class: 'form-control search_field long_search_select' } %>		
   	</span>
   <% end %>
 <% end %>	

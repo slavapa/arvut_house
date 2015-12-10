@@ -1,5 +1,5 @@
 <%= form_tag("/person_payments/#{person.person_payments_id}", method: "PUT", remote: true) do %>
   <%= text_field_tag(:amount, number_with_precision(person.amount, precision: 2), type: "number", min: 0.1, 
   step:'any', autocomplete:'off', class:'number') %>
-  <%= submit_tag(t(:update), class: "btn btn-small btn-medium") %>
+  <%= submit_tag(t(:update), class: "btn btn-small btn-medium btn-primary") %>
 <% end %>
