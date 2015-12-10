@@ -9,129 +9,19 @@
 	isForceSave: current_user?(@person)
 }%>
 
-<%= form_for(@person, :html => {:autocomplete => "off"}) do |f| %>	
-	<div class="row">
-		<div class="col-md-12"><%= render 'shared/error_messages', object: f.object %></div>
-	</div>
-	<div class="row">
-		<div class="col-md-3">
-			<%= field_set_tag do %>					
-		  	<%= f.label :name, t(:name) %>
-		  	<%= f.text_field :name, class:'form-control' %>
-		  	
-		  	<%= f.label :family_name %>
-		  	<%= f.text_field :family_name, class:'form-control' %>	
-		  	
-		  	<%= f.label :gender %>
-		  	<%= f.select :gender, @person.gender_arr,{}, { class: 'form-control' } %>	
-			<% end %>
-		</div>
-		<div class="col-md-3">
-			<%= field_set_tag do %>
-				<%= f.label :birth_date %>
-				<%= f.date_field :birth_date, class:'form-control' %>	
-											
-				<%= f.label :family_status %>
-				<%= f.select :family_status, @person.family_status_arr,{}, { class: 'form-control' }  %>
-				
-		  	<%= f.label :status_id %>
-		  	<%= f.select :status_id, @person.statuses_array,{}, { class: 'form-control' } %>	
-			<% end %>
-		</div>
-		<div class="col-md-3">
-			<%= field_set_tag do %>	
-										
-		  	<%= f.label :computer_knowledge %>
-				<%= f.select :computer_knowledge, @person.computer_knowledge_arr,{}, { class: 'form-control' } %>			
-				
-				<%= f.label :workplace %>
-				<%= f.text_field :workplace, class:'form-control' %>	
-											
-				<%= f.label :skills %>
-				<%= f.text_field :skills, class:'form-control' %>
-				
-		  	
-			<% end %>
-		</div>
-		<div class="col-md-3">
-			<%= field_set_tag do %>	
-		  	<%= f.label :password %>
-		  	<%= f.password_field :password, :autocomplete => :off, value:'', class:'form-control' %>
-		
-		  	<%= f.label :password_confirmation %>
-		  	<%= f.password_field :password_confirmation, class:'form-control' %>
-		  	<br>
-		  	<% if admin_user? %>
-			  	<%= f.check_box :admin, class:"form-control input_checkbox" %>
-			  	<%= f.label :admin, class: "label_checkbox" %>
-		  	<% end %>
-			<% end %>
-		</div>
-	</div>
+<%= render 'form' %>
 	
-	<div class="row">
-		<div class="col-md-3">
-			<%= field_set_tag do %>	
-			
-		  	<%= f.label :email %>
-		  	<%= f.text_field :email, :autocomplete => :off, class:'form-control' %>
-		
-		  	<%= f.label :email_2 %>
-		  	<%= f.text_field :email_2, :autocomplete => :off, class:'form-control' %>
-				  	
-			<% end %>
-		</div>
-		<div class="col-md-3">
-			<%= field_set_tag do %>					
-		  	<%= f.label :phone_mob %>
-		  	<%= f.telephone_field :phone_mob, class:'form-control' %>
-		  					  								
-		  	<%= f.label :phone_additional %>
-				<%= f.text_field :phone_additional, class:'form-control' %>	
-			<% end %>
-		</div>
-		<div class="col-md-3">
-			<%= field_set_tag do %>	
-		  	<%= f.label :car_owner %>
-		  	<%= f.select :car_owner, @person.car_owner_arr,{}, { class: 'form-control' } %>	
-		  	
-		  	<%= f.label :car_number %>
-		  	<%= f.text_field :car_number, :autocomplete => :off, class:'form-control' %>
-			<% end %>
-		</div>
-		<div class="col-md-3">
-			<%= field_set_tag do %>	
-		  	<%= f.label :id_card_number %>
-		  	<%= f.text_field :id_card_number, class:'form-control' %>		
-			<% end %>
-		</div>
+<div class="row">
+	<div class="col-md-1">	
+		<% if @person.email.present?%>
+			<%= gravatar_for @person %>
+		<% end %>
 	</div>
-	
-	<div class="row">
-		<div class="col-md-3">
-			<%= field_set_tag do %>	
-			<% end %>
-		</div>
-		<div class="col-md-3">
-			<%= field_set_tag do %>		
-		  	<%= f.label :area %>
-		  	<%= f.text_field :area, class:'form-control' %>			
-			<% end %>
-		</div>
-		<div class="col-md-6">
-			<%= field_set_tag do %>	
-		  	<%= f.label :address %>
-		  	<%= f.text_area :address, class:"text_area_address", class:'form-control' %>								
-			<% end %>
-		</div>
+	<div class="col-md-2">
+		<a href="http://gravatar.com/emails">change</a>
 	</div>
-	
-  <%= f.submit "Save changes", class: "btn btn-primary display_none",
-  		id:'btn_submit' %>
-<% end %>
-<% if @person.email.present?%>
-	<%= gravatar_for @person %>
-<% end %>
-<a href="http://gravatar.com/emails">change</a>
+	<div class="col-md-9">
+	</div>
+</div>
 
 <%= render 'edit_js' %>
