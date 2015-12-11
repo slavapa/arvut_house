@@ -586,7 +586,7 @@ input[type="file"] {
   }
 }
 
-.edit_event{
+.edit_event, .edit_payment{
   .field{
     display: inline-block;
     margin-left: $margin-between-fields;
