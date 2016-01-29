@@ -613,3 +613,12 @@ input[type='checkbox']{
   line-height: 1.7857142857142858em;
 }
 
+/* override /usr/local/rvm/gems/ruby-1.9.3-p551/gems/bootstrap-sass-2.3.2.2/vendor/assets/stylesheets/bootstrap/_dropdowns.scss */
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+  color: #fff;
+  background-color: #B8B8B8;
+}
+
