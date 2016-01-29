@@ -4,6 +4,11 @@ default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
 header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
 
 wb.add_worksheet(name: "Departments Roles People") do |sheet|
+
+  if I18n.locale.to_s == 'he' 
+      sheet.sheet_view.right_to_left = true
+  end
+    
   sheet.add_row [   
     t('activerecord.models.department'), t('activerecord.models.role'),
      t(:name), t('people.form.family_name')

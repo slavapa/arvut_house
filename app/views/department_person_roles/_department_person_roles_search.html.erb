@@ -3,52 +3,52 @@
   <% field_set_tag do %>
   	<span class='search_span'>
 	  <%= search_form.label :department_name, t('activerecord.models.department') %>
-	  <%= search_form.search_field :department_name, class:'search_field' %>  		
+	  <%= search_form.search_field :department_name, class:'form-control search_field' %>  		
   	</span>
   	
   	<span class='search_span'>
 	  <%= search_form.label :role_name, t('activerecord.models.role') %>
-	  <%= search_form.search_field :role_name, class:'search_field' %>  		
+	  <%= search_form.search_field :role_name, class:'form-control search_field' %>  		
   	</span>
   	
   	<span class='search_span'>
 	  <%= search_form.label :person_name, t(:name) %>
-	  <%= search_form.search_field :person_name, class:'search_field' %>  		
+	  <%= search_form.search_field :person_name, class:'form-control search_field' %>  		
   	</span>
   	<span class='search_span'> 	  
   	  <%= search_form.label :family_name, t('activerecord.attributes.person.family_name') %>
-	  <%= search_form.search_field :family_name, class:'search_field' %> 		
+	  <%= search_form.search_field :family_name, class:'form-control search_field' %> 		
   	</span>
   	
   	<span class='search_span'>  												
 	  	<%= search_form.label :person_gender, t('activerecord.attributes.person.gender') %>
 	  	<%= search_form.select :person_gender, Person.gender_arr, {}, 
-	  		{ class: 'search_field' } %>	
+	  		{ class: 'form-control search_field' } %>	
   	</span>
   		
   	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, "1 #{ t(:sort_by)}" %>
 	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
-	  		{ class: 'search_field long_search_select' } %>		
+	  		{ class: 'form-control search_field long_search_select' } %>		
   	</span>
   	
   	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, "2 #{ t(:sort_by)}" %>
 	  	<%= search_form.select :sort_2, search.sort_params_arr,  {include_blank: true},
-	  		{ class: 'search_field long_search_select' } %>		
+	  		{ class: 'form-control search_field long_search_select' } %>		
   	</span>
   	
   	
   	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, "3 #{ t(:sort_by)}" %>
 	  	<%= search_form.select :sort_3, search.sort_params_arr,  {include_blank: true},
-	  		{ class: 'search_field long_search_select' } %>		
+	  		{ class: 'form-control search_field long_search_select' } %>		
   	</span>
   	
   	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for,"4 #{ t(:sort_by)}" %>
 	  	<%= search_form.select :sort_4, search.sort_params_arr,  {include_blank: true},
-	  		{ class: 'search_field long_search_select' } %>		
+	  		{ class: 'form-control search_field long_search_select' } %>		
   	</span>
   	
   	<!-- <span class='search_span'>
