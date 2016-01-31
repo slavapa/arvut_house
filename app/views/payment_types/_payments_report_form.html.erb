@@ -11,22 +11,23 @@
     <tr>
       <td  style="padding-left:20px">
         <div class="field">
-          <label for="payment_date_start"><%= t(:date_start) %></label><br>
+          <label for="payment_date_start"><%= t(:date_start) %></label>
           <%= date_field_tag('payment_date_start', 
             (Date.today -  (Date.today.day-1) - ((Date.today.month-1).month)), 
-            {:required => true}) %>
+            {:required => true,  class:'form-control'}) %>
         </div>
       </td>
       <td style="padding-left:20px">
           <!--Biginig of a month  (Date.today -  (Date.today.day-1)) -->
           <!- Biginig of a month before  (Date.today -  (Date.today.day-1) - 1.month)--->
            <div class="field">
-            <label for="payment_date_end"><%= t(:date_end) %></label><br>
-             <%= date_field_tag('payment_date_end', Date.today, {:required => true}) %>
+            <label for="payment_date_end"><%= t(:date_end) %></label>
+             <%= date_field_tag('payment_date_end', Date.today, 
+               {:required => true,  class:'form-control'}) %>
           </div>
       </td>
-      <td style=" vertical-align: bottom; padding-bottom:20px;padding-left:20px">
-        <button type="submit" class="btn btn-default btn-prm"><%= t(:create) %></button>
+      <td style=" vertical-align: bottom; padding-bottom:5px;padding-left:20px">
+        <button type="submit" class="btn btn-default btn-primary"><%= t(:create) %></button>
       </td>
     </tr>
   </table>

@@ -517,3 +517,12 @@ he:
     edit:
       editing: 'עריכת מחלקה ותפקיד לאדם'
 #END:department_person_roles
+
+#START:Application Setups
+  application_setups:
+    name: 'הגדרות של מערכת'
+    index:
+      list: 'רשימה של הגדרות המערכת'
+    edit:
+      editing: 'עריכה של הגדרת המערכת'
+#END:Departments

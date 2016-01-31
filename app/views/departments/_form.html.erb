@@ -2,13 +2,13 @@
   <%= render 'shared/error_messages', object: f.object %>
   
   <div class="field">
-    <%= f.label :name, t(:name) %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, t(:name) %>
+    <%= f.text_field :name, class:'form-control date' %>
   </div>
   
   <div class="field">
     <%= f.label :description, t('description') %>
-    <%= f.text_field :description, class:'extended_input' %>
+    <%= f.text_field :description, class:'form-control date extended_input' %>
   </div>
 <% end %>
 

@@ -40,5 +40,7 @@ rails d migration AddInitialApplicationSetupTypes
 rails d migration 
 rails generate scaffold AppSetupType id:integer:index name:string:unique description:string 
 rails generate scaffold ApplicationSetup app_setup_type:references language_code_id:string, code_id:string, description:string, str_value:string
+rails g migration MainSiteImage
+rails g migration OrganizationURL
 
 

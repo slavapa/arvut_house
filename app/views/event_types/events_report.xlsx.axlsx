@@ -6,6 +6,9 @@ header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
 money = styles.add_style(:format_code => '#,###,##0.00', :border => Axlsx::STYLE_THIN_BORDER)
 
 wb.add_worksheet(name: t('event_types.report.name')) do |sheet|
+
+  sheet.sheet_view.right_to_left = true if I18n.locale.to_s == 'he'
+  
     sheet.add_row [
         nil, nil,  
         t('event_types.report.title_between_dates', 
@@ -19,10 +22,7 @@ wb.add_worksheet(name: t('event_types.report.name')) do |sheet|
     titleRow =  [
         t(:name), 
         t('people.form.family_name'),
-        t('activerecord.attributes.person.email'),
-        t('activerecord.attributes.person.phone_mob'),
-        t('activerecord.attributes.person.gender'), 
-        t('activerecord.attributes.person.status_id')
+        t('activerecord.attributes.person.gender')
     ]
     sheetCelsBefore = titleRow.count
     sheetCellIndexArr = []
@@ -47,9 +47,9 @@ wb.add_worksheet(name: t('event_types.report.name')) do |sheet|
                             personIndex + sheetRowsBefore
                             
                     cellArr = [
-                        person.name, person.family_name,
-                        person.email, person.phone_mob, 
-                        person.gender_name,  person.status_name,
+                        person.name, 
+                        person.family_name,
+                        person.gender_name, 
                         ((event.is_perosn_ext_exists?(person))) ? isPresentValue : nil
                     ]
                     

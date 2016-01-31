@@ -517,4 +517,13 @@ en:
       list: 'List of Departments And Roles For Person'
     edit:
       editing: 'Editing Departments And Roles For Person'
-#END:department_person_roles
+#END:
+
+#START:Application Setups
+  application_setups:
+    name: 'Application Setups'
+    index:
+      list: 'List of Application Setups'
+    edit:
+      editing: 'Editing Application Setup'
+#END:Departments

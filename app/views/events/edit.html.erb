@@ -7,8 +7,9 @@
 	
 <%= render 'form' %>
 
-<%= render partial: 'person_search', 
-	locals:{ search: @search} %>	
+<%= render partial: 'shared/person_search', 
+	locals:{ search: @search, search_path: edit_event_path(@event),
+					is_render_present: true} %>	
 	
 <%= render partial: "people" %>
 

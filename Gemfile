@@ -7,7 +7,7 @@ gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate'
+gem 'bootstrap-will_paginate', '0.0.10'
 gem 'rails-i18n', '4.0.6'
 
 group :development, :test do
@@ -43,7 +43,8 @@ gem 'compass', '1.0.3'
 gem 'compass-rails', '2.0.5'
 gem 'sass-rails', '5.0.4'
 
-gem 'bootstrap-sass', '~> 2.3.2'
+gem 'bootstrap-sass', '3.3.5'
+gem 'autoprefixer-rails'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.4'
@@ -69,3 +70,4 @@ end
 
 gem 'acts_as_xlsx', '1.0.6'
 gem 'axlsx_rails', '0.1.5'
+gem 'normalize-rails', '3.0.3'
