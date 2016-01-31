@@ -2,21 +2,21 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field">
-    <%= f.label :department_id %><br>
+    <%= f.label :department_id %>
 		<%= f.select :department_id, 
 		              @department_person_role.departments_array
-		                .map { |key, value| [value, key] } %>	
+		                .map { |key, value| [value, key] },{}, { class: 'form-control' } %>	
   </div>
   <div class="field">
-    <%= f.label :person_full_name %><br>
+    <%= f.label :person_full_name %>
     <%= f.hidden_field :person_id, class: 'hide' %>
-    <%= f.text_field :person_full_name %>
+    <%= f.text_field :person_full_name, class:'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :role_id %><br>
+    <%= f.label :role_id %>
 		<%= f.select :role_id, 
 		              @department_person_role.roles_array
-		                .map { |key, value| [value, key] } %>	
+		                .map { |key, value| [value, key] },{}, { class: 'form-control' } %>	
   </div>
   <div class="actions hide">
     <%= f.submit %>

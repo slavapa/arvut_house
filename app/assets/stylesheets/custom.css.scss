@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "compass";
 @import "compass/css3";
@@ -7,22 +8,33 @@
 /* mixins, variables, etc. */
 //Left Menue color: #E3E7EB
 
-$grayMediumLight: #eaeaea;
+$gray-medium-light: #eaeaea;
+$blue:  #049cdb;
+$margin-between-fields: 0.625em;
+$search-fields-line-height: 1.7857142857142858em;
+$search-fields-height: 2.142857142857143em;
+
 
 @mixin box_sizing {
-  -moz-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+@mixin form-control-border{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 /* universal */
 
+
+
 html {
   overflow-y: scroll;
-}
-
-body {
-  padding-top: 60px;
 }
 
 .he{
@@ -32,7 +44,11 @@ body {
     float: right;
   }
   
+  .dropdown-menu > li > a{
+        text-align: right;
+  }
 }
+
 
 .inline_container{
   display: inline  !important; 
@@ -43,6 +59,11 @@ body {
   height: 2.2em;
   margin-top: 0.5em;
 }
+
+body {
+  padding-top: 60px;
+}
+
 section {
   overflow: auto;
 }
@@ -60,25 +81,25 @@ textarea {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+.module-header{
+  margin-bottom: 1em;
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
+.he{
+  h1, h2, h3, h4, h5, h6{
+    text-align: right;
+  } 
+  
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, 
+  .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: right;
+  }
 }
+
 
 p {
   font-size: 1.1em;
@@ -97,7 +118,6 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-  line-height: 1;
   &:hover {
     color: white;
     text-decoration: none;
@@ -114,22 +134,23 @@ footer {
   text-align: center;
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
   a {
     color: $gray;
     &:hover {
-      color: $grayDarker;
+      color: $gray-darker;
     }
   }
   small {
+    // float: left;
   }
   ul {
     float: right;
     list-style: none;
     li {
       float: left;
-      margin-left: 10px;
+      margin-left: 15px;
     }
   }
 }
@@ -151,7 +172,7 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $gray-lighter;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -181,7 +202,7 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   @include box_sizing;
 }
 
@@ -190,16 +211,24 @@ input {
 }
 
 #error_explanation {
-  color: #f00;
+  color: red;
   ul {
-    list-style: none;
-    margin: 0 0 18px 0;
+    color: red;
+    margin: 0 0 30px 0;
   }
 }
 
 .field_with_errors {
-  @extend .control-group;
-  @extend .error;
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
 .stats {
@@ -207,7 +236,7 @@ input {
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $grayLighter;
+    border-left: 1px solid $gray-lighter;
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -240,9 +269,9 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $gray-lighter;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid $gray-lighter;
     }
   }
 }
@@ -279,7 +308,7 @@ btn-holder-last{
 
 .header-title{
   display:inline-block;
-  margin-right: 5em; 
+  margin-right: 1em; 
   width: 10em;
 }
 
@@ -305,7 +334,7 @@ btn-holder-last{
 
 .label_checkbox{
 	display: inline ;
-	vertical-align:baseline ;
+	vertical-align: text-bottom ;
 	margin-bottom: 0;	
 }
 
@@ -377,38 +406,42 @@ btn-holder-last{
   }  
 }
 
-
-input, input[type="password"], input[type="text"], input[type="date"]{
-  width:238px;
-  height: 30px !important;  
+.arvut-hous{
+  input, input[type="password"], input[type="text"], input[type="date"], input[type="email"]{
+    width:238px;
+    height: 30px;  
+  }
 }
 
-input[type="search"]{
-  height: 20px !important;  
-}
+//*** Serach QBE Section
+.arvut-house .search_field{  
+  width: 9.285714285714286em;
+  height: $search-fields-height;
+  padding: 1px 2px;
+  font-size: 13px;
+  line-height: $search-fields-line-height;
+} 
 
 .search_span{
+  min-height: 1px;
+  margin-left: $margin-between-fields;
   float: none;
   display: inline-block;
   
   input[type="submit"], input[type="button"]{
-    width:70px;
-    margin-bottom: 10px; 
+    width: 5em;
+    margin-bottom: 0.7142857142857143em; 
   }
-  
-} 
-
-.search_field{  
-  width:100px;  
 } 
 
 .long_search_select{
-  width:150px; 
+  width: 10.714285714285714em; 
 }
 
 .long_search_input{
-   width:200px;  
+   width: 14.285714285714286em;  
 }
+//*** Serach QBE Section
 
 .search_result{
   color: #0064cd;
@@ -481,8 +514,8 @@ input[type="search"]{
   }
 }
 
-.extended_input{
-  width: 550px !important;   
+.arvut-house .extended_input{
+  width: 35.714285714285715em !important;   
 } 
 
 .medium_fz{
@@ -496,3 +529,96 @@ input[type="search"]{
 .he .holder_end{
   margin-left: 10px;
 }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+.search-form {
+  margin: 1.4285714285714286em 0 1.4285714285714286em 0;
+}
+
+.search-form label {
+  padding-left: 5px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.he .search-form label {
+  padding-left: 0;
+  padding-right: 5px;
+}
+
+select,
+input[type="file"] {
+  height: 34px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+  line-height: 34px;
+}
+
+.arvut-house label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.arvut-house{
+  fieldset{
+    @include form-control-border;
+  }
+}
+
+.arvut-house{
+  th{
+    text-align: center;
+  }
+}
+
+// General with for inputs 
+.arvut-house{
+   select, 
+   input[type='text'], input[type='password'], input[type='email'], 
+   input[type='date']{
+    width: 15em;
+  }
+}
+
+.edit_event, .edit_payment{
+  .field{
+    display: inline-block;
+    margin-left: $margin-between-fields;
+  }
+}
+
+.arvut-house {
+  input[type="date"].form-control,
+  input[type="time"].form-control,
+  input[type="datetime-local"].form-control,
+  input[type="month"].form-control {
+    line-height: normal;
+  }
+}
+
+div.row fieldset{
+  margin-bottom: 1.0714285714285714em;
+}
+
+
+input[type='checkbox']{
+  width: 1.7857142857142858em;
+  height: 1.7857142857142858em;
+  line-height: 1.7857142857142858em;
+}
+
+/* override /usr/local/rvm/gems/ruby-1.9.3-p551/gems/bootstrap-sass-2.3.2.2/vendor/assets/stylesheets/bootstrap/_dropdowns.scss */
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+  color: #fff;
+  background-color: #B8B8B8;
+}
+

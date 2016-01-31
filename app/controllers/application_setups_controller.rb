@@ -3,6 +3,13 @@ class ApplicationSetupsController < ApplicationController
   before_action :set_application_setup, only: [:show, :edit, :update, :destroy]
   before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
+  def upload
+    uploaded_io = params[:picture]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+  end
+
   # GET /application_setups
   # GET /application_setups.json
   def index
@@ -43,6 +50,16 @@ class ApplicationSetupsController < ApplicationController
   # PATCH/PUT /application_setups/1.json
   def update
     respond_to do |format|
+      
+      uploaded_io = params[:application_setup][:file]
+      if !uploaded_io.nil?
+        newfileName =  "#{ DateTime.now.to_i}_#{uploaded_io.original_filename}"
+        File.open(Rails.root.join('app', 'assets', 'images', 'uploads', newfileName), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
+        params[:application_setup][:str_value] = newfileName
+      end
+    
       if @application_setup.update(application_setup_params)
         format.html { 
           flash[:success] = t(:item_updated, name: 'Application setup was successfully updated.') 

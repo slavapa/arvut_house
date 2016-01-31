@@ -1,4 +1,11 @@
-<h1>Listing application_setups</h1>
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list')} %>
+	
+<div class="row">
+  <div class="col-md-4">.col-sm-4</div>
+  <div class="col-md-4">.col-sm-4</div>
+  <div class="col-md-4">.col-sm-4</div>
+</div>
 
 <table>
   <thead>
@@ -17,7 +24,7 @@
   <tbody>
     <% @application_setups.each do |application_setup| %>
       <tr>
-        <td><%= application_setup.app_setup_type %></td>
+        <td><%= application_setup.setup_type_name_by_hash %></td>
         <td><%= application_setup.language_code_id %></td>
         <td><%= application_setup.code_id %></td>
         <td><%= application_setup.description %></td>
