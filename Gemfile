@@ -65,6 +65,7 @@ gem "validates_existence", ">= 0.9.2" #http://github.com/perfectline/validates_e
 group :production do
   gem 'pg',             '0.17.1'
   gem 'unicorn',        '4.8.3'
+  gem 'puma',           '2.11.1'
 end
 
 gem 'acts_as_xlsx', '1.0.6'
