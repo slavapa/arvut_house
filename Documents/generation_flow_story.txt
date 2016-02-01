@@ -44,3 +44,7 @@ rails g migration MainSiteImage
 rails g migration OrganizationURL
 
 
+rails generate scaffold OrgRelationStatus name:string 
+rails generate migration AddOrgReletionStatusToPeople org_relation_statuse:references
+
+

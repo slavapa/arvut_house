@@ -3,6 +3,8 @@ ArvutHouse::Application.routes.draw do
 
 
 
+  resources :org_relation_statuses
+
   get "ajax/users"
   root 'home#default'
   scope '(:locale)' do 

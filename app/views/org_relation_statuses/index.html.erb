@@ -1,0 +1,27 @@
+<h1>Listing org_relation_statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @org_relation_statuses.each do |org_relation_status| %>
+      <tr>
+        <td><%= org_relation_status.name %></td>
+        <td><%= link_to 'Show', org_relation_status %></td>
+        <td><%= link_to 'Edit', edit_org_relation_status_path(org_relation_status) %></td>
+        <td><%= link_to 'Destroy', org_relation_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Org relation status', new_org_relation_status_path %>
