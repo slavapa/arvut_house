@@ -66,6 +66,7 @@ class Person < ActiveRecord::Base
       where("(people.name || ' ' || people.family_name) = ?", name)
   }
   
+  scope :member_group,  -> { where(org_relation_statuse_id: [1,2]) }
   
   def is_language_exists?(language)
     !person_languages.where(language_id: language.id).empty?

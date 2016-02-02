@@ -12,7 +12,7 @@ class CreateOrgRelationStatuses < ActiveRecord::Migration
     reversible do |dir|
       dir.up do
         change_column_null :org_relation_statuses, :id, false
-        OrgRelationStatus.create id: 1, name: 'חבר', description: 'אורח'
+        OrgRelationStatus.create id: 1, name: 'חבר', description: 'חבר קבוצה'
         OrgRelationStatus.create id: 2, name: 'קבוצה צעירה', description: 'קבוצה צעירה'
         OrgRelationStatus.create id: 3, name: 'אורח', description: 'אורח'
       end
