@@ -16,6 +16,7 @@ class Person < ActiveRecord::Base
   
   validates :id_card_number,  length: { in: 8..9 }, if: lambda { |m| m.id_card_number.present? }
   belongs_to :status
+  belongs_to :org_relation_status
   
   has_many :payments, through: :person_payments
   has_many :person_payments, dependent: :destroy
@@ -66,7 +67,7 @@ class Person < ActiveRecord::Base
       where("(people.name || ' ' || people.family_name) = ?", name)
   }
   
-  scope :member_group,  -> { where(org_relation_statuse_id: [1,2]) }
+  #scope :member_group,  -> { where(org_relation_statuse_id: [1,2]) }
   
   def is_language_exists?(language)
     !person_languages.where(language_id: language.id).empty?

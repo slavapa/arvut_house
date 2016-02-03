@@ -2,11 +2,11 @@ class OrgRelationStatus < ActiveRecord::Base
   # after_save :reset_cache_references
   # after_destroy :reset_cache_references
   
-  # has_many :people , :dependent => :restrict_with_error 
-  # validates :name, presence: true, length: { maximum: 60 },
-  #   uniqueness: { case_sensitive: false } 
+  has_many :people #, :dependent => :restrict_with_error 
+  validates :name, presence: true, length: { maximum: 60 },
+    uniqueness: { case_sensitive: false } 
     
-  # validates :description, length: { maximum: 254 }
+  validates :description, length: { maximum: 254 }
         
   # def statuses_array
   #   OrgRelationStatus.statuses_array 
