@@ -42,8 +42,7 @@ describe Status do
     end
     
     it "should not delete a status" do
-      
-      expect { stat.destroy }.not_to change(Status, :count).by(-1)
+      expect { stat.destroy }.not_to change(Status, :count)
     end          
   end
 end

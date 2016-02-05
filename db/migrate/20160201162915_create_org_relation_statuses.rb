@@ -8,7 +8,7 @@ class CreateOrgRelationStatuses < ActiveRecord::Migration
 
       t.timestamps
     end
-    dd_index :org_relation_statuses, :name, :unique => true
+    add_index :org_relation_statuses, :name, :unique => true
     
     reversible do |dir|
       dir.up do
