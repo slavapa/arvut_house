@@ -68,4 +68,9 @@ FactoryGirl.define do
     person
     role
   end
+  
+  factory :org_relation_status do
+    sequence(:name)  { |n| "Organization Reletion Status #{n}" }
+    sequence(:description)  { |n| "Organization Reletion Status description #{n}" }
+  end
 end

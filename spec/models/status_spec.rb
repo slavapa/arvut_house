@@ -33,12 +33,28 @@ describe Status do
     end
     it { should_not be_valid }
   end
+   
+  describe "should change rowcount by 1" do
+    let(:stat) { Status.new(name: 'should change rowcount by 1') }
+    
+    it "should change rowcount by 1" do
+      expect { stat.save }.to change(Status, :count).by(1)
+    end          
+  end
+   
+  describe "should delete record and change rowcount by -1" do
+    let(:stat) { Status.new(name: 'should change rowcount by -1') }
+    before { stat.save }
+    
+    it "should change rowcount by 1" do
+      expect { stat.destroy }.to change(Status, :count).by(-1)
+    end          
+  end
   
   describe "when status is already in use by person" do
-    let(:stat) { Status.create!(name: 'Not Active') }
+    let(:stat) { Status.create(name: 'Not Active') }
     before do
-      person = stat.people.create!(
-        name: "Person For test delete status #{stat.name}")        
+      person = stat.people.create(name: "Person For test delete status #{stat.name}")        
     end
     
     it "should not delete a status" do
