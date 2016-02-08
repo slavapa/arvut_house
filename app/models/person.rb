@@ -3,7 +3,9 @@ class Person < ActiveRecord::Base
   before_save :normalize_blank_values
   before_save { email.downcase! if  email.present?}
   before_save { email_2.downcase! if  email_2.present?}
+  after_initialize :populate_default_values
   before_create :create_remember_token
+  
   
   validates :car_number,  length: { maximum: 60 }
   validates :area,  length: { maximum: 60 }
@@ -15,6 +17,9 @@ class Person < ActiveRecord::Base
               if: lambda { |p| p.gender.present? }
   
   validates :id_card_number,  length: { in: 8..9 }, if: lambda { |m| m.id_card_number.present? }
+  validates :org_relation_status_id, presence: true
+  validates :org_relation_status, presence: true
+  
   belongs_to :status
   belongs_to :org_relation_status
   
@@ -165,5 +170,11 @@ private
   end
   def create_remember_token
     self.remember_token = Person.hash(Person.new_remember_token)
+  end
+  
+  def populate_default_values
+    if self.new_record?
+      self.org_relation_status_id = OrgRelationStatus::FRIEND
+    end
   end
 end

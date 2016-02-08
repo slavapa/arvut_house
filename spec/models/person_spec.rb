@@ -25,6 +25,7 @@ describe Person do
     it { should respond_to(:password_digest) }
     it { should respond_to(:password_confirmation) }
     it { should respond_to(:remember_token) }
+    it { should respond_to(:org_relation_status_id) }
     it { should be_admin }
   end
    
@@ -34,6 +35,7 @@ describe Person do
     it { should respond_to(:event_types) }
     it { should respond_to(:payments) }
     it { should respond_to(:person_payments) }
+    it { should respond_to(:org_relation_status) }
   end 
     
   describe "person methods" do
@@ -264,6 +266,27 @@ describe Person do
       expect(PersonEventRelationship.where(person_id: @person.id)).to be_empty
     end
   end
+     
+  describe "person methods" do
+    let(:person1) {FactoryGirl.create(:person, admin: false, name: 'person1')}
+    
+    it "should have the right org_relation_status_id" do
+      expect(person1.org_relation_status_id).to eq(OrgRelationStatus::FRIEND)
+    end
+     
+    it "should not be valid when org_relation_status_id is null" do
+      person1.org_relation_status_id = nil
+      person1.save
+      expect(person1).to_not be_valid
+    end
+     
+    it "should not be valid when org_relation_status_id not exist in a DB" do
+      person1.org_relation_status_id = -999
+      person1.save
+      expect(person1).to_not be_valid
+    end
+  end
+  
   
   it "Admin value should be valid true or false" #validates_inclusion_of :field_name, in: [true, false].            
 end

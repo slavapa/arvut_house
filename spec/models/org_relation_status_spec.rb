@@ -4,10 +4,6 @@ describe OrgRelationStatus do
   before  do
     OrgRelationStatus.delete_all
     @status = OrgRelationStatus.new(name: 'Frend New')
-    # @status1 = OrgRelationStatus.find(1)
-    # @status1.update( name: 'Status1' )
-    # @status2 = OrgRelationStatus.find(2)
-    # @status2.update( name: 'Status2' )
   end 
   subject { @status }
   it { should be_valid }

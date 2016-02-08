@@ -1,4 +1,7 @@
 class OrgRelationStatus < ActiveRecord::Base
+  FRIEND = 1
+  GUEST = 2 
+  
   after_save :reset_cache_references
   #after_destroy :reset_cache_references
   
