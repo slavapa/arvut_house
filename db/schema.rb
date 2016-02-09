@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113053628) do
+ActiveRecord::Schema.define(version: 20160201174450) do
 
   create_table "app_setup_types", force: true do |t|
     t.string   "name",        limit: 60, null: false
@@ -84,6 +84,15 @@ ActiveRecord::Schema.define(version: 20151113053628) do
   add_index "languages", ["code"], name: "index_languages_on_code", unique: true
   add_index "languages", ["name"], name: "index_languages_on_name", unique: true
 
+  create_table "org_relation_statuses", force: true do |t|
+    t.string   "name",        limit: 60, null: false
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "org_relation_statuses", ["name"], name: "index_org_relation_statuses_on_name", unique: true
+
   create_table "payment_types", force: true do |t|
     t.string   "name"
     t.integer  "frequency"
@@ -107,35 +116,37 @@ ActiveRecord::Schema.define(version: 20151113053628) do
   add_index "payments", ["payment_type_id"], name: "index_payments_on_payment_type_id"
 
   create_table "people", force: true do |t|
-    t.string   "name",               limit: 60,                 null: false
-    t.string   "family_name",        limit: 60
-    t.string   "email",              limit: 60
-    t.string   "phone_mob",          limit: 60
+    t.string   "name",                   limit: 60,                 null: false
+    t.string   "family_name",            limit: 60
+    t.string   "email",                  limit: 60
+    t.string   "phone_mob",              limit: 60
     t.integer  "gender"
-    t.string   "id_card_number",     limit: 9
+    t.string   "id_card_number",         limit: 9
     t.string   "address"
-    t.boolean  "admin",                         default: false
+    t.boolean  "admin",                             default: false
     t.string   "password_digest"
     t.string   "remember_token"
     t.date     "birth_date"
     t.string   "workplace"
     t.string   "skills"
-    t.string   "phone_additional",   limit: 60
+    t.string   "phone_additional",       limit: 60
     t.integer  "computer_knowledge"
     t.integer  "family_status"
     t.integer  "car_owner"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status_id"
-    t.string   "area",               limit: 60
-    t.string   "car_number",         limit: 60
-    t.string   "email_2",            limit: 60
+    t.string   "area",                   limit: 60
+    t.string   "car_number",             limit: 60
+    t.string   "email_2",                limit: 60
+    t.integer  "org_relation_status_id"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
   add_index "people", ["family_name"], name: "index_people_on_family_name"
   add_index "people", ["id_card_number"], name: "index_people_on_id_card_number", unique: true
   add_index "people", ["name"], name: "index_people_on_name"
+  add_index "people", ["org_relation_status_id"], name: "index_people_on_org_relation_status_id"
   add_index "people", ["remember_token"], name: "index_people_on_remember_token"
   add_index "people", ["status_id"], name: "index_people_on_status_id"
 

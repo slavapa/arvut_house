@@ -24,6 +24,6 @@ module ArvutHouse
     I18n.enforce_available_locales = false
     config.i18n.available_locales = [:en, :ru, :he]
     I18n.default_locale = :he
-    config.active_record.schema_format = :sql
+    #config.active_record.schema_format = :sql
   end
 end
