@@ -128,7 +128,8 @@ class PeopleController < ApplicationController
       :id_card_number, :address, :admin,
       :birth_date, :workplace, :skills,
       :phone_additional, :computer_knowledge, :family_status,
-      :car_owner, :status_id, :area, :department, :email_2, :car_number)
+      :car_owner, :status_id, :area, :department, :email_2, :car_number,
+      :org_relation_status_id)
     end
     
     def correct_user

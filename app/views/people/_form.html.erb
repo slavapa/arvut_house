@@ -90,7 +90,11 @@
 			<% end %>
 		</div>
 		<div class="col-md-3">
-			
+			<%= field_set_tag do %>	
+		  	<%= f.label :org_relation_status_id %>
+		  	<%= f.select :org_relation_status_id, OrgRelationStatus.statuses_array,{}, { class: 'form-control' } %>	
+		  	
+			<% end %>
 		</div>
 	</div>
 	

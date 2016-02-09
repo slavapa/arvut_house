@@ -370,6 +370,7 @@ en:
         skills: 'Skills'
         area: 'Area'
         department: 'Department'
+        org_relation_status_id: 'Organ. status'
       department_person_role:
         department_id: 'Department'
         person_id: 'Person'

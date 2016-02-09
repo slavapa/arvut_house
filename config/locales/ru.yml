@@ -416,6 +416,7 @@ ru:
         skills: 'Навыки'
         area: 'Район'
         department: 'Отделение'
+        org_relation_status_id: 'Организ. статус'
       department_person_role:
         department_id: 'Отдел'
         person_id: 'Личность'

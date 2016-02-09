@@ -15,7 +15,7 @@ class OrgRelationStatus < ActiveRecord::Base
     OrgRelationStatus.statuses_array 
   end   
   def self.statuses_array
-    @@statuses_array ||= OrgRelationStatus.all.map { |stat| [stat.id, stat.name] }#.unshift(['', nil])
+    @@statuses_array ||= OrgRelationStatus.all.map { |stat| [stat.name, stat.id] }#.unshift(['', nil])
   end 
   def self.reset_status_array
     @@statuses_array = nil

@@ -104,8 +104,8 @@ describe OrgRelationStatus do
     end
     
     it "should have the right departments" do
-      expected_array = [[stat1.id, stat1.name], [stat2.id, stat2.name],
-                         [stat3.id, stat3.name]]
+      expected_array = [[stat1.id, stat1.name].reverse, [stat2.id, stat2.name].reverse,
+                         [stat3.id, stat3.name].reverse]
                           
       expect(OrgRelationStatus.statuses_array).to eq(expected_array)
     end
@@ -113,16 +113,16 @@ describe OrgRelationStatus do
     let(:stat4) { FactoryGirl.create(:org_relation_status, name:'FactoryGirl status')}
     
     it "should have the right OrgRelationStatuses after addding new department" do
-      expected_array = [[stat1.id, stat1.name], [stat2.id, stat2.name],
-                         [stat3.id, stat3.name], [stat4.id, stat4.name]]
+      expected_array = [[stat1.id, stat1.name].reverse, [stat2.id, stat2.name].reverse,
+                         [stat3.id, stat3.name].reverse, [stat4.id, stat4.name].reverse]
                          
       expect(OrgRelationStatus.statuses_array).to eq(expected_array)
     end
     
     it "should have the right OrgRelationStatuses after deleting new statuses" do
       stat4.destroy
-      expected_array = [[stat1.id, stat1.name], [stat2.id, stat2.name],
-                         [stat3.id, stat3.name]]
+      expected_array = [[stat1.id, stat1.name].reverse, [stat2.id, stat2.name].reverse,
+                         [stat3.id, stat3.name].reverse]
                          
       expect(OrgRelationStatus.statuses_array).to eq(expected_array)
     end

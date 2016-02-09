@@ -370,6 +370,7 @@ he:
         skills: 'כישורים'
         area: 'אזור'
         department: 'מחלקה'
+        org_relation_status_id: 'מעמד בארגון'
       department_person_role:
         department_id: 'מחלקה'
         person_id: 'אדם'
