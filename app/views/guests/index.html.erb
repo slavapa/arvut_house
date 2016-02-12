@@ -1,0 +1,32 @@
+<%= render partial: 'shared/header_index', 
+	locals:{ title: t('.list'),  path:new_person_path, search: @search,
+	xlsx_download_path: people_path(format: "xlsx") } %>
+
+<%= render partial: 'person_search', 
+	locals:{ search: @search} %>	
+
+<%= will_paginate %>
+<table class='table-bordered tabletable-hover table-index'>
+  <thead>
+    <tr>
+      <th class='td_left '></th>
+      <th class='td_holder medium-size-td  module-link'><%=  t(:name) %></th>
+      <th class='td_holder medium-size-td'><%= t('people.form.family_name')%></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.gender') %></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.status_id') %></th>
+      <th class='td_holder mm-size-td'><%=  t('activerecord.attributes.person.email') %></th>
+      <th class='td_holder mm-size-td'><%=  t('activerecord.attributes.person.phone_mob') %></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.family_status') %></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.car_owner') %></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.computer_knowledge') %></th>
+      <th class='td_holder medium-size-td'><%=  t('activerecord.attributes.person.area') %></th>
+    </tr>
+  </thead>
+
+  <tbody  class="tbody_events">
+  	<%= render @people %>
+  </tbody>
+</table>
+
+
+<%= will_paginate %>

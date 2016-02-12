@@ -33,8 +33,9 @@ describe "People" do
         end
       end
     end
-    
   end
+  
+  
    
   describe "edit" do
     before { visit edit_person_path(person) }
