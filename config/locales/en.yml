@@ -528,3 +528,15 @@ en:
     edit:
       editing: 'Editing Application Setup'
 #END:Departments
+
+
+#START:guests
+  guests:
+    name: 'Guests'
+    new:
+      new: 'New Guest'
+    index:
+      list: 'Guests list'
+    edit:
+      editing: 'Editing Guest Profile'
+#END:guests

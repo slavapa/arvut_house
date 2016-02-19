@@ -527,3 +527,14 @@ he:
     edit:
       editing: 'עריכה של הגדרת המערכת'
 #END:Departments
+
+#START:guests
+  guests:
+    name: 'אורחים'
+    new:
+      new: 'אורח חדש'
+    index:
+      list: 'רשימת אורחים'
+    edit:
+      editing: 'עריכת פרופיל של אורח'
+#END:guests

@@ -573,3 +573,15 @@ ru:
     edit:
       editing: 'Editing Application Setup'
 #END:Departments
+
+
+#START:guests
+  guests:
+    name: 'Посетители'
+    new:
+      new: 'Новый Посетитель'
+    index:
+      list: 'Список Посетителей'
+    edit:
+      editing: 'Изменение Профиля Посетителя'
+#END:guests

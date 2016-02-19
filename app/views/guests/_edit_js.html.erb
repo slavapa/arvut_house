@@ -1,0 +1,8 @@
+<script type="text/javascript">
+    $( document ).ready(function() {
+        <% unless is_current_user_authorized_by_person?(@guest) %>
+            Common.disablePage(".edit_person");
+		<% end %>
+    });
+</script>
+

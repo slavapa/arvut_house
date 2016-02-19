@@ -1,0 +1,23 @@
+
+<%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
+	new_path: new_guest_path, cur_item: @guest,
+	index_path_name: t('guests.index.list'), index_path: guests_path,
+	isForceSave: current_user?(@guest), delete_path: guest_path(@guest),
+}%>
+
+<%= render 'form' %>
+	
+<div class="row">
+	<div class="col-md-1">	
+		<% if @guest.email.present?%>
+			<%= gravatar_for @guest %>
+		<% end %>
+	</div>
+	<div class="col-md-2">
+		<a href="http://gravatar.com/emails">change</a>
+	</div>
+	<div class="col-md-9">
+	</div>
+</div>
+
+<%= render 'edit_js' %>

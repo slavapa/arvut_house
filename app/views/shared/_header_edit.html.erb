@@ -6,8 +6,16 @@
 	<% if admin_user? %>
 		<%= link_to t(:new), new_path, class: "link_header btn btn-default btn-small active", 
 				id: "new_link_header" %>
-		<%= link_to t(:delete), cur_item, method: :delete, class: "link_header btn btn-default btn-small active", 
-		        id: "delete_link_header", data: { confirm: t(:confirm) } %>
+				
+				
+		<% if (defined? delete_path) %>
+			<%= link_to t(:delete), delete_path, method: :delete, class: "link_header btn btn-default btn-small active", 
+			        id: "delete_link_header", data: { confirm: t(:confirm) } %>
+		<% else %>
+			<%= link_to t(:delete), cur_item, method: :delete, class: "link_header btn btn-default btn-small active", 
+			        id: "delete_link_header", data: { confirm: t(:confirm) } %>
+		<% end %>
+	
 	<% end %>
 	
 	<% if admin_user? || ((defined? isForceSave) && isForceSave == true) %>

@@ -1,8 +1,8 @@
 <%= render partial: 'shared/header_index', 
-	locals:{ title: t('.list'),  path:new_person_path, search: @search,
-	xlsx_download_path: people_path(format: "xlsx") } %>
+	locals:{ title: t('.list'),  path:new_guest_path, search: @search,
+	xlsx_download_path: guests_path(format: "xlsx") } %>
 
-<%= render partial: 'person_search', 
+<%= render partial: 'guest_search', 
 	locals:{ search: @search} %>	
 
 <%= will_paginate %>
@@ -23,8 +23,8 @@
     </tr>
   </thead>
 
-  <tbody  class="tbody_events">
-  	<%= render @people %>
+  <tbody  class="tbody_guests">
+  	<%= render partial: 'guest' , collection: @guests, as: :person  %>
   </tbody>
 </table>
 

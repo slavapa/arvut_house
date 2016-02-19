@@ -1,0 +1,127 @@
+<% if @guest.new_record? %>
+<% else %>
+<% end %>
+<%= form_for(@guest, url: @guest.new_record?? guests_path: guest_path(@guest), :html => {:autocomplete => "off"}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+	<div class="row">
+		<div class="col-md-3">
+			<%= field_set_tag do %>					
+		  	<%= f.label :name, t(:name) %>
+		  	<%= f.text_field :name, class:'form-control' %>
+		  	
+		  	<%= f.label :family_name %>
+		  	<%= f.text_field :family_name, class:'form-control' %>	
+		  	
+		  	<%= f.label :gender %>
+		  	<%= f.select :gender, @guest.gender_arr,{}, { class: 'form-control' } %>	
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= field_set_tag do %>
+				<%= f.label :birth_date %>
+				<%= f.date_field :birth_date, class:'form-control' %>	
+											
+				<%= f.label :family_status %>
+				<%= f.select :family_status, @guest.family_status_arr,{}, { class: 'form-control' }  %>
+				
+		  	<%= f.label :status_id %>
+		  	<%= f.select :status_id, @guest.statuses_array,{}, { class: 'form-control' } %>	
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= field_set_tag do %>	
+										
+		  	<%= f.label :computer_knowledge %>
+				<%= f.select :computer_knowledge, @guest.computer_knowledge_arr,{}, { class: 'form-control' } %>			
+				
+				<%= f.label :workplace %>
+				<%= f.text_field :workplace, class:'form-control' %>	
+											
+				<%= f.label :skills %>
+				<%= f.text_field :skills, class:'form-control' %>
+				
+		  	
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= field_set_tag do %>	
+		  	<%= f.label :password %>
+		  	<%= f.password_field :password, :autocomplete => :off, value:'', class:'form-control' %>
+		
+		  	<%= f.label :password_confirmation %>
+		  	<%= f.password_field :password_confirmation, class:'form-control' %>
+		  	
+		  	<% if admin_user? %>
+		      <%= f.label :admin do %>
+		        <%= f.check_box :admin %>
+		        <span class='label_checkbox'><%= t('activerecord.attributes.person.admin') %></span>
+		      <% end %>
+		  	<% end %>
+			<% end %>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-3">
+			<%= field_set_tag do %>	
+			
+		  	<%= f.label :email %>
+		  	<%= f.text_field :email, :autocomplete => :off, class:'form-control' %>
+		
+		  	<%= f.label :email_2 %>
+		  	<%= f.text_field :email_2, :autocomplete => :off, class:'form-control' %>
+				  	
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= field_set_tag do %>					
+		  	<%= f.label :phone_mob %>
+		  	<%= f.telephone_field :phone_mob, class:'form-control' %>
+		  					  								
+		  	<%= f.label :phone_additional %>
+				<%= f.text_field :phone_additional, class:'form-control' %>	
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= field_set_tag do %>	
+		  	<%= f.label :car_owner %>
+		  	<%= f.select :car_owner, @guest.car_owner_arr,{}, { class: 'form-control' } %>	
+		  	
+		  	<%= f.label :car_number %>
+		  	<%= f.text_field :car_number, :autocomplete => :off, class:'form-control' %>
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= field_set_tag do %>	
+		  	<%= f.label :org_relation_status_id %>
+		  	<%= f.select :org_relation_status_id, OrgRelationStatus.statuses_array,{}, { class: 'form-control' } %>	
+		  	
+			<% end %>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-3">
+			<%= field_set_tag do %>	
+		  	<%= f.label :id_card_number %>
+		  	<%= f.text_field :id_card_number, class:'form-control' %>	
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= field_set_tag do %>		
+		  	<%= f.label :area %>
+		  	<%= f.text_field :area, class:'form-control' %>			
+			<% end %>
+		</div>
+		<div class="col-md-6">
+			<%= field_set_tag do %>	
+		  	<%= f.label :address %>
+		  	<%= f.text_area :address, class:"text_area_address", class:'form-control' %>								
+			<% end %>
+		</div>
+	</div>
+	
+  <%= f.submit "Save changes", class: "btn btn-primary display_none",
+  		id:'btn_submit' %>
+<% end %>

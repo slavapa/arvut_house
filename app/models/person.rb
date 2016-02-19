@@ -160,6 +160,15 @@ class Person < ActiveRecord::Base
     self
   end
   
+   
+  def is_guest?
+    org_relation_status_id == OrgRelationStatus::GUEST
+  end 
+  
+  def is_friend?
+    org_relation_status_id == OrgRelationStatus::FRIEND
+  end
+  
     
 private
 # http://stackoverflow.com/questions/7202319/rails-force-empty-string-to-null-in-the-database
