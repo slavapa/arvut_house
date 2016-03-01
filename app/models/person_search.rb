@@ -1,9 +1,9 @@
 # encoding: utf-8
 class PersonSearch
   include SearchObject.module(:model, :sorting, :will_paginate)
-  
+  @atributes = {}
   #scope { Person.all.order("name, family_name ASC") }
-  scope { Person.all }
+ scope { Person.all }
   
   per_page 30
   
@@ -14,6 +14,7 @@ class PersonSearch
   option :status_id
   option :family_status
   option :computer_knowledge
+  option :org_relation_status_id
   
   option :name do |scope, value|
     scope.where 'name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
@@ -90,6 +91,12 @@ class PersonSearch
     @atributes = atributes
     filters = Hash.new if filters.nil?
     filters['sort'] = 'name asc' unless filters.has_key?('sort') 
+    
+    if atributes['is_guest']
+      filters['org_relation_status_id'] = 2
+    else
+      filters['org_relation_status_id'] = 1
+    end
     
     # if Rails.env.test?#TODO: Rspec Test doesn't work. Check how to reslove this for Rspec
       # super filters
