@@ -20,6 +20,7 @@ class Person < ActiveRecord::Base
   validates :org_relation_status_id, presence: true
   validates :org_relation_status, presence: true
   
+  belongs_to :language
   belongs_to :status
   belongs_to :org_relation_status
   
@@ -168,6 +169,10 @@ class Person < ActiveRecord::Base
   
   def is_friend?
     org_relation_status_id == OrgRelationStatus::FRIEND
+  end
+   
+  def language_name    
+      Language.language_name_array[language_id] unless language_id.nil? 
   end
   
     

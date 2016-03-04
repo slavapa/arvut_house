@@ -8,49 +8,54 @@
   	  <%= search_form.label :family_name, t('activerecord.attributes.person.family_name') %>
 	  <%= search_form.search_field :family_name, class:'form-control search_field' %> 		
   	</span>
-  	<span class='search_span'> 	  
-  	  <%= search_form.label :phone_mob, t('activerecord.attributes.person.phone_mob') %>
-	  <%= search_form.search_field :phone_mob, class:'form-control search_field' %> 		
-  	</span>
+  	
   	<span class='search_span'>  												
 	  	<%= search_form.label :gender, t('activerecord.attributes.person.gender') %>
 	  	<%= search_form.select :gender, Person.gender_arr, {}, 
 	  		{ class: 'form-control search_field' } %>	
   	</span>
+  	
+  	<span class='search_span'> 	  
+  	  <%= search_form.label :phone_mob, t('activerecord.attributes.person.phone_mob') %>
+	  	<%= search_form.search_field :phone_mob, class:'form-control search_field' %> 		
+  	</span>
+  	
+  	<span class='search_span'> 	  
+  	  <%= search_form.label :email, t('activerecord.attributes.person.email') %>
+	  	<%= search_form.search_field :email, class:'form-control search_field' %> 		
+  	</span>
+  	
+  	<span class='search_span'> 	  
+  	  <%= search_form.label :address, t('activerecord.attributes.person.address') %>
+	  	<%= search_form.search_field :address, class:'form-control search_field' %> 		
+  	</span>
+  	
   	<span class='search_span'>  												
-	  	<%= search_form.label :status_id, t('activerecord.attributes.person.status_id') %>
-	  	<%= search_form.select :status_id, Person.statuses_array, {}, 
+	  	<%= search_form.label :language_id, t('activerecord.attributes.person.language_id') %>
+	  	<%= search_form.select :language_id, Language.languages_array, {include_blank: true}, 
 	  		{ class: 'form-control search_field' } %>	
   	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :family_status, t('activerecord.attributes.person.family_status') %>
-	  	<%= search_form.select :family_status, Person.family_status_arr, {}, 
-	  		{ class: 'form-control search_field' } %>	
+  	
+  	<span class='search_span'> 	  
+  	  <%= search_form.label :event_description, t('activerecord.attributes.person.event_description') %>
+	  	<%= search_form.search_field :event_description, class:'form-control search_field' %> 		
   	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :computer_knowledge, t('activerecord.attributes.person.computer_knowledge') %>
-	  	<%= search_form.select :computer_knowledge, Person.computer_knowledge_arr, {}, 
-	  		{ class: 'form-control search_field' } %>	
+  	
+  	
+  	<span class='search_span'>
+		  <%= search_form.label :event_date, t('activerecord.attributes.person.event_date')  %>
+		  <%= date_field_tag('event_date', search.event_date, 
+		  					{name:'f[event_date]', id:'event_date', class:'form-control search_field'})%>  
   	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :area, t('activerecord.attributes.person.area') %>
-	  	<%= search_form.search_field :area, class:'form-control search_field' %> 	
+  	
+  	<span class='search_span'> 	  
+  	  <%= search_form.label :comments, t('activerecord.attributes.person.comments') %>
+	  	<%= search_form.search_field :comments, class:'form-control search_field' %> 		
   	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :area, t('activerecord.attributes.person.department') %>
-	  	<%= search_form.search_field :department, class:'form-control search_field' %> 	
-  	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :language, t('activerecord.models.language') %>
-	  	<%= search_form.search_field :language, class:'form-control search_field' %> 	
-  	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :role, t('activerecord.models.role') %>
-	  	<%= search_form.search_field :role, class:'form-control search_field' %> 	
-  	</span>
+  	
   	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
-	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
+	  	<%= search_form.select :sort, search.guest_sort_params_arr,  {include_blank: false},
 	  		{ class: 'form-control search_field long_search_select' } %>		
   	</span>
   	<!-- <span class='search_span'>

@@ -371,6 +371,10 @@ en:
         area: 'Area'
         department: 'Department'
         org_relation_status_id: 'Organ. status'
+        language_id: 'Language'
+        event_date: 'Event date' 
+        event_description: 'Place and nature of the event' 
+        comments: 'Comments' 
       department_person_role:
         department_id: 'Department'
         person_id: 'Person'

@@ -1,9 +1,5 @@
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-	<td class='td_left' style='width: 32px'>
-		<% if person.email.present?%>
-			<%= gravatar_for person, size: 32 %>
-		<% end %>				
-	</td>
+	
 	<td class='td_holder medium-size-td  module-link'>
 		<%= link_to person.name, edit_guest_path(person) %>		
 	</td>
@@ -14,24 +10,24 @@
 		<%= person.gender_name %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= person.status_name %>		
+		<%= person.phone_mob %>		
 	</td>
 	<td class='td_holder mm-size-td'>
 		<%= person.email %>		
 	</td>
 	<td class='td_holder mm-size-td'>
-		<%= person.phone_mob %>		
+		<%= person.address %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= person.family_status_name %>		
+		<%= person.language_name %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= person.car_owner_name %>		
+		<%= person.event_description %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= person.computer_knowledge_name %>		
+		<%= person.event_date %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= person.area %>		
+		<%= person.comments %>		
 	</td>
 </tr>

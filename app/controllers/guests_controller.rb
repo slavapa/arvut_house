@@ -5,14 +5,12 @@ class GuestsController < ApplicationController
   
   def index
     if request.path_parameters[:format] == 'xlsx'
-      @guests = Person.all
+      @guests = Person.guest_group.all
     else
-      atributes = Hash.new
-      atributes['is_guest'] = true
       @search = PersonSearch.new(params[:f], params[:page], {'is_guest' => true})
       @guests = @search.results
     end
-    
+    @people = @guests
     respond_to do |format|
       format.html
       format.xlsx
@@ -23,6 +21,7 @@ class GuestsController < ApplicationController
   # GET /guest/new
   def new
     @guest = Person.new
+    @guest.org_relation_status_id = OrgRelationStatus::GUEST
   end
   
   
@@ -72,12 +71,9 @@ class GuestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
       params.require(:person).permit(
-      :name, :email, :family_name, :email, :phone_mob, :gender, :status,
-      :password, :password_confirmation,
-      :id_card_number, :address, :admin,
-      :birth_date, :workplace, :skills,
-      :phone_additional, :computer_knowledge, :family_status,
-      :car_owner, :status_id, :area, :department, :email_2, :car_number,
+      :name, :email, :family_name, :email, :phone_mob, :gender, :language_id,
+      :event_description, :event_date,
+      :comments, :address,
       :org_relation_status_id)
     end
     

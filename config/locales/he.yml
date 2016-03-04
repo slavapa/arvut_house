@@ -371,6 +371,10 @@ he:
         area: 'אזור'
         department: 'מחלקה'
         org_relation_status_id: 'מעמד בארגון'
+        language_id: 'שפה'
+        event_date: 'תאריך אירוע'  
+        event_description: 'מקום ואופי אירוע'  
+        comments: 'הערות' 
       department_person_role:
         department_id: 'מחלקה'
         person_id: 'אדם'

@@ -6,7 +6,7 @@ class PersonEventSearch
     @@event_id = value
   end
   
-  scope { Person.person_left_outer_event (@@event_id) }
+  scope { Person.member_group.person_left_outer_event (@@event_id) }
   
   per_page 30
   

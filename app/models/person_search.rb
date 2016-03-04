@@ -15,6 +15,8 @@ class PersonSearch
   option :family_status
   option :computer_knowledge
   option :org_relation_status_id
+  option :language_id
+  option :event_date
   
   option :name do |scope, value|
     scope.where 'name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
@@ -72,7 +74,8 @@ class PersonSearch
               and languages.name like '#{sqlVal}'))"
       scope.where sql
     end
-  end       
+  end 
+ 
     
   def sort_params_arr
     [
@@ -86,6 +89,35 @@ class PersonSearch
       ["#{I18n.t('activerecord.attributes.person.department')} #{I18n.t('z-a')}", 'department desc']     
     ]     
   end 
+     
+  def guest_sort_params_arr
+    [
+      ["#{I18n.t(:name)} #{I18n.t('a-z')}", 'name asc'],  
+      ["#{I18n.t(:name)} #{I18n.t('z-a')}", 'name desc'],
+      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('a-z')}", 'family_name asc'],
+      ["#{I18n.t('activerecord.attributes.person.family_name')} #{I18n.t('z-a')}", 'family_name desc']    
+    ]     
+  end 
+    
+  option :event_description do |scope, value|
+    scope.where 'event_description LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end
+    
+  option :comments do |scope, value|
+    scope.where 'comments LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end
+      
+  option :email do |scope, value|
+    scope.where 'email LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end
+        
+  option :address do |scope, value|
+    scope.where 'address LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end
+        
+  option :event_description do |scope, value|
+    scope.where 'event_description LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
+  end    
   
   def initialize(filters = {}, page = 1, atributes = {})
     @atributes = atributes

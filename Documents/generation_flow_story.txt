@@ -48,4 +48,6 @@ rails generate scaffold OrgRelationStatus name:string
 rails generate migration AddOrgReletionStatusToPeople org_relation_statuse:references
 rails generate controller Guests
 
+rails generate migration AddDistributionFieldsToPeople language:references event_description:string event_date:date comments:string
+
 

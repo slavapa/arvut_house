@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201174450) do
+ActiveRecord::Schema.define(version: 20160304065851) do
 
   create_table "app_setup_types", force: true do |t|
     t.string   "name",        limit: 60, null: false
@@ -140,11 +140,16 @@ ActiveRecord::Schema.define(version: 20160201174450) do
     t.string   "car_number",             limit: 60
     t.string   "email_2",                limit: 60
     t.integer  "org_relation_status_id"
+    t.integer  "language_id"
+    t.string   "event_description"
+    t.date     "event_date"
+    t.string   "comments"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
   add_index "people", ["family_name"], name: "index_people_on_family_name"
   add_index "people", ["id_card_number"], name: "index_people_on_id_card_number", unique: true
+  add_index "people", ["language_id"], name: "index_people_on_language_id"
   add_index "people", ["name"], name: "index_people_on_name"
   add_index "people", ["org_relation_status_id"], name: "index_people_on_org_relation_status_id"
   add_index "people", ["remember_token"], name: "index_people_on_remember_token"

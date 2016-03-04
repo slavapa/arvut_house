@@ -417,6 +417,10 @@ ru:
         area: 'Район'
         department: 'Отделение'
         org_relation_status_id: 'Организ. статус'
+        language_id: 'Язык'
+        event_date: 'Дата События'
+        event_description: 'Место и характер события'  
+        comments: 'Комментарии' 	
       department_person_role:
         department_id: 'Отдел'
         person_id: 'Личность'
