@@ -52,6 +52,7 @@ class GuestsController < ApplicationController
   
   def create
     @person = Person.new(person_params)
+    @person.org_relation_status_id = OrgRelationStatus::GUEST
 
     if @person.save
       flash[:success] = t(:person_created)
