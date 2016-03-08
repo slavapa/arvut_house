@@ -45,8 +45,8 @@ describe Language do
   
   describe "when code format is valid" do
     it "should be valid" do
-      lang = %w[he ru es]
-      lang.each do |lang|
+      langs = %w[he ru es]
+      langs.each do |lang|
         @language.code = lang
         expect(@language).to be_valid
       end
@@ -55,8 +55,8 @@ describe Language do
   
   describe "when code format is not valid" do
     it "should be not valid" do
-      lang = %w[AA aB @$ 11 2u e3 ээ אב]
-      lang.each do |lang|
+      langs = %w[AA aB @$ 11 2u e3 ээ אב]
+      langs.each do |lang|
         @language.code = lang
         expect(@language).not_to be_valid
       end

@@ -36,6 +36,6 @@ class Language < ActiveRecord::Base
   
   private
   def reset_cache_references
-    OrgRelationStatus.reset_languages_array()     
+    Language.reset_languages_array()     
   end
 end
