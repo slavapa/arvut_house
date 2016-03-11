@@ -1,8 +1,11 @@
 
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
-	new_path: new_guest_path, cur_item: @guest,
-	index_path_name: t('guests.index.list'), index_path: guests_path,
-	isForceSave: current_user?(@guest), delete_path: guest_path(@guest),
+	new_path: new_guest_path, 
+	cur_item: @guest,
+	index_path_name: t('guests.index.list'), 
+	index_path: guests_path,
+	isForceSave: current_user?(@guest), 
+	delete_path: guest_path(@guest),
 }%>
 
 <%= render 'form' %>

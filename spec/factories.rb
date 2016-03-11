@@ -10,6 +10,13 @@ FactoryGirl.define do
     factory :admin do
       admin true
     end
+    
+    factory :guest do
+      org_relation_status_id OrgRelationStatus::GUEST
+      password nil
+      password_confirmation nil
+      admin false
+    end
   end
 
   factory :event_type do

@@ -40,7 +40,7 @@ class Person < ActiveRecord::Base
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i  
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }, if: lambda { |p| p.password.present? },
+            uniqueness: { case_sensitive: false }, if: lambda { |p| p.password.present? || p.email.present? },
             length: { maximum: 60 }
             
   validates :email_2, format: { with: VALID_EMAIL_REGEX },

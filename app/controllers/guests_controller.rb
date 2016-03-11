@@ -33,6 +33,7 @@ class GuestsController < ApplicationController
   
   def update
     @person = Person.find(params[:id])
+    @guest = @person
     if @person.update_attributes(person_params)
       flash[:success] = t(:person_updated) 
       redirect_to  edit_guest_path(@person)
@@ -44,6 +45,7 @@ class GuestsController < ApplicationController
   def destroy  
     @person = Person.find(params[:id])  
     @person.destroy
+    @guest = @person
     flash[:success] = t(:person_deleted, 
           name: "#{@person.name} #{@person.family_name}") 
     redirect_to guests_url
@@ -53,7 +55,7 @@ class GuestsController < ApplicationController
   def create
     @person = Person.new(person_params)
     @person.org_relation_status_id = OrgRelationStatus::GUEST
-
+    @guest = @person
     if @person.save
       flash[:success] = t(:person_created)
       redirect_to edit_guest_path(@person)
@@ -61,6 +63,14 @@ class GuestsController < ApplicationController
       render 'new'
     end
   end
+  
+  # GET /people/1
+  # GET /people/1.json
+  def show
+    @person = Person.find(params[:id])
+    @guest = @person
+  end
+
   
   
   private

@@ -19,7 +19,7 @@ describe "People" do
     it { should have_content('People list') }
 
     describe "pagination" do
-      before(:all) { 30.times { FactoryGirl.create(:person) } }
+      before(:all) { 31.times { FactoryGirl.create(:person) } }
       after(:all)  { Person.delete_all }
 
       it { should have_selector('div.pagination') }
@@ -34,8 +34,6 @@ describe "People" do
       end
     end
   end
-  
-  
    
   describe "edit" do
     before { visit edit_person_path(person) }
