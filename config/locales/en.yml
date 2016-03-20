@@ -374,7 +374,8 @@ en:
         language_id: 'Language'
         event_date: 'Event date' 
         event_description: 'Place and nature of the event' 
-        comments: 'Comments' 
+        comments: 'Comments'  
+        guest_status: 'Status' 
       department_person_role:
         department_id: 'Department'
         person_id: 'Person'

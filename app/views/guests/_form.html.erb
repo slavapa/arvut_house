@@ -42,6 +42,10 @@
 			  	<%= f.label :org_relation_status_id %>
 			  	<%= f.select :org_relation_status_id, OrgRelationStatus.statuses_array,{}, { class: 'form-control' } %>	
 				<% end %>
+				  	 
+		  	<%= f.label :guest_status %>
+		  	<%= f.text_area :guest_status, class:"form-control text_area_address" %>	
+				  	
 		  	
 			<% end %>
 		</div>

@@ -20,7 +20,8 @@ wb.add_worksheet(name: "People") do |sheet|
     t('activerecord.attributes.person.language_id'), 
     t('activerecord.attributes.person.event_description'),
     t('activerecord.attributes.person.event_date'),  
-    t('activerecord.attributes.person.comments')
+    t('activerecord.attributes.person.comments'),
+    t('activerecord.attributes.person.guest_status')
   ], :style => header ## Header values of Excel
   
   @people.each do |person|
@@ -35,7 +36,8 @@ wb.add_worksheet(name: "People") do |sheet|
         person.language_name, 
         person.event_description, 
         person.event_date,
-        person.comments
+        person.comments,
+        person.guest_status
     ], :style => default, :types => :string
   end
 end

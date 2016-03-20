@@ -49,5 +49,6 @@ rails generate migration AddOrgReletionStatusToPeople org_relation_statuse:refer
 rails generate controller Guests
 
 rails generate migration AddDistributionFieldsToPeople language:references event_description:string event_date:date comments:string
+rails generate migration AddGuestStatusDistributionFieldsToPeople guest_status:string
 
 
