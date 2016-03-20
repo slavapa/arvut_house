@@ -39,7 +39,7 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
     sheetRowsBeforePersons = sheet.rows.count
     
     @payments.each_with_index {|payment, paymentIndex| 
-        @people = Person.person_left_outer_payment(payment.id)
+        @people = Person.member_group.person_left_outer_payment(payment.id)
             if paymentIndex == 0 
                 @people.each_with_index do |person, personIndex|
                     sheetPersonRowIndexArr[personIndex] = 

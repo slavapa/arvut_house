@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def all_people
     if request.path_parameters[:format] == 'xlsx'
-      @people = Person.person_left_outer_event( @event.id)
+      @people = Person.member_group.person_left_outer_event( @event.id)
       fileName = "event_#{@event.id}_all_people.xlsx"
       response.headers['Content-Disposition'] = "attachment; filename=#{fileName}"
     end

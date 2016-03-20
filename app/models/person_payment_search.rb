@@ -6,7 +6,7 @@ class PersonPaymentSearch
     @@payment_id = value
   end
   
-  scope { Person.person_left_outer_payment (@@payment_id) }
+  scope { Person.member_group.person_left_outer_payment (@@payment_id) }
   
   per_page 30
   
