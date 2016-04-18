@@ -6,7 +6,7 @@ class PersonPaymentSearch
     @@payment_id = value
   end
   
-  scope { Person.member_group.person_left_outer_payment (@@payment_id) }
+  scope { Person.person_left_outer_payment (@@payment_id) }
   
   per_page 30
   
@@ -17,6 +17,7 @@ class PersonPaymentSearch
   option :status_id
   option :family_status
   option :computer_knowledge
+  option :org_relation_status_id
   
   option :name do |scope, value|
     scope.where 'name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
@@ -74,6 +75,7 @@ class PersonPaymentSearch
     @atributes = atributes
     filters = Hash.new if filters.nil?
     filters['sort'] = 'name asc' unless filters.has_key?('sort') 
+    filters['org_relation_status_id'] = OrgRelationStatus::FRIEND unless filters.has_key?('org_relation_status_id') 
     
     # if Rails.env.test?#TODO: Rspec Test doesn't work. Check how to reslove this for Rspec
       # super filters

@@ -7,7 +7,8 @@
 <%= render 'form' %>
 
 <%= render partial: 'shared/person_search', 
-	locals:{ search: @search, search_path: edit_payment_path(@payment)} %>	
+	locals:{ search: @search, search_path: edit_payment_path(@payment), 
+	          is_render_org_relation_status: true} %>	
 
 <%= render partial: "people" %>
 

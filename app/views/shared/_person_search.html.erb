@@ -40,6 +40,15 @@
 		  		{ class: 'form-control search_field' } %>	
 	  	</span>
   	<% end %>
+  	
+  	<% if (defined? is_render_org_relation_status) %>
+	  	<span class='search_span'>  												
+		  	<%= search_form.label :org_relation_status_id, t('activerecord.attributes.person.org_relation_status_id') %>
+		  	<%= search_form.select :org_relation_status_id, OrgRelationStatus.statuses_array, {include_blank: true}, 
+		  		{ class: 'form-control search_field' } %>	
+	  	</span>
+  	<% end %>
+  	
   	<span class='search_span'>  												
 	  	<%= search_form.label :area, t('activerecord.attributes.person.area') %>
 	  	<%= search_form.search_field :area, class:'form-control search_field' %> 	

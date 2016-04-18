@@ -31,6 +31,6 @@
 		<%= person.comments %>		
 	</td>
 	<td class='td_holder medium-size-td'>
-		<%= person.visitor_status.name %>		
+		<%= person.visitor_status.name unless person.visitor_status_id.blank? %>		
 	</td>
 </tr>
