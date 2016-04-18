@@ -23,6 +23,7 @@ class Person < ActiveRecord::Base
   belongs_to :language
   belongs_to :status
   belongs_to :org_relation_status
+  belongs_to :visitor_status
   
   has_many :payments, through: :person_payments
   has_many :person_payments, dependent: :destroy

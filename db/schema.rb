@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320045240) do
+ActiveRecord::Schema.define(version: 20160418050500) do
 
   create_table "app_setup_types", force: true do |t|
     t.string   "name",        limit: 60, null: false
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 20160320045240) do
     t.string   "event_description"
     t.date     "event_date"
     t.string   "comments"
-    t.string   "guest_status"
+    t.integer  "visitor_status_id"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20160320045240) do
   add_index "people", ["org_relation_status_id"], name: "index_people_on_org_relation_status_id"
   add_index "people", ["remember_token"], name: "index_people_on_remember_token"
   add_index "people", ["status_id"], name: "index_people_on_status_id"
+  add_index "people", ["visitor_status_id"], name: "index_people_on_visitor_status_id"
 
   create_table "person_event_relationships", force: true do |t|
     t.integer  "person_id",  null: false
@@ -205,5 +206,14 @@ ActiveRecord::Schema.define(version: 20160320045240) do
   end
 
   add_index "statuses", ["name"], name: "index_statuses_on_name"
+
+  create_table "visitor_statuses", force: true do |t|
+    t.string   "name",        limit: 254, null: false
+    t.string   "description", limit: 254
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visitor_statuses", ["name"], name: "index_visitor_statuses_on_name", unique: true
 
 end

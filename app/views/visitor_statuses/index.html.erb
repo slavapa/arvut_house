@@ -1,0 +1,27 @@
+<h1>Listing visitor_statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visitor_statuses.each do |visitor_status| %>
+      <tr>
+        <td><%= visitor_status.name %></td>
+        <td><%= link_to 'Show', visitor_status %></td>
+        <td><%= link_to 'Edit', edit_visitor_status_path(visitor_status) %></td>
+        <td><%= link_to 'Destroy', visitor_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Visitor status', new_visitor_status_path %>

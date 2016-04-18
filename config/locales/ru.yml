@@ -370,6 +370,7 @@ ru:
       payment: 'Payment'
       department: 'Отдел'
       department_person_role: 'Отдел и Должность для пользователя'
+      visitor_status: 'Статус Посетителя'
     attributes:
       payment:
         name: 'Имя' 
@@ -421,12 +422,15 @@ ru:
         event_date: 'Дата События'
         event_description: 'Место и характер события'  
         comments: 'Комментарии'   
-        guest_status: 'Статус' 	
+        visitor_status: 'Статус' 	
       department_person_role:
         department_id: 'Отдел'
         person_id: 'Личность'
         role_id: 'Должность'
         person_full_name: 'Фамилия и имя'
+      visitor_status:
+        name: 'Имя' 
+        description: 'Описание' 
 #END:Active Records
 
 #START:event_types 

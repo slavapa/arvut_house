@@ -43,8 +43,8 @@
 			  	<%= f.select :org_relation_status_id, OrgRelationStatus.statuses_array,{}, { class: 'form-control' } %>	
 				<% end %>
 				  	 
-		  	<%= f.label :guest_status %>
-		  	<%= f.text_area :guest_status, class:"form-control text_area_address" %>	
+		  	<%= f.label :visitor_status %>
+		  	<%= f.select :visitor_status_id, VisitorStatus.statuses_array, {include_blank: true}, { class: 'form-control' } %>	
 				  	
 		  	
 			<% end %>

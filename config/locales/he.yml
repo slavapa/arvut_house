@@ -324,6 +324,7 @@ he:
       payment: 'תשלום'
       department: 'מחלקה'
       department_person_role: 'מחלקה ותפקיד לאדם'
+      visitor_status: 'טטוסים לאורח'
     attributes:
       payment:
         name: 'Name' 
@@ -375,12 +376,15 @@ he:
         event_date: 'תאריך אירוע'  
         event_description: 'מקום ואופי אירוע'  
         comments: 'הערות'   
-        guest_status: 'סטטוס' 
+        visitor_status: 'סטטוס' 
       department_person_role:
         department_id: 'מחלקה'
         person_id: 'אדם'
         role_id: 'תפקיד'
         person_full_name: 'שם מלא'
+      visitor_status:
+        name: 'שם' 
+        description: 'תאור' 
 #END:Active Records
 
 #START:event_types 

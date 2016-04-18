@@ -51,4 +51,8 @@ rails generate controller Guests
 rails generate migration AddDistributionFieldsToPeople language:references event_description:string event_date:date comments:string
 rails generate migration AddGuestStatusDistributionFieldsToPeople guest_status:string
 
+rails generate scaffold VisitorStatus name:string
+rails generate migration AddVisitorStatusToPeople visitor_status:references
+rails generate migration RemoveGuestStatusFromPeople guest_status:string
+
 

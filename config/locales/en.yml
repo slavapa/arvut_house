@@ -324,6 +324,7 @@ en:
       payment: 'Payment'
       department: 'Department'
       department_person_role: 'Department And Role For Person'
+      visitor_status: 'Visitor Status'
     attributes:
       payment:
         name: 'Name' 
@@ -375,12 +376,15 @@ en:
         event_date: 'Event date' 
         event_description: 'Place and nature of the event' 
         comments: 'Comments'  
-        guest_status: 'Status' 
+        visitor_status: 'Status' 
       department_person_role:
         department_id: 'Department'
         person_id: 'Person'
         role_id: 'Role'
         person_full_name: 'Person Full Name'
+      visitor_status:
+        name: 'Name' 
+        description: 'Description' 
 #END:Active Records
 
 #START:event_types

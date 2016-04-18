@@ -84,7 +84,7 @@ class GuestsController < ApplicationController
       params.require(:person).permit(
       :name, :email, :family_name, :email, :phone_mob, :gender, :language_id,
       :event_description, :event_date,
-      :comments, :address, :guest_status,
+      :comments, :address, :visitor_status_id,
       :org_relation_status_id)
     end
     
