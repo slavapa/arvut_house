@@ -5,7 +5,8 @@ class GuestsController < ApplicationController
   
   def index
     if request.path_parameters[:format] == 'xlsx'
-      @guests = Person.guest_group.all
+      @search = PersonSearchForReport.new(params[:f], params[:page], {'is_guest' => true})
+      @guests = @search.results
     else
       @search = PersonSearch.new(params[:f], params[:page], {'is_guest' => true})
       @guests = @search.results

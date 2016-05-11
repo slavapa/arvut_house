@@ -377,6 +377,7 @@ en:
         event_description: 'Place and nature of the event' 
         comments: 'Comments'  
         visitor_status: 'Status' 
+        updated_at: 'Last updated at' 
       department_person_role:
         department_id: 'Department'
         person_id: 'Person'

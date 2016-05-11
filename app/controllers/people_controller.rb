@@ -18,7 +18,8 @@ class PeopleController < ApplicationController
   
   def index
     if request.path_parameters[:format] == 'xlsx'
-      @people = Person.member_group.all
+      @search = PersonSearchForReport.new(params[:f], params[:page], {'is_guest' => false})
+      @people = @search.results
     else
       @search = PersonSearch.new params[:f], params[:page]
       #@people = Person.paginate(page: params[:page]).order("name, family_name ASC")

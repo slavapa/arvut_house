@@ -89,12 +89,23 @@
 		  	<%= f.text_field :car_number, :autocomplete => :off, class:'form-control' %>
 			<% end %>
 		</div>
+		
 		<div class="col-md-3">
-			<%= field_set_tag do %>	
-		  	<%= f.label :org_relation_status_id %>
-		  	<%= f.select :org_relation_status_id, OrgRelationStatus.statuses_array,{}, { class: 'form-control' } %>	
-		  	
-			<% end %>
+			<div class="row">
+				<%= field_set_tag do %>	
+			  	<%= f.label :org_relation_status_id %>
+			  	<%= f.select :org_relation_status_id, OrgRelationStatus.statuses_array,{}, { class: 'form-control' } %>	
+			  	
+				<% end %>
+			</div>
+		
+			<div class="row">
+				<%= field_set_tag do %>	
+					<%= f.label :updated_at %>
+					<%= f.date_field :updated_at, :disabled => true, class:'form-control' %>	
+				<% end %>
+			</div>
+			
 		</div>
 	</div>
 	

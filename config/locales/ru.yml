@@ -422,7 +422,8 @@ ru:
         event_date: 'Дата События'
         event_description: 'Место и характер события'  
         comments: 'Комментарии'   
-        visitor_status: 'Статус' 	
+        visitor_status: 'Статус' 
+        updated_at: 'Последние обновления' 	
       department_person_role:
         department_id: 'Отдел'
         person_id: 'Личность'

@@ -1,6 +1,6 @@
 <%= render partial: 'shared/header_index', 
 	locals:{ title: t('.list'),  path:new_guest_path, search: @search,
-	xlsx_download_path: guests_path(format: "xlsx") } %>
+	xlsx_download_path_by_search: guests_path(format: "xlsx") } %>
 
 <%= render partial: 'guest_search', 
 	locals:{ search: @search} %>	

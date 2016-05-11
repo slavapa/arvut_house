@@ -376,7 +376,8 @@ he:
         event_date: 'תאריך אירוע'  
         event_description: 'מקום ואופי אירוע'  
         comments: 'הערות'   
-        visitor_status: 'סטטוס' 
+        visitor_status: 'סטטוס'
+        updated_at: 'תאריך עדכון אחרון'  
       department_person_role:
         department_id: 'מחלקה'
         person_id: 'אדם'

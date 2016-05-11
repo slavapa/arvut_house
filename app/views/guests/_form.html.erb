@@ -59,6 +59,13 @@
 		  	<%= f.text_area :address, class:"text_area_address", class:'form-control' %>								
 			<% end %>
 		</div>
+			
+		<div class="col-md-3">
+			<%= field_set_tag do %>	
+				<%= f.label :updated_at %>
+				<%= f.date_field :updated_at, :disabled => true, class:'form-control' %>	
+			<% end %>
+		</div>
 	</div>
 		
 	<div class="row">
