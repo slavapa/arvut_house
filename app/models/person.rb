@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
   has_many :events, through: :person_event_relationships 
   has_many :event_types, through: :events
   
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i  
+  VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i  
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }, if: lambda { |p| p.password.present? || p.email.present? },
             length: { maximum: 60 }
