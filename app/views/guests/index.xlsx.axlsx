@@ -37,7 +37,7 @@ wb.add_worksheet(name: "People") do |sheet|
         person.event_description, 
         person.event_date,
         person.comments,
-        person.visitor_status.name
+        person.visitor_status.blank?? "": person.visitor_status.name
     ], :style => default, :types => :string
   end
 end
