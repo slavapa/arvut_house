@@ -2,6 +2,7 @@ wb = xlsx_package.workbook
 styles = wb.styles
 default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
 header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
+date = styles.add_style(:format_code => "dd/mm/yyyy", :border => Axlsx::STYLE_THIN_BORDER)
 
 wb.add_worksheet(name: "People") do |sheet|
 
@@ -28,11 +29,22 @@ wb.add_worksheet(name: "People") do |sheet|
         person.gender_name,  person.status_name,
         person.phone_mob, person.phone_additional, 
         person.id_card_number, person.birth_date,
-        person.status_name, person.car_owner_name,
+        person.family_status_name, person.car_owner_name,
         person.car_number, person.computer_knowledge_name,
         person.workplace, person.skills,
         person.area, 
         person.address
-    ], :style => default
+    ], :style => [
+        default, default, default, 
+        default, default,  
+        default, default,  
+        default, default,  
+        default, date,  
+        default, default,  
+        default, default,  
+        default, default,  
+        default,
+        default 
+    ]
   end
 end
