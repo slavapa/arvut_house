@@ -8,7 +8,7 @@
 
 <%= render partial: 'shared/person_search', 
 	locals:{ search: @search, search_path: edit_payment_path(@payment), 
-	          is_render_org_relation_status: true} %>	
+	          is_not_render_computer_knowledge: true, is_not_render_family_statuse: true} %>	
 
 <%= render partial: "people" %>
 

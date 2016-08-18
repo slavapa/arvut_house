@@ -23,16 +23,23 @@
 	  	<%= search_form.select :status_id, Person.statuses_array, {}, 
 	  		{ class: 'form-control search_field' } %>	
   	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :family_status, t('activerecord.attributes.person.family_status') %>
-	  	<%= search_form.select :family_status, Person.family_status_arr, {}, 
-	  		{ class: 'form-control search_field' } %>	
-  	</span>
-  	<span class='search_span'>  												
-	  	<%= search_form.label :computer_knowledge, t('activerecord.attributes.person.computer_knowledge') %>
-	  	<%= search_form.select :computer_knowledge, Person.computer_knowledge_arr, {}, 
-	  		{ class: 'form-control search_field' } %>	
-  	</span>
+  	
+  	<% if !(defined? is_not_render_family_statuse) %>
+	  	<span class='search_span'>  												
+		  	<%= search_form.label :family_status, t('activerecord.attributes.person.family_status') %>
+		  	<%= search_form.select :family_status, Person.family_status_arr, {}, 
+		  		{ class: 'form-control search_field' } %>	
+	  	</span>
+  	<% end %>
+  	
+  	<% if !(defined? is_not_render_computer_knowledge) %>
+	  	<span class='search_span'>  												
+		  	<%= search_form.label :computer_knowledge, t('activerecord.attributes.person.computer_knowledge') %>
+		  	<%= search_form.select :computer_knowledge, Person.computer_knowledge_arr, {}, 
+		  		{ class: 'form-control search_field' } %>	
+	  	</span>
+  	<% end %>
+  	
   	<% if (defined? is_render_present) %>
 	  	<span class='search_span'>  												
 		  	<%= search_form.label :is_present, t('events.edit.present') %>
