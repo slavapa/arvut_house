@@ -15,6 +15,18 @@
     <td style="border: solid 1px; padding-top:20px;padding-left:20px;padding-right:20px">
         <%= render partial: "payments_report_form" %>
     </td>
+    <td style="width:50px"></td>
+    <td style="border: solid 1px; padding-top:20px;padding-left:20px;padding-right:20px;width:250px;">
+      <div style="overflow-y: auto;">
+      
+        <% Status.all.each do |status| %>
+          <div style="width:100%">
+            <input type="checkbox">
+            <label style="display: inline-block;position: relative; top: -5px;"><%= status.name %></label>
+          </div>
+        <% end %>
+      </div>
+    </td>
   </tr>
 </table>
 
