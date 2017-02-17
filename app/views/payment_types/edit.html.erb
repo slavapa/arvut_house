@@ -23,7 +23,7 @@
           url: update_statuses_payment_type_path(@payment_type.id, format: "xlsx"),
           html: {method: "get", class: "payment_type_statuses", id:"payment_type_statuses"}) do |f| %>
         
-          <div style="width:100%">
+          <div style="display:none;width:100%">
             <button type="submit" class="btn btn-default btn-primary"><%= t(:update) %></button>
           </div>
             
