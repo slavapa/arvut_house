@@ -1,11 +1,14 @@
 ArvutHouse::Application.routes.draw do
 
-  resources :visitor_statuses
+
 
   get "ajax/users"
   root 'home#default'
   scope '(:locale)' do 
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
+   
+    resources :payment_type_statuses, only: [:index, :create, :destroy]
+    resources :visitor_statuses
     resources :person_event_relationships, only: [:create, :destroy]
     resources :person_payments, only: [:create, :destroy, :update]
     resources :department_person_roles

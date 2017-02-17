@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418050500) do
+ActiveRecord::Schema.define(version: 20170217095820) do
 
   create_table "app_setup_types", force: true do |t|
     t.string   "name",        limit: 60, null: false
@@ -92,6 +92,16 @@ ActiveRecord::Schema.define(version: 20160418050500) do
   end
 
   add_index "org_relation_statuses", ["name"], name: "index_org_relation_statuses_on_name", unique: true
+
+  create_table "payment_type_statuses", force: true do |t|
+    t.integer  "paymet_type_id"
+    t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payment_type_statuses", ["paymet_type_id"], name: "index_payment_type_statuses_on_paymet_type_id"
+  add_index "payment_type_statuses", ["status_id"], name: "index_payment_type_statuses_on_status_id"
 
   create_table "payment_types", force: true do |t|
     t.string   "name"

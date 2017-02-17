@@ -14,7 +14,7 @@ class PaymentTypesController < ApplicationController
   end
   
   def update_statuses
-    @payment_type.update(amount: @payment_type.amount+1)
+    # @payment_type.update(amount: @payment_type.amount+1)
   end
 
   # GET /payment_types
