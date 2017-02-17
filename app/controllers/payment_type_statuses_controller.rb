@@ -69,6 +69,6 @@ class PaymentTypeStatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_type_status_params
-      params.require(:payment_type_status).permit(:paymet_type_id, :status_id)
+      params.require(:payment_type_status).permit(:payment_type_id, :status_id)
     end
 end

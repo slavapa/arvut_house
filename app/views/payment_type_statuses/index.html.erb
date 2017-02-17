@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Paymet type</th>
+      <th>Payment type</th>
       <th>Status</th>
       <th></th>
       <th></th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @payment_type_statuses.each do |payment_type_status| %>
       <tr>
-        <td><%= payment_type_status.paymet_type %></td>
+        <td><%= payment_type_status.payment_type %></td>
         <td><%= payment_type_status.status %></td>
         <td><%= link_to 'Show', payment_type_status %></td>
         <td><%= link_to 'Edit', edit_payment_type_status_path(payment_type_status) %></td>

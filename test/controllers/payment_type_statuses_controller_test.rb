@@ -18,7 +18,7 @@ class PaymentTypeStatusesControllerTest < ActionController::TestCase
 
   test "should create payment_type_status" do
     assert_difference('PaymentTypeStatus.count') do
-      post :create, payment_type_status: { paymet_type_id: @payment_type_status.paymet_type_id, status_id: @payment_type_status.status_id }
+      post :create, payment_type_status: { payment_type_id: @payment_type_status.payment_type_id, status_id: @payment_type_status.status_id }
     end
 
     assert_redirected_to payment_type_status_path(assigns(:payment_type_status))
@@ -35,7 +35,7 @@ class PaymentTypeStatusesControllerTest < ActionController::TestCase
   end
 
   test "should update payment_type_status" do
-    patch :update, id: @payment_type_status, payment_type_status: { paymet_type_id: @payment_type_status.paymet_type_id, status_id: @payment_type_status.status_id }
+    patch :update, id: @payment_type_status, payment_type_status: { payment_type_id: @payment_type_status.payment_type_id, status_id: @payment_type_status.status_id }
     assert_redirected_to payment_type_status_path(assigns(:payment_type_status))
   end
 

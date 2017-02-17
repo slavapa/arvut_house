@@ -55,6 +55,6 @@ rails generate scaffold VisitorStatus name:string
 rails generate migration AddVisitorStatusToPeople visitor_status:references
 rails generate migration RemoveGuestStatusFromPeople guest_status:string
 
-rails generate scaffold PaymentTypeStatus paymet_type:references status:references
+rails generate scaffold PaymentTypeStatus payment_type:references status:references
 rails d scaffold PaymentTypeStatus
 
