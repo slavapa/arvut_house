@@ -1,6 +1,7 @@
 class PaymentTypesController < ApplicationController
   before_action :signed_in_user
-  before_action :set_payment_type, only: [:show, :edit, :update, :destroy, :payments_report]
+  before_action :set_payment_type, only: [:show, :edit, :update, :destroy, 
+    :payments_report, :update_statuses]
   before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
 
@@ -10,6 +11,10 @@ class PaymentTypesController < ApplicationController
       @end_date = params[:payment_date_end]
       @payments = Payment.between_dates(@start_date, @end_date)
     end
+  end
+  
+  def update_statuses
+    @payment_type.update(amount: @payment_type.amount+1)
   end
 
   # GET /payment_types
