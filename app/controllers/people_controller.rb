@@ -130,7 +130,7 @@ class PeopleController < ApplicationController
       :birth_date, :workplace, :skills,
       :phone_additional, :computer_knowledge, :family_status,
       :car_owner, :status_id, :area, :department, :email_2, :car_number,
-      :org_relation_status_id)
+      :org_relation_status_id, :ten)
     end
     
     def correct_user

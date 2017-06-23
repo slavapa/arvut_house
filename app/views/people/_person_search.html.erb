@@ -49,6 +49,10 @@
 	  	<%= search_form.search_field :role, class:'form-control search_field' %> 	
   	</span>
   	<span class='search_span'>  												
+	  	<%= search_form.label :ten, t('activerecord.models.ten') %>
+	  	<%= search_form.search_field :ten, class:'form-control search_field' %> 	
+  	</span>
+  	<span class='search_span'>  												
 	  	<%= search_form.label :sort_params_for, t(:sort_by) %>
 	  	<%= search_form.select :sort, search.sort_params_arr,  {include_blank: false},
 	  		{ class: 'form-control search_field long_search_select' } %>		

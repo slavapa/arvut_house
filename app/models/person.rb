@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
   after_initialize :populate_default_values
   before_create :create_remember_token
   
-  
+  validates :ten, :numericality => { :greater_than => 0 }, allow_nil: true
   validates :car_number,  length: { maximum: 60 }
   validates :area,  length: { maximum: 60 }
   validates :name, presence: true, length: { maximum: 60 }

@@ -378,6 +378,7 @@ en:
         comments: 'Comments'  
         visitor_status: 'Status' 
         updated_at: 'Last updated at' 
+        ten: 'Ten'
       department_person_role:
         department_id: 'Department'
         person_id: 'Person'

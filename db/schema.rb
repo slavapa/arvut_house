@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217110404) do
+ActiveRecord::Schema.define(version: 20170623072529) do
 
   create_table "app_setup_types", force: true do |t|
     t.string   "name",        limit: 60, null: false
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20170217110404) do
     t.date     "event_date"
     t.string   "comments"
     t.integer  "visitor_status_id"
+    t.integer  "ten"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true

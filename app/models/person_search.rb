@@ -7,7 +7,7 @@ class PersonSearch
   
   per_page 30
   
-  sort_by :name, :family_name, :gender, :status_id, :area, :department
+  sort_by :name, :family_name, :gender, :status_id, :area, :department, :ten
   
   option :person_id  
   option :gender 
@@ -17,6 +17,7 @@ class PersonSearch
   option :org_relation_status_id
   option :language_id
   option :event_date
+  option :ten
   
   option :name do |scope, value|
     scope.where 'name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
@@ -86,7 +87,9 @@ class PersonSearch
       ["#{I18n.t('activerecord.attributes.person.area')} #{I18n.t('a-z')}", 'area asc'],
       ["#{I18n.t('activerecord.attributes.person.area')} #{I18n.t('z-a')}", 'area desc'],
       ["#{I18n.t('activerecord.attributes.person.department')} #{I18n.t('a-z')}", 'department asc'],
-      ["#{I18n.t('activerecord.attributes.person.department')} #{I18n.t('z-a')}", 'department desc']     
+      ["#{I18n.t('activerecord.attributes.person.department')} #{I18n.t('z-a')}", 'department desc'],
+      ["#{I18n.t('activerecord.attributes.person.ten')} #{I18n.t('a-z')}", 'ten asc'] ,
+      ["#{I18n.t('activerecord.attributes.person.ten')} #{I18n.t('arrow_up')}", 'ten desc']           
     ]     
   end 
      

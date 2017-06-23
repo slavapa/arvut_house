@@ -1,3 +1,6 @@
 rvm use 2.3.0
 sudo service postgresql start
 rails server -b $IP -p $PORT
+
+gem install rails --version 4.0.6
+bundle install

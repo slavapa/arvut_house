@@ -58,3 +58,5 @@ rails generate migration RemoveGuestStatusFromPeople guest_status:string
 rails generate scaffold PaymentTypeStatus payment_type:references status:references
 rails d scaffold PaymentTypeStatus
 
+rails generate migration AddTenToPeople ten:integer
+

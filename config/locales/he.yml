@@ -378,6 +378,7 @@ he:
         comments: 'הערות'   
         visitor_status: 'סטטוס'
         updated_at: 'תאריך עדכון אחרון'  
+        ten: 'עשיריה'	
       department_person_role:
         department_id: 'מחלקה'
         person_id: 'אדם'
