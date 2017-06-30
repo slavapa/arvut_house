@@ -18,6 +18,7 @@ class PersonEventSearch
   option :family_status
   option :computer_knowledge
   option :org_relation_status_id
+  option :ten  
   
   option :name do |scope, value|
     scope.where 'name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)

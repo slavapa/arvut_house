@@ -11,7 +11,7 @@ wb.add_worksheet(name: "People") do |sheet|
   end
     
   sheet.add_row [
-    "ID",  t(:name), t('people.form.family_name'),
+    "ID",  t(:name), t('people.form.family_name'), t('activerecord.attributes.person.ten'),
     t('activerecord.attributes.person.email'), t('activerecord.attributes.person.email_2'),
     t('activerecord.attributes.person.gender'), t('activerecord.attributes.person.status_id'),
     t('activerecord.attributes.person.phone_mob'), t('activerecord.attributes.person.phone_additional'),
@@ -24,7 +24,8 @@ wb.add_worksheet(name: "People") do |sheet|
   ], :style => header ## Header values of Excel
   
   @people.each do |person|
-    sheet.add_row [person.id, person.name, person.family_name,
+    sheet.add_row [
+        person.id, person.name, person.family_name, person.ten,
         person.email, person.email_2,
         person.gender_name,  person.status_name,
         person.phone_mob, person.phone_additional, 
