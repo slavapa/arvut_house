@@ -10,7 +10,7 @@ class PersonPaymentSearch
   
   per_page 30
   
-  sort_by 'area', 'department', 'name', 'family_name', 'gender', 'status_id', 'person_payments.payment_id'
+  sort_by 'area', 'department', 'name', 'family_name', 'gender', 'status_id', 'person_payments.payment_id', 'ten'
   
   option :person_id  
   option :gender 
@@ -18,6 +18,7 @@ class PersonPaymentSearch
   option :family_status
   option :computer_knowledge
   option :org_relation_status_id
+  option :ten
   
   option :name do |scope, value|
     scope.where 'name LIKE ?', escape_search_term(value) if is_not_nil_empty?(value)
