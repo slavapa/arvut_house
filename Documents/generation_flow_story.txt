@@ -60,3 +60,24 @@ rails d scaffold PaymentTypeStatus
 
 rails generate migration AddTenToPeople ten:integer
 
+
+rails destroy model PersonDefaultPayment
+rails generate migration DropPersonDefaultPaymentTable
+rails generate model PersonDefaultPayment person:references payment_type:references amount:decimal
+SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePersonDefaultPayments (20170821061148)
+   (0.1ms)  begin transaction
+== 20170821061148 CreatePersonDefaultPayments: migrating ======================
+-- create_table(:person_default_payments)
+   (0.5ms)  CREATE TABLE "person_default_payments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "person_id" integer NOT NULL, "payment_type_id" integer NOT NULL, "amount" decimal, "created_at" datetime, "updated_at" datetime) 
+   (0.2ms)  CREATE INDEX "index_person_default_payments_on_person_id" ON "person_default_payments" ("person_id")
+   (0.1ms)  CREATE INDEX "index_person_default_payments_on_payment_type_id" ON "person_default_payments" ("payment_type_id")
+   -> 0.0078s
+-- add_index(:person_default_payments, ["person_id", "payment_type_id"], {:unique=>true})
+   (0.4ms)  CREATE UNIQUE INDEX "index_person_default_payments_on_person_id_and_payment_type_id" ON "person_default_payments" ("person_id", "payment_type_id")
+   -> 0.0008s
+== 20170821061148 CreatePersonDefaultPayments: migrated (0.0087s) =============
+  SQL (0.2ms)  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170821061148"]]
+  
+rails generate controller PersonDefaultPayments create destroy update
+

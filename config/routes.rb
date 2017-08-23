@@ -1,8 +1,8 @@
 ArvutHouse::Application.routes.draw do
 
-
   get "ajax/users"
   root 'home#default'
+  
   scope '(:locale)' do 
     match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
    
@@ -15,6 +15,7 @@ ArvutHouse::Application.routes.draw do
     resources :application_setups, only: [:index, :edit, :update, :upload]
     resources :org_relation_statuses
     resources :guests
+    resources :person_default_payments, only: [:create, :destroy, :update]
 
     resources :application_setups do
       member do

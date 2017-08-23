@@ -35,6 +35,7 @@ class PaymentTypesController < ApplicationController
 
   # GET /payment_types/1/edit
   def edit
+    @people = Person.all.paginate(page: params[:page], per_page: 25)
   end
 
   # POST /payment_types

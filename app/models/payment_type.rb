@@ -2,6 +2,8 @@ class PaymentType < ActiveRecord::Base
   has_many :payment_type_statuses , dependent: :destroy
   has_many :statuses, through: :payment_type_statuses 
   has_many :payments , :dependent => :restrict_with_error
+  has_many :person_default_payments , dependent: :destroy
+  
   validates :name, presence: true, length: { maximum: 60 },
     uniqueness: { case_sensitive: false } 
   validates :frequency, presence: true,  
@@ -32,4 +34,27 @@ class PaymentType < ActiveRecord::Base
   def frequency_name
     frequency_arr[frequency][0] unless frequency.nil?  
   end
+   
+  def is_perosn_exists?(other_person)
+    !person_default_payments.where(person_id: other_person.id).empty?
+  end
+  
+  def add_person!(person)
+    person_default_payments.create(person_id: person.id, amount: self.amount)     
+  end
+  
+  def remove_person!(person) 
+    person_default_payments.find_by(person_id: person.id).destroy    
+  end 
+  
+   
+  def person_default_payments_cach
+    @app_setup_cach ||= Hash.new
+  end
+   
+  def default_payment_person(person)
+    person_default_payments_cach[person.id] ||= 
+        person_default_payments.find_by(person_id: person.id)
+  end
+  
 end
