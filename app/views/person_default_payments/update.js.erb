@@ -1,0 +1,8 @@
+var $cur_tr = $('#tr_for_person_id_<%= @person.id %>');
+
+$cur_tr.find('.amount_holder').
+	html("<%= escape_javascript(render(partial: 'payment_types/update_person_form', 
+			locals: {payment_type: @payment_type, person: @person})) %>");
+			
+$('.flash_section').
+	html("<%= escape_javascript(render(partial: 'shared/flash_messages')) %>");

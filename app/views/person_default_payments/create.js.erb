@@ -1,0 +1,10 @@
+$cur_tr = $('#tr_for_person_id_<%= @person.id %>');
+$cur_tr.find('#td_present_person_<%= @person.id %>').html('<img alt="Vicon" src="<%= image_path('vicon.gif') %>">')
+
+$cur_tr.find('.add-remove-person_form-holder').
+	html("<%= escape_javascript(render(partial: 'payment_types/remove_person_form', 
+			locals: {payment_type: @payment_type, person: @person})) %>");
+			
+$cur_tr.find('.amount_holder').
+	html("<%= escape_javascript(render(partial: 'payment_types/update_person_form', 
+			locals: {payment_type: @payment_type, person: @person})) %>");
