@@ -1,7 +1,7 @@
 <%= render partial: 'shared/header_edit', locals:{ title: t('.editing'), 
 	new_path: new_payment_type_path, cur_item: @payment_type,
 	index_path_name: t('payment_types.index.list'), index_path: payment_types_path,
-	formClassName: 'edit_payment_type' } 
+	search: @search, formClassName: 'edit_payment_type' } 
 	 %>
 
 
@@ -41,6 +41,10 @@
   </tr>
 </table>
 
+<%= render partial: 'shared/person_search', 
+	locals:{ search: @search, search_path: edit_payment_type_path(@payment_type), 
+	          is_not_render_computer_knowledge: true, is_not_render_family_statuse: true} %>
+	          
 <%= render partial: "people" %>
 
 <%= render 'edit_js' %>
