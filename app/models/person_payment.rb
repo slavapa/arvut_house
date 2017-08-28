@@ -9,5 +9,9 @@ class PersonPayment < ActiveRecord::Base
   
   validates :amount, :numericality => { :greater_than => 0 }, 
     :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ },
-    allow_nil: true
+    allow_nil: false
+    
+  validates :default_amount, :numericality => { :greater_than => 0 }, 
+    :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ },
+    allow_nil: false
 end

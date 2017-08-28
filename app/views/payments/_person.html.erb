@@ -34,6 +34,9 @@
 					locals: {payment: @payment, person: person} %>
 		  	<% end %>
 		</td>
+		<td class='td-holder ss-size-td'>
+			<%= number_with_precision(person.default_amount, precision: 2) %>
+		</td>
 	</tr>
 <% else %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"
@@ -67,6 +70,9 @@
 	  	</td>
 		<td class='td_holder form_holder input_holder update_holder amount_holder'>
 			&nbsp;
+		</td>
+		<td class='td-holder ss-size-td'>
+			<%= number_with_precision(@payment.get_perosn_default_amount(person), precision: 2) %>
 		</td>
 	</tr>
 <% end %>

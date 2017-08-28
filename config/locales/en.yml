@@ -387,6 +387,8 @@ en:
       visitor_status:
         name: 'Name' 
         description: 'Description' 
+      person_default_payment:
+        amount: 'Default amount' 
 #END:Active Records
 
 #START:event_types

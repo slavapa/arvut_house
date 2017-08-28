@@ -432,7 +432,9 @@ ru:
         person_full_name: 'Фамилия и имя'
       visitor_status:
         name: 'Имя' 
-        description: 'Описание' 
+        description: 'Описание'  
+      person_default_payment:
+        amount: 'Сумма по умолчанию' 
 #END:Active Records
 
 #START:event_types 

@@ -76,8 +76,9 @@ Migrating to CreatePersonDefaultPayments (20170821061148)
 -- add_index(:person_default_payments, ["person_id", "payment_type_id"], {:unique=>true})
    (0.4ms)  CREATE UNIQUE INDEX "index_person_default_payments_on_person_id_and_payment_type_id" ON "person_default_payments" ("person_id", "payment_type_id")
    -> 0.0008s
-== 20170821061148 CreatePersonDefaultPayments: migrated (0.0087s) =============
   SQL (0.2ms)  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170821061148"]]
   
 rails generate controller PersonDefaultPayments create destroy update
+
+rails generate migration AddDefaultAmountToPersonPayments default_amount:decimal
 

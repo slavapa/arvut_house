@@ -387,6 +387,8 @@ he:
       visitor_status:
         name: 'שם' 
         description: 'תאור' 
+      person_default_payment:
+        amount: 'סכום ברירת מחדל'  
 #END:Active Records
 
 #START:event_types 

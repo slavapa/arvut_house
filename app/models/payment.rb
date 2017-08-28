@@ -36,7 +36,9 @@ class Payment < ActiveRecord::Base
   end 
   
   def add_person!(person)
-    person_payments.create(person_id: person.id, amount: payment_type.amount)     
+    defAmount = get_perosn_default_amount(person)
+    
+    person_payments.create(person_id: person.id, amount: defAmount, default_amount: defAmount)     
   end
   
   def remove_person!(person) 
@@ -56,6 +58,26 @@ class Payment < ActiveRecord::Base
       I18n.t("no")
     else
        I18n.t("yes")
+    end
+  end
+    
+  def get_perosn_default_amount(person)
+    personDefaultPayment = person.person_default_payments.where(payment_type_id: payment_type_id)
+    
+    if !personDefaultPayment.empty? 
+      defAmount = personDefaultPayment[0].amount
+    else
+      defAmount = payment_type.amount
+    end
+  end
+  
+  def is_person_amount_less_than_default(person, sum)
+    personDefaultPayment = get_perosn_default_amount(person)
+    
+    if sum < personDefaultPayment 
+      true
+    else
+      false
     end
   end
 end

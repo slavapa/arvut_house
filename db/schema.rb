@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821061148) do
+ActiveRecord::Schema.define(version: 20170827051112) do
 
   create_table "app_setup_types", force: true do |t|
     t.string   "name",        limit: 60, null: false
@@ -203,11 +203,12 @@ ActiveRecord::Schema.define(version: 20170821061148) do
   add_index "person_languages", ["person_id"], name: "index_person_languages_on_person_id"
 
   create_table "person_payments", force: true do |t|
-    t.integer  "person_id",  null: false
-    t.integer  "payment_id", null: false
+    t.integer  "person_id",      null: false
+    t.integer  "payment_id",     null: false
     t.decimal  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "default_amount"
   end
 
   add_index "person_payments", ["payment_id"], name: "index_person_payments_on_payment_id"

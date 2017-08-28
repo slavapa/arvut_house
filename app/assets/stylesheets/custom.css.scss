@@ -200,6 +200,8 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
+  padding-left: 3px;
+  padding-right: 3px;
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 5px;
@@ -384,7 +386,9 @@ btn-holder-last{
   } 
   
   td{
-    vertical-align: baseline; //default    
+    vertical-align: middle; //default  
+    padding-left: 3px;
+    padding-right: 3px;
   }
   
   tr{
@@ -620,5 +624,10 @@ input[type='checkbox']{
 .dropdown-submenu:focus > a {
   color: #fff;
   background-color: #B8B8B8;
+}
+
+.in-duty{
+  color: red;
+  font-weight: bold;
 }
 
