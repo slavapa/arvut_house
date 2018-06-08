@@ -44,6 +44,7 @@ ArvutHouse::Application.routes.draw do
      
     resources :payment_types do
       member do
+        get 'payments_report_balance'
         get 'payments_report'
         get 'update_statuses'
       end

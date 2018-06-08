@@ -1,11 +1,19 @@
 class PaymentTypesController < ApplicationController
   before_action :signed_in_user
   before_action :set_payment_type, only: [:show, :edit, :update, :destroy, 
-    :payments_report, :update_statuses]
+    :payments_report, :update_statuses, :payments_report_balance]
   before_action :check_current_user_admin, only: [:new, :create, :update, :destroy]
 
 
   def payments_report
+    if request.path_parameters[:format] == 'xlsx'
+      @start_date =  params[:payment_date_start]
+      @end_date = params[:payment_date_end]
+      @payments = Payment.between_dates(@start_date, @end_date)
+    end
+  end
+  
+  def payments_report_balance
     if request.path_parameters[:format] == 'xlsx'
       @start_date =  params[:payment_date_start]
       @end_date = params[:payment_date_end]

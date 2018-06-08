@@ -1,0 +1,107 @@
+wb = xlsx_package.workbook
+styles = wb.styles
+title = styles.add_style(:sz => 12, :b => true, :u => true)
+default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
+header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
+money = styles.add_style(:format_code => '#,###,##0.00', :border => Axlsx::STYLE_THIN_BORDER)
+
+wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
+
+  sheet.sheet_view.right_to_left = true if I18n.locale.to_s == 'he'
+  
+    sheet.add_row [
+        nil, nil,  
+        t('payment_types.rpt_ttl_between_dates', 
+        payment_type_name: @payment_type.name, 
+        start_date:@start_date,  
+        end_date: @end_date) + '  balance'
+    ],  :style => title
+    sheet.column_widths nil, 30, 30
+    sheet.add_row [ ]
+    
+    titleRow =  [
+        t(:name), 
+        t('people.form.family_name'),
+        t('activerecord.attributes.person.gender'), 
+    ]
+    sheetCelsBeforePayments = titleRow.count
+    sheetPaymentsCellIndexArr = []
+    
+    @payments.each_with_index {|payment, index|  
+        sheetPaymentsCellIndexArr[index] = sheetCelsBeforePayments + index
+        titleRow.push(I18n.l payment.payment_date, :format => :default)
+        
+    }
+    sheet.add_row titleRow , :style => header ## Header values of Excel
+  
+    columnsCountCountForPayments = @payments.count
+    sheetPersonRowIndexArr = []
+    sheetRowsBeforePersons = sheet.rows.count
+    
+    @payments.each_with_index {|payment, paymentIndex| 
+        @people = Person.member_group.person_left_outer_payment(payment.id)
+            if paymentIndex == 0 
+                @people.each_with_index do |person, personIndex|
+                    sheetPersonRowIndexArr[personIndex] = 
+                            personIndex + sheetRowsBeforePersons
+                            
+                    cellArr = [
+                        person.name, person.family_name,
+                        person.gender_name, 
+                        person.amount
+                    ]
+                    
+                    styleArr = []
+                    typeArr = []
+                    cellArr.each { |person| 
+                        typeArr.push(:string)
+                        styleArr.push(default)
+                    }
+                    typeArr.pop
+                    styleArr.pop
+                    
+                    @payments.each_with_index {|payment, thirdLoopIndex|
+                        cellArr.push(nil)
+                        styleArr.push(money)
+                        typeArr.push(:float)
+                    }
+                    cellArr.pop
+                    
+                    sheet.add_row cellArr,  :style => styleArr, :types => typeArr
+                end
+            else
+                cellIndex =  sheetPaymentsCellIndexArr[paymentIndex]
+                
+                 @people.each_with_index do |person, personIndex|
+                    if !person.amount.nil? 
+                        rowIndex = sheetPersonRowIndexArr[personIndex] 
+                        sheet.rows[rowIndex].cells[cellIndex].value = person.amount
+                    end
+                 end
+            end
+    }
+    
+    #@payments.each do |payment|
+    #
+    #    sheet.add_row [
+    #        payment.payment_type_name, 
+    #        payment.payment_date,  
+    #        payment.description
+    #    ]
+    #    
+    #end
+    
+  
+    #sheet.add_row [
+    #    @payments.count,
+    #    @payments[0].payment_date
+    #]
+    
+    #sheet.rows[0].cells[0].value = 'ssssss'
+    #sheet.rows[1].cells[0].value = sheet.rows.count
+    #sheet.rows[1].cells[1].value = sheet.rows[1].cells.count
+    #sheet.rows[2].cells[2].value = 22
+    #sheet.rows[2].cells[2].value = sheet.rows[2].cells.count
+ 
+ 
+end
