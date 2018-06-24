@@ -308,6 +308,10 @@ en:
   create: 'Create'
   date_start: 'Date Start'
   date_end: 'Date End'
+  report_balance: 'Balance Report'
+  should_pay: 'Should Pay'
+  paid: 'Paid'
+  balance: 'Balance'
 
 
  #START:Active Records   
@@ -387,7 +391,7 @@ en:
       visitor_status:
         name: 'Name' 
         description: 'Description' 
-      person_default_payment:
+        person_default_payment:
         amount: 'Default amount' 
 #END:Active Records
 
@@ -482,7 +486,9 @@ en:
   payment_types:
     name: 'Payment Types'
     rpt_ttl: 'Payment report'
+    rpt_balance_ttl: 'Balance Payment report'
     rpt_ttl_between_dates: 'Payment report for %{payment_type_name} between date %{start_date} and %{end_date}'
+    rpt_balance_ttl_between_dates: 'Balance Payment report for %{payment_type_name} between date %{start_date} and %{end_date}'
     new:
       new: 'New Payment Type'
     index:

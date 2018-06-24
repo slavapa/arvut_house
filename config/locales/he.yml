@@ -308,6 +308,10 @@ he:
   create: 'צור'
   date_start: 'תאריך התחלה'
   date_end: 'תאריך סיום'
+  report_balance: 'דו"ח מאזן'
+  should_pay: 'צריך לשלם'
+  paid: 'שילם'
+  balance: 'איזון'
 
 
  #START:Active Records 
@@ -482,7 +486,9 @@ he:
   payment_types:
     name: 'סוגי תשלומים'
     rpt_ttl: 'דו"ח תשלומים'
+    rpt_balance_ttl: 'דוח תשלום יתרה'
     rpt_ttl_between_dates: 'דו"ח תשלומים עבור %{payment_type_name} בין תאריך  %{start_date} ו - %{end_date}'
+    rpt_balance_ttl_between_dates: 'דו"ח איזון תשלומים עבור %{payment_type_name} בין תאריך  %{start_date} ו - %{end_date}'
     new:
       new: 'סוג תשלום חדש'
     index:

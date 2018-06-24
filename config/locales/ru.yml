@@ -354,6 +354,10 @@ ru:
   create: 'Создать'
   date_start: 'Дата старта'
   date_end: 'Дата завершения'
+  report_balance: 'Балансовый отчет'
+  should_pay: 'Должен платить'
+  paid: 'Заплатили'
+  balance: 'Баланс'
 
 
  #START:Active Records   
@@ -528,7 +532,9 @@ ru:
   payment_types:
     name: 'Тип платежей'
     rpt_ttl: 'Отчет оплат'
+    rpt_balance_ttl: 'Отчет о платежном балансе'
     rpt_ttl_between_dates: 'Отчет оплат за %{payment_type_name} между датой %{start_date} и %{end_date}'
+    rpt_balance_ttl_between_dates: 'Баланс Отчет оплат за %{payment_type_name} между датой %{start_date} и %{end_date}'
     new:
       new: 'Новый тип платежа'
     index:

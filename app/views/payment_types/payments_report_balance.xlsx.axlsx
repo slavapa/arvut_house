@@ -11,10 +11,10 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
   
     sheet.add_row [
         nil, nil,  
-        t('payment_types.rpt_ttl_between_dates', 
+        t('payment_types.rpt_balance_ttl_between_dates', 
         payment_type_name: @payment_type.name, 
         start_date:@start_date,  
-        end_date: @end_date) + '  balance'
+        end_date: @end_date) 
     ],  :style => title
     sheet.column_widths nil, 30, 30
     sheet.add_row [ ]
@@ -22,14 +22,14 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
     titleRow =  [
         t(:name), 
         t('people.form.family_name'),
-        t('activerecord.attributes.person.gender'), 
+        t(:should_pay), t(:paid), t(:balance)
     ]
     sheetCelsBeforePayments = titleRow.count
     sheetPaymentsCellIndexArr = []
     
     @payments.each_with_index {|payment, index|  
         sheetPaymentsCellIndexArr[index] = sheetCelsBeforePayments + index
-        titleRow.push(I18n.l payment.payment_date, :format => :default)
+        #titleRow.push(I18n.l payment.payment_date, :format => :default)
         
     }
     sheet.add_row titleRow , :style => header ## Header values of Excel
@@ -38,17 +38,33 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
     sheetPersonRowIndexArr = []
     sheetRowsBeforePersons = sheet.rows.count
     
+    peopleShouldPayHash = {}
+    peoplePaidHash = {}
+    peopleBalanceHash = {}
+    
     @payments.each_with_index {|payment, paymentIndex| 
         @people = Person.member_group.person_left_outer_payment(payment.id)
             if paymentIndex == 0 
                 @people.each_with_index do |person, personIndex|
                     sheetPersonRowIndexArr[personIndex] = 
                             personIndex + sheetRowsBeforePersons
+                    
+                    peoplePaidHash[person.id] = person.amount.nil?? 0: person.amount
+                    peopleShouldPayHash[person.id] = @payment_type.amount
+                    
+                    if @payment_type.is_perosn_exists?(person)
+                        peopleShouldPayHash[person.id] = @payment_type.person_default_payments.find_by(person_id: person.id).amount
+                    end
+                    
+                    peopleBalanceHash[person.id] = peoplePaidHash[person.id] - peopleShouldPayHash[person.id]
+                    
                             
                     cellArr = [
                         person.name, person.family_name,
-                        person.gender_name, 
-                        person.amount
+                        peopleShouldPayHash[person.id], 
+                        peoplePaidHash[person.id], 
+                        peopleBalanceHash[person.id],
+                        peoplePaidHash[person]
                     ]
                     
                     styleArr = []
@@ -73,9 +89,15 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
                 cellIndex =  sheetPaymentsCellIndexArr[paymentIndex]
                 
                  @people.each_with_index do |person, personIndex|
-                    if !person.amount.nil? 
-                        rowIndex = sheetPersonRowIndexArr[personIndex] 
-                        sheet.rows[rowIndex].cells[cellIndex].value = person.amount
+                    perAmount = person.amount
+                    rowIndex = sheetPersonRowIndexArr[personIndex]
+                    
+                    if perAmount.nil? 
+                        balance = peopleBalanceHash[person.id] - peopleShouldPayHash[person.id]
+                        peopleBalanceHash[person.id] = balance
+                        sheet.rows[rowIndex].cells[4].value = balance
+                    else
+                        sheet.rows[rowIndex].cells[cellIndex].value = perAmount
                     end
                  end
             end
