@@ -39,6 +39,7 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
     sheetRowsBeforePersons = sheet.rows.count
     
     peopleShouldPayHash = {}
+    peopleShouldPayTotalHash = {}
     peoplePaidHash = {}
     peopleBalanceHash = {}
     
@@ -55,6 +56,7 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
                     if @payment_type.is_perosn_exists?(person)
                         peopleShouldPayHash[person.id] = @payment_type.person_default_payments.find_by(person_id: person.id).amount
                     end
+                    peopleShouldPayTotalHash[person.id] = peopleShouldPayHash[person.id]
                     
                     peopleBalanceHash[person.id] = peoplePaidHash[person.id] - peopleShouldPayHash[person.id]
                     
@@ -92,38 +94,24 @@ wb.add_worksheet(name: t('payment_types.rpt_ttl')) do |sheet|
                     perAmount = person.amount
                     rowIndex = sheetPersonRowIndexArr[personIndex]
                     
-                    if perAmount.nil? 
+                    if perAmount.nil?
                         balance = peopleBalanceHash[person.id] - peopleShouldPayHash[person.id]
-                        peopleBalanceHash[person.id] = balance
-                        sheet.rows[rowIndex].cells[4].value = balance
                     else
-                        sheet.rows[rowIndex].cells[cellIndex].value = perAmount
+                        peoplePaidHash[person.id] = peoplePaidHash[person.id] + perAmount
+                        balance = peopleBalanceHash[person.id] + perAmount - peopleShouldPayHash[person.id]
                     end
+                    
+                    
+                    peopleBalanceHash[person.id] = balance
+                    peopleShouldPayTotalHash[person.id] = peopleShouldPayTotalHash[person.id] + peopleShouldPayHash[person.id]
+                    
+                    sheet.rows[rowIndex].cells[2].value = peopleShouldPayTotalHash[person.id]
+                    sheet.rows[rowIndex].cells[3].value = peoplePaidHash[person.id]
+                    sheet.rows[rowIndex].cells[4].value = balance
                  end
             end
     }
     
-    #@payments.each do |payment|
-    #
-    #    sheet.add_row [
-    #        payment.payment_type_name, 
-    #        payment.payment_date,  
-    #        payment.description
-    #    ]
-    #    
-    #end
     
-  
-    #sheet.add_row [
-    #    @payments.count,
-    #    @payments[0].payment_date
-    #]
-    
-    #sheet.rows[0].cells[0].value = 'ssssss'
-    #sheet.rows[1].cells[0].value = sheet.rows.count
-    #sheet.rows[1].cells[1].value = sheet.rows[1].cells.count
-    #sheet.rows[2].cells[2].value = 22
-    #sheet.rows[2].cells[2].value = sheet.rows[2].cells.count
- 
  
 end
